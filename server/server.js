@@ -1,11 +1,9 @@
+
 require('dotenv').config()
 const express = require('express')
 const app = express()
 const massive = require('massive')
 const session = require('express-session')
-
-//self signed certificate void
-
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
@@ -23,5 +21,6 @@ app.use(session({
 massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
   console.log('You are Connected to the Database')
-  app.listen(SERVER_PORT, () => console.log(`Listening On Server Port: ${SERVER_PORT}`))
+  app.listen(SERVER_PORT, () => console.log(`Listening On Server Port#: ${SERVER_PORT}`))
 })
+
