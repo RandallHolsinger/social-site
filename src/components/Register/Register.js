@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Register.scss'
 
 function Register() {
@@ -8,25 +8,42 @@ function Register() {
   const [email, setEmail] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
   //check if input values are valid
-  const [validUsername, setValidUsername] = useState(false)
+  const [validUsername, setValidUsername] = useState(null)
   const [validPassword, setValidPassword] = useState(false)
   const [validEmail, setValidEmail] = useState(false)
   const [validConfirmEmail, setValidComfirmEmail] = useState(false) 
 
+  const classNameValidation = (bool) => {
+    if(bool === true) {
+      return 'valid'
+    } else if(bool === false) {
+      return 'invalid'
+    } else {
+      return ''
+    }
+  }
+
   const checkUsername = () => {
     console.log('here is username', username)
-    if(username.length >= 2) {
-      setValidUsername(true)
+    if(username.length == 0) {
+      console.log('I am null')
+      setValidUsername(null)
     } else if(username.length < 2) {
+      console.log('I am False')
       setValidUsername(false)
-    } else {
-      return null
+    } else if(username.length >= 2 ) {
+      console.log('i am True')
+      setValidUsername(true)
     }
   }
 
   const handleRegisterSubmit = () => {
     
   }
+
+  useEffect(() => {
+    checkUsername()
+  }, [username])
 
   return(
     <div className="Register">
@@ -36,11 +53,11 @@ function Register() {
          type="text" 
          id="username"
          value={username}
-         onChange={(e) => (setUsername(e.target.value), checkUsername())}
+         onChange={(e) => (setUsername(e.target.value))}
         />
-        <span className={validUsername ? 'valid' : 'invalid' ? null : null}>{validUsername ? 'This is a valid username'  : 'Please enter a valid username'}</span>
+        <span className={classNameValidation(validUsername)}>{validUsername ? 'This is a valid username'  : 'Please enter a valid username'}</span>
         <label htmlFor="password">Enter Password</label>
-        <input 
+        <input  
          type="password" 
          id="password"
          value={password}
