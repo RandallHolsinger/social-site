@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Register.scss'
+import axios from 'axios'
 
 function Register() {
 
@@ -9,9 +10,9 @@ function Register() {
   const [confirmEmail, setConfirmEmail] = useState('')
   //check if input values are valid
   const [validUsername, setValidUsername] = useState(null)
-  const [validPassword, setValidPassword] = useState(false)
-  const [validEmail, setValidEmail] = useState(false)
-  const [validConfirmEmail, setValidComfirmEmail] = useState(false) 
+  const [validPassword, setValidPassword] = useState(null)
+  const [validEmail, setValidEmail] = useState(null)
+  const [validConfirmEmail, setValidComfirmEmail] = useState(null) 
 
   const classNameValidation = (bool) => {
     if(bool === true) {
@@ -24,30 +25,65 @@ function Register() {
   }
 
   const checkUsername = () => {
-    console.log('here is username', username)
-    if(username.length == 0) {
-      console.log('I am null')
+    if(username.length === 0) {
       setValidUsername(null)
     } else if(username.length < 2) {
-      console.log('I am False')
       setValidUsername(false)
     } else if(username.length >= 2 ) {
-      console.log('i am True')
       setValidUsername(true)
     }
   }
 
-  const handleRegisterSubmit = () => {
-    
+  const checkPassword = () => {
+    if(password.length === 0) {
+      setValidPassword(null)
+    } else if(password.length < 6) {
+      setValidPassword(false)
+    } else if(password.length > 6) {
+      setValidPassword(true)
+    }
+  }
+
+  const checkEmail = () => {
+    let checkedEmail =  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)
+    if(email.length === 0) {
+      setValidEmail(null)
+    } else if (checkedEmail) {
+       setValidEmail(true)
+    } else {
+      setValidEmail(false)
+    }
+  }
+
+  const checkConfirmedEmail = () => {
+    if(confirmEmail.length === 0) {
+      setValidComfirmEmail(null)
+    } else if(confirmEmail === email) {
+      setValidComfirmEmail(true)
+    } else if (confirmEmail !== email) {
+      setValidComfirmEmail(false)
+    }
+  }
+
+  const registerUser = () => {
+    let validForm = validUsername && validPassword && validEmail && validConfirmEmail
+    if(validForm) {
+      console.log('registering the user')
+    } else {
+      console.log('Please Fill Out Form!')
+    }
   }
 
   useEffect(() => {
     checkUsername()
-  }, [username])
+    checkPassword()
+    checkEmail()
+    checkConfirmedEmail()
+  }, [username, password, email, confirmEmail])
 
   return(
     <div className="Register">
-      <form onSubmit={handleRegisterSubmit}>
+      <form onSubmit={registerUser}>
         <label htmlFor="username">Enter Username</label>
         <input 
          type="text" 
@@ -63,6 +99,7 @@ function Register() {
          value={password}
          onChange={(e) => setPassword(e.target.value)}
         />
+        <span className={classNameValidation(validPassword)}>{validPassword ? 'This is a valid Password'  : 'Please enter a valid Password'}</span>
         <label htmlFor="email">Enter Email</label>
         <input 
          type="text" 
@@ -70,6 +107,7 @@ function Register() {
          value={email}
          onChange={(e) => setEmail(e.target.value)}
         />
+        <span className={classNameValidation(validEmail)}>{validEmail ? 'This is a valid Email address'  : 'Please enter a valid email address'}</span>
         <label htmlFor="confirm-email">Confirm Email</label>
         <input 
          type="text" 
@@ -77,6 +115,7 @@ function Register() {
          value={confirmEmail}
          onChange={(e) => setConfirmEmail(e.target.value)}
         />
+        <span className={classNameValidation(validConfirmEmail)}>{validConfirmEmail ? 'This is a match'  : 'email address doesnt match email entered'}</span>
         <button type="submit">Register</button>
       </form>
     </div>
