@@ -1,0 +1,28 @@
+.valid {
+  color: springgreen;
+}
+
+.invalid {
+  color: red;
+}
+
+.Register {
+  padding: 10px 5% 0% 5%; 
+  display: flex;
+  form {
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    label {
+      margin-top: 10px;
+    }
+    input {}
+    button {
+      margin: 10px auto;
+      width: 100px;
+    }
+  }
+}

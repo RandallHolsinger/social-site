@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Register.scss'
 
 function Register() {
 
@@ -12,6 +13,17 @@ function Register() {
   const [validEmail, setValidEmail] = useState(false)
   const [validConfirmEmail, setValidComfirmEmail] = useState(false) 
 
+  const checkUsername = () => {
+    console.log('here is username', username)
+    if(username.length >= 2) {
+      setValidUsername(true)
+    } else if(username.length < 2) {
+      setValidUsername(false)
+    } else {
+      return null
+    }
+  }
+
   const handleRegisterSubmit = () => {
     
   }
@@ -24,8 +36,9 @@ function Register() {
          type="text" 
          id="username"
          value={username}
-         onChange={(e) => setUsername(e.target.value)}
+         onChange={(e) => (setUsername(e.target.value), checkUsername())}
         />
+        <span className={validUsername ? 'valid' : 'invalid' ? null : null}>{validUsername ? 'This is a valid username'  : 'Please enter a valid username'}</span>
         <label htmlFor="password">Enter Password</label>
         <input 
          type="password" 
@@ -52,3 +65,5 @@ function Register() {
     </div>
   )
 }
+
+export default Register
