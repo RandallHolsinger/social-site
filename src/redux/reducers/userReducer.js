@@ -5,12 +5,14 @@ const intialState = {
 
 const reducer = (state = intialState, action) => {
   const {type, payload} = action
-  const {userId, username} = payload
   switch(type) {
     case "UPDATE_USER":
+      const {userId, username} = payload
       return {...state, userId, username}
     case "CLEAR_USER":
       return {...state, userId: 0, username: ''}
+    default:
+      return state
   }
 }
 
