@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Login.scss'
 
 function Login() {
@@ -20,7 +21,7 @@ function Login() {
       />
       <div>
         <button>Login</button>
-        <button>Register</button>
+        <Link to={'/Register'}>Register</Link>
       </div>
     </div>
   )
