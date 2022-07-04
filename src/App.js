@@ -1,10 +1,10 @@
 import './App.scss';
-import Register from './components/Register/Register'
+import routes from './routes';
 
 function App() {
   return (
     <div className="App">
-      <Register />
+      {routes}
     </div>
   );
 }
