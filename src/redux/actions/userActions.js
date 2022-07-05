@@ -10,7 +10,7 @@ export const updateUser = (user) => {
 export default clearUser = (user) => {
   return (dispatch) => {
     dispatch({
-      type: "UPDATE_USER",
+      type: "CLEAR_USER",
       payload: user
     })
   }

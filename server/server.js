@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const massive = require('massive')
 const session = require('express-session')
+const ctrlAuth = require('./controllers/auth')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
@@ -23,4 +24,8 @@ massive(CONNECTION_STRING).then(db => {
   console.log('You are Connected to the Database')
   app.listen(SERVER_PORT, () => console.log(`Listening On Server Port#: ${SERVER_PORT}`))
 })
+
+// Authentication Endpoints //
+
+app.post('/auth/register', ctrlAuth.register)
 

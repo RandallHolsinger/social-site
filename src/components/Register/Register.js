@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { updateUser } from '../../redux/actions/userActions'
 import './Register.scss'
 import axios from 'axios'
 
@@ -12,7 +15,10 @@ function Register() {
   const [validUsername, setValidUsername] = useState(null)
   const [validPassword, setValidPassword] = useState(null)
   const [validEmail, setValidEmail] = useState(null)
-  const [validConfirmEmail, setValidComfirmEmail] = useState(null) 
+  const [validConfirmEmail, setValidComfirmEmail] = useState(null)
+  
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const classNameValidation = (bool) => {
     if(bool === true) {
@@ -65,12 +71,16 @@ function Register() {
     }
   }
 
-  const registerUser = () => {
+  const registerUser = async () => {
     let validForm = validUsername && validPassword && validEmail && validConfirmEmail
-    if(validForm) {
-      console.log('registering the user')
-    } else {
-      console.log('Please Fill Out Form!')
+    try {
+      if(validForm) {
+        let res = await axios.post('/auth/register', {username, password, email})
+        dispatch(updateUser(res))
+        navigate('/Home')
+      }
+    } catch(err) {
+      console.log(err)
     }
   }
 
@@ -81,6 +91,7 @@ function Register() {
     checkConfirmedEmail()
   }, [username, password, email, confirmEmail])
 
+  
   return(
     <div className="Register">
       <form onSubmit={registerUser}>
