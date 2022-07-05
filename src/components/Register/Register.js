@@ -73,14 +73,15 @@ function Register() {
 
   const registerUser = async () => {
     let validForm = validUsername && validPassword && validEmail && validConfirmEmail
-    try {
-      if(validForm) {
+    if(validForm) {
+      try {
         let res = await axios.post('/auth/register', {username, password, email})
+        console.log('here is the user =>', res)
         dispatch(updateUser(res))
         navigate('/Home')
+      } catch(err) {
+        console.log(err)
       }
-    } catch(err) {
-      console.log(err)
     }
   }
 

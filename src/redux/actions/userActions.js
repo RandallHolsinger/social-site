@@ -7,7 +7,7 @@ export const updateUser = (user) => {
   }
 }
 
-export default clearUser = (user) => {
+export const clearUser = (user) => {
   return (dispatch) => {
     dispatch({
       type: "CLEAR_USER",
