@@ -10,7 +10,7 @@ function Logout() {
   const navigate = useNavigate()
 
   const logout = () => {
-    axios.post('/auth/logout')
+    axios.post('/auth/user/logout')
     dispatch(clearUser())
     navigate("/")
   }

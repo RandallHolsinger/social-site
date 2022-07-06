@@ -77,7 +77,7 @@ function Register() {
     let validForm = validUsername && validPassword && validEmail && validConfirmEmail
     if(validForm) {
       try {
-        let res = await axios.post('/auth/register', {username, password, email})
+        let res = await axios.post('/auth/user/register', {username, password, email})
         console.log('registered the user', res)
         dispatch(updateUser(res.data))
         navigate('/Home')

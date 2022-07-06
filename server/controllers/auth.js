@@ -36,12 +36,19 @@ module.exports = {
         res.sendStatus(401)
       }
     }
-    console.log('hello I am the user', user)
-    
   },
 
   logout: (req, res) => {
     req.session.destroy()
     res.sendStatus(200)
+  },
+
+  current: (req, res) => {
+    const {user} = req.session
+    if(user) {
+      res.status(200).send(user)
+    } else {
+      res.sendStatus(401)
+    }
   }
 }

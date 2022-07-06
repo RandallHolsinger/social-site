@@ -29,13 +29,16 @@ massive(CONNECTION_STRING).then(db => {
 // Authentication Endpoints //
 
 //Register
-app.post('/auth/register', ctrlAuth.register)
+app.post('/auth/user/register', ctrlAuth.register)
 
 //Login
-app.post('/auth/login', ctrlAuth.login)
+app.post('/auth/user/login', ctrlAuth.login)
 
 //Logout
-app.post('/auth/logout', ctrlAuth.logout)
+app.post('/auth/user/logout', ctrlAuth.logout)
+
+//Get Current User
+app.get('/auth/user/current', ctrlAuth.current)
 
 
 

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../redux/actions/userActions'
 import { Link } from 'react-router-dom'
 import './Login.scss'
@@ -10,20 +10,36 @@ function Login() {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
+  
+  const userId = useSelector(state => state.userId)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const login = async (event) => {
     event.preventDefault()
     try {
-      let res = await axios.post('/auth/login', {username, password})
+      let res = await axios.post('/auth/user/login', {username, password})
       dispatch(updateUser(res.data))
       navigate("/home")
     } catch(err) {
       console.log(err)
     }
   }
+
+  const getUser = async () => {
+    if(userId) {
+      try {
+        let res = await axios.get('/auth/user/current')
+        dispatch(updateUser(res.data))
+      } catch(err) {
+        console.log(err)
+      }
+    }
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
 
   return (
     <div className="Login">
