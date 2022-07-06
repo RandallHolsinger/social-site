@@ -16,10 +16,10 @@ function Register() {
   const [validPassword, setValidPassword] = useState(null)
   const [validEmail, setValidEmail] = useState(null)
   const [validConfirmEmail, setValidComfirmEmail] = useState(null)
-  
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
+  
   const classNameValidation = (bool) => {
     if(bool === true) {
       return 'valid'
@@ -71,13 +71,15 @@ function Register() {
     }
   }
 
-  const registerUser = async () => {
+  const registerUser = async (event) => {
+    event.preventDefault()
+    console.log('hit')
     let validForm = validUsername && validPassword && validEmail && validConfirmEmail
     if(validForm) {
       try {
         let res = await axios.post('/auth/register', {username, password, email})
-        console.log('here is the user =>', res)
-        dispatch(updateUser(res))
+        console.log('registered the user', res)
+        dispatch(updateUser(res.data))
         navigate('/Home')
       } catch(err) {
         console.log(err)

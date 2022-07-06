@@ -1,2 +1,1 @@
-select count(*) from users
-where username = ${username};
+select * from users where username = ${username}
