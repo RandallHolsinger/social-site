@@ -5,6 +5,7 @@ const app = express()
 const massive = require('massive')
 const session = require('express-session')
 const ctrlAuth = require('./controllers/auth')
+const auth = require('./controllers/auth')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
@@ -27,5 +28,14 @@ massive(CONNECTION_STRING).then(db => {
 
 // Authentication Endpoints //
 
+//Register
 app.post('/auth/register', ctrlAuth.register)
+
+//Login
+app.post('/auth/login', ctrlAuth.login)
+
+//Logout
+app.post('/auth/logout', ctrlAuth.logout)
+
+
 

@@ -18,5 +18,19 @@ module.exports = {
       console.log('username is taken!')
       return res.sendStatus(409)
      }
+  },
+  
+  login: async (req, res) => {
+    const {username, password} = req.body
+    const {session} =req
+    const db = req.app.get('db')
+    let user = await db.auth.login({username})
+    console.log('hello I am the user', user)
+    
+  },
+
+  logout: (req, res) => {
+    req.session.destroy()
+    res.sendStatus(200)
   }
 }
