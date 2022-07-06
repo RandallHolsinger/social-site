@@ -25,6 +25,17 @@ module.exports = {
     const {session} =req
     const db = req.app.get('db')
     let user = await db.auth.login({username})
+    user = user[0]
+    if(user) {
+      let authenticated = bcrypt.compareSync(password, user.password)
+      if(authenticated) {
+        delete user.password
+        session.user = user
+        res.status(200).send(session.user)
+      } else {
+        res.sendStatus(401)
+      }
+    }
     console.log('hello I am the user', user)
     
   },

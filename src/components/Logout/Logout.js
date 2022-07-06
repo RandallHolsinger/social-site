@@ -12,12 +12,12 @@ function Logout() {
   const logout = () => {
     axios.post('/auth/logout')
     dispatch(clearUser())
-    navigate("/Login")
+    navigate("/")
   }
 
   return(
     <div className="Logout">
-      <button onClick={() => logout}>Logout</button>
+      <button onClick={() => logout()}>Logout</button>
     </div>
   )
 }
