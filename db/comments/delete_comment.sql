@@ -1,0 +1,1 @@
+delete from comments where comment_id = {comment_id}

@@ -45,6 +45,7 @@ app.post('/auth/user/logout', ctrlAuth.logout)
 //Get Current User
 app.get('/auth/user/current', ctrlAuth.current)
 
+
 ///// Users Endpoint /////
 
 // Get Users
@@ -55,6 +56,7 @@ app.put('/api/user/update/:user_id', ctrlUsers.updateUser)
 
 // Delete User Personal Profile
 app.delete('/api/user/delete/:user_id', ctrlUsers.deleteUser)
+
 
 ///// Post's Endpoints /////
 
@@ -70,6 +72,7 @@ app.get('/api/posts', ctrlPosts.getPosts)
 // Edit Post 
 app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
 
+
 ///// Comment's Endpoints /////
 
 // Add Comment
@@ -84,6 +87,7 @@ app.get('/api/commments', ctrlComments.getCommments)
 // Edit Comment
 app.put('/api/commment/edit/:comment_id', ctrlComments.updateComment)
 
+
 ///// Friend's Endpoints /////
 
 // Send Friend Request
@@ -97,6 +101,7 @@ app.delete('/api/friend/delete/:user_id', ctrlFriends.deleteFriend)
 
 // Get Friends
 app.get('/api/friends', ctrlFriends.getFriends)
+
 
 ///// Messages Endpoints /////
 
