@@ -42,21 +42,23 @@ function Login() {
   }, [])
 
   return (
-    <div className="Login">
+    <div className='Login'>
       <form onSubmit={login}>
       <label>Username</label>
       <input
+        type='text'
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <label>Password</label>
       <input
+        type='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <div>
         <button type='submit'>Login</button>
-        <Link to={'/Register'}>Register</Link>
+        <Link to={'/Register'} className='register-link'>Register</Link>
       </div>
       </form>
     </div>

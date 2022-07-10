@@ -1,0 +1,21 @@
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    input {
+      margin-bottom: 10px;
+    }
+    div {
+      display: flex;
+      justify-content: space-around;
+    }
+    .register-link {
+      text-decoration: none;
+    }
+  }
+}
