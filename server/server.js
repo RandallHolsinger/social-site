@@ -65,8 +65,11 @@ app.post('/api/post/add', ctrlPosts.addPost)
 // Delete Post
 app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)
 
-// Get Posts
-app.get('/api/posts', ctrlPosts.getPosts)
+// Get All Posts
+app.get('/api/posts', ctrlPosts.getAllPosts)
+
+// Get User Posts
+app.get('/api/posts/user', ctrlPosts.getUserPosts)
 
 // Edit Post 
 app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)

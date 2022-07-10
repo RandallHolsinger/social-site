@@ -22,11 +22,22 @@ module.exports = {
     }
   },
 
-  getPosts: async (req, res) => {
+  getAllPosts: async (req, res) => {
     const db = req.ap.get('db')
     try {
-      let posts = await db.posts.get_posts()
+      let posts = await db.posts.get_all_posts()
       res.status(200).send(posts)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  getUserPosts: async (req, res) => {
+    const {user_id} = req.session.user
+    const db = req.app.use('db')
+    try {
+      let userPosts = await db.posts.get_user_posts({user_id})
+      res.status(200).send(userPosts)
     } catch(err) {
       res.status(500).send(err)
     }
