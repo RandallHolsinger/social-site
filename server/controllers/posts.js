@@ -1,12 +1,10 @@
-const { dblClick } = require("@testing-library/user-event/dist/click")
-
 module.exports = {
   addPost: async (req, res) => {
     const {user_id} = req.session.user
     const {data} = req.body
     const db = req.app.get('db')
     try {
-      await db.posts.add_post([user_id, data])
+      await db.posts.add_post({user_id, data})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
@@ -17,7 +15,7 @@ module.exports = {
     const {post_id} = req.params
     const db = req.app.get('db')
     try {
-      await db.posts.delete_post(post_id)
+      await db.posts.delete_post({post_id})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

@@ -75,13 +75,13 @@ app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
 ///// Comment's Endpoints /////
 
 // Add Comment
-app.post('/api/comment/add', ctrlComments.addComment)
+app.post('/api/comment/add/:post_id', ctrlComments.addComment)
 
 // Delete Comment
-app.delete('/api/comment/delete/:comment_id', ctrlComments.deleteCommment)
+app.delete('/api/comment/delete/:comment_id', ctrlComments.deleteComment)
 
 // Get Comments
-app.get('/api/commments', ctrlComments.getCommments)
+app.get('/api/commments/:post_id', ctrlComments.getComments)
 
 // Edit Comment
 app.put('/api/commment/edit/:comment_id', ctrlComments.updateComment)
