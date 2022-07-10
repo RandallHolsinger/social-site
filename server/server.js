@@ -10,7 +10,6 @@ const ctrlFriends = require('./controllers/friends')
 const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
-const { applyPatches } = require('immer')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
