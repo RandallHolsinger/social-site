@@ -10,9 +10,10 @@ module.exports = {
   },
 
   updateUser: async (req, res) => {
-    const {user_id} = req.params
+    const {user_id} = req.session.user
+    const {email, dob, city, state, aboutMe} = req.body
     try {
-      let user = await db.update_user({user_id})
+      let user = await db.update_user([user_id, email, dob, city, state, aboutMe])
       res.status(200).send(user)
     } catch(err) {
       res.status(500).send(err)
@@ -20,7 +21,7 @@ module.exports = {
   },
 
   deleteUser: async (req, res) => {
-    const {user_id} = req.params
+    const {user_id} = req.session.user
     try {
       await db.delete_user({user_id})
       res.sendStatus(200)
