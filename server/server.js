@@ -4,6 +4,8 @@ const express = require('express')
 const app = express()
 const massive = require('massive')
 const session = require('express-session')
+const pg = require('pg')
+const pgSession = require('connect-pg-simple')(session)
 const ctrlAuth = require('./controllers/auth')
 const ctrlUsers = require('./controllers/users')
 const ctrlFriends = require('./controllers/friends')
@@ -15,7 +17,14 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
 app.use(express.json())
 
+const pgPool = new pg.Pool({
+  connectionString: CONNECTION_STRING
+})
+
 app.use(session({
+  store: new pgSession({
+    pool: pgPool
+  }),
   secret: SESSION_SECRET,
   resave: true,
   saveUninitialized: true,

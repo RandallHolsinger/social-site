@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateUser } from '../../redux/actions/userActions'
+import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
 import './Login.scss'
 
@@ -11,7 +11,7 @@ function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   
-  const userId = useSelector(state => state.userId)
+  const userId = useSelector(state => state.user.userId)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -28,9 +28,11 @@ function Login() {
 
   const getUser = async () => {
     if(userId) {
+      console.log('getting the user')
       try {
         let res = await axios.get('/auth/user/current')
         dispatch(updateUser(res.data))
+        console.log('here is the user on session ==>', res)
       } catch(err) {
         console.log(err)
       }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { updateUser } from '../../redux/actions/userActions'
+import { updateUser } from '../../redux/slices/userSlice'
 import './Register.scss'
 import axios from 'axios'
 

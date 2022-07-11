@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { clearUser } from '../../redux/actions/userActions'
+import { clearUser } from '../../redux/slices/userSlice'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
