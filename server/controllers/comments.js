@@ -33,11 +33,23 @@ module.exports = {
     }
   },
 
-  updateComment: async (req, res) => {
-    const {comment_id} = req.params
+  getUserComments: async (req, res) => {
+    const {user_id} = req.session.user 
     const db = req.app.get('db')
     try {
-      await db.comments.update_comment({comment_id})
+      let userComments = await db.comments.get_user_commments({user_id})
+      res.status(200).send(userComments)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  updateComment: async (req, res) => {
+    const {comment_id} = req.params
+    const {data} = req.body
+    const db = req.app.get('db')
+    try {
+      await db.comments.update_comment({comment_id, data})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
