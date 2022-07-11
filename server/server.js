@@ -86,6 +86,9 @@ app.delete('/api/comment/delete/:comment_id', ctrlComments.deleteComment)
 // Get Comments
 app.get('/api/commments/:post_id', ctrlComments.getComments)
 
+// Ger User Comments
+app.get('/api/comments/user', ctrlComments.getUserComments)
+
 // Edit Comment
 app.put('/api/commment/edit/:comment_id', ctrlComments.updateComment)
 
@@ -99,10 +102,13 @@ app.post('/api/friend_request/send/:user_id', ctrlFriends.sendRequest)
 app.put('/api/friend_request/confirm/:user_id', ctrlFriends.confirmRequest)
 
 // Delete Friend
-app.delete('/api/friend/delete/:user_id', ctrlFriends.deleteFriend)
+app.delete('/api/friend/delete/friend_id', ctrlFriends.deleteFriend)
 
 // Get Friends
 app.get('/api/friends', ctrlFriends.getFriends)
+
+// Get Friend
+app.get('/api/friend/:friend_id', ctrlFriends.getFriend)
 
 
 ///// Messages Endpoints /////

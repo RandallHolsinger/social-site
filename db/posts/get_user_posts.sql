@@ -1,0 +1,1 @@
+SELECT * FROM posts WHERE user_id = ${user_id}
