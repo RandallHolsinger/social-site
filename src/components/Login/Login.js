@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
@@ -25,23 +25,6 @@ function Login() {
       console.log(err)
     }
   }
-
-  const getUser = async () => {
-    if(userId) {
-      console.log('getting the user')
-      try {
-        let res = await axios.get('/auth/user/current')
-        dispatch(updateUser(res.data))
-        console.log('here is the user on session ==>', res)
-      } catch(err) {
-        console.log(err)
-      }
-    }
-  }
-
-  useEffect(() => {
-    getUser()
-  }, [])
 
   return (
     <div className='Login'>
