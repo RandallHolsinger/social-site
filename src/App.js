@@ -14,14 +14,12 @@ function App() {
 
   const getUser = async () => {
     if(!userId) {
-      console.log('getting the user')
       try {
         let res = await axios.get('/auth/user/current')
         dispatch(updateUser(res.data))
         if(window.location.pathname == '/'){
           navigate('/Home')
         } 
-        console.log('here is the user on session ==>', res)
       } catch(err) {
         console.log(err)
       }
@@ -30,7 +28,6 @@ function App() {
 
   useEffect(() => {
     getUser()
-    console.log('location ==>', window.location)
   }, [])
 
   return (
