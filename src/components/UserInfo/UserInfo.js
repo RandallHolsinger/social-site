@@ -8,7 +8,7 @@ function UserInfo(props) {
         <span>Intro ICON Here</span>
         <h2>Intro</h2>
        </header>
-       mapped list here
+       mapped user details here 
     </section>
   )
 }

@@ -5,7 +5,7 @@ module.exports = {
      const {firstName, lastName, password, email} = req.body
      const {session} = req
      const db = req.app.get('db')
-     let takenEmail = await db.auth.check_username({email})
+     let takenEmail = await db.auth.check_email({email})
      if(!takenEmail[0]){
         console.log('registering new user now')
         let salt = bcrypt.genSaltSync(15)

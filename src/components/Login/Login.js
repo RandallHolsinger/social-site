@@ -28,10 +28,11 @@ function Login() {
   return (
     <div className='Login'>
       <form onSubmit={login}>
-      <label>Email</label>
+      <label htmlFor='email'>Email</label>
       <input
         type='text'
         value={email}
+        id='email'
         placeholder='Email'
         onChange={(e) => setEmail(e.target.value)}
       />

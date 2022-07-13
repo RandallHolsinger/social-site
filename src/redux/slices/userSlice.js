@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   userId: 0,
-  username: ''
+  firstName: '',
+  lastName: '' 
 }
 
 export const userSlice = createSlice({
@@ -12,7 +13,8 @@ export const userSlice = createSlice({
     updateUser: (state, action) => {
       console.log('here is the action', action)
       state.userId = action.payload.user_id
-      state.username = action.payload.username
+      state.firstName = action.payload.first_name
+      state.lastName = action.payload.last_name
     },
     clearUser: (initialState) => initialState
   }   

@@ -10,7 +10,8 @@ function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false)
   
-  const username = useSelector(state => state.user.username)
+  const firstName = useSelector(state => state.user.firstName)
+  const lastName = useSelector(state => state.user.lastName)
 
   return(
     <nav>
@@ -20,7 +21,7 @@ function Navbar() {
       {showMenu ? 
         <ul>
           <header>
-            <span>welcome back, {username}</span>
+            <span>{`Welcome: \n${firstName} ${lastName}`}</span>
             <Logout />
           </header>
           <li>

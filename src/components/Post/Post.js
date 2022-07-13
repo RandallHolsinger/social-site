@@ -4,7 +4,9 @@ import './Post.scss'
 function Post(props) {
   return(
     <div className="Post">
-      Post
+      <article>
+        <p>{props.value.post}</p>
+      </article>
     </div>
   )
 }
