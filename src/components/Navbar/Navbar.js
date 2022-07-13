@@ -14,7 +14,7 @@ function Navbar() {
 
   return(
     <nav>
-      <img src={'./images/user-image-default.svg'} alt="profile"/>
+      <img src={'./images/user-image-default-white.svg'} alt="profile"/>
       <span><FontAwesomeIcon icon={faMessage}/></span>
       <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
       {showMenu ? 
@@ -24,13 +24,13 @@ function Navbar() {
             <Logout />
           </header>
           <li>
-            <Link to={'/Home'} className='mobile-nav-links'>Home</Link>
+            <Link to={'/Home'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Home</Link>
           </li>
           <li>
-            <Link to={'/PersonalProfile'} className='mobile-nav-links'>Profile</Link>
+            <Link to={'/PersonalProfile'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Profile</Link>
           </li>
           <li>
-            <Link to={'/Friends'} className='mobile-nav-links'>Friends</Link>
+            <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Friends</Link>
           </li>
         </ul>
       :

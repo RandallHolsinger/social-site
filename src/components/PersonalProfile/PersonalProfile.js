@@ -1,12 +1,12 @@
-import React, { useState } from react
-
+import React, { useState } from 'react'
+import ProfileHeader from '../ProfileHeader/ProfileHeader'
 function PersonalProfile() {
 
   const [userPosts, setUserPosts] = useState([])
 
   return(
     <div className="PersonalProfile">
-      Personal Profile
+      <ProfileHeader />
     </div>
   )
 }
