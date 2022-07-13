@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from './redux/slices/userSlice';
 import './App.scss';
+import Navbar from './components/Navbar/Navbar';
 import routes from './routes';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       try {
         let res = await axios.get('/auth/user/current')
         dispatch(updateUser(res.data))
-        if(window.location.pathname == '/'){
+        if(window.location.pathname === '/'){
           navigate('/Home')
         } 
       } catch(err) {
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
       {routes}
     </div>
   );

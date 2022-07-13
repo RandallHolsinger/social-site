@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
 import './Login.scss'
@@ -11,7 +11,6 @@ function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   
-  const userId = useSelector(state => state.user.userId)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
