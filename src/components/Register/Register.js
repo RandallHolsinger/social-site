@@ -7,15 +7,17 @@ import axios from 'axios'
 
 function Register() {
 
-  const [username, setUsername] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
   //check if input values are valid
-  const [validUsername, setValidUsername] = useState(null)
-  const [validPassword, setValidPassword] = useState(null)
+  const [validFirstName, setValidFirstName] = useState(null)
+  const [validLastName, setValidLastName] = useState(null)
   const [validEmail, setValidEmail] = useState(null)
   const [validConfirmEmail, setValidComfirmEmail] = useState(null)
+  const [validPassword, setValidPassword] = useState(null)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -30,13 +32,22 @@ function Register() {
     }
   }
 
-  const checkUsername = () => {
-    if(username.length === 0) {
-      setValidUsername(null)
-    } else if(username.length < 2) {
-      setValidUsername(false)
-    } else if(username.length >= 2 ) {
-      setValidUsername(true)
+  const checkFirstName = () => {
+    if(firstName.length === 0  ) {
+      setValidFirstName(null)
+    } else if(firstName.length < 2) {
+      setValidFirstName(false)
+    } else if(firstName.length >= 2 ) {
+      setValidFirstName(true)
+    }
+  }
+  const checkLastName = () => {
+    if(lastName.length === 0  ) {
+      setValidLastName(null)
+    } else if(lastName.length < 2) {
+      setValidLastName(false)
+    } else if(lastName.length >= 2 ) {
+      setValidLastName(true)
     }
   }
 
@@ -74,10 +85,10 @@ function Register() {
   const registerUser = async (event) => {
     event.preventDefault()
     console.log('hit')
-    let validForm = validUsername && validPassword && validEmail && validConfirmEmail
+    let validForm = validFirstName && validLastName && validEmail && validConfirmEmail && validPassword
     if(validForm) {
       try {
-        let res = await axios.post('/auth/user/register', {username, password, email})
+        let res = await axios.post('/auth/user/register', {firstName, lastName, email, password})
         console.log('registered the user', res)
         dispatch(updateUser(res.data))
         navigate('/Home')
@@ -88,24 +99,33 @@ function Register() {
   }
 
   useEffect(() => {
-    checkUsername()
-    checkPassword()
+    checkFirstName()
+    checkLastName()
     checkEmail()
+    checkPassword()
     checkConfirmedEmail()
-  }, [username, password, email, confirmEmail])
+  }, [firstName, lastName, email, password, confirmEmail])
 
   
   return(
     <div className="Register">
       <form onSubmit={registerUser}>
-        <label htmlFor="username">Enter Username</label>
+        <label htmlFor="first-name">First Name</label>
         <input 
          type="text" 
-         id="username"
-         value={username}
-         onChange={(e) => (setUsername(e.target.value))}
+         id="first-name"
+         value={firstName}
+         onChange={(e) => (setFirstName(e.target.value))}
         />
-        <span className={classNameValidation(validUsername)}>{validUsername ? 'This is a valid username'  : 'Please enter a valid username'}</span>
+        <span className={classNameValidation(validFirstName)}>{validFirstName ? 'This is a valid first name'  : 'Please enter a valid first name'}</span>
+        <label htmlFor="last-name">Last Name</label>
+        <input 
+         type="text" 
+         id="last-name"
+         value={lastName}
+         onChange={(e) => (setLastName(e.target.value))}
+        />
+        <span className={classNameValidation(validLastName)}>{validLastName ? 'This is a valid last name'  : 'Please enter a valid last name'}</span>
         <label htmlFor="password">Enter Password</label>
         <input  
          type="password" 

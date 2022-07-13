@@ -8,7 +8,7 @@ import './Login.scss'
 
 function Login() {
 
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ function Login() {
   const login = async (event) => {
     event.preventDefault()
     try {
-      let res = await axios.post('/auth/user/login', {username, password})
+      let res = await axios.post('/auth/user/login', {email, password})
       dispatch(updateUser(res.data))
       navigate("/home")
     } catch(err) {
@@ -28,15 +28,17 @@ function Login() {
   return (
     <div className='Login'>
       <form onSubmit={login}>
-      <label>Username</label>
+      <label>Email</label>
       <input
         type='text'
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={email}
+        placeholder='Email'
+        onChange={(e) => setEmail(e.target.value)}
       />
       <label>Password</label>
       <input
         type='password'
+        placeholder='password'
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
