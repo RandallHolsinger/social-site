@@ -8,6 +8,7 @@ function CreatePost(props) {
   const addPost = async () => {
     try {
       let data = postInput
+      console.log('here is post data ==>', data)
       axios.post('/api/post/add', {data})
     } catch(err) {
       console.log(err)

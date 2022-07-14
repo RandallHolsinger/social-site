@@ -1,6 +1,9 @@
+const { faArrowUpRightFromSquare } = require("@fortawesome/free-solid-svg-icons")
+
 module.exports = {
   addPost: async (req, res) => {
     const {user_id} = req.session.user
+    console.log(user_id)
     const {data} = req.body
     const db = req.app.get('db')
     try {
@@ -23,7 +26,7 @@ module.exports = {
   },
 
   getAllPosts: async (req, res) => {
-    const db = req.ap.get('db')
+    const db = req.app.get('db')
     try {
       let posts = await db.posts.get_all_posts()
       res.status(200).send(posts)
@@ -34,7 +37,8 @@ module.exports = {
 
   getUserPosts: async (req, res) => {
     const {user_id} = req.session.user
-    const db = req.app.use('db')
+    console.log('hitting backend user posts==>', user_id)
+    const db = req.app.get('db')
     try {
       let userPosts = await db.posts.get_user_posts({user_id})
       res.status(200).send(userPosts)

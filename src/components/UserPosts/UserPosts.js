@@ -9,7 +9,8 @@ function UserPosts(props) {
   const getUserPosts = async() => {
     try {
       let res = await axios.get('/api/posts/user')
-      setUserPosts(res)
+      setUserPosts(res.data)
+      console.log('user posts object ==>', res)
     } catch(err) {
       console.log(err)
     }
@@ -19,7 +20,7 @@ function UserPosts(props) {
     getUserPosts()
   }, [])
 
-  const mappedUserPosts = userPosts.map((post) => {
+  let mappedUserPosts = userPosts[0] && userPosts.map(post => {
     return(
       <Post key={post.post_id} value={post}/>
     )
@@ -28,6 +29,7 @@ function UserPosts(props) {
   return(
     <div className="UserPost">
       <section>
+        User Posts here
         {mappedUserPosts}
       </section>
     </div>

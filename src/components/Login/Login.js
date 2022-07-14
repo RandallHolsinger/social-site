@@ -22,13 +22,14 @@ function Login() {
   const login = async (event) => {
     event.preventDefault()
     try {
+      console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
       dispatch(updateUser(res.data))
       navigate("/home")
     } catch(err) {
       console.log(err)
+      clearInputs()
     }
-    clearInputs()
   }
 
   return (
