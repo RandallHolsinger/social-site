@@ -21,6 +21,14 @@ function Register() {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  const clearInputs = () => {
+    setFirstName('')
+    setLastName('')
+    setPassword('')
+    setEmail('')
+    setConfirmEmail('')
+  }
   
   const classNameValidation = (bool) => {
     if(bool === true) {
@@ -96,6 +104,7 @@ function Register() {
         console.log(err)
       }
     }
+    clearInputs()
   }
 
   useEffect(() => {

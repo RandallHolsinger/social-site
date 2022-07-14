@@ -14,6 +14,11 @@ function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const clearInputs = () => {
+    setEmail('')
+    setPassword('')
+  }
+
   const login = async (event) => {
     event.preventDefault()
     try {
@@ -23,6 +28,7 @@ function Login() {
     } catch(err) {
       console.log(err)
     }
+    clearInputs()
   }
 
   return (
