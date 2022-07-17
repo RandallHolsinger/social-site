@@ -10,7 +10,7 @@ function UserPosts(props) {
   const getUserPosts = async() => {
     try {
       let res = await axios.get('/api/posts/user')
-      setUserPosts(res.data)
+      setUserPosts(res.data, ...userPosts)
       console.log('response ==>', res)
       console.log('user posts object ==>', res)
     } catch(err) {
@@ -33,7 +33,7 @@ function UserPosts(props) {
     <div className="UserPost">
       <section>
         User Posts here
-        <CreatePost getUserPosts={getUserPosts} />
+        <CreatePost userPosts={userPosts} getUserPosts={getUserPosts} />
         {mappedUserPosts}
       </section>
     </div>

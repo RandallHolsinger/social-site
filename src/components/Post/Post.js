@@ -3,7 +3,6 @@ import './Post.scss'
 
 function Post(props) {
   
-  console.log('here is the props', props)
   return(
     <div className="Post">
       <article>
