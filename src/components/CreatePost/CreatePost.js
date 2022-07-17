@@ -25,7 +25,6 @@ function CreatePost(props) {
       <input 
         type="text" 
         placeholder="What's on your mind?"
-        value={postInput}
         onChange={(e) => setPostInput(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' ? addPost() : null}
       />

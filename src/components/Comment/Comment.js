@@ -4,7 +4,9 @@ import './Comment.scss'
 function Comment(props) {
   return(
     <div className="Commment">
-      Comment
+      <article>
+        <p>props.value.comment</p>
+      </article>
     </div>
   )
 }

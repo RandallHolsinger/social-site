@@ -1,5 +1,6 @@
 import React from 'react'
 import './Post.scss'
+import Comments from '../Comments'
 
 function Post(props) {
   
@@ -8,6 +9,7 @@ function Post(props) {
       <article>
         <p>{props.value.post}</p>
       </article>
+      <Comments />
     </div>
   )
 }
