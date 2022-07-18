@@ -93,13 +93,13 @@ app.post('/api/comment/add/:post_id', ctrlComments.addComment)
 app.delete('/api/comment/delete/:comment_id', ctrlComments.deleteComment)
 
 // Get Comments
-app.get('/api/commments/:post_id', ctrlComments.getComments)
+app.get('/api/comments/:post_id', ctrlComments.getComments)
 
 // Ger User Comments
 app.get('/api/comments/user', ctrlComments.getUserComments)
 
 // Edit Comment
-app.put('/api/commment/edit/:comment_id', ctrlComments.updateComment)
+app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 
 
 ///// Friend's Endpoints /////
