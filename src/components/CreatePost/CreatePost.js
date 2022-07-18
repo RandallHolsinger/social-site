@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 function CreatePost(props) {
@@ -25,6 +25,7 @@ function CreatePost(props) {
       <input 
         type="text" 
         placeholder="What's on your mind?"
+        value={postInput}
         onChange={(e) => setPostInput(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' ? addPost() : null}
       />

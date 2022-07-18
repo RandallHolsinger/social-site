@@ -27,7 +27,7 @@ function Post(props) {
         </footer>
         {showComments ?
           <section>
-            <Comments postId={props.value.post_id} />
+            <Comments post_id={props.value.post_id} />
           </section>
         :
         null

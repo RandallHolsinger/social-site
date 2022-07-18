@@ -1,8 +1,8 @@
-section {
+.UserInfo section {
   border: 1px solid #000;
   margin: 10px 5px 0px 5px;
 }
-section header {
+.UserInfo section header {
   background-color: #fff;
 }
 

@@ -4,14 +4,15 @@ import CreateComment from '../CreateComment/CreateComment'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
 
-function Commments(props) {
+function Comments(props) {
 
   const [comments, setComments] = useState([])
 
   const getComments = async () => {
     try {
-     let res = await axios.get(`/api/comments/${props.postId}`)
-     setComments(res)
+     let res = await axios.get(`/api/comments/${props.post_id}`)
+     setComments(res.data)
+     console.log('here are the comments ==>', res.data)
     } catch(err) {
       console.log(err)
     }
@@ -19,7 +20,7 @@ function Commments(props) {
 
   let mappedComments = comments.map(comment => {
     return(
-      <Comment key={comment.comment.comment_id} value={comment} />
+      <Comment key={comment.comment_id} value={comment} />
     )
   })
 
@@ -30,11 +31,11 @@ function Commments(props) {
   return(
     <div className="Comments">
       <section>
-         <CreateComment postId={props.postId} getComments={getComments}/>
+         <CreateComment post_id={props.post_id} getComments={getComments}/>
         {mappedComments}
       </section>
     </div>
   )
 }
 
-export default Commments
+export default Comments
