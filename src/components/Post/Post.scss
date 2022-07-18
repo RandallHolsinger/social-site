@@ -1,0 +1,34 @@
+@import '../../sass/variables';
+
+.Post {
+  border: 1px solid #000;
+  margin-top: 10px;
+  Article {
+    width: 100%;
+    height: auto;
+    header {
+      display: flex;
+      padding: 5px;
+      align-items: center;
+      border-bottom: 1px solid #000;
+      span:nth-child(1){
+        margin: 0px 5px 0px 5px;
+        img {
+          width: 20px;
+          height: 20px;
+          border: 1px solid #000;
+          border-radius: 50%;
+        }
+      }
+    }
+    p {
+      padding: 20px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px;
+      border-top: 1px solid #000;
+    }
+  }
+}
