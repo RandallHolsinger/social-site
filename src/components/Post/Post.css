@@ -2,29 +2,29 @@
   border: 1px solid #000;
   margin: 10px 5px 0px 5px;
 }
-.Post Article {
+.Post article {
   width: 100%;
   height: auto;
 }
-.Post Article header {
+.Post article header {
   display: flex;
   padding: 5px;
   align-items: center;
   border-bottom: 1px solid #000;
 }
-.Post Article header span:nth-child(1) {
+.Post article header span {
   margin: 0px 5px 0px 5px;
 }
-.Post Article header span:nth-child(1) img {
+.Post article header span img {
   width: 20px;
   height: 20px;
   border: 1px solid #000;
   border-radius: 50%;
 }
-.Post Article p {
+.Post article p {
   padding: 20px;
 }
-.Post Article footer {
+.Post article footer {
   display: flex;
   justify-content: space-around;
   padding: 5px;

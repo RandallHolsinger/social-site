@@ -3,6 +3,7 @@ import './Post.scss'
 import Comments from '../Comments/Comments'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import FormatedDate from '../FormatedDate/FormatedDate'
 
 function Post(props) {
 
@@ -18,11 +19,12 @@ function Post(props) {
           <span>
             {props.value.first_name}{' '}{props.value.last_name}
           </span>
+          <FormatedDate date={props.value.date} />
         </header>
         <p>{props.value.post}</p>
         <footer>
           <span><FontAwesomeIcon icon={faThumbsUp} />{' '}Like</span>
-          <span><FontAwesomeIcon icon={faThumbsDown} />{' '}Dislikes</span>
+          <span><FontAwesomeIcon icon={faThumbsDown} />{' '}Dislike</span>
           <span onClick={() => setShowComments(!showComments)}><FontAwesomeIcon icon={faComment} />{' '}Comments</span>
         </footer>
         {showComments ?

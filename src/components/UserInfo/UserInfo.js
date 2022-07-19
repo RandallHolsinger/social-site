@@ -1,15 +1,18 @@
 import React from 'react'
 import './UserInfo.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faUserPen } from '@fortawesome/free-solid-svg-icons'
 
 function UserInfo(props) {
   return(
     <div className="UserInfo">
       <section className={props.style}>
          <header>
-          <span>Intro ICON Here</span>
-          <h2>Intro</h2>
+          <span><FontAwesomeIcon icon={faUser} /></span>
+          <button><FontAwesomeIcon icon={faUserPen} />{' '}Edit Info</button> 
          </header>
-         mapped user details here 
+         <h2>Intro</h2>
+         mapped user details here
       </section>
     </div>
   )

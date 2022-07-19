@@ -1,5 +1,3 @@
-const { faArrowUpRightFromSquare } = require("@fortawesome/free-solid-svg-icons")
-
 module.exports = {
   addPost: async (req, res) => {
     const {user_id} = req.session.user
