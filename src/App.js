@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from './redux/slices/userSlice';
 import './App.scss';
-import Navbar from './components/Navbar/Navbar';
 import routes from './routes';
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
   const userId = useSelector(state => state.user.userId)
 
   const getUser = async () => {
-    if(!userId) {
+    if(userId === 0) {
       try {
         let res = await axios.get('/auth/user/current')
         dispatch(updateUser(res.data))
@@ -34,7 +33,6 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
       {routes}
     </div>
   );

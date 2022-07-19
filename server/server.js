@@ -59,6 +59,9 @@ app.get('/auth/user/current', ctrlAuth.current)
 // Get Users
 app.get('/api/users', ctrlUsers.getUsers)
 
+// Get User
+app.get('/api/user/:user_id', ctrlUsers.getUser)
+
 // Update User Personal Profile
 app.put('/api/user/update/:user_id', ctrlUsers.updateUser)
 
