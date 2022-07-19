@@ -10,15 +10,17 @@ function Comments(props) {
 
   const getComments = async () => {
     try {
-     let res = await axios.get(`/api/comments/${props.post_id}`)
+     const {post_id} = props
+     let res = await axios.get(`/api/comments/${post_id}`)
      setComments(res.data)
-     console.log('here are the comments ==>', res.data)
+     console.log('here are the comments ==>', res)
     } catch(err) {
       console.log(err)
     }
   }
 
   let mappedComments = comments.map(comment => {
+    console.log('comment ==>', comment)
     return(
       <Comment key={comment.comment_id} value={comment} />
     )
@@ -31,7 +33,7 @@ function Comments(props) {
   return(
     <div className="Comments">
       <section>
-         <CreateComment post_id={props.post_id} getComments={getComments}/>
+        <CreateComment post_id={props.post_id} getComments={getComments}/>
         {mappedComments}
       </section>
     </div>

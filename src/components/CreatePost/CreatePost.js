@@ -10,7 +10,7 @@ function CreatePost(props) {
       let data = postInput
       console.log('here is post data ==>', data)
       await axios.post('/api/post/add', {data})
-      await props.getUserPosts()
+      await props.getPosts()
       console.log('add post function end')
     } catch(err) {
       console.log(err)

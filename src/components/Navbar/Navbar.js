@@ -35,7 +35,6 @@ function Navbar() {
   return(
     <div className={showNav ? 'Navbar' : 'hide-nav'}>
       <nav>
-        <img src={'./images/user-image-default-white.svg'} alt="profile"/>
         <span><FontAwesomeIcon icon={faMessage}/></span>
         <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 

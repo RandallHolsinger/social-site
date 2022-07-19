@@ -30,7 +30,7 @@ function UserPosts() {
     <div className="UserPost">
       <section>
         User Posts here
-        <CreatePost getUserPosts={getUserPosts} />
+        <CreatePost getPosts={getUserPosts} />
         {mappedUserPosts}
       </section>
     </div>

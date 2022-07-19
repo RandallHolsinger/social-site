@@ -9,7 +9,6 @@ function CreateComment(props) {
     const {post_id} = props
     const data = commentInput
     try {
-      console.log('hitting add comment')
       await axios.post(`/api/comment/add/${post_id}`, {data})
       await props.getComments()
       

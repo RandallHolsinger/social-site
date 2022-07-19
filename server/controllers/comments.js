@@ -1,6 +1,7 @@
 module.exports = {
   addComment: async (req, res) => {
     const {user_id} = req.session.user
+    console.log('adding a comment user id:', user_id)
     const {post_id} = req.params
     const {data} = req.body
     const db = req.app.get('db')
