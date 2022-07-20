@@ -52,6 +52,9 @@ function Navbar() {
             <li>
               <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Friends</Link>
             </li>
+            <li>
+              <Link to={'/Profiles'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>People</Link>
+            </li>
           </ul>
         :
           null

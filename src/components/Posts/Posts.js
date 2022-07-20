@@ -12,7 +12,6 @@ function Posts() {
   const getAllPosts = async () => {
     try {
       let res = await axios.get('/api/posts')
-      console.log('all posts ==>', res)
       setPosts(res.data)
     } catch(err) {
       console.log(err)

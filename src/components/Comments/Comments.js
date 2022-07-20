@@ -13,14 +13,12 @@ function Comments(props) {
      const {post_id} = props
      let res = await axios.get(`/api/comments/${post_id}`)
      setComments(res.data)
-     console.log('here are the comments ==>', res)
     } catch(err) {
       console.log(err)
     }
   }
 
   let mappedComments = comments.map(comment => {
-    console.log('comment ==>', comment)
     return(
       <Comment key={comment.comment_id} value={comment} />
     )

@@ -108,10 +108,10 @@ app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 ///// Friend's Endpoints /////
 
 // Send Friend Request
-app.post('/api/friend_request/send/:user_id', ctrlFriends.sendRequest)
+app.post('/api/friend/request/send/:user_id', ctrlFriends.sendRequest)
 
 // Confirm Friend
-app.put('/api/friend_request/confirm/:user_id', ctrlFriends.confirmRequest)
+app.put('/api/friend/request/confirm/:user_id', ctrlFriends.confirmRequest)
 
 // Delete Friend
 app.delete('/api/friend/delete/friend_id', ctrlFriends.deleteFriend)

@@ -1,7 +1,6 @@
 module.exports = {
   addComment: async (req, res) => {
     const {user_id} = req.session.user
-    console.log('adding a comment user id:', user_id)
     const {post_id} = req.params
     const {data} = req.body
     const db = req.app.get('db')
@@ -26,7 +25,6 @@ module.exports = {
 
   getComments: async (req, res) => {
     const {post_id} = req.params
-    console.log('post ID here ==>', post_id)
     const db = req.app.get('db')
     try {
       let comments = await db.comments.get_comments({post_id})

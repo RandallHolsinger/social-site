@@ -1,10 +1,10 @@
 module.exports = {
   sendRequest: async (req, res) => {
-    const {user_id_sent} = req.session.user
-    const {user_id_reciever} = req.params
+    const user_id_sender = req.session.user.user_id
+    const user_id_reciever = req.params.user_id
     const db = req.app.get('db')
     try {
-      await db.friends.send_request({user_id_sent, user_id_reciever})
+      await db.friends.send_request({user_id_sender, user_id_reciever})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

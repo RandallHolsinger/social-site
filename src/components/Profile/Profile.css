@@ -1,0 +1,24 @@
+.Profile {
+  margin: 10px 5px 0px 5px;
+  display: flex;
+}
+.Profile figure {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #000;
+}
+.Profile figure figcaption {
+  display: flex;
+  flex-direction: column;
+}
+.Profile figure img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=Profile.css.map */
