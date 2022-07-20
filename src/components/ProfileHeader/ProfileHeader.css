@@ -1,4 +1,7 @@
-header {
+.ProfileHeader {
+  margin-top: 54px;
+}
+.ProfileHeader header {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -7,7 +10,7 @@ header {
   height: 20vh;
   padding: 20px;
 }
-header img {
+.ProfileHeader header img {
   width: 100px;
   height: 100px;
   border: 3px solid #fff;
