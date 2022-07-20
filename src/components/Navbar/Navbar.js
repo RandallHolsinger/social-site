@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faMessage } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faMessage, faCommentDots, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import './Navbar.scss'
 import Logout from '../Logout/Logout'
 
@@ -35,7 +35,9 @@ function Navbar() {
   return(
     <div className={showNav ? 'Navbar' : 'hide-nav'}>
       <nav>
+        <span><FontAwesomeIcon icon={faUserGroup}/></span>
         <span><FontAwesomeIcon icon={faMessage}/></span>
+        <span><FontAwesomeIcon icon={faCommentDots} /></span>
         <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 
           <ul>

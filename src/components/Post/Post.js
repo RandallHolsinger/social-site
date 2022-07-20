@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import './Post.scss'
 import Comments from '../Comments/Comments'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
+import { faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import FormatedDate from '../FormatedDate/FormatedDate'
 
 function Post(props) {
 
   const [showComments, setShowComments] = useState(false)
+  const [showOptions, setShowOptions] = useState(false)
+
+  const userId = useSelector(state => state.user.userId)
 
   return(
     <div className="Post">
@@ -20,6 +24,19 @@ function Post(props) {
             {props.value.first_name}{' '}{props.value.last_name}
           </span>
           <FormatedDate date={props.value.date} />
+          {props.value.user_id === userId ? 
+            <span onClick={() => setShowOptions(!showOptions)}><FontAwesomeIcon icon={faEllipsis} /></span>
+          :
+            null
+          }
+          {showOptions ? 
+            <div>
+              <button>Edit</button>
+              <button>delete</button>
+            </div>
+          :
+            null
+          }
         </header>
         <p>{props.value.post}</p>
         <footer>

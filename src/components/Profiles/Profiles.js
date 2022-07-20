@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './Profiles.scss'
+import Search from '../Search/Search'
 import Profile from '../Profile/Profile'
+import Navbar from '../Navbar/Navbar'
+
 
 function Profiles() {
   
@@ -29,7 +32,9 @@ function Profiles() {
 
   return(
     <div className="Profiles">
+      <Search />
       {mappedProfiles}
+      <Navbar />
     </div>
   )
 }

@@ -23,7 +23,6 @@ function AddFriendButton(props) {
     const {user_id} = props
     try{
       let res = await axios.get(`/api/friend/request/sent/${user_id}`)
-      console.log('response here', res)
       await setFriendRequests(res.data)
     } catch(err) {
       console.log(err)

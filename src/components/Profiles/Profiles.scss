@@ -1,0 +1,5 @@
+@import '../../sass/mixins';
+
+.Profiles {
+  @include top-nav-adjust;
+}
