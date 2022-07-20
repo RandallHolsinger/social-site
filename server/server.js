@@ -110,6 +110,9 @@ app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 // Send Friend Request
 app.post('/api/friend/request/send/:user_id', ctrlFriends.sendRequest)
 
+// Check Friend Request is sent
+app.get('/api/friend/request/sent/:user_id', ctrlFriends.checkRequest)
+
 // Confirm Friend
 app.put('/api/friend/request/confirm/:user_id', ctrlFriends.confirmRequest)
 

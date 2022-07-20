@@ -11,6 +11,18 @@ module.exports = {
     }
   },
 
+  checkRequest: async (req, res) => {
+    const user_id_sender = req.session.user.user_id
+    const user_id_reciever = req.params.user_id
+    const db = req.app.get('db')
+    try {
+      let sentRequest = await db.friends.check_friend_request({user_id_sender, user_id_reciever})
+      res.status(200).send(sentRequest)
+    } catch(err) {
+      console.log(err)
+    }
+  },
+
   confirmRequest: async (req, res) => {
     const {user_id_recieved} = req.session.user
     const {user_id_sent} = req.params
