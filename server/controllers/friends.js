@@ -50,6 +50,7 @@ module.exports = {
     const db = req.app.get('db')
     try {
       let friends = await db.friends.get_friends({user_id})
+      console.log('friends ==>', friends)
       res.status(200).send(friends)
     } catch(err) {
       res.status(500).send(err)
