@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import './FriendAddButton.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-function AddFriendButton(props) {
+function FriendAddButton(props) {
 
   const [friendRequests, setFriendRequests] = useState([])
 
@@ -44,4 +45,4 @@ function AddFriendButton(props) {
   )
 }
 
-export default AddFriendButton
+export default FriendAddButton

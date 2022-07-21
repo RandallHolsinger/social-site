@@ -19,7 +19,7 @@ module.exports = {
       let sentRequest = await db.friends.check_friend_request({user_id_sender, user_id_reciever})
       res.status(200).send(sentRequest)
     } catch(err) {
-      console.log(err)
+      res.status(500).send(err)
     }
   },
 
@@ -50,7 +50,6 @@ module.exports = {
     const db = req.app.get('db')
     try {
       let friends = await db.friends.get_friends({user_id})
-      console.log('friends ==>', friends)
       res.status(200).send(friends)
     } catch(err) {
       res.status(500).send(err)
