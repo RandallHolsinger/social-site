@@ -11,6 +11,18 @@ module.exports = {
     }
   },
 
+  getRequests: async (req, res) => {
+    const {user_id} = req.session.user
+    const db = req.app.get('db')
+    try {
+      let requests = await db.friends.get_friend_requests({user_id})
+      console.log('requests ==> ', requests)
+      res.status(200).send(requests)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  }, 
+
   checkRequest: async (req, res) => {
     const user_id_sender = req.session.user.user_id
     const user_id_reciever = req.params.user_id
@@ -24,10 +36,10 @@ module.exports = {
   },
 
   confirmRequest: async (req, res) => {
-    const {user_id_recieved} = req.session.user
-    const {user_id_sent} = req.params
+    const {friend_id} = req.params
+    console.log('hit', friend_id)
     try {
-      await db.friends.confirm_request({user_id_recieved, user_id_sent})
+      await db.friends.confirm_request({friend_id})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

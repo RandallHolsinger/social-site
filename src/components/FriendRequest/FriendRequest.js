@@ -1,9 +1,11 @@
 import React from 'react'
-import './Friend.scss'
+import './FriendRequest.scss'
+import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
 
-function Friend(props) {
+function FriendRequest(props) {
+  console.log(props)
   return(
-    <div className="Friend">
+    <div className="FriendRequest">
       <figure>
         <img src={props.value.profile_img ? props.value.profile_img : './images/user-image-default-black.svg'} alt="profile" />
         <figcaption>
@@ -11,10 +13,9 @@ function Friend(props) {
           <span>{props.value.city}{' '}{props.value.state}</span>
           <span>Los Angeles, CA</span>
         </figcaption>
-        <span>Friend</span>
+        <FriendAcceptButton friend_id={props.value.friend_id}/>
       </figure>
     </div>
   )
-} 
-
-export default Friend
+}
+export default FriendRequest

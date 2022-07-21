@@ -110,11 +110,14 @@ app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 // Send Friend Request
 app.post('/api/friend/request/send/:user_id', ctrlFriends.sendRequest)
 
+// Get Friend Requests
+app.get('/api/friend/requests', ctrlFriends.getRequests)
+
 // Check Friend Request is sent
 app.get('/api/friend/request/sent/:user_id', ctrlFriends.checkRequest)
 
 // Confirm Friend
-app.put('/api/friend/request/confirm/:user_id', ctrlFriends.confirmRequest)
+app.put('/api/friend/request/confirm/:friend_id', ctrlFriends.confirmRequest)
 
 // Delete Friend
 app.delete('/api/friend/delete/friend_id', ctrlFriends.deleteFriend)

@@ -19,7 +19,6 @@ function FriendAddButton(props) {
     }
   }
   
-  // need to pull friends data
   const checkFriendRequest = async () => {
     const {user_id} = props
     try{
