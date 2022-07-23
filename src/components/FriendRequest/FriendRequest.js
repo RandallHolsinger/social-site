@@ -3,7 +3,7 @@ import './FriendRequest.scss'
 import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
 
 function FriendRequest(props) {
-  console.log(props)
+  console.log('Friend Request ==>', props)
   return(
     <div className="FriendRequest">
       <figure>
@@ -13,7 +13,7 @@ function FriendRequest(props) {
           <span>{props.value.city}{' '}{props.value.state}</span>
           <span>Los Angeles, CA</span>
         </figcaption>
-        <FriendAcceptButton friend_id={props.value.friend_id}/>
+        <FriendAcceptButton friend_id={props.value.friend_id} getfriends={props.getFriends}/>
       </figure>
     </div>
   )

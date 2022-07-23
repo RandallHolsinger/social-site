@@ -3,23 +3,15 @@ import './FriendAcceptButton.scss'
 import axios from 'axios'
 
 function FriendAcceptButton(props) {
-
-  const [friends, setFriends] = useState([])
-
+   console.log('props Friend Accept Button ==>', props)
   const confirmFriendRequest = async () => {
-    const {friend_id} = props
+    const {friend_id, getFriends} = props
     try {
-      axios.put(`/api/friend/request/confirm/${friend_id}`)
+      await axios.put(`/api/friend/request/confirm/${friend_id}`)
+      getFriends()
     } catch(err) {
       console.log(err)
     }
-  }
-
-  const checkFriendStatus = () => {
-    const {friend_id} = props
-    // try{
-    //   let res = await axios.get(`/api/friends`)
-    // }
   }
 
   return(

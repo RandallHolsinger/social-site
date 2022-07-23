@@ -37,6 +37,7 @@ module.exports = {
 
   confirmRequest: async (req, res) => {
     const {friend_id} = req.params
+    const db = req.app.get('db')
     console.log('hit', friend_id)
     try {
       await db.friends.confirm_request({friend_id})
