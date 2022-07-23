@@ -3,12 +3,12 @@ import './FriendAcceptButton.scss'
 import axios from 'axios'
 
 function FriendAcceptButton(props) {
-   console.log('props Friend Accept Button ==>', props)
-  const confirmFriendRequest = async () => {
-    const {friend_id, getFriends} = props
+    
+    const confirmFriendRequest = async () => {
+    const {friend_id, handleRefreshFriends} = props
     try {
       await axios.put(`/api/friend/request/confirm/${friend_id}`)
-      getFriends()
+      handleRefreshFriends()
     } catch(err) {
       console.log(err)
     }

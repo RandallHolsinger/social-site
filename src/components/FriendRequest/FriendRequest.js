@@ -13,7 +13,7 @@ function FriendRequest(props) {
           <span>{props.value.city}{' '}{props.value.state}</span>
           <span>Los Angeles, CA</span>
         </figcaption>
-        <FriendAcceptButton friend_id={props.value.friend_id} getfriends={props.getFriends}/>
+        <FriendAcceptButton friend_id={props.value.friend_id} handleRefreshFriends={props.handleRefreshFriends}/>
       </figure>
     </div>
   )
