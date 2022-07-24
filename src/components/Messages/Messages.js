@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './Messages.scss'
 import axios from 'axios'
+import Search from '../Search/Search'
 import Message from '../Message/Message'
+import Navbar from '../Navbar/Navbar'
 
 function Messages() {
 
@@ -22,7 +24,9 @@ function Messages() {
 
   return(
     <div className="Messages">
+      <Search />
       Messages
+      <Navbar />
     </div>
   )
 }

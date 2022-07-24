@@ -3,7 +3,6 @@ import './Profile.scss'
 import FriendAddButton from '../FriendAddButton/FriendAddButton'
 
 function Profile(props) {
-  
   return(
     <div className="Profile">
       <figure>
@@ -13,7 +12,7 @@ function Profile(props) {
           <span>{props.value.city}{' '}{props.value.state}</span>
           <span>Los Angeles, CA</span>
         </figcaption>
-        <FriendAddButton user_id={props.value.user_id} />
+          <FriendAddButton user_id={props.value.user_id} />
       </figure>
     </div>
   )
