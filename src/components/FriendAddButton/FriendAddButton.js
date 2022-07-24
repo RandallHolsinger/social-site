@@ -38,7 +38,7 @@ function FriendAddButton(props) {
      {friendRequests[0] ? 
        <button><FontAwesomeIcon icon={faPaperPlane} />{' '}Request Sent</button>
      :
-       <button onClick={() => sendFriendRequest()}><FontAwesomeIcon icon={faUserPlus} />{' '}Add Friend</button>
+       <button onClick={() => sendFriendRequest()}><FontAwesomeIcon icon={faUserPlus} />{' '}Add </button>
      }
     </>
   )

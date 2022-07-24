@@ -3,7 +3,6 @@ import './FriendRequest.scss'
 import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
 
 function FriendRequest(props) {
-  console.log('Friend Request ==>', props)
   return(
     <div className="FriendRequest">
       <figure>

@@ -5,6 +5,7 @@ import Home from './components/Home/Home'
 import PersonalProfile from './components/PersonalProfile/PersonalProfile'
 import Profiles from './components/Profiles/Profiles'
 import Friends from './components/Friends/Friends'
+import Messages from './components/Messages/Messages'
 
 export default (
   <Routes>
@@ -14,5 +15,6 @@ export default (
     <Route path="/PersonalProfile" element={<PersonalProfile />} />
     <Route path="/Profiles" element={<Profiles />} />
     <Route path="/Friends" element={<Friends />} />
+    <Route path="/Messages" element={<Messages />} />
   </Routes>
 )

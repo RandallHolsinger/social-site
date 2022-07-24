@@ -14,7 +14,6 @@ function Friends() {
   const getFriends = async () => {
     try {
       let res = await axios.get('/api/friends')
-      console.log('List of Friends ==> ', res)
       setFriends(res.data)
     } catch(err) {
       console.log(err)
@@ -24,7 +23,6 @@ function Friends() {
   const getFriendRequests = async () => {
     try {
       let res = await axios.get('/api/friend/requests')
-      console.log('friend requests ==>', res)
       setFriendRequests(res.data)
     } catch(err) {
       console.log(err)
