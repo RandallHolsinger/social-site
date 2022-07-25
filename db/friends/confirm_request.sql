@@ -1,3 +1,3 @@
 UPDATE friends SET
-  confirmed = true
+  friend_status = 'accepted'
 WHERE friend_id = ${friend_id}

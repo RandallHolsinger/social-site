@@ -3,4 +3,4 @@ SELECT * FROM friends AS f
     CASE WHEN f.user_id_sent = ${user_id} THEN f.user_id_recieved 
          WHEN f.user_id_recieved = ${user_id} THEN f.user_id_sent
     END) = u.user_id
-WHERE (f.user_id_sent = ${user_id} OR f.user_id_recieved = ${user_id}) AND f.confirmed = TRUE
+WHERE (f.user_id_sent = ${user_id} OR f.user_id_recieved = ${user_id}) AND f.friend_status = 'accepted'
