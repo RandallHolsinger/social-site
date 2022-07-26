@@ -23,12 +23,12 @@ module.exports = {
     }
   }, 
 
-  checkRequest: async (req, res) => {
+  checkFriendStatus: async (req, res) => {
     const user_id_sender = req.session.user.user_id
     const user_id_reciever = req.params.user_id
     const db = req.app.get('db')
     try {
-      let sentRequest = await db.friends.check_friend_request({user_id_sender, user_id_reciever})
+      let sentRequest = await db.friends.check_friend_status({user_id_sender, user_id_reciever})
       res.status(200).send(sentRequest)
     } catch(err) {
       res.status(500).send(err)

@@ -7,7 +7,7 @@ import axios from 'axios'
 
 function FriendAddButton(props) {
   
-  const [friendRequests, setFriendRequests] = useState([])
+  const [friendStatus, setFriendStatus] = useState([])
   
   const userId = useSelector(state => state.user.userId)
 
@@ -15,29 +15,31 @@ function FriendAddButton(props) {
     const {user_id} = props
     console.log('user id from profile ==>', user_id)
     try {
-       await axios.post(`/api/friend/request/send/${user_id}`)
-      checkFriendRequest()
+      axios.post(`/api/friend/request/send/${user_id}`)
+      getFriendStatus() 
     } catch(err) {
       console.log(err)
     }
   }
   
-  const checkFriendRequest = async () => {
+  const getFriendStatus = async () => {
     const {user_id} = props
     try{
-      let res = await axios.get(`/api/friend/request/sent/${user_id}`)
-      await setFriendRequests(res.data)
+      let res = await axios.get(`/api/friend/status/${user_id}`)
+      await setFriendStatus(res.data)
     } catch(err) {
       console.log(err)
     }
   }
 
-
+  // => refactor request sent  
+  // => toggle state saving visual changes  
+  // => see if setting flag in database and refreshing profiles works...
   const renderButton = () => {
-    console.log('userId ==> ', userId)
+    console.log('here ==> ', friendStatus)
     if(props.user_id === userId) {
       return <span>MyProfile</span>
-    } else if(friendRequests[0]) {
+    } else if(friendStatus.friendStatus == "pending") {
       return <span><FontAwesomeIcon icon={faPaperPlane} />Request sent</span>
     } else {
       return <button onClick={() => sendFriendRequest()}><FontAwesomeIcon icon={faUserPlus} />{' '}Add Friend</button>
@@ -45,7 +47,7 @@ function FriendAddButton(props) {
   }
   
   useEffect(() => {
-    checkFriendRequest()
+    getFriendStatus()
   }, [])
 
   return(

@@ -113,8 +113,8 @@ app.post('/api/friend/request/send/:user_id', ctrlFriends.sendRequest)
 // Get Friend Requests
 app.get('/api/friend/requests', ctrlFriends.getRequests)
 
-// Check Friend Request is sent
-app.get('/api/friend/request/sent/:user_id', ctrlFriends.checkRequest)
+// Get Friend Status
+app.get('/api/friend/status/:user_id', ctrlFriends.checkFriendStatus)
 
 // Confirm Friend
 app.put('/api/friend/request/confirm/:friend_id', ctrlFriends.confirmRequest)
