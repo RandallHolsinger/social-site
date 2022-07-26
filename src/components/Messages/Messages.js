@@ -22,10 +22,14 @@ function Messages() {
     getMessages()
   },[])
 
+  let mappedMessages = messages.map(message => {
+    <Message key={message.message_id} value={message} />
+  })
+
   return(
     <div className="Messages">
       <Search />
-      Messages
+      {mappedMessages}
       <Navbar />
     </div>
   )

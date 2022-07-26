@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './FriendAcceptButton.scss'
 import axios from 'axios'
 
+// ==> Merge this Component with FriendAdd Component and create FRIEND STATUS component
+
 function FriendAcceptButton(props) {
     
     const confirmFriendRequest = async () => {
@@ -17,7 +19,6 @@ function FriendAcceptButton(props) {
   return(
     <>
       <button onClick={() => confirmFriendRequest()}>Confirm</button>
-      <button>Delete</button>
     </>
   )
 }
