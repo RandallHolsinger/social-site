@@ -26,7 +26,7 @@ function Profiles() {
 
   let mappedProfiles = profiles.map(profile => {
     return(
-      <Profile key={profile.user_id} value={profile} getProfiles={getProfiles}/>
+      <Profile key={profile.user_id} value={profile} />
     )
   })
 

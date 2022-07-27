@@ -7,11 +7,11 @@ import axios from 'axios'
 function FriendAddButton(props) {
 
   const sendFriendRequest = async () => {
-    const {user_id, handleRefresh} = props
+    const {user_id, getRequestsSent} = props
     console.log('user id from profile ==>', user_id)
     try {
       axios.post(`/api/friend/request/send/${user_id}`)
-      handleRefresh()
+      getRequestsSent()
     } catch(err) {
       console.log(err)
     }

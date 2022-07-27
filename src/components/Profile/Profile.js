@@ -12,7 +12,7 @@ function Profile(props) {
           <span>{props.value.city}{' '}{props.value.state}</span>
           <span>Los Angeles, CA</span>
         </figcaption>
-          <FriendStatus user_id={props.value.user_id} handleRefresh={props.getProfiles}/>
+          <FriendStatus user_id={props.value.user_id} />
       </figure>
     </div>
   )

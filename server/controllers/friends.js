@@ -25,9 +25,6 @@ module.exports = {
   getUserRequests: async (req, res) => {
     let user_id_reciever = req.session.user.user_id
     let user_id_sender = req.params.user_id
-    console.log('here is the recieving user', user_id_reciever)
-    console.log('here is the sending user ==>', user_id_sender)
-    console.log('here is the user session ==> ', req.session)
     const db = req.app.get('db')
     try {
       let userRequest = await db.friends.get_user_friend_request( {user_id_sender, user_id_reciever})
@@ -53,7 +50,6 @@ module.exports = {
     const {user_id} = req.session.user
     const {friend_id} = req.params
     const db = req.app.get('db')
-    console.log('hit', friend_id)
     try {
       await db.friends.confirm_request({user_id, friend_id})
       res.sendStatus(200)

@@ -18,7 +18,6 @@ function FriendStatus(props) {
     const {user_id} = props
     try {
       let res = await axios.get(`/api/friend/status/${user_id}`)
-      console.log('friend status  ==>', res)
       setRequestsSent(res.data)
     } catch(err) {
       console.log(err)
@@ -27,10 +26,8 @@ function FriendStatus(props) {
 
   const getRequestsRecieved = async () => {
     const {user_id} = props
-    console.log('props here ==>', props)
     try {
       let res = await axios.get(`/api/friend/request/${user_id}`)
-      console.log('requests recieved ==>', res)
       setRequestsRecieved(res.data)
     } catch(err) {
       console.log(err)
@@ -43,9 +40,9 @@ function FriendStatus(props) {
     } else if(requestsSent[0]) {
       return <span><FontAwesomeIcon icon={faPaperPlane} />Request Sent</span>
     } else if(!requestsSent[0]){
-      return <FriendAddButton user_id={props.user_id} handleRefresh={props.handleRefresh}/>
+      return <FriendAddButton user_id={props.user_id} getRequestsSent={getRequestsSent}/>
     } else if(requestsRecieved[0]) {
-      return <FriendAcceptButton user_id={props.user_id} handleRefresh={props.handleRefresh}/>
+      return <FriendAcceptButton user_id={props.user_id} getRequestsRecieved={getRequestsRecieved}/>
     }
   }
 
