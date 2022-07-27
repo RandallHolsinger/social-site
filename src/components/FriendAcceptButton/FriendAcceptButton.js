@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './FriendAcceptButton.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 // ==> Merge this Component with FriendAdd Component and create FRIEND STATUS component
@@ -18,7 +20,7 @@ function FriendAcceptButton(props) {
 
   return(
     <>
-      <button onClick={() => confirmFriendRequest()}>Confirm</button>
+      <button onClick={() => confirmFriendRequest()}><FontAwesomeIcon icon={faUserPlus} /> Confirm</button>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Profile.scss'
-import FriendAddButton from '../FriendAddButton/FriendAddButton'
+import FriendStatus from '../FriendStatus/FriendStatus'
 
 function Profile(props) {
   return(
@@ -12,7 +12,7 @@ function Profile(props) {
           <span>{props.value.city}{' '}{props.value.state}</span>
           <span>Los Angeles, CA</span>
         </figcaption>
-          <FriendAddButton user_id={props.value.user_id} />
+          <FriendStatus user_id={props.value.user_id} />
       </figure>
     </div>
   )

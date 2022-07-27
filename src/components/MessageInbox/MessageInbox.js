@@ -14,6 +14,11 @@ function MessageInbox() {
     }
   }
 
+  useEffect(() => {
+    getMessageInbox()
+  }, [])
+
+
   return(
     <div className="MessageInbox">
       MessageInbox
