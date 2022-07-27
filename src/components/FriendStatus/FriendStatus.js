@@ -43,9 +43,9 @@ function FriendStatus(props) {
     } else if(requestsSent[0]) {
       return <span><FontAwesomeIcon icon={faPaperPlane} />Request Sent</span>
     } else if(!requestsSent[0]){
-      return <FriendAddButton user_id={props.user_id}/>
+      return <FriendAddButton user_id={props.user_id} handleRefresh={props.handleRefresh}/>
     } else if(requestsRecieved[0]) {
-      return <FriendAcceptButton user_id={props.user_id}/>
+      return <FriendAcceptButton user_id={props.user_id} handleRefresh={props.handleRefresh}/>
     }
   }
 

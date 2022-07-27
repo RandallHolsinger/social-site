@@ -1,7 +1,7 @@
 module.exports = {
   sendRequest: async (req, res) => {
-    const user_id_sender = req.session.user.user_id
-    const user_id_reciever = req.params.user_id
+    let user_id_sender = req.session.user.user_id
+    let user_id_reciever = req.params.user_id
     const db = req.app.get('db')
     try {
       await db.friends.send_request({user_id_sender, user_id_reciever})
@@ -23,12 +23,14 @@ module.exports = {
   },
   
   getUserRequests: async (req, res) => {
-    let user_id_reciever = req.session.user
+    let user_id_reciever = req.session.user.user_id
     let user_id_sender = req.params.user_id
-    console.log('here they are ==> ', user_id_sender)
+    console.log('here is the recieving user', user_id_reciever)
+    console.log('here is the sending user ==>', user_id_sender)
+    console.log('here is the user session ==> ', req.session)
     const db = req.app.get('db')
     try {
-      let userRequest = await db.friends.get_user_friend_request({user_id_sender, user_id_reciever})
+      let userRequest = await db.friends.get_user_friend_request( {user_id_sender, user_id_reciever})
       res.status(200).send(userRequest)
     } catch(err) {
       res.status(500).send(err)

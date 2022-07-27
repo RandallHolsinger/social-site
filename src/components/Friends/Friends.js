@@ -41,7 +41,7 @@ function Friends() {
   
   let mappedFriendRequests = friendRequests.map(request => {
     return(
-      <FriendRequest key={request.friend_id} value={request} handleRefreshFriends={handleRefreshFriends}/>
+      <FriendRequest key={request.friend_id} value={request} handleRefresh={handleRefreshFriends}/>
     )
   })
 
