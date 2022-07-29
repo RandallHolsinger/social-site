@@ -27,7 +27,7 @@ module.exports = {
     let user_id_sender = req.params.user_id
     const db = req.app.get('db')
     try {
-      let userRequest = await db.friends.get_user_friend_request( {user_id_sender, user_id_reciever})
+      let userRequest = await db.friends.get_user_friend_request({user_id_sender, user_id_reciever})
       res.status(200).send(userRequest)
     } catch(err) {
       res.status(500).send(err)
