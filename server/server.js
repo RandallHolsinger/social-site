@@ -134,6 +134,9 @@ app.get('/api/friend/:friend_id', ctrlFriends.getFriend)
 
 ///// Messages Endpoints /////
 
+// Get Messaging Inbox
+app.get('/api/message/inbox', ctrlMessages.getInbox)
+
 // Send Message
 app.post('/api/message/send/:user_id', ctrlMessages.sendMessage)
 

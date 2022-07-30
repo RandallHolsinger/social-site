@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { faInbox } from '@fortawesome/free-solid-svg-icons'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 
 function MessageInbox() {
