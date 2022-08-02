@@ -4,7 +4,7 @@ import './Message.scss'
 function Message(props) {
   return(
     <div className="Message">
-      Message
+      
     </div>
   )
 }

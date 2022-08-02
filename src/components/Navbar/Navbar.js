@@ -36,7 +36,7 @@ function Navbar() {
     <div className={showNav ? 'Navbar' : 'hide-nav'}>
       <nav>
         <span><FontAwesomeIcon icon={faUserGroup}/></span>
-        <span><FontAwesomeIcon icon={faMessage}/></span>
+        <Link to={'/MessageInbox'}><span><FontAwesomeIcon icon={faMessage}/></span></Link>
         <span><FontAwesomeIcon icon={faCommentDots} /></span>
         <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 
