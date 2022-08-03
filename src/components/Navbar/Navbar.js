@@ -52,7 +52,7 @@ function Navbar() {
               <Link to={'/PersonalProfile'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Profile</Link>
             </li>
             <li>
-              <Link to={'/Messages'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Messages</Link>
+              <Link to={'/MessageInbox'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Messages</Link>
             </li>
             <li>
               <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Friends</Link>

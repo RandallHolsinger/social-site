@@ -13,9 +13,7 @@ function MessageCreate() {
         value={subjectInput}
         onChange={(e) => setSubjectInput(e.target.value)}
       />
-      <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} placeholder='Message...'>
-        Message
-      </textarea>
+      <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} placeholder='Message...' />
     </div>
   )
 }
