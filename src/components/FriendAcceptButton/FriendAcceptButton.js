@@ -9,10 +9,10 @@ import axios from 'axios'
 function FriendAcceptButton(props) {
     
     const confirmFriendRequest = async () => {
-    const {friend_id, getRequestsRecieved} = props
+    const {friend_id, setShowRequestRecieved} = props
     try {
       await axios.put(`/api/friend/request/confirm/${friend_id}`)
-      getRequestsRecieved()
+      setShowRequestRecieved(true)
     } catch(err) {
       console.log(err)
     }

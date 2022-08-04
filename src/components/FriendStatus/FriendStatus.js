@@ -11,6 +11,8 @@ function FriendStatus(props) {
 
   const [requestsSent, setRequestsSent] = useState([])
   const [requestsRecieved, setRequestsRecieved] = useState([])
+  const [showRequestSent, setShowRequestSent] = useState(false)
+  const [showRequestRecieved, setShowRequestRecieved] = useState(false)
 
   const userId = useSelector(state => state.user.userId)
 
@@ -40,9 +42,9 @@ function FriendStatus(props) {
     } else if(requestsSent[0]) {
       return <span><FontAwesomeIcon icon={faPaperPlane} />Request Sent</span>
     } else if(!requestsSent[0]){
-      return <FriendAddButton user_id={props.user_id} getRequestsSent={getRequestsSent}/>
+      return <FriendAddButton user_id={props.user_id} setShowRequestSent={setShowRequestSent}/>
     } else if(requestsRecieved[0]) {
-      return <FriendAcceptButton user_id={props.user_id} getRequestsRecieved={getRequestsRecieved}/>
+      return <FriendAcceptButton user_id={props.user_id} setShowRequestRecieved={setShowRequestRecieved}/>
     }
   }
 
