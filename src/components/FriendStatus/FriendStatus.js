@@ -9,49 +9,12 @@ import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
 
 function FriendStatus(props) {
 
-  const [requestsSent, setRequestsSent] = useState([])
-  const [requestsRecieved, setRequestsRecieved] = useState([])
-  const [showRequestSent, setShowRequestSent] = useState(false)
-  const [showRequestRecieved, setShowRequestRecieved] = useState(false)
-
   const userId = useSelector(state => state.user.userId)
 
-  const getRequestsSent = async () => {
-    const {user_id} = props
-    try {
-      let res = await axios.get(`/api/friend/status/${user_id}`)
-      setRequestsSent(res.data)
-    } catch(err) {
-      console.log(err)
-    }
-  }
+  // Need to be able to toggle the state of the buttons and save on page refresh
+  const friendStatusLogic = () => {}
 
-  const getRequestsRecieved = async () => {
-    const {user_id} = props
-    try {
-      let res = await axios.get(`/api/friend/request/${user_id}`)
-      setRequestsRecieved(res.data)
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
-  const friendStatusLogic = () => {
-    if(userId === props.user_id) {
-      return <span>My Profile</span>
-    } else if(requestsSent[0]) {
-      return <span><FontAwesomeIcon icon={faPaperPlane} />Request Sent</span>
-    } else if(!requestsSent[0]){
-      return <FriendAddButton user_id={props.user_id} setShowRequestSent={setShowRequestSent}/>
-    } else if(requestsRecieved[0]) {
-      return <FriendAcceptButton user_id={props.user_id} setShowRequestRecieved={setShowRequestRecieved}/>
-    }
-  }
-
-  useEffect(() => {
-    getRequestsSent()
-    getRequestsRecieved()
-  }, [])
+  useEffect(() => {}, [])
 
   return(
     <div className="FriendStatus">

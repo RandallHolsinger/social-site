@@ -22,30 +22,6 @@ module.exports = {
     }
   },
   
-  getUserRequests: async (req, res) => {
-    let user_id_reciever = req.session.user.user_id
-    let user_id_sender = req.params.user_id
-    const db = req.app.get('db')
-    try {
-      let userRequest = await db.friends.get_user_friend_request({user_id_sender, user_id_reciever})
-      res.status(200).send(userRequest)
-    } catch(err) {
-      res.status(500).send(err)
-    }
-  },
-
-  checkFriendStatus: async (req, res) => {
-    let user_id_sender = req.session.user.user_id
-    let user_id_reciever = req.params.user_id
-    const db = req.app.get('db')
-    try {
-      let sentRequest = await db.friends.check_friend_status({user_id_sender, user_id_reciever})
-      res.status(200).send(sentRequest)
-    } catch(err) {
-      res.status(500).send(err)
-    }
-  },
-
   confirmRequest: async (req, res) => {
     const {user_id} = req.session.user
     const {friend_id} = req.params
@@ -75,17 +51,6 @@ module.exports = {
     try {
       let friends = await db.friends.get_friends({user_id})
       res.status(200).send(friends)
-    } catch(err) {
-      res.status(500).send(err)
-    }
-  },
-
-  getFriend: async (req, res) => {
-    const {friend_id} = req.params
-    const db = req.app.get('db')
-    try {
-      let friend = await db.friends.get_friend({friend_id})
-      res.status(200).send(friend)
     } catch(err) {
       res.status(500).send(err)
     }

@@ -113,12 +113,6 @@ app.post('/api/friend/request/send/:user_id', ctrlFriends.sendRequest)
 // Get Friend Requests
 app.get('/api/friend/requests', ctrlFriends.getRequests)
 
-// Get Friend Request From User
-app.get('/api/friend/request/:user_id', ctrlFriends.getUserRequests)
-
-// Get Friend Status
-app.get('/api/friend/status/:user_id', ctrlFriends.checkFriendStatus)
-
 // Confirm Friend
 app.put('/api/friend/request/confirm/:friend_id', ctrlFriends.confirmRequest)
 
@@ -127,9 +121,6 @@ app.delete('/api/friend/delete/friend_id', ctrlFriends.deleteFriend)
 
 // Get Friends
 app.get('/api/friends', ctrlFriends.getFriends)
-
-// Get Friend
-app.get('/api/friend/:friend_id', ctrlFriends.getFriend)
 
 
 ///// Messages Endpoints /////
