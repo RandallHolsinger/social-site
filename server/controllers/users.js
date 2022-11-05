@@ -1,8 +1,9 @@
 module.exports = {
   getUsers: async (req, res) => {
+    const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
-      const users = await db.users.get_users()
+      const users = await db.users.get_users({user_id})
       res.status(200).send(users)
     } catch(err) {
       res.status(500).send(err)

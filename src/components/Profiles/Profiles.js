@@ -14,6 +14,7 @@ function Profiles() {
     try {
       let res = await axios.get('/api/users')
       setProfiles(res.data)
+      console.log('here are the profiles ==>', res.data)
     }
     catch(err) {
       console.log(err)

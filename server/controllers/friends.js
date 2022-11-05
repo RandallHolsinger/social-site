@@ -54,5 +54,18 @@ module.exports = {
     } catch(err) {
       res.status(500).send(err)
     }
+  },
+  // trying to get all of friend statuses from backend and render them correctly
+  getFriendStatus: async (req, res) => {
+    const user_id = req.session.user
+    const user_id2 = req.params
+    const db = req.app.get('db')
+    try {
+      let friendStatus = await db.friends.friendStatus({user_id, user_id2})
+      res.status(200).send(friendStatus)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+
   }
 }

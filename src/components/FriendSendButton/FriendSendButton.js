@@ -1,10 +1,10 @@
 import React from 'react'
-import './FriendAddButton.scss'
+import './FriendSendButton.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-function FriendAddButton(props) {
+function FriendSendButton(props) {
 
   const sendFriendRequest = async () => {
     const {user_id} = props
@@ -23,4 +23,4 @@ function FriendAddButton(props) {
   )
 }
 
-export default FriendAddButton
+export default FriendSendButton

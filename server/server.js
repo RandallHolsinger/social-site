@@ -122,6 +122,11 @@ app.delete('/api/friend/delete/friend_id', ctrlFriends.deleteFriend)
 // Get Friends
 app.get('/api/friends', ctrlFriends.getFriends)
 
+// Testing to try to get all of friend properies from one api call
+//below is the end point
+
+app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
+
 
 ///// Messages Endpoints /////
 
