@@ -107,27 +107,6 @@ app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 
 ///// Friend's Endpoints /////
 
-// Send Friend Request
-app.post('/api/friend/request/send/:user_id', ctrlFriends.sendRequest)
-
-// Get Friend Requests
-app.get('/api/friend/requests', ctrlFriends.getRequests)
-
-// Confirm Friend
-app.put('/api/friend/request/confirm/:friend_id', ctrlFriends.confirmRequest)
-
-// Delete Friend
-app.delete('/api/friend/delete/friend_id', ctrlFriends.deleteFriend)
-
-// Get Friends
-app.get('/api/friends', ctrlFriends.getFriends)
-
-// Testing to try to get all of friend properies from one api call
-//below is the end point
-
-app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
-
-
 ///// Messages Endpoints /////
 
 // Get Messaging Inbox
