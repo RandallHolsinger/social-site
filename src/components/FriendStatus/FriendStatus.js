@@ -4,6 +4,7 @@ import axios from 'axios'
 import { faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import FriendAddButton from '../FriendAddButton/FriendAddButton'
 import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
+import FriendDeleteButton from '../FriendDeleteButton/FriendDeleteButton'
 
 function FriendStatus(props) {
 
@@ -25,10 +26,15 @@ function FriendStatus(props) {
     if(friendStatus) {
       if(friendStatus.source_id === currentUserId) {
         return <p>Request Sent</p>
-      } else if(friendStatus.source_id === user_id) {
+      } else if(friendStatus.source_id === user_id && friendStatus.friend_status !== 'friend') {
         return <FriendAcceptButton user_id={user_id} friend_id={friendStatus.friend_id} />
       } else if(friendStatus.friend_status === 'friend') {
-        return <p>Friends</p>
+        return(
+          <div>
+            <p>Friends</p>
+            <FriendDeleteButton friend_id={friendStatus.friend_id}/>
+          </div>
+        )
       }
     } else {
       return <FriendAddButton user_id={user_id} />

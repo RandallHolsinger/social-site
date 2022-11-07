@@ -6,8 +6,8 @@ import MessageCreate from '../MessageCreate/MessageCreate'
 function MessageInbox() {
 
   const [messageInbox, setMessageInbox] = useState([])
-  
-  //create server endpoint 
+  const [showCreateMessage, setShowCreateMessage] = useState(false)
+
   const getMessageInbox = async () => {
     try {
       let res = await axios.get('/api/message/inbox')
@@ -29,7 +29,8 @@ function MessageInbox() {
 
   return(
     <div className="MessageInbox">
-      <MessageCreate />
+      <button onClick={() => setShowCreateMessage(!showCreateMessage)}>Create Message</button>
+      {showCreateMessage ? <MessageCreate /> : null}
       {mappedMessageInbox}
     </div>
   )

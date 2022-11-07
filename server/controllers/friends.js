@@ -15,6 +15,7 @@ module.exports = {
   acceptFriendRequest: async (req, res) => {
     const source_id = req.params.user_id
     const target_id = req.session.user.user_id
+    console.log('hitting backend')
     const db = req.app.get('db')
     try {
       await db.friends.accept_friend_request({source_id, target_id})
@@ -30,6 +31,17 @@ module.exports = {
     try {
       await db.friends.delete_friend({friend_id})
       res.sendStatus(200)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  getAllFriends: async (req, res) => {
+    const {user_id} = req.session.user
+    const db = req.app.get('db')
+    try {
+      let friends = await db.friends.get_all_friends({user_id})
+      res.status(200).send(friends)
     } catch(err) {
       res.status(500).send(err)
     }

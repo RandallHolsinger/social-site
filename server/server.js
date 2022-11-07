@@ -116,6 +116,9 @@ app.put('/api/friend/accept/:user_id', ctrlFriends.acceptFriendRequest)
 //Delete Friend
 app.delete('/api/friend/delete/:friend_id', ctrlFriends.deleteFriend)
 
+//Get All Friends
+app.get('/api/friends', ctrlFriends.getAllFriends)
+
 //Check FriendStatus
 app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
 
