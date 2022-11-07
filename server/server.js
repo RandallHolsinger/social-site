@@ -107,6 +107,12 @@ app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 
 ///// Friend's Endpoints /////
 
+//Send A Friend Request
+app.post('/api/friend/send/:user_id', ctrlFriends.sendFriendRequest)
+
+//Check FriendStatus
+app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
+
 ///// Messages Endpoints /////
 
 // Get Messaging Inbox
