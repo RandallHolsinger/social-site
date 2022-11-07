@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import FriendAddButton from '../FriendAddButton/FriendAddButton'
+import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
 
 function FriendStatus(props) {
 
   const [friendStatus, setFriendStatus] = useState([])
-  const [isLoadingStatus, setIsLoadingStatus] = useState(false)
-
+  
+  const currentUserId =  useSelector(state => state.user.userId)
   const {user_id} = props
 
   const getFriendStatus = async (user_id) => {
@@ -19,22 +21,27 @@ function FriendStatus(props) {
     }
   }
   
-  // const friendStatusLogic = () => {
-    //   switch(friendStatus) {
-      //     case : 
-      //   }
-      // }
+  const friendStatusLogic = () => {
+    if(friendStatus) {
+      if(friendStatus.source_id === currentUserId) {
+        return <p>Request Sent</p>
+      } else if(friendStatus.source_id === user_id) {
+        return <FriendAcceptButton user_id={user_id} friend_id={friendStatus.friend_id} />
+      } else if(friendStatus.friend_status === 'friend') {
+        return <p>Friends</p>
+      }
+    } else {
+      return <FriendAddButton user_id={user_id} />
+    }
+  }
       
       useEffect(() => {
         getFriendStatus(user_id)
       }, [])
-
-      console.log('friend status', friendStatus)
       
   return(
     <div className="FriendStatus">
-      <FriendAddButton user_id={user_id} />
-      {friendStatus ? <p>{friendStatus.friend_status}</p> : null}
+      {friendStatusLogic()}
     </div>
   )
 }
