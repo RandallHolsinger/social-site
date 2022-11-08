@@ -18,7 +18,7 @@ function MessageInbox() {
   }
 
   useEffect(() => {
-    getMessageInbox()
+    // getMessageInbox()
   }, [])
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {

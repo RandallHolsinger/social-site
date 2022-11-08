@@ -1,0 +1,10 @@
+.MessageCreate {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.MessageCreate label {
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=MessageCreate.css.map */

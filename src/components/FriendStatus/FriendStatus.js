@@ -24,9 +24,9 @@ function FriendStatus(props) {
   
   const friendStatusLogic = () => {
     if(friendStatus) {
-      if(friendStatus.source_id === currentUserId) {
+      if(friendStatus.source_id === currentUserId && friendStatus.friend_status !== 'friend') {
         return <p>Request Sent</p>
-      } else if(friendStatus.source_id === user_id && friendStatus.friend_status !== 'friend') {
+      } else if(friendStatus.target_id === currentUserId && friendStatus.friend_status !== 'friend') {
         return <FriendAcceptButton user_id={user_id} friend_id={friendStatus.friend_id} />
       } else if(friendStatus.friend_status === 'friend') {
         return(

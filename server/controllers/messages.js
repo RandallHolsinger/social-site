@@ -11,12 +11,13 @@ module.exports = {
   },
 
   sendMessage: async (req, res) => {
-    const {user_id_sender} = req.session.user
-    const {user_id_reciever} = req.params
+    const user_id_sender = req.session.user.user_id
+    const user_id_reciever = req.params.user_id
     const {subject, message} = req.body
+    console.log(user_id_sender, user_id_reciever, subject, message)
     const db = req.app.get('db')
     try {
-      await db.messages.send_message([user_id_sender, user_id_reciever, subject, message])
+      await db.messages.send_message({user_id_sender, user_id_reciever, subject, message})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
