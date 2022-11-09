@@ -1,2 +1,5 @@
-GET * FROM messages WHERE
-user_id_reciever = ${user_id} OR user_id_sender = ${user_id}
+SELECT * FROM messages 
+WHERE (sender_id = 1 AND receiver_id = 3 OR
+       sender_id = 3 AND receiver_id = 1)
+ORDER  BY date DESC
+LIMIT  1;

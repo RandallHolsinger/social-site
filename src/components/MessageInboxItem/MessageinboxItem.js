@@ -1,9 +1,12 @@
 import React from 'react'
+import './MessageInboxItem.scss'
 
 function MessageInboxItem(props) {
+  const {greatest, least, subject, message, maxdate} = props
+
   return(
     <div className="MessageInboxItem">
-      inbox items
+      
     </div>
   )
 }

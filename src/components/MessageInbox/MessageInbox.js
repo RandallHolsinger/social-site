@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import './MessageInbox.scss'
 import axios from 'axios'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
-// change location of MessageCreate
 import MessageCreate from '../MessageCreate/MessageCreate'
+import Search from '../Search/Search'
+import Navbar from '../Navbar/Navbar'
+
+
+
 function MessageInbox() {
 
   const [messageInbox, setMessageInbox] = useState([])
@@ -18,7 +23,7 @@ function MessageInbox() {
   }
 
   useEffect(() => {
-    // getMessageInbox()
+    getMessageInbox()
   }, [])
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {
@@ -27,11 +32,15 @@ function MessageInbox() {
     )
   })
 
+  console.log('message inbox here ==>', messageInbox)
+
   return(
     <div className="MessageInbox">
+      <Search />
       <button onClick={() => setShowCreateMessage(!showCreateMessage)}>Create Message</button>
       {showCreateMessage ? <MessageCreate /> : null}
       {mappedMessageInbox}
+      <Navbar />
     </div>
   )
 }
