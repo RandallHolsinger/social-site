@@ -24,7 +24,7 @@ function Posts() {
 
   let mappedPosts = posts.map(post => {
     return(
-      <Post key={post.post_id} value={post} />
+      <Post key={post.post_id} value={post} getPosts={getAllPosts}/>
     )
   })
 

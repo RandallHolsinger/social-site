@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector } from 'react-redux'
 import { faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import FormatedDate from '../FormatedDate/FormatedDate'
+import PostDeleteButton from '../PostDeleteButton/PostDeleteButton'
+import PostEditButton from '../PostEditButton/PostEditButton'
 
 function Post(props) {
 
@@ -12,6 +14,8 @@ function Post(props) {
   const [showOptions, setShowOptions] = useState(false)
 
   const userId = useSelector(state => state.user.userId)
+
+  console.log('here are the props ==> ', props.value.post_id)
 
   return(
     <div className="Post">
@@ -31,8 +35,8 @@ function Post(props) {
           }
           {showOptions ? 
             <div>
-              <button>Edit</button>
-              <button>delete</button>
+              <PostEditButton post_id={props.value.post_id} getPosts={props.getPosts}/>
+              <PostDeleteButton post_id={props.value.post_id} getPosts={props.getPosts}/>
             </div>
           :
             null
