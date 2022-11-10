@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-function CreatePost(props) {
+function PostAddButton(props) {
   
   const [postInput, setPostInput] = useState('')
 
@@ -18,7 +18,7 @@ function CreatePost(props) {
     setPostInput('')
   }
   return(
-    <div className="CreatePost">
+    <div className="PostAddButton">
       <header>
         <h4>Create a Post</h4>
       </header>
@@ -34,4 +34,4 @@ function CreatePost(props) {
   )
 }
 
-export default CreatePost
+export default PostAddButton

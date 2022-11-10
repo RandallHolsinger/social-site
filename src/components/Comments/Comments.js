@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Comments.scss'
-import CreateComment from '../CreateComment/CreateComment'
+import CommentsAddButton from '../CommentAddButton/CommentAddButton'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
 
@@ -31,7 +31,7 @@ function Comments(props) {
   return(
     <div className="Comments">
       <section>
-        <CreateComment post_id={props.post_id} getComments={getComments}/>
+        <CommentsAddButton post_id={props.post_id} getComments={getComments}/>
         {mappedComments}
       </section>
     </div>

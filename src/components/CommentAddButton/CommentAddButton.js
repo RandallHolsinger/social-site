@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 
-function CreateComment(props) {
+function CommentAddButton(props) {
 
   const [commentInput, setCommentInput] = useState('')
 
@@ -19,7 +19,7 @@ function CreateComment(props) {
   }
 
   return(
-    <div className="CreateComment">
+    <div className="CommentAddButton">
       <section>
         <input 
           type="text"
@@ -34,4 +34,4 @@ function CreateComment(props) {
   )
 }
 
-export default CreateComment
+export default CommentAddButton

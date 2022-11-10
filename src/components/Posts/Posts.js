@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './Posts.scss'
 import Post from '../Post/Post'
-import CreatePost from '../CreatePost/CreatePost'
+import PostAddButton from "../PostAddButton/PostAddButton";
 
 
 function Posts() {
@@ -31,7 +31,7 @@ function Posts() {
   return(
     <div className="Posts">
       <section>
-        <CreatePost getPosts={getAllPosts}/>
+        <PostAddButton getPosts={getAllPosts}/>
         {mappedPosts}
       </section>
     </div>
