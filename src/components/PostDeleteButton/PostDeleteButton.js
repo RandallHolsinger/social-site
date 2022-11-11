@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { getAllPosts } from '../../../server/controllers/posts'
+
 
 function PostDeleteButton(props) {
 
@@ -8,7 +8,7 @@ function PostDeleteButton(props) {
     const {post_id, getPosts} = props
     try {
       await axios.delete(`/api/post/delete/${post_id}`)
-      getAllPosts()
+      getPosts()
     } catch(err) {
       console.log(err)
     }
@@ -16,7 +16,7 @@ function PostDeleteButton(props) {
 
   return(
     <div className="PostDeleteButton">
-      <button onClick={() => {deletePost}}>Delete Post</button>
+      <button onClick={() => {deletePost()}}>Delete Post</button>
     </div>
   )
 }

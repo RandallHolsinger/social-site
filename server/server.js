@@ -74,9 +74,6 @@ app.delete('/api/user/delete/:user_id', ctrlUsers.deleteUser)
 // Add Post
 app.post('/api/post/add', ctrlPosts.addPost)
 
-// Delete Post
-app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)
-
 // Get All Posts
 app.get('/api/posts', ctrlPosts.getAllPosts)
 
@@ -85,6 +82,12 @@ app.get('/api/posts/user', ctrlPosts.getUserPosts)
 
 // Edit Post 
 app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
+
+// Delete Post
+app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)
+
+
+
 
 
 ///// Comment's Endpoints /////

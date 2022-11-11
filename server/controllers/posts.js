@@ -46,9 +46,10 @@ module.exports = {
   updatePost: async (req, res) => {
     const {post_id} = req.params
     const {data} = req.body
+    const db = req.app.get('db')
     try {
-      await db.update_post({post_id, data})
-      res.sendStatud(200)
+      await db.posts.update_post({post_id, data})
+      res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
     }

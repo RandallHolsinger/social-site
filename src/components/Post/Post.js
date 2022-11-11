@@ -15,7 +15,6 @@ function Post(props) {
 
   const userId = useSelector(state => state.user.userId)
 
-  console.log('here are the props ==> ', props.value.post_id)
 
   return(
     <div className="Post">
@@ -35,7 +34,7 @@ function Post(props) {
           }
           {showOptions ? 
             <div>
-              <PostEditButton post_id={props.value.post_id} getPosts={props.getPosts}/>
+              <PostEditButton post={props.value} getPosts={props.getPosts}/>
               <PostDeleteButton post_id={props.value.post_id} getPosts={props.getPosts}/>
             </div>
           :

@@ -5,12 +5,16 @@ function PostEditButton(props) {
  
   const [showEditPost, setShowEditPost] = useState(false)
   const [editPostInput, seEditPostInput] = useState('')
+
+  const {post, getPosts} = props
   
   const editPost = async () => {
-     const {post_id, getPosts} = props
+    const {post_id} = post
+    const data = editPostInput
      try {
-      await axios.put(`/api/post/edit/${post_id}`)
+      await axios.put(`/api/post/edit/${post_id}`, {data})
       getPosts()
+      setShowEditPost(false)
      } catch(err) {
       console.log(err)
      }
@@ -22,12 +26,14 @@ function PostEditButton(props) {
       {showEditPost ? 
         <div className="post-editor">
           {/* find a way yo get the message into text area to edit the text  */}
-          <textarea
-            onChange={(e) => setEditPostInput(e.target.value)}
-            placeholder='Post Edit'
+          <textarea 
+            onChange={(e) => seEditPostInput(e.target.value)} 
+            defaultValue={post.post}
           />
           <button onClick={() => editPost()}>Save</button>
         </div> 
+        :
+        null
      }
     </div>
   )
