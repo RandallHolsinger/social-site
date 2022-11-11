@@ -86,10 +86,6 @@ app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
 // Delete Post
 app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)
 
-
-
-
-
 ///// Comment's Endpoints /////
 
 // Add Comment

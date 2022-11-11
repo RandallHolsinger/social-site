@@ -20,7 +20,7 @@ function Comments(props) {
 
   let mappedComments = comments.map(comment => {
     return(
-      <Comment key={comment.comment_id} value={comment} />
+      <Comment key={comment.comment_id} value={comment} getComments={getComments}/>
     )
   })
 

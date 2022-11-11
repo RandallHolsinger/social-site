@@ -5,6 +5,8 @@ import { faThumbsUp, faThumbsDown, faEllipsis} from '@fortawesome/free-solid-svg
 import { useSelector } from 'react-redux'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
+import CommentDeleteButton from '../CommentDeleteButton/CommentDeleteButton'
+import CommentEditButton from '../CommentEditButton/CommentEditButton'
 
 function Comment(props) {
   
@@ -33,8 +35,8 @@ function Comment(props) {
           }
           {showOptions ? 
             <div>
-              <button>Edit</button>
-              <button>Delete</button>
+              <CommentEditButton comment={props.value} getComments={props.getComments} />
+              <CommentDeleteButton comment_id={props.value.comment_id} getComments={props.getComments} />
             </div> 
           : 
             null
