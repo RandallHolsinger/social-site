@@ -1,0 +1,8 @@
+.Message Article {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 80%;
+}
+
+/*# sourceMappingURL=Message.css.map */

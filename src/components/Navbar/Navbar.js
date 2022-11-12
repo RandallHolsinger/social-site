@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faEnvelope, faCommentDots, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import './Navbar.scss'
 import Logout from '../Logout/Logout'
+import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
 
 function Navbar() {
 
@@ -35,8 +36,13 @@ function Navbar() {
   return(
     <div className={showNav ? 'Navbar' : 'hide-nav'}>
       <nav>
-        <Link to={'/Friends'} className='mobile-nav-icons'><span><FontAwesomeIcon icon={faUserGroup}/></span></Link>
-        <Link to={'/MessageInbox'} className='mobile-nav-icons'><span><FontAwesomeIcon icon={faEnvelope}/></span></Link>
+        <Link to={'/Friends'} className='mobile-nav-icons'>
+          <span><FontAwesomeIcon icon={faUserGroup}/></span>
+          <FriendsNotificationBubble />
+        </Link>
+        <Link to={'/MessageInbox'} className='mobile-nav-icons'>
+          <span><FontAwesomeIcon icon={faEnvelope}/></span>
+        </Link>
         <span><FontAwesomeIcon icon={faCommentDots} /></span>
         <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 

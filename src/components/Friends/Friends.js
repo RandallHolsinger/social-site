@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import Search from '../Search/Search'
+import Navbar from '../Navbar/Navbar'
 import Friend from '../Friend/Friend'
 
 function Friends() {
@@ -27,7 +29,9 @@ function Friends() {
 
   return (
     <div className="Friends">
-      {mappedFriends}
+      <Search />
+        {mappedFriends}
+      <Navbar />
     </div>
   )
 }

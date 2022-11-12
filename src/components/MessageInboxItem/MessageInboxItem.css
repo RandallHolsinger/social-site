@@ -1,3 +1,9 @@
-
+.MessageInboxItem article {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: auto;
+  border: 1px solid aquamarine;
+}
 
 /*# sourceMappingURL=MessageInboxItem.css.map */
