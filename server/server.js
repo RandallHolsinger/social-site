@@ -4,6 +4,10 @@ const express = require('express')
 const app = express()
 const massive = require('massive')
 const session = require('express-session')
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io')(server)
+const cors = require('cors')
 const pg = require('pg')
 const pgSession = require('connect-pg-simple')(session)
 const ctrlAuth = require('./controllers/auth')
@@ -15,6 +19,7 @@ const ctrlMessages = require('./controllers/messages')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
+app.use(cors())
 app.use(express.json())
 
 const pgPool = new pg.Pool({
@@ -36,7 +41,7 @@ app.use(session({
 massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
   console.log('You are Connected to the Database')
-  app.listen(SERVER_PORT, () => console.log(`Listening On Server Port#: ${SERVER_PORT}`))
+  server.listen(SERVER_PORT, () => console.log(`Listening On Server Port#: ${SERVER_PORT}`))
 })
 
 ///// Authentication Endpoints /////
@@ -137,6 +142,21 @@ app.get('/api/messages', ctrlMessages.getMessages)
 
 // Get Message 
 app.get('/api/message/:message_id', ctrlMessages.getMessage)
+
+//Socket.io connects
+
+app.get('/api', (req, res) => {
+  res.json({
+    message: 'Hello world',
+  });
+});
+
+io.on('connection', (socket) => {
+  console.log(`⚡: ${socket.id} user just connected!`);
+  socket.on('disconnect', () => {
+    console.log('🔥: A user disconnected');
+  });
+});
 
 
 
