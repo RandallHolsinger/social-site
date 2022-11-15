@@ -6,11 +6,13 @@ import { faBars, faEnvelope, faCommentDots, faUserGroup } from '@fortawesome/fre
 import './Navbar.scss'
 import Logout from '../Logout/Logout'
 import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
+import Messenger from '../Messenger/Messenger'
 
 function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false)
   const [showNav, setShowNav] = useState(true)
+  const [showMessenger, setShowMessenger] = useState(true) // change back to false
   
   const firstName = useSelector(state => state.user.firstName)
   const lastName = useSelector(state => state.user.lastName)
@@ -35,6 +37,7 @@ function Navbar() {
 
   return(
     <div className={showNav ? 'Navbar' : 'hide-nav'}>
+      {showMessenger ? <Messenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
         <Link to={'/Friends'} className='mobile-nav-icons'>
           <span><FontAwesomeIcon icon={faUserGroup}/></span>
@@ -43,7 +46,7 @@ function Navbar() {
         <Link to={'/MessageInbox'} className='mobile-nav-icons'>
           <span><FontAwesomeIcon icon={faEnvelope}/></span>
         </Link>
-        <span><FontAwesomeIcon icon={faCommentDots} /></span>
+        <span onClick={() => setShowMessenger(true)} ><FontAwesomeIcon icon={faCommentDots} /></span>
         <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 
           <ul>

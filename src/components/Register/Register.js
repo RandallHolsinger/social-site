@@ -5,7 +5,7 @@ import { updateUser } from '../../redux/slices/userSlice'
 import './Register.scss'
 import axios from 'axios'
 
-function Register() {
+function Register(props) {
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -92,7 +92,7 @@ function Register() {
 
   const registerUser = async (event) => {
     event.preventDefault()
-    console.log('hit')
+    const {socket} = props
     let validForm = validFirstName && validLastName && validEmail && validConfirmEmail && validPassword
     if(validForm) {
       try {

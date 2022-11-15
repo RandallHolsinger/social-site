@@ -1,0 +1,30 @@
+.Messenger {
+  background-color: #1b1818;
+  padding: 10px;
+  width: 90%;
+  height: 80%;
+  color: #fff;
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -20px);
+  z-index: 99;
+  .sidebar-container {
+    padding: 10px;
+  }
+  .message-interface {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    display: flex;
+    span {
+      width: 40px;
+      height: 20px;
+      position: absolute;
+      top: 5px;
+      right: 5px; 
+    }
+  }
+}

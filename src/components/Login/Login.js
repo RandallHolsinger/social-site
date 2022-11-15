@@ -6,7 +6,8 @@ import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
 import './Login.scss'
 
-function Login() {
+function Login(props) {
+
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -21,6 +22,7 @@ function Login() {
 
   const login = async (event) => {
     event.preventDefault()
+    const {socket} = props
     try {
       console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
@@ -31,6 +33,10 @@ function Login() {
       clearInputs()
     }
   }
+
+  props.socket.onAny((event, ...args) => {
+    console.log('socket event =>', event,'args here =>', args);
+  });
 
   return (
     <div className='Login'>

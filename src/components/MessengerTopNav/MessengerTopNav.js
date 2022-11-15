@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import './MessengerSidebar.scss'
+import './MessengerTopNav.scss'
 import axios from 'axios'
-import userEvent from '@testing-library/user-event'
 
-function MessengerSidebar(props) {
+function MessengerTopNav(props) {
 
   const [messengerFriendList, setmessengerFriendList] = useState([])
   const [selectedFriend, setSelectedFriend] = useState(0)
@@ -31,12 +30,10 @@ function MessengerSidebar(props) {
   })
 
   return(
-    <div className="MessengerSidebar">
-      <h2>Messenger</h2>
-      <h4>Active Users</h4>
+    <div className="MessengerTopNav">
       {mappedmessengerFriendList}
     </div>
   )
 }
 
-export default MessengerSidebar 
+export default MessengerTopNav 
