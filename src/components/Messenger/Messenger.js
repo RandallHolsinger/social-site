@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import './Messenger.scss'
 // import MessengerSidebar from '../MessengerSidebar/MessengerSidebar'
 import MessengerTopNav from '../MessengerTopNav/MessengerTopNav'
 import MessengerInput from '../MessengerInput/MessengerInput'
 import MessengerContent from '../MessengerContent/MessengerContent'
 import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
+const socket = socketIO.connect('http://localhost:3000/');
 
 
 function Messenger(props) {
   
   const {setShowMessenger} = props
   
-  useEffect(() => {
-
-  }, [])
   
   return(
     <div className="Messenger">
-      <MessengerTopNav socket={socket} />
+      {/* <MessengerTopNav socket={socket} /> */}
       <div className="sidebar-container">
         {/* <MessengerSidebar socket={socket}/>  */}
       </div>

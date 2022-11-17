@@ -5,7 +5,6 @@ import axios from 'axios'
 function MessengerTopNav(props) {
 
   const [messengerFriendList, setmessengerFriendList] = useState([])
-  const [selectedFriend, setSelectedFriend] = useState(0)
   
   const getmessengerFriendList = async () => {
     try {

@@ -1,28 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 
 function MessengerInput(props) {
 
- const [messengerInput, setMessengerInput] = useState('')
-
- const sendMessage = (e) => {
-  e.preventDefault()
-  const {socket} = props
-  if(messengerInput.trim && localStorage.getItem('user')) {
+  const { socket } = props
+  
+  const [message, setMessage] = useState('')
+ 
+  const sendMessage = (e) => {
+   e.preventDefault()
+   if (message.trim() && localStorage.getItem('userId')) {
+    console.log('hitting if')
     socket.emit('message', {
-      text: messengerInput,
-      name: localStorage.getItem('user'),
-      id: socket.id,
-      socketID: socket.id
-    })
+      text: message,
+      userId: localStorage.getItem('userId'),
+      firstName: localStorage.getItem('firstName'),
+      lastName: localStorage.getItem('lastName'),
+      id: `${socket.id}${Math.random()}`,
+      socketID: socket.id,
+    });
+   }
+   setMessage('')
   }
-  setMessengerInput('')
- }
+ 
 
   return(
     <div className="MessengerInput">
       <form onSubmit={(e) => sendMessage(e)}>
-        <input type="text" />
-        <button>Send</button>
+        <input
+          type='text'
+          value={message}
+          placeholder='Write Message'
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button onClick={(e) => sendMessage(e)}>Send</button>
       </form>
     </div>
   )

@@ -48,12 +48,6 @@ massive(CONNECTION_STRING).then(db => {
   server.listen(SERVER_PORT, () => console.log(`Listening On Server Port#: ${SERVER_PORT}`))
 })
 
-io.on('connection', (socket) => {
-  console.log(`⚡: ${socket.id} user just connected!`);
-  socket.on('disconnect', () => {
-    console.log('🔥: A user disconnected');
-  });
-});
 
 
 ///// Authentication Endpoints /////
@@ -157,19 +151,18 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 //Socket.io connects
 
+
 io.on('connection', (socket) => {
-  console.log(`⚡: ${socket.id} user just connected!`);
+  console.log(`${socket.id} user just connected...`)
+  socket.on('message', (data) => {
+    console.log('hit')
+    io.emit('messageResponse', data)
+  })
+  socket.on('disconnect', () => {
+    console.log('user disconnected...')
+  })
+})
 
-  //Listens and logs the message to the console
-  io.on('message', (data) => {
-    io.emit('messageResponse', data);
-    console.log(data)
-  });
-
-  io.on('disconnect', () => {
-    console.log('🔥: A user disconnected');
-  });
-});
 
 
 

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import './Login.scss'
 
 function Login(props) {
@@ -14,6 +15,9 @@ function Login(props) {
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const socketUserId = useSelector(state => state.user.userId)
+  const socketFirstName = useSelector(state => state.user.firstName)
+  const socketLastName = useSelector(state => state.user.lastName)
 
   const clearInputs = () => {
     setEmail('')
@@ -22,21 +26,19 @@ function Login(props) {
 
   const login = async (event) => {
     event.preventDefault()
-    const {socket} = props
     try {
       console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
       dispatch(updateUser(res.data))
+      localStorage.setItem('userId', socketUserId)
+      localStorage.setItem('firstName', socketFirstName)
+      localStorage.setItem('lastName', socketLastName)
       navigate("/home")
     } catch(err) {
       console.log(err)
       clearInputs()
     }
   }
-
-  props.socket.onAny((event, ...args) => {
-    console.log('socket event =>', event,'args here =>', args);
-  });
 
   return (
     <div className='Login'>

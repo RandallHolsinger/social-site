@@ -11,6 +11,9 @@ function Logout() {
 
   const logout = () => {
     axios.post('/auth/user/logout')
+    localStorage.removeItem('userId')
+    localStorage.removeItem('firstName')
+    localStorage.removeItem('lastName')
     dispatch(clearUser())
     navigate("/")
   }

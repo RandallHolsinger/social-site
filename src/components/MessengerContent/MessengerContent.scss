@@ -1,0 +1,38 @@
+.MessengerContent {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  .messenger-message-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    padding-top: 10px;
+    overflow: scroll;
+    .message-chat {
+      height: auto;
+      width: 100%;
+      .message-sender {
+        background-color: #147b6d;
+        width: auto;
+        float: left;
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 5px;
+      }
+      .recipient-container {
+        float: right;
+        .recipient-name {
+          margin-right: 10px;
+        }
+        .message-recipient {
+          padding: 10px;
+          background-color: #136eb9;
+          border-radius: 10px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

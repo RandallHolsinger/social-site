@@ -1,41 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './MessengerContent.scss'
 
 function MessengerContent(props){
 
-  const leaveChat = () => {
-    const {setShowMessenger} = props
-    localStorage.removeItem('user');
-    setShowMessenger(false)
-    //maybe set reload to clean
-  }
+  const {socket, setShowMessenger} = props
 
+  const [messages, setMessages] = useState([])
+  
+
+  useEffect(() => {
+    socket.on('messageResponse', ( data ) => setMessages([...messages, data]))
+    console.log('messages ==>', messages)
+   }, [socket, messages])
+  
   return(
     <div className="MessengerContent">
       <header>
-        <button onClick={() => leaveChat()}>Close Chat</button>
+        <button onClick={() => setShowMessenger(false)}>Close Chat</button>
       </header>
-      {/* sender messages */}
-      <div className="messenger-message-container">
-        <div className="message-chat">
-          <p>sender name</p>
-          <div className="messenger-sender">
-            <p>Im the sender message</p>
-          </div>
+      <div className='messenger-message-container'>
+        {messages.map((message) =>
+          message.userId === localStorage.getItem('userId') ? (
+            <div className='message-chat' key={message.id}>
+              <p className='sender-name'>You</p>
+              <div className="message-sender">
+                <p>{message.text}</p>
+              </div>
+            </div>
+          ) : (
+            <div className='message-chat' key={message.id}>
+              <div className="recipient-container">
+                  <p className='recipient-name'>{message.firstName}{' '}{message.lastName}</p>
+                <div className='message-recipient'>
+                  <p>{message.text}</p>
+                </div>
+              </div>
+            </div>
+          )
+        )}
+
+        <div className="message__status">
+          <p>Someone is typing...</p>
         </div>
-      </div>
-      {/* rrecipient messages  */}
-      <div className="messenger-message-container">
-        <div className="message-chat">
-          <p>recieving name</p>
-          <div className="messenger-recipient">
-            <p>these are the messages to you!</p>
-          </div>
-        </div>
-      </div>
-      {/* Triggered when user is typing */}
-      <div className="typing-status">
-        <p>Someone is typing...</p>
       </div>
     </div>
   )
