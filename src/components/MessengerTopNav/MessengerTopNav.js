@@ -4,20 +4,28 @@ import axios from 'axios'
 
 function MessengerTopNav(props) {
 
-  const [messengerFriendList, setmessengerFriendList] = useState([])
+  const {socket} = props
+
+  const [messengerFriendList, setMessengerFriendList] = useState([])
   
-  const getmessengerFriendList = async () => {
+  const getMessengerFriendList = async () => {
+    console.log('hitting function')
     try {
       let res = await axios.get('/api/friends')
-      setmessengerFriendList(res.data)
+      setMessengerFriendList(res.data)
     } catch(err) {
       console.log(err)
     }
   }
 
+  const checkOnlineStatus = () => {
+      console.log('sending friends to server now!!!', messengerFriendList[0])
+        socket.emit('checkOnlineStatus', messengerFriendList)
+  }
+  
   
   useEffect(() => {
-    getmessengerFriendList()
+    getMessengerFriendList()
   }, [])
 
   let mappedmessengerFriendList = messengerFriendList.map(messengerFriend => {

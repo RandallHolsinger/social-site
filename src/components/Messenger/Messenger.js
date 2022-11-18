@@ -15,7 +15,7 @@ function Messenger(props) {
   
   return(
     <div className="Messenger">
-      {/* <MessengerTopNav socket={socket} /> */}
+      <MessengerTopNav socket={socket} />
       <div className="sidebar-container">
         {/* <MessengerSidebar socket={socket}/>  */}
       </div>

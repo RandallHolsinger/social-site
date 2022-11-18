@@ -20,6 +20,7 @@ const ctrlFriends = require('./controllers/friends')
 const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
+const { createSocket } = require('dgram')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
@@ -30,17 +31,21 @@ const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
 })
 
-app.use(session({
+const sessionMiddleware =  session({
   store: new pgSession({
     pool: pgPool
   }),
   secret: SESSION_SECRET,
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
     maxAge: 8 * 60 * 60 * 1000
   }
-}))
+})
+
+app.use(sessionMiddleware)
+const wrap = middleware => (socket, next) => middleware(socket.request, {}, next)
+io.use(wrap(sessionMiddleware))
 
 massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
@@ -153,10 +158,20 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 
 io.on('connection', (socket) => {
+  const req = socket.request
   console.log(`${socket.id} user just connected...`)
   socket.on('message', (data) => {
-    console.log('hit')
     io.emit('messageResponse', data)
+    req.session.reload((err) => {
+      if (err) {
+        return socket.disconnect();
+      }
+      req.session.count++;
+      req.session.save();
+    });
+  })
+  socket.on('checkOnlineStatus', friends => {
+    console.log('here are the friendslist => ', friends)
   })
   socket.on('disconnect', () => {
     console.log('user disconnected...')

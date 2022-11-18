@@ -12,7 +12,7 @@ function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false)
   const [showNav, setShowNav] = useState(true)
-  const [showMessenger, setShowMessenger] = useState(true) // change back to false
+  const [showMessenger, setShowMessenger] = useState(false)
   
   const firstName = useSelector(state => state.user.firstName)
   const lastName = useSelector(state => state.user.lastName)
