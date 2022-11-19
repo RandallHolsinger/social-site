@@ -20,7 +20,6 @@ const ctrlFriends = require('./controllers/friends')
 const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
-const { createSocket } = require('dgram')
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
@@ -43,10 +42,12 @@ const sessionMiddleware =  session({
   }
 })
 
+//Middlware to attach express session to the socket session
 app.use(sessionMiddleware)
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next)
 io.use(wrap(sessionMiddleware))
 
+//connects to the 
 massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
   console.log('You are Connected to the Database')
@@ -156,7 +157,6 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 //Socket.io connects
 
-
 io.on('connection', (socket) => {
   const req = socket.request
   console.log(`${socket.id} user just connected...`)
@@ -170,11 +170,15 @@ io.on('connection', (socket) => {
       req.session.save();
     });
   })
+  //logic to check online status
   socket.on('checkOnlineStatus', friends => {
     console.log('here are the friendslist => ', friends)
+    socket.id = friends.user_id
+    socket.emit('onlineStatus', friends)
   })
   socket.on('disconnect', () => {
     console.log('user disconnected...')
+    delete onlineUsers[socket.id]
   })
 })
 

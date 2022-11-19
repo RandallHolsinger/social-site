@@ -1,9 +1,9 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 
 function MessengerInput(props) {
 
   const { socket } = props
-  
+
   const [message, setMessage] = useState('')
  
   const sendMessage = (e) => {
