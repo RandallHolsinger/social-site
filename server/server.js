@@ -173,8 +173,15 @@ io.on('connection', (socket) => {
   //logic to check online status
   socket.on('checkOnlineStatus', friends => {
     console.log('here are the friendslist => ', friends)
-    socket.id = friends.user_id
-    socket.emit('onlineStatus', friends)
+    const onlineUsers = []
+    for (let [id, socket] of io.of("/").sockets) {
+      console.log('this object =>', io.of("/").sockets)
+    onlineUsers.push({
+      userID: id,
+      username: socket.username,
+    });
+  }
+  socket.emit("onlineUsers", onlineUsers);
   })
   socket.on('disconnect', () => {
     console.log('user disconnected...')
