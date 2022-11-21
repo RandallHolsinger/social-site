@@ -18,10 +18,17 @@ function Login(props) {
   const socketUserId = useSelector(state => state.user.userId)
   const socketFirstName = useSelector(state => state.user.firstName)
   const socketLastName = useSelector(state => state.user.lastName)
-
+  
   const clearInputs = () => {
     setEmail('')
     setPassword('')
+  }
+
+  const setLocalStorageForSocket = () => {
+    const {socket} = props
+    localStorage.setItem('userId', socketUserId)
+    localStorage.setItem('firstName', socketFirstName)
+    localStorage.setItem('lastName', socketLastName)
   }
 
   const login = async (event) => {
@@ -30,9 +37,7 @@ function Login(props) {
       console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
       dispatch(updateUser(res.data))
-      localStorage.setItem('userId', socketUserId)
-      localStorage.setItem('firstName', socketFirstName)
-      localStorage.setItem('lastName', socketLastName)
+      setLocalStorageForSocket()
       navigate("/home")
     } catch(err) {
       console.log(err)

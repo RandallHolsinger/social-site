@@ -138,6 +138,9 @@ app.get('/api/friends', ctrlFriends.getAllFriends)
 //Check FriendStatus
 app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
 
+//Get Friends List
+app.get('/api/friends/list', ctrlFriends.getFriendsList)
+
 ///// Messages Endpoints /////
 
 // Get Messaging Inbox
@@ -157,35 +160,22 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 //Socket.io connects
 
+const onlineFriends = []
 io.on('connection', (socket) => {
-  const req = socket.request
   console.log(`${socket.id} user just connected...`)
   socket.on('message', (data) => {
     io.emit('messageResponse', data)
-    req.session.reload((err) => {
-      if (err) {
-        return socket.disconnect();
-      }
-      req.session.count++;
-      req.session.save();
-    });
   })
   //logic to check online status
-  socket.on('checkOnlineStatus', friends => {
-    console.log('here are the friendslist => ', friends)
-    const onlineUsers = []
-    for (let [id, socket] of io.of("/").sockets) {
-      console.log('this object =>', io.of("/").sockets)
-    onlineUsers.push({
-      userID: id,
-      username: socket.username,
-    });
-  }
-  socket.emit("onlineUsers", onlineUsers);
+  socket.on('checkOnlineStatus', (friends) => {
+    friends.map(friend => {
+          console.log('online friends ===>', onlineFriends)
+
+    })
+    socket.emit('onlineStatus', onlineFriends) 
   })
   socket.on('disconnect', () => {
     console.log('user disconnected...')
-    delete onlineUsers[socket.id]
   })
 })
 

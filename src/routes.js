@@ -11,8 +11,8 @@ const socket = socketIO.connect('http://localhost:3000/');
 
 export default (
   <Routes>
-    <Route path="/" element={<Login />} />
-    <Route path="/Register" element={<Register />} />
+    <Route path="/" element={<Login socket={socket}/>} />
+    <Route path="/Register" element={<Register socket={socket}/>} />
     <Route path="/Home" element={<Home />} />
     <Route path="/PersonalProfile" element={<PersonalProfile />} />
     <Route path="/Profiles" element={<Profiles />} />

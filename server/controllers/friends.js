@@ -57,6 +57,17 @@ module.exports = {
     } catch(err) {
       res.status(500).send(err)
     }
-  }
+  },
+
+  getFriendsList: async (req, res) => {
+    const db = req.app.get('db')
+    const {user_id} = req.session.user
+    try {
+      let friendsList = await db.friends.get_friends_list({user_id})
+      res.status(200).send(friendsList)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  } 
 
 }
