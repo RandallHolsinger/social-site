@@ -4,7 +4,7 @@ import { clearUser } from '../../redux/slices/userSlice'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:3000/');
+const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
 
 function Logout() {
   
@@ -15,10 +15,7 @@ function Logout() {
     localStorage.removeItem('userId')
     localStorage.removeItem('firstName')
     localStorage.removeItem('lastName')
-    socket.on('disconnect', () => {
-      
-    })
-    
+    socket.disconnect()
   }
 
   const logout = () => {

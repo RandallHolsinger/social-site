@@ -161,23 +161,41 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 //Socket.io connects
 
 const onlineFriends = []
+const onlineUsers = []
+// try mapping over online users array and in if condition push online user into online friends array.
 io.on('connection', (socket) => {
   console.log(`${socket.id} user just connected...`)
+  socket.on('login', data => {
+    console.log('data from client login ==>', data)
+    onlineUsers.push([...onlineUsers, data])
+    console.log('online users ==>', onlineUsers)
+  })
   socket.on('message', (data) => {
     io.emit('messageResponse', data)
   })
   //logic to check online status
-  socket.on('checkOnlineStatus', (friends) => {
-    friends.map(friend => {
-          console.log('online friends ===>', onlineFriends)
-
-    })
+  socket.on('checkOnlineStatus', friends => {
+    console.log('hitting ====>', friends)
+    console.log('online users =====>', onlineUsers)
+    onlineUsers.map( user => {
+          friends.map(friend => {
+            console.log('each friend')
+            if(user.userId === friend.user_id) {
+              onlineFriends.push([...onlineFriends, user])
+            }
+          })
+          console.log('Friends that are online ==>', onlineFriends)
+          socket.emit('onlineStatus', onlineFriends)
+      })
     socket.emit('onlineStatus', onlineFriends) 
-  })
+    })
   socket.on('disconnect', () => {
     console.log('user disconnected...')
+    // onlineUsers = onlineUsers.filter((user) => user.socketID !== socket.id);
+    socket.disconnect()
   })
 })
+
 
 
 

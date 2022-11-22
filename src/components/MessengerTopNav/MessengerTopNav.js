@@ -7,33 +7,37 @@ function MessengerTopNav(props) {
   const {socket} = props
 
   const [messengerFriendList, setMessengerFriendList] = useState([])
-  const [friendsListUpdated, setFriendsListUpdate] = useState(false)
   const [onlineFriends, setOnlineFriends] = useState([])
+  const [friendsListUpdated, setFriendsListUpdated] = useState(false)
   
   const getMessengerFriendList = async () => {
-    console.log('hitting function')
     try {
       let res = await axios.get('/api/friends/list')
       setMessengerFriendList(res.data)
-      setFriendsListUpdate(true)
+      setFriendsListUpdated(true)
+      console.log(messengerFriendList)
     } catch(err) {
       console.log(err)
     }
   }
 
   const checkOnlineStatus = () => {
-        console.log('sending friends to server now!!!', messengerFriendList[0])
-        socket.emit('checkOnlineStatus', messengerFriendList)
-        socket.on('onlineStatus', (onlineUsers) => {
-          setOnlineFriends(onlineUsers)
-        })
-        console.log('online friend here ==>', onlineFriends)
+    setFriendsListUpdated(true)
+    console.log('friend list being sent to server ==>', messengerFriendList)
+    socket.emit('checkOnlineStatus', {messengerFriendList})
+    socket.on('onlineStatus', (data) => {
+      console.log('online Friends are here ==>', data)
+      setOnlineFriends(data)
+    })
   }
 
   useEffect(() => {
-    getMessengerFriendList()
     checkOnlineStatus()
-  }, [friendsListUpdated, socket])
+  }, [messengerFriendList])
+
+  useEffect(() => {
+    getMessengerFriendList()
+  }, [socket])
 
   let mappedOnlineFriends = onlineFriends.map(onlineFriend => {
     return (
@@ -43,7 +47,7 @@ function MessengerTopNav(props) {
     )
   })
 
-  console.log('here are your online friends ==>', onlineFriends)
+
   return(
     <div className="MessengerTopNav">
       {mappedOnlineFriends}

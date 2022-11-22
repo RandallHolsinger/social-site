@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './MessengerSidebar.scss'
 import axios from 'axios'
-import userEvent from '@testing-library/user-event'
 
 function MessengerSidebar(props) {
 

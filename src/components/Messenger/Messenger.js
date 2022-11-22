@@ -5,13 +5,17 @@ import MessengerTopNav from '../MessengerTopNav/MessengerTopNav'
 import MessengerInput from '../MessengerInput/MessengerInput'
 import MessengerContent from '../MessengerContent/MessengerContent'
 import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:3000/');
+import { useEffect } from 'react'
+const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
 
 
 function Messenger(props) {
   
   const {setShowMessenger} = props
-  
+
+  useEffect(() => {
+    socket.connect()
+  },[])
   
   return(
     <div className="Messenger">

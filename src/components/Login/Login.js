@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
@@ -9,9 +9,11 @@ import './Login.scss'
 
 function Login(props) {
 
+  const {socket} = props
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [reduxStateLoaded, setReduxStateLoaded] = useState(false)
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -25,7 +27,6 @@ function Login(props) {
   }
 
   const setLocalStorageForSocket = () => {
-    const {socket} = props
     localStorage.setItem('userId', socketUserId)
     localStorage.setItem('firstName', socketFirstName)
     localStorage.setItem('lastName', socketLastName)
@@ -36,7 +37,15 @@ function Login(props) {
     try {
       console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
-      dispatch(updateUser(res.data))
+      await dispatch(updateUser(res.data))
+      setReduxStateLoaded(true)
+      socket.connect()
+      socket.emit('login', {
+        userId: localStorage.getItem('userId'), 
+        firstName: localStorage.getItem('firstName') , 
+        lastName: localStorage.getItem('lastName'), 
+        socketID: socket.id
+      })
       setLocalStorageForSocket()
       navigate("/home")
     } catch(err) {
@@ -44,6 +53,12 @@ function Login(props) {
       clearInputs()
     }
   }
+  
+  useEffect(() => {
+    setLocalStorageForSocket()
+    console.log('i run once')
+  })
+
 
   return (
     <div className='Login'>

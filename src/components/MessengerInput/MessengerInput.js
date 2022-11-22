@@ -9,7 +9,6 @@ function MessengerInput(props) {
   const sendMessage = (e) => {
    e.preventDefault()
    if (message.trim() && localStorage.getItem('userId')) {
-    console.log('hitting if')
     socket.emit('message', {
       text: message,
       userId: localStorage.getItem('userId'),
