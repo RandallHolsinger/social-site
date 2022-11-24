@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { clearUser } from '../../redux/slices/userSlice'
 import { useNavigate } from 'react-router-dom'
@@ -12,15 +12,20 @@ function Logout() {
   const navigate = useNavigate()
 
   const deleteSocketInstance = () => {
+    console.log('hitting delete socket instance start')
     localStorage.removeItem('userId')
     localStorage.removeItem('firstName')
     localStorage.removeItem('lastName')
-    socket.disconnect()
+    socket.on('disconnect', () => {
+      console.log('hitting front end logout')
+      socket.disconnect()
+    })
+    console.log('hitting delete socket instance end')
   }
-
+  
   const logout = () => {
-    axios.post('/auth/user/logout')
     deleteSocketInstance()
+    axios.post('/auth/user/logout')
     dispatch(clearUser())
     navigate("/")
   }

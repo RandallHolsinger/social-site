@@ -13,7 +13,6 @@ function Login(props) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [reduxStateLoaded, setReduxStateLoaded] = useState(false)
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -32,21 +31,26 @@ function Login(props) {
     localStorage.setItem('lastName', socketLastName)
   }
 
+  const socketLogin = async () => {
+    socket.on('connect', () => {
+      console.log('client login socket id ==>', socket.id)
+    socket.emit('login', {
+      userId: localStorage.getItem('userId'), 
+      firstName: localStorage.getItem('firstName') , 
+      lastName: localStorage.getItem('lastName'), 
+      socketID: socket.id
+    })
+    })
+  }
+
   const login = async (event) => {
     event.preventDefault()
     try {
       console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
       await dispatch(updateUser(res.data))
-      setReduxStateLoaded(true)
       socket.connect()
-      socket.emit('login', {
-        userId: localStorage.getItem('userId'), 
-        firstName: localStorage.getItem('firstName') , 
-        lastName: localStorage.getItem('lastName'), 
-        socketID: socket.id
-      })
-      setLocalStorageForSocket()
+      socketLogin()
       navigate("/home")
     } catch(err) {
       console.log(err)
@@ -56,8 +60,7 @@ function Login(props) {
   
   useEffect(() => {
     setLocalStorageForSocket()
-    console.log('i run once')
-  })
+  }, [socketUserId])
 
 
   return (

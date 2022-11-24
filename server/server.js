@@ -160,38 +160,39 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 //Socket.io connects
 
-const onlineFriends = []
-const onlineUsers = []
+let onlineFriends = []
+let onlineUsers = []
+console.log(onlineUsers)
 // try mapping over online users array and in if condition push online user into online friends array.
 io.on('connection', (socket) => {
   console.log(`${socket.id} user just connected...`)
-  socket.on('login', data => {
-    console.log('data from client login ==>', data)
-    onlineUsers.push([...onlineUsers, data])
-    console.log('online users ==>', onlineUsers)
-  })
   socket.on('message', (data) => {
     io.emit('messageResponse', data)
   })
-  //logic to check online status
+  socket.on('login', data => {
+    onlineUsers.push(data)
+    console.log('login server person ==>', data)
+    console.log('online users array after login =>', onlineUsers)
+  })
   socket.on('checkOnlineStatus', friends => {
-    console.log('hitting ====>', friends)
-    console.log('online users =====>', onlineUsers)
+    console.log('friends list from client ==>', friends)
     onlineUsers.map( user => {
           friends.map(friend => {
-            console.log('each friend')
-            if(user.userId === friend.user_id) {
-              onlineFriends.push([...onlineFriends, user])
+            if(user.userId == friend.user_id) {
+              onlineFriends.push(user)
             }
           })
-          console.log('Friends that are online ==>', onlineFriends)
-          socket.emit('onlineStatus', onlineFriends)
-      })
+        })
+        console.log('messenger users online =>', onlineUsers)
+        console.log('Friends that are online ==>', onlineFriends)
+        socket.emit('onlineStatus', onlineFriends)
+    // change to friends to just recieve friends that are online
     socket.emit('onlineStatus', onlineFriends) 
     })
   socket.on('disconnect', () => {
-    console.log('user disconnected...')
-    // onlineUsers = onlineUsers.filter((user) => user.socketID !== socket.id);
+    console.log(`user: ${socket.id} disconnected...`)
+    onlineUsers = onlineUsers.filter((user) => user.socketID !== socket.id);
+    socket.emit('onlineStatus', onlineFriends) 
     socket.disconnect()
   })
 })
