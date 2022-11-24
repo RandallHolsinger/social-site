@@ -20,7 +20,7 @@ function Logout() {
       console.log('hitting front end logout')
       socket.disconnect()
     })
-    console.log('hitting delete socket instance end')
+    console.log('hitting delete socket instance start')
   }
   
   const logout = () => {

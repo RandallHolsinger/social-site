@@ -16,24 +16,22 @@ function Login(props) {
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const socketUserId = useSelector(state => state.user.userId)
-  const socketFirstName = useSelector(state => state.user.firstName)
-  const socketLastName = useSelector(state => state.user.lastName)
   
   const clearInputs = () => {
     setEmail('')
     setPassword('')
   }
 
-  const setLocalStorageForSocket = () => {
-    localStorage.setItem('userId', socketUserId)
-    localStorage.setItem('firstName', socketFirstName)
-    localStorage.setItem('lastName', socketLastName)
+  const setLocalStorageForSocket = (data) => {
+    console.log('data setting storage ==>', data)
+    localStorage.setItem('userId', data.user_id)
+    localStorage.setItem('firstName', data.first_name)
+    localStorage.setItem('lastName', data.last_name)
   }
 
   const socketLogin = async () => {
     socket.on('connect', () => {
-      console.log('client login socket id ==>', socket.id)
+    console.log('client login socket id ==>', socket.id)
     socket.emit('login', {
       userId: localStorage.getItem('userId'), 
       firstName: localStorage.getItem('firstName') , 
@@ -50,6 +48,7 @@ function Login(props) {
       let res = await axios.post('/auth/user/login', {email, password})
       await dispatch(updateUser(res.data))
       socket.connect()
+      setLocalStorageForSocket(res.data)
       socketLogin()
       navigate("/home")
     } catch(err) {
@@ -57,11 +56,6 @@ function Login(props) {
       clearInputs()
     }
   }
-  
-  useEffect(() => {
-    setLocalStorageForSocket()
-  }, [socketUserId])
-
 
   return (
     <div className='Login'>

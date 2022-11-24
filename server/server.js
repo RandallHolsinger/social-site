@@ -162,8 +162,7 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 let onlineFriends = []
 let onlineUsers = []
-console.log(onlineUsers)
-// try mapping over online users array and in if condition push online user into online friends array.
+
 io.on('connection', (socket) => {
   console.log(`${socket.id} user just connected...`)
   socket.on('message', (data) => {
@@ -175,19 +174,21 @@ io.on('connection', (socket) => {
     console.log('online users array after login =>', onlineUsers)
   })
   socket.on('checkOnlineStatus', friends => {
-    console.log('friends list from client ==>', friends)
     onlineUsers.map( user => {
-          friends.map(friend => {
-            if(user.userId == friend.user_id) {
-              onlineFriends.push(user)
-            }
+          friends.map( friend => {
+            console.log('hitting friend map')
+            onlineFriends.map( onlineFriend => {
+              console.log('hitting online friend')
+              if((user.userId == friend.user_id) && (user.userId != onlineFriend.userId)) {
+                console.log('hitting push user')
+                onlineFriends.push(user)
+              }
+            })
           })
         })
         console.log('messenger users online =>', onlineUsers)
         console.log('Friends that are online ==>', onlineFriends)
         socket.emit('onlineStatus', onlineFriends)
-    // change to friends to just recieve friends that are online
-    socket.emit('onlineStatus', onlineFriends) 
     })
   socket.on('disconnect', () => {
     console.log(`user: ${socket.id} disconnected...`)
