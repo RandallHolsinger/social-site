@@ -160,6 +160,8 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 //Socket.io connects
 
+//!!!!! problem online users have shared online friends that are online
+//because they share the same array
 let onlineFriends = []
 let onlineUsers = []
 
@@ -174,18 +176,26 @@ io.on('connection', (socket) => {
     console.log('online users array after login =>', onlineUsers)
   })
   socket.on('checkOnlineStatus', friends => {
-    onlineUsers.map( user => {
-          friends.map( friend => {
-            console.log('hitting friend map')
-            onlineFriends.map( onlineFriend => {
-              console.log('hitting online friend')
-              if((user.userId == friend.user_id) && (user.userId != onlineFriend.userId)) {
-                console.log('hitting push user')
-                onlineFriends.push(user)
-              }
-            })
-          })
-        })
+    onlineUsers.map( (user, index) => {
+      friends.map( friend => {
+        console.log('here is each friend', friend)
+          if(onlineFriends[0]) {
+            onlineFriends.forEach( onlineFriend => {
+            if((onlineFriend.userId !== user.userId) && (user.userId == friend.user_id)){
+              onlineFriends.push(user)
+            } else {
+              return null
+            }
+         })
+         } else {
+            if(user.userId == friend.user_id) {
+              onlineFriends.push(user)
+            } else {
+              return null
+            }
+        }
+      })
+    })
         console.log('messenger users online =>', onlineUsers)
         console.log('Friends that are online ==>', onlineFriends)
         socket.emit('onlineStatus', onlineFriends)
