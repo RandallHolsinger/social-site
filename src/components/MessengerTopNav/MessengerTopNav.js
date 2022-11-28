@@ -14,10 +14,11 @@ function MessengerTopNav(props) {
   const checkOnlineStatus = (friends) => {
     console.log('friend list being sent to server ==>', friends)
     socket.emit('checkOnlineStatus', friends)
-    socket.on('onlineStatus', (data) => {
-      console.log('online Friends are here ==>', data)
-      setOnlineFriends(data)
+    socket.on('onlineStatus', (friendsArr) => {
+      console.log('online Friends are here (client) ==>', friendsArr)
+      setOnlineFriends(friendsArr)
     })
+    console.log('list of online friend ==>', onlineFriends)
   }
 
   const getMessengerFriendList = async () => {
@@ -37,12 +38,12 @@ function MessengerTopNav(props) {
     console.log('online friend object ==>', onlineFriend)
     return (
       <div key={index} className="messenger-friend-container">
-      {onlineFriend.userId == userID ?
-         null
+        {onlineFriend.userId == userID ?
+          null
         :
-        <span>{onlineFriend.firstName}{' '}{onlineFriend.lastName}</span>
-      }
-        </div>
+          <span>{onlineFriend.firstName}{' '}{onlineFriend.lastName}</span>
+        }
+      </div>
     )
   })
 

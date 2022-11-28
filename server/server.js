@@ -162,7 +162,7 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 //!!!!! problem online users have shared online friends that are online
 //because they share the same array
-let onlineFriends = []
+
 let onlineUsers = []
 
 io.on('connection', (socket) => {
@@ -176,34 +176,20 @@ io.on('connection', (socket) => {
     console.log('online users array after login =>', onlineUsers)
   })
   socket.on('checkOnlineStatus', friends => {
-    onlineUsers.map( (user, index) => {
-      friends.map( friend => {
-        console.log('here is each friend', friend)
-          if(onlineFriends[0]) {
-            onlineFriends.forEach( onlineFriend => {
-            if((onlineFriend.userId !== user.userId) && (user.userId == friend.user_id)){
-              onlineFriends.push(user)
-            } else {
-              return null
-            }
-         })
-         } else {
-            if(user.userId == friend.user_id) {
-              onlineFriends.push(user)
-            } else {
-              return null
-            }
+    let onlineFriendsArray = []
+    onlineUsers.forEach( user => {
+      friends.forEach( friend => {
+        if(user.userId == friend.user_id) {
+          onlineFriendsArray.push(user)
         }
       })
     })
-        console.log('messenger users online =>', onlineUsers)
-        console.log('Friends that are online ==>', onlineFriends)
-        socket.emit('onlineStatus', onlineFriends)
+    socket.emit('onlineStatus', onlineFriendsArray)
     })
   socket.on('disconnect', () => {
     console.log(`user: ${socket.id} disconnected...`)
     onlineUsers = onlineUsers.filter((user) => user.socketID !== socket.id);
-    socket.emit('onlineStatus', onlineFriends) 
+    socket.emit('onlineStatus', user) 
     socket.disconnect()
   })
 })
