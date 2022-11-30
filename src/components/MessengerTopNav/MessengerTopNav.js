@@ -2,29 +2,29 @@ import React, { useState, useEffect } from 'react'
 import './MessengerTopNav.scss'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+import MessengerFriend from '../MessengerFriend/MessengerFriend'
 
 function MessengerTopNav(props) {
 
   const {socket} = props
-
+  
+  const [friendsList, setFriendsList] = useState([])
   const [onlineFriends, setOnlineFriends] = useState([])
   const userID = useSelector(state => state.user.userId)
   
   
   const checkOnlineStatus = (friends) => {
-    console.log('friend list being sent to server ==>', friends)
     socket.emit('checkOnlineStatus', friends)
     socket.on('onlineStatus', (friendsArr) => {
-      console.log('online Friends are here (client) ==>', friendsArr)
       setOnlineFriends(friendsArr)
     })
-    console.log('list of online friend ==>', onlineFriends)
   }
-
+  
   const getMessengerFriendList = async () => {
     try {
       let res = await axios.get('/api/friends/list')
       checkOnlineStatus(res.data)
+      setFriendsList(res.data)
     } catch(err) {
       console.log(err)
     }
@@ -34,23 +34,19 @@ function MessengerTopNav(props) {
     getMessengerFriendList()
   }, [])
 
-  let mappedOnlineFriends = onlineFriends.map((onlineFriend, index) => {
-    console.log('online friend object ==>', onlineFriend)
-    return (
-      <div key={index} className="messenger-friend-container">
-        {onlineFriend.userId == userID ?
-          null
-        :
-          <span>{onlineFriend.firstName}{' '}{onlineFriend.lastName}</span>
-        }
-      </div>
+  let mappedFriendChatList = friendsList.map(friend => {
+    return(
+      <MessengerFriend 
+        key={friend.friend_id}
+        value={friend}
+        status={onlineFriends.map(onlineFriend => onlineFriend.userId == friend.user_id ? 'online' : 'offline')}
+      />
     )
   })
 
-
   return(
     <div className="MessengerTopNav">
-      {mappedOnlineFriends}
+      {mappedFriendChatList}
     </div>
   )
 }
