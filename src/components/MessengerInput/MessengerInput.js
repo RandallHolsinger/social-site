@@ -20,6 +20,13 @@ function MessengerInput(props) {
    }
    setMessage('')
   }
+
+  const handleTyping = () => {
+    socket.emit('typing', `${localStorage.getItem('firstName')} ${localStorage.getItem('lastName')} is typing...`)
+    setTimeout(() => {
+      socket.emit('typing', '')
+    }, 3000)
+  }
  
 
   return(
@@ -30,6 +37,7 @@ function MessengerInput(props) {
           value={message}
           placeholder='Write Message'
           onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={handleTyping}
         />
         <button onClick={(e) => sendMessage(e)}>Send</button>
       </form>

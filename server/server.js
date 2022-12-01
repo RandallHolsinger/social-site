@@ -170,6 +170,7 @@ io.on('connection', (socket) => {
   socket.on('message', (data) => {
     io.emit('messageResponse', data)
   })
+  socket.on('typing', data => socket.broadcast.emit('typing response', data))
   socket.on('login', data => {
     onlineUsers.push(data)
     console.log('login server person ==>', data)

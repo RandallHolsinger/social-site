@@ -6,11 +6,18 @@ function MessengerContent(props){
   const {socket, setShowMessenger} = props
 
   const [messages, setMessages] = useState([])
+  const [typingStatus, setTypingStatus] = useState('')
   
 
   useEffect(() => {
     socket.on('messageResponse', ( data ) => setMessages([...messages, data]))
    }, [socket, messages])
+
+   useEffect(() => {
+    socket.on('typing response', data => {
+       setTypingStatus(data)
+    }, [socket])
+   })
   
   return(
     <div className="MessengerContent">
@@ -39,7 +46,7 @@ function MessengerContent(props){
         )}
 
         <div className="message__status">
-          <p>Someone is typing...</p>
+          <p>{typingStatus}</p>
         </div>
       </div>
     </div>

@@ -35,11 +35,12 @@ function MessengerTopNav(props) {
   }, [])
 
   let mappedFriendChatList = friendsList.map(friend => {
+    let found = onlineFriends.some(onlineFriend => onlineFriend.userId == friend.user_id)
     return(
       <MessengerFriend 
         key={friend.friend_id}
         value={friend}
-        status={onlineFriends.map(onlineFriend => onlineFriend.userId == friend.user_id ? 'online' : 'offline')}
+        status={found ? 'online' : 'offline'}
       />
     )
   })
