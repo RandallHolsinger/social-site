@@ -2,21 +2,21 @@ import React, { useState } from 'react'
 
 function MessengerInput(props) {
 
-  const { socket } = props
+  const {socket, selectedUser} = props
 
   const [message, setMessage] = useState('')
  
   const sendMessage = (e) => {
-   e.preventDefault()
-   if (message.trim() && localStorage.getItem('userId')) {
-    socket.emit('message', {
-      text: message,
-      userId: localStorage.getItem('userId'),
-      firstName: localStorage.getItem('firstName'),
-      lastName: localStorage.getItem('lastName'),
-      id: `${socket.id}${Math.random()}`,
-      socketID: socket.id,
-    });
+    e.preventDefault()
+    if (message.trim() && localStorage.getItem('userId')) {
+     socket.emit('message', {
+       text: message,
+       userId: localStorage.getItem('userId'),
+       firstName: localStorage.getItem('firstName'),
+       lastName: localStorage.getItem('lastName'),
+       targetSocketID: selectedUser.socketID,
+       socketID: socket.id,
+     });
    }
    setMessage('')
   }

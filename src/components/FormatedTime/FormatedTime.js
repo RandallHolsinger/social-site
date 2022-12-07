@@ -2,7 +2,7 @@ import React from 'react'
 
 function FormatedTime(props) {
   
-  const timestamp = new Date(props.date)
+  const timestamp = new Date(props.time)
   const newTime = timestamp.toLocaleTimeString()
   
   return(

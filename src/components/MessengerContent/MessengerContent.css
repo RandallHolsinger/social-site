@@ -15,26 +15,26 @@
 .MessengerContent .messenger-message-container .message-chat {
   height: auto;
   width: 100%;
+  clear: both;
 }
 .MessengerContent .messenger-message-container .message-chat .message-sender {
-  background-color: #147b6d;
-  width: auto;
-  float: left;
+  background-color: #136eb9;
+  float: right;
+  max-width: 50%;
   padding: 10px;
   border-radius: 10px;
-  margin-left: 5px;
-}
-.MessengerContent .messenger-message-container .message-chat .recipient-container {
-  float: right;
+  margin: 10px 5px 5px 5px;
 }
 .MessengerContent .messenger-message-container .message-chat .recipient-container .recipient-name {
   margin-right: 10px;
 }
 .MessengerContent .messenger-message-container .message-chat .recipient-container .message-recipient {
+  float: left;
+  max-width: 50%;
+  background-color: #147b6d;
   padding: 10px;
-  background-color: #136eb9;
   border-radius: 10px;
-  margin-right: 5px;
+  margin: 10px 5px 5px 5px;
 }
 
 /*# sourceMappingURL=MessengerContent.css.map */

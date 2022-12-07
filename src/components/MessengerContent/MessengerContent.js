@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './MessengerContent.scss'
+import FormatedTime from '../FormatedTime/FormatedTime'
+import FormatedDate from '../FormatedDate/FormatedDate'
 
 function MessengerContent(props){
 
@@ -11,6 +13,7 @@ function MessengerContent(props){
 
   useEffect(() => {
     socket.on('messageResponse', ( data ) => setMessages([...messages, data]))
+    console.log('here is the message state =>', messages)
    }, [socket, messages])
 
    useEffect(() => {
@@ -21,16 +24,14 @@ function MessengerContent(props){
   
   return(
     <div className="MessengerContent">
-      <header>
-        <button onClick={() => setShowMessenger(false)}>Close Chat</button>
-      </header>
       <div className='messenger-message-container'>
         {messages.map((message) =>
           message.userId === localStorage.getItem('userId') ? (
             <div className='message-chat' key={message.id}>
-              <p className='sender-name'>You</p>
-              <div className="message-sender">
-                <p>{message.text}</p>
+              <div className='sender-container'>
+                <div className="message-sender">
+                  <p>{message.text}</p>
+                </div>
               </div>
             </div>
           ) : (

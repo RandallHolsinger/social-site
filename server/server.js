@@ -7,6 +7,7 @@ const session = require('express-session')
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
+  pingTimeout: 8 * 60 * 60 * 1000,
   cors: {
     origin: 'http://localhost:3000/'
   }
@@ -158,24 +159,37 @@ app.get('/api/messages', ctrlMessages.getMessages)
 // Get Message 
 app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
-//Socket.io connects
-
-//!!!!! problem online users have shared online friends that are online
-//because they share the same array
-
 let onlineUsers = []
 
+//Socket.io connects
 io.on('connection', (socket) => {
-  console.log(`${socket.id} user just connected...`)
-  socket.on('message', (data) => {
-    io.emit('messageResponse', data)
+   console.log(`${socket.id} user just connected...`)
+   
+   socket.on('getOnlineUsers', (text) => {
+    console.log('server message =>', text)
+    socket.emit('onlineUsersList', onlineUsers)
+    console.log('list of online users ==>', onlineUsers)
   })
+ 
+  //emits message between clients
+  socket.on('message', (data) => {
+    console.log('messages data server ==>', data)
+    socket.to(data.targetSocketID).emit(data)
+  })
+
+  //emits an is typing message to other client sockets
   socket.on('typing', data => socket.broadcast.emit('typing response', data))
+
+  // Logic when user logs in adds the user to local storage then sent here
+  // to be added to the online users list.
   socket.on('login', data => {
     onlineUsers.push(data)
-    console.log('login server person ==>', data)
-    console.log('online users array after login =>', onlineUsers)
+    console.log('online user login =>', data)
   })
+  
+  
+  // Compares online sockets with friends list and sends to client
+  // which friends are online.
   socket.on('checkOnlineStatus', friends => {
     let onlineFriendsArray = []
     onlineUsers.forEach( user => {
@@ -187,6 +201,7 @@ io.on('connection', (socket) => {
     })
     socket.emit('onlineStatus', onlineFriendsArray)
     })
+  // Disconnects the socket
   socket.on('disconnect', () => {
     console.log(`user: ${socket.id} disconnected...`)
     onlineUsers = onlineUsers.filter((user) => user.socketID !== socket.id);

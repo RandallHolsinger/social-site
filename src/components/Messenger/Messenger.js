@@ -1,7 +1,7 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import './Messenger.scss'
-// import MessengerSidebar from '../MessengerSidebar/MessengerSidebar'
-import MessengerTopNav from '../MessengerTopNav/MessengerTopNav'
+// import MessengerFriendsList from '../MessengerFriendsList/MessengerFriendsList'
+import MessengerOnlineUsers from '../MessengerOnlineUsers/MessengerOnlineUsers'
 import MessengerInput from '../MessengerInput/MessengerInput'
 import MessengerContent from '../MessengerContent/MessengerContent'
 import socketIO from 'socket.io-client';
@@ -12,21 +12,32 @@ const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
 function Messenger(props) {
   
   const {setShowMessenger} = props
-
-  useEffect(() => {
-    socket.connect()
-  },[])
+  const [selected, setSelected] = useState(false)
+  const [selectedUser, setSelectedUser] = useState({})
   
   return(
     <div className="Messenger">
-      <MessengerTopNav socket={socket} />
-      <div className="sidebar-container">
-        {/* <MessengerSidebar socket={socket}/>  */}
-      </div>
-      <div className='message-interface'>
-        <MessengerContent socket={socket} setShowMessenger={setShowMessenger}/>
-        <MessengerInput socket={socket}/>
-      </div>
+      {/* disable component below when finished creating functionality to do personal messaging with friends
+      instead of every online client */}
+      {/* <MessengerFriendsList socket={socket} setShowMessenger={setShowMessenger} /> */}
+      {selected ?
+      <div>
+        {selectedUser.firstName}{' '}{selectedUser.lastName}
+        <span onClick={() => (setSelected(false), setSelectedUser({}))}>X</span>
+      </div> : null}
+      {selected ? 
+        <div className='message-interface'>
+          <MessengerContent socket={socket} setShowMessenger={setShowMessenger}/>
+          <MessengerInput socket={socket} selectedUser={selectedUser}/>
+        </div>
+      :
+        <MessengerOnlineUsers 
+          socket={socket} 
+          setShowMessenger={setShowMessenger} 
+          setSelected={setSelected}
+          setSelectedUser={setSelectedUser}
+        />
+      }
     </div>
   )
 }

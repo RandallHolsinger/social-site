@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import './Login.scss'
 
 function Login(props) {
@@ -38,6 +37,7 @@ function Login(props) {
       lastName: localStorage.getItem('lastName'), 
       socketID: socket.id
     })
+    socket.connect()
     })
   }
 

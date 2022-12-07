@@ -13,24 +13,26 @@
     .message-chat {
       height: auto;
       width: 100%;
+      clear: both;
       .message-sender {
-        background-color: #147b6d;
-        width: auto;
-        float: left;
+        background-color: #136eb9;
+        float: right;
+        max-width: 50%;
         padding: 10px;
         border-radius: 10px;
-        margin-left: 5px;
+        margin: 10px 5px 5px 5px;
       }
       .recipient-container {
-        float: right;
         .recipient-name {
           margin-right: 10px;
         }
         .message-recipient {
+          float: left;
+          max-width: 50%;
+          background-color: #147b6d;
           padding: 10px;
-          background-color: #136eb9;
           border-radius: 10px;
-          margin-right: 5px;
+          margin: 10px 5px 5px 5px;
         }
       }
     }

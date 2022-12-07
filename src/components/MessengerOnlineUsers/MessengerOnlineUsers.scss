@@ -1,0 +1,28 @@
+.MessengerOnlineUsers {
+  box-sizing: border-box;
+  .online-users-constainer {
+    box-sizing: border-box;
+    height: auto;
+    max-height: 50vh;
+    overflow: scroll;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .online-users-header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      background-color: #fff;
+      padding: 4px; 
+      color: #000;
+    }
+  }
+}
+
+.no-online-container {
+  border: 1px solid green;
+}
