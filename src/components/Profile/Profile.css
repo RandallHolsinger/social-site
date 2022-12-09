@@ -1,24 +1,39 @@
 .Profile {
   margin: 10px 5px 0px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .Profile figure {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 15px;
   border: 1px solid #000;
 }
+
 .Profile figure figcaption {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .Profile figure img {
   width: 60px;
   height: 60px;
   border: 1px solid #000;
   border-radius: 50%;
 }
-
 /*# sourceMappingURL=Profile.css.map */

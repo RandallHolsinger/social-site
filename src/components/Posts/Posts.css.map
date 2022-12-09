@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["Posts.scss","../../sass/_mixins.scss"],"names":[],"mappings":"AAEA;ECDE","file":"Posts.css"}
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,MAAM,CAAC;ECDL,UAAU,EAAE,IAAI;CDGjB",
+    "sources": [
+        "Posts.scss",
+        "../../sass/_mixins.scss"
+    ],
+    "names": [],
+    "file": "Posts.css"
+}

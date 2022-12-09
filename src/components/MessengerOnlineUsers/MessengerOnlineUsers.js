@@ -10,38 +10,34 @@ function MessengerOnlineUsers(props) {
   const [onlineUsers, setOnlineUsers] = useState([])
   const [isOnline, setIsOnline] = useState(false)
 
-  const userID = useSelector(state => state.userId)
+  const userID = useSelector(state => state.user.userId)
   
   const getOnlineUsers = () => {
-    console.log('hitting the function!')
     let text = 'getting online users.'
     socket.emit('getOnlineUsers', text)
       socket.on('onlineUsersList', (onlineUsers) => {
         setOnlineUsers(onlineUsers)
       })
-      console.log('onlineUsers on state', onlineUsers)
       setIsOnline(true)
   }
 
   
-  useEffect(() => {
-    socket.connect()
+  useEffect(() => {  
     getOnlineUsers()
   }, [])
 
   let mappedOnlineUsers = onlineUsers.map(user => {
-    console.log('hitting map', user)
-    if(user.userId != userID) {
       return (
+        user.userId != userID ?
         <MessengerOnlineUser 
           key={user.userId} 
           value={user} 
           setSelected={setSelected} 
-          setSelectedUser={setSelectedUser}/>
+          setSelectedUser={setSelectedUser}
+          socket={socket}
+        />
+        : null
       )
-    } else {
-      return null
-    }
   })
 
   return(

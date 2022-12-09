@@ -1,58 +1,91 @@
 .Navbar {
-  animation: Fadein 0.5s ease-in-out;
+  -webkit-animation: Fadein .5s ease-in-out;
+          animation: Fadein .5s ease-in-out;
 }
+
 .Navbar nav {
   position: fixed;
   bottom: 0;
   z-index: 100;
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: #2b2b2b;
   color: #fff;
   border-bottom: 1px solid #000;
   padding: 10px;
 }
+
 .Navbar nav img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 2px solid #fff;
 }
+
 .Navbar nav span {
   font-size: 2em;
 }
+
 .Navbar nav ul {
   position: fixed;
   z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 1px solid #000;
   width: 100%;
   bottom: 55px;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   background-color: #2b2b2b;
 }
+
 .Navbar nav ul header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
 }
+
 .Navbar nav ul header span {
   font-size: 1.5em;
   color: #fff;
 }
+
 .Navbar nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-bottom: 1px solid #000;
   padding: 10px;
 }
+
 .Navbar nav ul li .mobile-nav-links {
   text-decoration: none;
   color: #fff;
@@ -60,6 +93,15 @@
 
 .hide-nav > * {
   display: none;
+}
+
+@-webkit-keyframes Fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes Fadein {
@@ -70,5 +112,4 @@
     opacity: 1;
   }
 }
-
 /*# sourceMappingURL=Navbar.css.map */

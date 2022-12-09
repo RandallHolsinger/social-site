@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["MessageInboxItem.scss"],"names":[],"mappings":"AACC;EACC;EACA;EACA;EACA;EACA","file":"MessageInboxItem.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AACC,iBADgB,CAChB,OAAO,CAAC;EACP,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,UAAU;CAC5B",
+    "sources": [
+        "MessageInboxItem.scss"
+    ],
+    "names": [],
+    "file": "MessageInboxItem.css"
+}

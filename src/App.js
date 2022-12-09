@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { updateUser } from './redux/slices/userSlice';
 import './App.scss';
 import routes from './routes';
-import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
+import socket from './socketIO/socket'
 
 function App() {
 

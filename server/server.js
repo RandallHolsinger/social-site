@@ -163,18 +163,20 @@ let onlineUsers = []
 
 //Socket.io connects
 io.on('connection', (socket) => {
-   console.log(`${socket.id} user just connected...`)
-   
-   socket.on('getOnlineUsers', (text) => {
+
+  
+  console.log(`${socket.id} user just connected...`)
+  
+  socket.on('getOnlineUsers', (text) => {
     console.log('server message =>', text)
     socket.emit('onlineUsersList', onlineUsers)
     console.log('list of online users ==>', onlineUsers)
   })
  
   //emits message between clients
-  socket.on('message', (data) => {
-    console.log('messages data server ==>', data)
-    socket.to(data.targetSocketID).emit(data)
+  socket.on('message', data => {
+    console.log('here is the message going to server ==>', data)
+    io.to(data.socketID).emit('messageResponse', data)
   })
 
   //emits an is typing message to other client sockets

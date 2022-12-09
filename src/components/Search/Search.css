@@ -1,6 +1,10 @@
 .Search {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: fixed;
   top: 0px;
   z-index: 100;
@@ -8,6 +12,7 @@
   padding: 10px;
   background-color: #2b2b2b;
 }
+
 .Search img {
   float: left;
   width: 30px;
@@ -15,15 +20,20 @@
   border-radius: 50%;
   border: 2px solid #fff;
 }
+
 .Search div {
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .Search div span {
   color: #fff;
   font-size: 20px;
   margin-right: 5px;
 }
-
 /*# sourceMappingURL=Search.css.map */

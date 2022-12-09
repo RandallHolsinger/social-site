@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["Friends.scss","../../sass/_mixins.scss"],"names":[],"mappings":"AAEA;ECDE","file":"Friends.css"}
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;ECDP,UAAU,EAAE,IAAI;CDGjB",
+    "sources": [
+        "Friends.scss",
+        "../../sass/_mixins.scss"
+    ],
+    "names": [],
+    "file": "Friends.css"
+}

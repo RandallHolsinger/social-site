@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["MessageCreate.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;AACA;EACE","file":"MessageCreate.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,IAAI;CAId;;AAPD,AAIE,cAJY,CAIZ,KAAK,CAAC;EACJ,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "MessageCreate.scss"
+    ],
+    "names": [],
+    "file": "MessageCreate.css"
+}

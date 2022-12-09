@@ -6,8 +6,7 @@ import PersonalProfile from './components/PersonalProfile/PersonalProfile'
 import Profiles from './components/Profiles/Profiles'
 import Friends from './components/Friends/Friends'
 import MessageInbox from './components/MessageInbox/MessageInbox'
-import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
+import socket from './socketIO/socket'
 
 export default (
   <Routes>

@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["Comment.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;AAEE;EACE","file":"Comment.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,MAAM,EAAE,cAAc;EACtB,MAAM,EAAE,mBAAmB;CAM5B;;AARD,AAII,QAJI,CAGN,OAAO,CACL,MAAM,CAAC;EACL,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "Comment.scss"
+    ],
+    "names": [],
+    "file": "Comment.css"
+}

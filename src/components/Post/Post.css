@@ -2,33 +2,45 @@
   border: 1px solid #000;
   margin: 10px 5px 0px 5px;
 }
+
 .Post article {
   width: 100%;
   height: auto;
 }
+
 .Post article header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 5px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-bottom: 1px solid #000;
 }
+
 .Post article header span {
   margin: 0px 5px 0px 5px;
 }
+
 .Post article header span img {
   width: 20px;
   height: 20px;
   border: 1px solid #000;
   border-radius: 50%;
 }
+
 .Post article p {
   padding: 20px;
 }
+
 .Post article footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding: 5px;
   border-top: 1px solid #000;
 }
-
 /*# sourceMappingURL=Post.css.map */

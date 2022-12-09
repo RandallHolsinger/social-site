@@ -1,22 +1,41 @@
 .MessengerOnlineUsers {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 .MessengerOnlineUsers .online-users-constainer {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   height: auto;
   max-height: 50vh;
   overflow: scroll;
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .MessengerOnlineUsers .online-users-header {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .MessengerOnlineUsers .online-users-header span {
   background-color: #fff;
   padding: 4px;
@@ -26,5 +45,4 @@
 .no-online-container {
   border: 1px solid green;
 }
-
-/*# sourceMappingURL=MessengerOnlineusers.css.map */
+/*# sourceMappingURL=MessengerOnlineUsers.css.map */

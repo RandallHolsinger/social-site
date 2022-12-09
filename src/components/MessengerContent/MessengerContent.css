@@ -3,20 +3,32 @@
   height: 100%;
   width: 100%;
 }
+
 .MessengerContent .messenger-message-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 90%;
   padding-top: 10px;
   overflow: scroll;
 }
+
 .MessengerContent .messenger-message-container .message-chat {
   height: auto;
   width: 100%;
   clear: both;
 }
+
 .MessengerContent .messenger-message-container .message-chat .message-sender {
   background-color: #136eb9;
   float: right;
@@ -25,9 +37,11 @@
   border-radius: 10px;
   margin: 10px 5px 5px 5px;
 }
+
 .MessengerContent .messenger-message-container .message-chat .recipient-container .recipient-name {
   margin-right: 10px;
 }
+
 .MessengerContent .messenger-message-container .message-chat .recipient-container .message-recipient {
   float: left;
   max-width: 50%;
@@ -36,5 +50,4 @@
   border-radius: 10px;
   margin: 10px 5px 5px 5px;
 }
-
 /*# sourceMappingURL=MessengerContent.css.map */

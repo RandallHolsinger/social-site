@@ -5,16 +5,18 @@ import FormatedDate from '../FormatedDate/FormatedDate'
 
 function MessengerContent(props){
 
-  const {socket, setShowMessenger} = props
+  const {socket} = props
 
   const [messages, setMessages] = useState([])
   const [typingStatus, setTypingStatus] = useState('')
   
 
   useEffect(() => {
-    socket.on('messageResponse', ( data ) => setMessages([...messages, data]))
-    console.log('here is the message state =>', messages)
-   }, [socket, messages])
+    socket.on('message', ( data ) => {
+      setMessages([...messages, data])
+      console.log('message response here ==>', data)
+    })
+  }, [socket, messages])
 
    useEffect(() => {
     socket.on('typing response', data => {

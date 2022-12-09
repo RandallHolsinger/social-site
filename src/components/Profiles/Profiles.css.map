@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["Profiles.scss","../../sass/_mixins.scss"],"names":[],"mappings":"AAEA;ECDE","file":"Profiles.css"}
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAC;ECDR,UAAU,EAAE,IAAI;CDGjB",
+    "sources": [
+        "Profiles.scss",
+        "../../sass/_mixins.scss"
+    ],
+    "names": [],
+    "file": "Profiles.css"
+}

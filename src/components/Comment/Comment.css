@@ -2,8 +2,10 @@
   border: 1px solid #000;
   margin: 10px 10px 10px 10px;
 }
+
 .Comment article header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
-
 /*# sourceMappingURL=Comment.css.map */

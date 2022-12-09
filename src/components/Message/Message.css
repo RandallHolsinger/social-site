@@ -1,8 +1,12 @@
 .Message Article {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: auto;
   width: 80%;
 }
-
 /*# sourceMappingURL=Message.css.map */

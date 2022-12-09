@@ -3,11 +3,7 @@ import './MessengerOnlineUser.scss'
 
 function MessengerOnlineUser(props) {
 
-  const {value, setSelected, setSelectedUser} = props
-
-  useEffect(() => {
-    console.log('hitting here')
-  }, [])
+  const {value, setSelected, setSelectedUser, socket} = props
   
   return(
     <div onClick={() => (setSelected(true), setSelectedUser(value))} className="MessengerOnlineUser">

@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Messenger.scss'
 // import MessengerFriendsList from '../MessengerFriendsList/MessengerFriendsList'
 import MessengerOnlineUsers from '../MessengerOnlineUsers/MessengerOnlineUsers'
 import MessengerInput from '../MessengerInput/MessengerInput'
 import MessengerContent from '../MessengerContent/MessengerContent'
-import socketIO from 'socket.io-client';
-import { useEffect } from 'react'
-const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
+import socket from '../../socketIO/socket'
 
 
 function Messenger(props) {
