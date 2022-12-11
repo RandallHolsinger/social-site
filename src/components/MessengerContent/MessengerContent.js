@@ -12,7 +12,7 @@ function MessengerContent(props){
   
 
   useEffect(() => {
-    socket.on('message', ( data ) => {
+    socket.on('messageResponse', ( data ) => {
       setMessages([...messages, data])
       console.log('message response here ==>', data)
     })

@@ -25,8 +25,8 @@ function Messenger(props) {
       </div> : null}
       {selected ? 
         <div className='message-interface'>
-          <MessengerContent socket={socket} setShowMessenger={setShowMessenger}/>
-          <MessengerInput socket={socket} selectedUser={selectedUser}/>
+          <MessengerContent socket={socket} setShowMessenger={setShowMessenger} />
+          <MessengerInput socket={socket} selectedUser={selectedUser} />
         </div>
       :
         <MessengerOnlineUsers 

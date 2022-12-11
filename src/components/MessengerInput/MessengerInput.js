@@ -9,7 +9,7 @@ function MessengerInput(props) {
   const sendMessage = (e) => {
     e.preventDefault()
     if (message.trim() && localStorage.getItem('userId')) {
-     socket.emit('message', {
+     socket.emit('privateMessage', {
        text: message,
        userId: localStorage.getItem('userId'),
        firstName: localStorage.getItem('firstName'),

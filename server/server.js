@@ -174,9 +174,9 @@ io.on('connection', (socket) => {
   })
  
   //emits message between clients
-  socket.on('message', data => {
+  socket.on('privateMessage', data => {
     console.log('here is the message going to server ==>', data)
-    io.to(data.socketID).emit('messageResponse', data)
+    socket.broadcast.to(data.targetSocketID).emit('messageResponse', data)
   })
 
   //emits an is typing message to other client sockets
