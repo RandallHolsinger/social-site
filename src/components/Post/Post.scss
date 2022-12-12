@@ -1,7 +1,9 @@
-@import '../../sass/variables';
+@import '../../sass/variables', '../../sass//mixins';
 
 .Post {
-  border: 1px solid #000;
+  @include box-shadow;
+  @include border-radius;
+  @include component-color;
   margin: 10px 5px 0px 5px;
   article {
     width: 100%;
@@ -10,7 +12,6 @@
       display: flex;
       padding: 5px;
       align-items: center;
-      border-bottom: 1px solid #000;
       span{
         margin: 0px 5px 0px 5px;
         img {
