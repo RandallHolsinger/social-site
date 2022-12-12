@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import socket from '../../socketIO/socket'
 import './MessengerOnlineUser.scss'
 
 function MessengerOnlineUser(props) {
 
-  const {value, setSelected, setSelectedUser, socket} = props
+  const {value, setSelected, setSelectedUser, setRoom} = props
+
+  const handleSelectUser = () => {
+    setSelected(true) 
+    setSelectedUser(value)
+  }
   
   return(
-    <div onClick={() => (setSelected(true), setSelectedUser(value))} className="MessengerOnlineUser">
+    <div onClick={() => handleSelectUser()} className="MessengerOnlineUser">
       <p>{value.firstName}{' '}{value.lastName}</p>
     </div>
   )
