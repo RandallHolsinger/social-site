@@ -1,9 +1,10 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,SAAS,CAAC;ECDR,UAAU,EAAE,IAAI;CDGjB",
+    "mappings": "AAEA,AAAA,SAAS,CAAC;ECCR,UAAU,EAAE,IAAI;CDCjB",
     "sources": [
         "Profiles.scss",
-        "../../sass/_mixins.scss"
+        "../../sass/_mixins.scss",
+        "../../sass/_variables.scss"
     ],
     "names": [],
     "file": "Profiles.css"

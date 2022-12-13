@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ImageUploader from '../ImageUploader/ImageUploader'
 import axios from 'axios'
 
 function PostAddButton(props) {
@@ -30,6 +31,7 @@ function PostAddButton(props) {
         onKeyPress={(e) => e.key === 'Enter' ? addPost() : null}
       />
       <button onClick={() => addPost()}>Add Post</button>
+      <ImageUploader />
     </div>
   )
 }

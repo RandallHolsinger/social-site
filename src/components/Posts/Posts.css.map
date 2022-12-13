@@ -1,9 +1,10 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,MAAM,CAAC;ECDL,UAAU,EAAE,IAAI;CDGjB",
+    "mappings": "AAEA,AAAA,MAAM,CAAC;ECCL,UAAU,EAAE,IAAI;CDCjB",
     "sources": [
         "Posts.scss",
-        "../../sass/_mixins.scss"
+        "../../sass/_mixins.scss",
+        "../../sass/_variables.scss"
     ],
     "names": [],
     "file": "Posts.css"

@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const massive = require('massive')
 const session = require('express-session')
+const multer = require('multer')
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
@@ -48,13 +49,31 @@ app.use(sessionMiddleware)
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next)
 io.use(wrap(sessionMiddleware))
 
-//connects to the 
+//Connects to the database
 massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
   console.log('You are Connected to the Database')
   server.listen(SERVER_PORT, () => console.log(`Listening On Server Port#: ${SERVER_PORT}`))
 })
 
+///// Multer MiddleWare /////
+
+const postImageStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    console.log('here is the file ==>', file)
+    cb(null, 'public/uploads/images/posts')
+  },
+  filename: (req, file, cb) => {
+    const {originalName} = file
+    cb(null, originalName)
+  }
+})
+
+const postImageUpload = multer({storage: postImageStorage})
+///// Upload Endpoints To File System /////
+app.post('/api/post/image', postImageUpload.single('file'), async (req, res) => {
+  res.json({})
+})
 
 
 ///// Authentication Endpoints /////
@@ -72,7 +91,7 @@ app.post('/auth/user/logout', ctrlAuth.logout)
 app.get('/auth/user/current', ctrlAuth.current)
 
 
-///// Users Endpoint /////
+///// Users Endpoints /////
 
 // Get Users
 app.get('/api/users', ctrlUsers.getUsers)
@@ -103,6 +122,7 @@ app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
 
 // Delete Post
 app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)
+
 
 ///// Comment's Endpoints /////
 
@@ -142,6 +162,7 @@ app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
 //Get Friends List
 app.get('/api/friends/list', ctrlFriends.getFriendsList)
 
+
 ///// Messages Endpoints /////
 
 // Get Messaging Inbox
@@ -159,9 +180,11 @@ app.get('/api/messages', ctrlMessages.getMessages)
 // Get Message 
 app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
-let onlineUsers = []
+
+///// Socket.IO /////
 
 //Socket.io connects
+let onlineUsers = []
 io.on('connection', (socket) => {
 
   
@@ -190,7 +213,7 @@ io.on('connection', (socket) => {
   //    socket.leave(room)
   // })
 
-  //emits an is typing message to other client sockets
+  // emits an is typing message to other client sockets
   socket.on('typing', data => socket.broadcast.emit('typing response', data))
 
   // Logic when user logs in adds the user to local storage then sent here
@@ -221,6 +244,8 @@ io.on('connection', (socket) => {
     socket.disconnect()
   })
 })
+
+
 
 
 
