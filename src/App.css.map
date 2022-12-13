@@ -1,10 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,CAAC,CAAC;EACA,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;CACX;;AAED,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,WAAW;CACxB",
-    "sources": [
-        "App.scss",
-        "sass/_variables.scss"
-    ],
-    "names": [],
-    "file": "App.css"
-}
+{"version":3,"sourceRoot":"","sources":["App.scss","sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;;;AAGF;EACE,YCNW","file":"App.css"}

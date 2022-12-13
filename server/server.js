@@ -5,6 +5,7 @@ const app = express()
 const massive = require('massive')
 const session = require('express-session')
 const multer = require('multer')
+const uuid = require('uuid').v4
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
@@ -60,19 +61,19 @@ massive(CONNECTION_STRING).then(db => {
 
 const postImageStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    console.log('here is the file ==>', file)
     cb(null, 'public/uploads/images/posts')
   },
   filename: (req, file, cb) => {
-    const {originalName} = file
-    cb(null, originalName)
+    let uuid = uuid()
+    cb(null, `${uuid}-${file.originalname}`)
   }
 })
 
 const postImageUpload = multer({storage: postImageStorage})
 ///// Upload Endpoints To File System /////
 app.post('/api/post/image', postImageUpload.single('file'), async (req, res) => {
-  res.json({})
+  console.log(req)
+  res.send('image uploaded')
 })
 
 

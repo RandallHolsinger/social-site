@@ -5,18 +5,14 @@ import axios from 'axios'
 function ImageUploader() {
   
 const [image, setImage] = useState({preview:'', data:'' })
-const [status, setStatus] = useState('')
 
 const handleSubmitImage = async (e) => {
   e.preventDefault()
   const formData = new FormData()
   formData.append('file', image.data)
+  console.log(...formData)
   console.log('here is the image data =>', formData)
-  let res = axios.post('/api/post/image', {
-    data: formData,
-    header: {"Content-Type" : "multipart/form-data"}
-  })
-  if (res) setStatus(res.statusText)
+  axios.post('/api/post/image', formData)
 }
 
 const handleFileChange = (e) => {
@@ -28,12 +24,11 @@ const handleFileChange = (e) => {
   return(
     <div className="ImageUploader">
       <h2>upload a post image</h2>
-      <form onSubmit={handleSubmitImage} encType='multipart/form'>
-        <input type="file" name='file' onChange={handleFileChange}/>
+      <form onSubmit={handleSubmitImage} encType='multipart/form-data'>
+        <input type='file' name='file' onChange={handleFileChange}/>
         {image.preview && <img src={image.preview} width='100' height='100' />}
         <button type='submit'>upload</button>
       </form>
-      {status && <h5>{status}</h5>}
     </div>
   )
 }
