@@ -1,5 +1,6 @@
 
 require('dotenv').config()
+const { SERVER_PORT, CONNECTION_STRING, CA_CERT, SESSION_SECRET} = process.env
 const express = require('express')
 const app = express()
 const massive = require('massive')
@@ -23,8 +24,6 @@ const ctrlFriends = require('./controllers/friends')
 const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
-
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
 app.use(cors())
 app.use(express.json())
@@ -58,23 +57,17 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 ///// Multer MiddleWare /////
-
-const postImageStorage = multer.diskStorage({
+const imageStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/images/posts')
+    cb(null, 'public/uploads/images')
   },
   filename: (req, file, cb) => {
-    let uuid = uuid()
-    cb(null, `${uuid}-${file.originalname}`)
+    cb(null, `${uuid()}-${file.originalname}`)
   }
 })
-
-const postImageUpload = multer({storage: postImageStorage})
+const imageUpload = multer({storage: imageStorage})
 ///// Upload Endpoints To File System /////
-app.post('/api/post/image', postImageUpload.single('file'), async (req, res) => {
-  console.log(req)
-  res.send('image uploaded')
-})
+app.post('/api/post/image', imageUpload.single('file'))
 
 
 ///// Authentication Endpoints /////
@@ -110,7 +103,7 @@ app.delete('/api/user/delete/:user_id', ctrlUsers.deleteUser)
 ///// Post's Endpoints /////
 
 // Add Post
-app.post('/api/post/add', ctrlPosts.addPost)
+app.post('/api/post/add', imageUpload.single('file'), ctrlPosts.addPost)
 
 // Get All Posts
 app.get('/api/posts', ctrlPosts.getAllPosts)

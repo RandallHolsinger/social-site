@@ -6,8 +6,11 @@
 }
 
 body {
-  background: $main-color;
+  background: linear-gradient(45deg, $main-color, $compliment-color);
+  background-size: cover;
+  height: 100vh;
 }
+
 
 
 

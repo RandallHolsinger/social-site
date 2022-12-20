@@ -1,0 +1,37 @@
+@import '../../sass/variables', '../../sass/mixins';
+
+.PostAddButton {
+  .add-post-container {
+    @include box-shadow;
+    @include border-radius;
+    background-color: $dark;
+    margin: 5px 5px 10px 5px;
+    header {
+
+    }
+    input {
+
+    }
+    button {
+
+    }
+  }
+  .post-add {
+    display: flex;
+    align-items: center;
+    @include box-shadow;
+    @include border-radius;
+    width: 80%;
+    margin: 5px 5px 10px 5px;
+    background-color: $dark;
+    span {
+      padding: 10px 20px;
+      background-color: $util-color;
+      border-radius: 5px 0px 0px 5px;
+    }
+    h3 {
+      color: #fff;
+      margin: 0px auto;
+    }
+  }
+}

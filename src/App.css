@@ -4,7 +4,9 @@
 }
 
 body {
-  background: #00FF7F;
+  background: linear-gradient(45deg, #930af5, #c707f7);
+  background-size: cover;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=App.css.map */
