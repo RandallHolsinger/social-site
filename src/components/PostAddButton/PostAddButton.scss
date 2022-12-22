@@ -1,19 +1,39 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .PostAddButton {
+  display: flex;
+  justify-content: center;
   .add-post-container {
     @include box-shadow;
     @include border-radius;
-    background-color: $dark;
+    @include component-color;
+    padding: 15px;
     margin: 5px 5px 10px 5px;
     header {
-
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      .create-post-icon {
+        color: $util-color;
+        font-size: 1.5em;
+      }
+      h3 {
+        color: #fff;
+      }
     }
-    input {
+    textarea {
 
     }
     button {
-
+      border: none;
+      @include border-radius;
+      background-color: $util-color-2;
+      width: 80%;
+      margin-top: 10px;
+      padding: 10px;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 700;
     }
   }
   .post-add {
@@ -21,13 +41,12 @@
     align-items: center;
     @include box-shadow;
     @include border-radius;
-    width: 80%;
+    @include component-color;
     margin: 5px 5px 10px 5px;
-    background-color: $dark;
-    span {
-      padding: 10px 20px;
-      background-color: $util-color;
-      border-radius: 5px 0px 0px 5px;
+    padding: 10px;
+    .add-post-icon {
+      color: $util-color;
+      font-size: 1.3em;
     }
     h3 {
       color: #fff;

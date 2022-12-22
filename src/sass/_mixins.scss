@@ -12,6 +12,37 @@
   border-radius: 5px;
 }
 
+@mixin input-style {
+  caret-color: $util-color;
+  color: #000; 
+  border-radius: 5px;
+  padding: .4em;
+}
+
+@mixin input-focus {
+  outline: 2px solid $util-color;
+  border: none;
+}
+
 @mixin component-color {
-  background-color: #fff;
+  background-color: $dark;
+}
+
+@mixin button-style {
+  border: none;
+  color: $button-text;
+  background-color: $util-color;
+  border-radius: 3px;
+}
+
+@mixin register-link {
+  display: flex;
+  border: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $util-color-2;
+  padding: .2em;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #fff;
 }

@@ -1,1 +1,69 @@
-/* No CSS *//*# sourceMappingURL=ImageUploader.css.map */
+.ImageUploader header {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.ImageUploader header .choose-image-icon {
+  color: #ed1dc0;
+  margin-right: 5px;
+  font-size: 1.5em;
+}
+.ImageUploader header h3 {
+  color: #fff;
+}
+.ImageUploader form .custom-file-upload {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.ImageUploader form .custom-file-upload div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 10px 0px;
+  border: 1px solid #ed1dc0;
+}
+.ImageUploader form .custom-file-upload div .upload-file-icon {
+  color: #ed1dc0;
+  font-size: 5em;
+}
+.ImageUploader form .custom-file-upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* 1 */
+  clip-path: inset(50%);
+  border: 0;
+}
+.ImageUploader .image-preview-container {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid #ed1dc0;
+  height: 200px;
+  width: 100%;
+}
+.ImageUploader .image-preview-container .cancel-image {
+  border-left: 1px solid #ed1dc0;
+  border-bottom: 1px solid #ed1dc0;
+  border-radius: 0px 5px 0px 5px;
+  padding: 0.5em;
+  background-color: #2b2b2b;
+  color: #ed1dc0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ImageUploader .image-preview-container img {
+  border-radius: 5px;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=ImageUploader.css.map */

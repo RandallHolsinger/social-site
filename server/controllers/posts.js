@@ -1,10 +1,11 @@
 module.exports = {
   addPost: async (req, res) => {
     const {user_id} = req.session.user
-    const {data} = req.body
+    const {titleInput, postInput} = req.body
+    console.log('file here =>', req.file)
     const db = req.app.get('db')
     try {
-      await db.posts.add_post({user_id, data})
+      await db.posts.add_post({user_id, titleInput, postInput})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

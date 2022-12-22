@@ -32,9 +32,9 @@ module.exports = {
         delete user.password
         session.user = user
         res.status(200).send(session.user)
-      } else {
-        res.sendStatus(401)
-      }
+      } 
+    } else {
+      res.sendStatus(401)
     }
   },
 
@@ -47,8 +47,6 @@ module.exports = {
     const {user} = req.session
     if(user) {
       res.status(200).send(user)
-    } else {
-      res.sendStatus(401)
     }
   }
 }

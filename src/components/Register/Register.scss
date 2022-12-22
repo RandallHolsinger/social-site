@@ -1,28 +1,71 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .valid {
-  color: springgreen;
+  color: $util-color-2;
 }
 
 .invalid {
-  color: red;
+  color: #ff3860;
+}
+
+.default {
+  color: #fff;
 }
 
 .Register {
-  padding: 10px 5% 0% 5%; 
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
   form {
-    width: 100%;
-    border: 1px solid #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
-    label {
-      margin-top: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    @include box-shadow;
+    @include border-radius;
+    @include component-color;
+    padding: 1.2em;
+    margin: 10px 5px;
+    header {
+      display: flex;
+      align-items: center;
+      .back-arrow {
+        text-decoration: none;
+        color: $util-color;
+        font-size: 2em;
+        margin-right: 20px;
+      }
+      h2 {
+        color: #fff;
+      }
     }
-    input {}
+    label {
+      margin: 10px 0px 5px 0px;
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: 500;
+      .label-icons {
+        color: $util-color;
+        margin-right: 8px;
+      }
+    }
+    input {
+      display: flex;
+      justify-content: center;
+      @include input-style;
+    }
+    input:focus {
+      @include input-focus;
+    }
+    span {
+      margin: 3px 0px 0px 0px;
+    }
     button {
-      margin: 10px auto;
-      width: 100px;
+      margin-top: 20px;
+      @include register-link;
+      @include border-radius;
     }
   }
 }
