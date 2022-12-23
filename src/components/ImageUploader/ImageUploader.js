@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './ImageUploader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage, faUpload, faX } from '@fortawesome/free-solid-svg-icons'
@@ -6,17 +6,14 @@ import Oval from 'react-loader-spinner';
 
 function ImageUploader(props) {
  
-const {setImageData} = props
+const {setPostData} = props
   
 const [image, setImage] = useState({preview:'', data:'' })
-const [showPreview, setShowPreview] = useState(false)
 
-const submitImage = async (e) => {
+const updateImage = async (e) => {
   const formData = new FormData()
   formData.append('file', image.data)
-  console.log(...formData)
-  console.log('here is the image data =>', formData)
-  setImageData(formData)
+  setPostData(formData)
 }
 
 const handleFileChange = (e) => {
@@ -24,8 +21,11 @@ const handleFileChange = (e) => {
     preview: URL.createObjectURL(e.target.files[0]),
     data: e.target.files[0]
   })
-  submitImage()
 }
+
+useEffect(() => {
+  updateImage()
+}, [image])
 
 const cancelImage = () => {
   setImage({

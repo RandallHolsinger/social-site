@@ -9,23 +9,25 @@ function PostAddButton(props) {
   
   const [postInput, setPostInput] = useState('')
   const [titleInput, setTitleInput] = useState('')
-  const [imageData, setImageData] = useState({})
+  const [postData, setPostData] = useState({})
   const [showPostModal, setShowPostModal] = useState(false)
 
   const {getPosts} = props
 
   const addPost = async () => {
-    console.log(imageData)
-    console.log(...imageData)
+    console.log('post add button', ...postData)
     try {
-      await axios.post('/api/post/add', {titleInput, postInput, imageData})
+      postData.append('titleInput', titleInput)
+      postData.append('postInput', postInput)
+      await axios.post('/api/post/add', postData)
       await getPosts()
-      console.log('add post function end')
     } catch(err) {
       console.log(err)
     }
     setPostInput('')
   }
+  
+
   return(
     <div className="PostAddButton">
       {showPostModal ?
@@ -52,8 +54,11 @@ function PostAddButton(props) {
             value={postInput}
             onChange={(e) => setPostInput(e.target.value)}
           />
-          <ImageUploader setImageData={setImageData}/>
-          <button onClick={() => addPost()}>Add Post</button>
+          <ImageUploader setPostData={setPostData}/>
+          <div className='post-buttons-container'>
+            <button onClick={() => addPost()} className='add-post-button'>Add Post</button>
+            <button onClick={() => setShowPostModal(false)} className='cancel-post-button'>Cancel</button>
+          </div>
         </div>
       :
         <div className="post-add" onClick={() => setShowPostModal(true)}>

@@ -67,7 +67,7 @@ const imageStorage = multer.diskStorage({
 })
 const imageUpload = multer({storage: imageStorage})
 ///// Upload Endpoints To File System /////
-app.post('/api/post/image', imageUpload.single('file'))
+// app.post('/api/post/image', imageUpload.single('file'))
 
 
 ///// Authentication Endpoints /////

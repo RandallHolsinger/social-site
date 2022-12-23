@@ -12,7 +12,7 @@
     header {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 10px;  
       .create-post-icon {
         color: $util-color;
         font-size: 1.5em;
@@ -24,16 +24,30 @@
     textarea {
 
     }
-    button {
-      border: none;
-      @include border-radius;
-      background-color: $util-color-2;
-      width: 80%;
+    .post-buttons-container {
+      display: flex;
       margin-top: 10px;
-      padding: 10px;
-      color: #fff;
-      font-size: 1em;
-      font-weight: 700;
+      justify-content: space-around;
+      .add-post-button {
+        border: none;
+        @include border-radius;
+        background-color: $util-color-2;
+        width: 60%;
+        padding: 10px;
+        color: #fff;
+        font-size: 1em;
+        font-weight: 700;
+      }
+      .cancel-post-button {
+        border: none;
+        @include border-radius;
+        background-color: $danger;
+        color: #fff;
+        font-size: 1em;
+        font-weight: 700;
+        width: 30%;
+        padding: 10px;
+      }
     }
   }
   .post-add {

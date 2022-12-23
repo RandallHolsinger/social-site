@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Post.scss'
 import Comments from '../Comments/Comments'
 import { useSelector } from 'react-redux'
@@ -14,6 +14,10 @@ function Post(props) {
   const [showOptions, setShowOptions] = useState(false)
 
   const userId = useSelector(state => state.user.userId)
+
+  useEffect(() => {
+    console.log(props.value)
+  }, [])
 
 
   return(
@@ -41,6 +45,8 @@ function Post(props) {
             null
           }
         </header>
+        <h5>{props.value.title}</h5>
+        <img src={require(`${props.value.image_path}`)} alt='image' style={{width: '100px', height: '100px'}}/>
         <p>{props.value.post}</p>
         <footer>
           <span><FontAwesomeIcon icon={faThumbsUp} />{' '}Like</span>
