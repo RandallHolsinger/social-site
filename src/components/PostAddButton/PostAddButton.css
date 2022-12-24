@@ -1,17 +1,85 @@
-/* Error: Undefined variable.
- *    ,
- * 44 |         background-color: $danger;
- *    |                           ^^^^^^^
- *    '
- *   PostAddButton.scss 44:27  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 44 \2502          background-color: $danger;\a    \2502                            ^^^^^^^\a    \2575 \a   PostAddButton.scss 44:27  root stylesheet";
+.PostAddButton {
+  display: flex;
+  justify-content: center;
 }
+.PostAddButton .add-post-container {
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 5px;
+  background-color: #2b2b2b;
+  padding: 15px;
+  margin: 5px 5px 10px 5px;
+}
+.PostAddButton .add-post-container header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.PostAddButton .add-post-container header .create-post-icon {
+  color: #ed1dc0;
+  font-size: 1.5em;
+  margin-right: 5px;
+}
+.PostAddButton .add-post-container header h3 {
+  color: #fff;
+}
+.PostAddButton .add-post-container .text-area-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.PostAddButton .add-post-container .text-area-container .title-area {
+  margin-bottom: 10px;
+}
+.PostAddButton .add-post-container .post-buttons-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+.PostAddButton .add-post-container .post-buttons-container .add-post-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  background-color: #07c52a;
+  width: 60%;
+  padding: 10px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+}
+.PostAddButton .add-post-container .post-buttons-container .add-post-button .add-post-plus-icon {
+  font-size: 1.3em;
+  margin-right: 5px;
+}
+.PostAddButton .add-post-container .post-buttons-container .cancel-post-button {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  background-color: #ff3860;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  width: 30%;
+  padding: 10px;
+}
+.PostAddButton .post-add {
+  display: flex;
+  align-items: center;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 5px;
+  background-color: #2b2b2b;
+  margin: 5px 5px 10px 5px;
+  padding: 10px;
+}
+.PostAddButton .post-add .add-post-icon {
+  color: #ed1dc0;
+  font-size: 1.3em;
+}
+.PostAddButton .post-add h3 {
+  color: #fff;
+  margin: 0px auto;
+}
+
+/*# sourceMappingURL=PostAddButton.css.map */

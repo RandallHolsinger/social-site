@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ImageUploader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage, faUpload, faX } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faUpload, faX, faCheck } from '@fortawesome/free-solid-svg-icons'
 import Oval from 'react-loader-spinner';
 
 function ImageUploader(props) {
@@ -38,6 +38,7 @@ const cancelImage = () => {
         <header>
           <FontAwesomeIcon icon={faUpload} className='choose-image-icon'/>
           <h3>Choose An Image</h3>
+          {image.preview ? <FontAwesomeIcon icon={faCheck} className='upload-check-icon' /> : null}
         </header>
         {image.preview ? 
           <div className='image-preview-container'>

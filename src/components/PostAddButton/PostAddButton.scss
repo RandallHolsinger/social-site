@@ -16,31 +16,49 @@
       .create-post-icon {
         color: $util-color;
         font-size: 1.5em;
+        margin-right: 5px;
       }
       h3 {
         color: #fff;
       }
     }
-    textarea {
-
+    .text-area-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title-area{
+        margin-bottom: 10px;
+      }
+      .post-area {
+  
+      }
     }
     .post-buttons-container {
       display: flex;
-      margin-top: 10px;
+      margin-top: 20px;
       justify-content: space-around;
       .add-post-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border: none;
         @include border-radius;
+        @include box-shadow;
         background-color: $util-color-2;
         width: 60%;
         padding: 10px;
         color: #fff;
         font-size: 1em;
         font-weight: 700;
+        .add-post-plus-icon {
+          font-size: 1.3em;
+          margin-right: 5px;
+        }
       }
       .cancel-post-button {
         border: none;
         @include border-radius;
+        @include box-shadow;
         background-color: $danger;
         color: #fff;
         font-size: 1em;

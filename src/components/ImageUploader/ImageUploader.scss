@@ -2,9 +2,11 @@
 
 .ImageUploader {
   header {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px 0px 10px 0px;
+    padding: 5px;
     .choose-image-icon {
       color: $util-color;
       margin-right: 5px;
@@ -12,6 +14,14 @@
     }
     h3 {
       color: #fff;
+    }
+    .upload-check-icon {
+      margin-left: 20px;
+      font-size: 1em;
+      border: 2px solid $util-color-2;
+      color: $util-color-2;
+      padding: 3px;
+      border-radius: 100%;
     }
   }
   form {
@@ -26,7 +36,6 @@
         height: 200px;
         width: 100%;
         @include border-radius;
-        margin: 10px 0px;
         border: 1px solid $util-color;
         .upload-file-icon {
           color: $util-color;
@@ -49,16 +58,16 @@
   .image-preview-container {
     position: relative;
     @include border-radius;
-    border: 1px solid $util-color;
+    @include box-shadow;
     height: 200px;
     width: 100%;
     .cancel-image {
-      border-left: 1px solid $util-color;
-      border-bottom: 1px solid $util-color;
+      border-left: 2px solid $danger;
+      border-bottom: 2px solid $danger;
       border-radius: 0px 5px 0px 5px;
       padding: .5em;
       background-color: $dark;
-      color: $util-color;
+      color: $danger;
       position: absolute;
       top: 0;
       right: 0;

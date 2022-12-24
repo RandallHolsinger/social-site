@@ -46,7 +46,7 @@ function Post(props) {
           }
         </header>
         <h5>{props.value.title}</h5>
-        <img src={require(`${props.value.image_path}`)} alt='image' style={{width: '100px', height: '100px'}}/>
+        <img src={`/uploads/images/${props.value.image_file}`} alt='image' style={{width: '100px', height: '100px'}}/>
         <p>{props.value.post}</p>
         <footer>
           <span><FontAwesomeIcon icon={faThumbsUp} />{' '}Like</span>

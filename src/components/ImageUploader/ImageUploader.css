@@ -1,7 +1,9 @@
 .ImageUploader header {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin: 10px 0px 10px 0px;
+  padding: 5px;
 }
 .ImageUploader header .choose-image-icon {
   color: #ed1dc0;
@@ -10,6 +12,14 @@
 }
 .ImageUploader header h3 {
   color: #fff;
+}
+.ImageUploader header .upload-check-icon {
+  margin-left: 20px;
+  font-size: 1em;
+  border: 2px solid #07c52a;
+  color: #07c52a;
+  padding: 3px;
+  border-radius: 100%;
 }
 .ImageUploader form .custom-file-upload {
   display: flex;
@@ -23,7 +33,6 @@
   height: 200px;
   width: 100%;
   border-radius: 5px;
-  margin: 10px 0px;
   border: 1px solid #ed1dc0;
 }
 .ImageUploader form .custom-file-upload div .upload-file-icon {
@@ -44,17 +53,17 @@
 .ImageUploader .image-preview-container {
   position: relative;
   border-radius: 5px;
-  border: 1px solid #ed1dc0;
+  box-shadow: 3px 3px 3px #000;
   height: 200px;
   width: 100%;
 }
 .ImageUploader .image-preview-container .cancel-image {
-  border-left: 1px solid #ed1dc0;
-  border-bottom: 1px solid #ed1dc0;
+  border-left: 2px solid #ff3860;
+  border-bottom: 2px solid #ff3860;
   border-radius: 0px 5px 0px 5px;
   padding: 0.5em;
   background-color: #2b2b2b;
-  color: #ed1dc0;
+  color: #ff3860;
   position: absolute;
   top: 0;
   right: 0;
