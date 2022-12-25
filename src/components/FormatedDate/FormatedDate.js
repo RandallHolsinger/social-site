@@ -1,4 +1,5 @@
 import React from 'react'
+import './FormatedDate.scss'
 
 function FormatedDate(props) {
   

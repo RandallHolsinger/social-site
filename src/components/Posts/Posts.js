@@ -5,14 +5,22 @@ import Post from '../Post/Post'
 import PostAddButton from "../PostAddButton/PostAddButton";
 
 
-function Posts() {
+function Posts(props) {
+
+  const {user_id} = props
 
   const [posts, setPosts] = useState([])
   
   const getAllPosts = async () => {
+    
     try {
-      let res = await axios.get('/api/posts')
-      setPosts(res.data)
+      if(props.user_id) {
+        let res = await axios.get(`/api/posts/${user_id}`)
+        setPosts(res.data)
+      } else {
+        let res = await axios.get('/api/posts')
+        setPosts(res.data)
+      }
     } catch(err) {
       console.log(err)
     }

@@ -35,7 +35,7 @@ module.exports = {
   },
 
   getUserPosts: async (req, res) => {
-    const {user_id} = req.session.user
+    const {user_id} = req.params
     const db = req.app.get('db')
     try {
       let userPosts = await db.posts.get_user_posts({user_id})

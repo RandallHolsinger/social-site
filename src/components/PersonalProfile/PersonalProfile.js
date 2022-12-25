@@ -1,9 +1,8 @@
 import React from 'react'
 import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import UserInfo from '../UserInfo/UserInfo'
-import UserPosts from '../UserPosts/UserPosts'
+import Posts from '../Posts/Posts'
 import Navbar from '../Navbar/Navbar'
-import Search from '../Search/Search'
 import { useSelector } from 'react-redux'
 
 function PersonalProfile() {
@@ -12,11 +11,10 @@ function PersonalProfile() {
 
   return(
     <div className="PersonalProfile">
-      <Search />
+      <Navbar />
       <ProfileHeader />
       <UserInfo user_id={userId}/>
-      <UserPosts />
-      <Navbar />
+      <Posts user_id={userId}/>
     </div>
   )
 }

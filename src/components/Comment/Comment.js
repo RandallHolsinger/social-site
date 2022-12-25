@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Comment.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faThumbsDown, faEllipsis} from '@fortawesome/free-solid-svg-icons'
+import {faUser, faEllipsis} from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
@@ -10,44 +10,56 @@ import CommentEditButton from '../CommentEditButton/CommentEditButton'
 
 function Comment(props) {
   
+  const {value, getComments} = props
+
   const [showOptions, setShowOptions] = useState(false)
 
   const userId = useSelector(state => state.user.userId)
 
   return(
     <div className="Comment">
+      {!value.profile_image ?
+        <span className='comment-user-image-container'>
+          <FontAwesomeIcon icon={faUser} className='comment-user-icon' />
+        </span>
+      :
+         null
+      }
       <article>
-        <header>
-          <span>
-            {props.value.profile_img ? <img src="" alt="profile" /> : <img src={'./images/user-image-default-black.svg'} alt="profile" /> }
-          </span>
-          <div>
-            <span>
-              {props.value.first_name}{' '}{props.value.last_name}
-            </span>
-            <FormatedDate date={props.value.date} />
+        <section>
+          <div className='comment-container'>
+            <p>
+              <span className='comment-username'>
+                {value.first_name}{' '}{value.last_name}
+              </span>
+              {value.comment}
+            </p>
+            <div className='comment-details'>
+              <div className="comment-date-time">
+                <FormatedDate date={value.date} />
+                <FormatedTime time={value.date} />
+              </div>
+              <div className='comment-options-container'>
+                {showOptions ? 
+                 <div className='comment-options'>
+                   <CommentEditButton comment={value} getComments={getComments}/>
+                   <CommentDeleteButton comment_id={value.comment_id} getComments={getComments} />
+                 </div> 
+                 : 
+                 null
+                }
+              </div>
+            </div>
           </div>
-          <FormatedTime date={props.value.date} />
-          {props.value.user_id = userId ?
-            <span onClick={() => setShowOptions(!showOptions)}><FontAwesomeIcon icon={faEllipsis} /></span>
-          :
-            null
-          }
-          {showOptions ? 
-            <div>
-              <CommentEditButton comment={props.value} getComments={props.getComments} />
-              <CommentDeleteButton comment_id={props.value.comment_id} getComments={props.getComments} />
-            </div> 
-          : 
-            null
-          }
-        </header>
-        <p>{props.value.comment}</p>
-        <footer>
-          <span><FontAwesomeIcon icon={faThumbsUp} />{' '}Like</span>
-          <span><FontAwesomeIcon icon={faThumbsDown} />{' '}Dislike</span>
-        </footer>
+        </section>
       </article>
+      {value.user_id = userId ?
+        <span onClick={() => setShowOptions(!showOptions)}>
+          <FontAwesomeIcon icon={faEllipsis} className='comment-options-icon'/>
+        </span>
+      :
+        null
+      }
     </div>
   )
 }

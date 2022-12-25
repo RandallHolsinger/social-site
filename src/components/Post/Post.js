@@ -3,8 +3,9 @@ import './Post.scss'
 import Comments from '../Comments/Comments'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import FormatedDate from '../FormatedDate/FormatedDate'
+import FormatedTime from '../FormatedTime/FormatedTime'
 import PostDeleteButton from '../PostDeleteButton/PostDeleteButton'
 import PostEditButton from '../PostEditButton/PostEditButton'
 
@@ -24,15 +25,20 @@ function Post(props) {
     <div className="Post">
       <article>
         <header>
-          <span>
-            {props.value.profile_img ? <img src="" alt="profile" /> : <img src={'./images/user-image-default-black.svg'} alt="profile" /> }
-          </span>
-          <span>
-            {props.value.first_name}{' '}{props.value.last_name}
-          </span>
-          <FormatedDate date={props.value.date} />
+          <div className='post-user-container'>
+            <span>
+              {props.value.profile_img ? <img src="" alt="profile" /> : <FontAwesomeIcon icon={faUser} className='post-user-default-icon'/> }
+            </span>
+            <span className='post-username'>
+              {props.value.first_name}{' '}{props.value.last_name}
+              <div className='post-date-time'>
+                <FormatedDate date={props.value.date} />
+                <FormatedTime time={props.value.date} />
+              </div>
+            </span>
+          </div>
           {props.value.user_id === userId ? 
-            <span onClick={() => setShowOptions(!showOptions)}><FontAwesomeIcon icon={faEllipsis} /></span>
+            <span onClick={() => setShowOptions(!showOptions)}><FontAwesomeIcon icon={faEllipsis} className='post-dropdown'/></span>
           :
             null
           }
@@ -45,13 +51,15 @@ function Post(props) {
             null
           }
         </header>
-        <h5>{props.value.title}</h5>
-        <img src={`/uploads/images/${props.value.image_file}`} alt='image' style={{width: '100px', height: '100px'}}/>
-        <p>{props.value.post}</p>
+        <section className='post-content'>
+          <h4>{props.value.title}</h4>
+          <p>{props.value.post}</p>
+          <img src={`/uploads/images/${props.value.image_file}`} alt='image' />
+        </section>
         <footer>
-          <span><FontAwesomeIcon icon={faThumbsUp} />{' '}Like</span>
-          <span><FontAwesomeIcon icon={faThumbsDown} />{' '}Dislike</span>
-          <span onClick={() => setShowComments(!showComments)}><FontAwesomeIcon icon={faComment} />{' '}Comments</span>
+          <span className='post-like-button'><FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like</span>
+          <span className='post-dislike-button'><FontAwesomeIcon icon={faThumbsDown} className='post-dislike-icon' />{' '}Dislike</span>
+          <span onClick={() => setShowComments(!showComments)} className='post-comments-button'><FontAwesomeIcon icon={faComment} post-comments-icon className='post-comments-icon'/>{' '}Comments</span>
         </footer>
         {showComments ?
           <section>

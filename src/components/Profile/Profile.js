@@ -1,6 +1,7 @@
 import React from 'react'
 import './Profile.scss'
 import FriendStatus from '../FriendStatus/FriendStatus'
+import Posts from '../Posts/Posts'
 
 function Profile(props) {
   return(

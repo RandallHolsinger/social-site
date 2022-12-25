@@ -25,6 +25,8 @@ function PostAddButton(props) {
       console.log(err)
     }
     setShowPostModal(false)
+    setTitleInput('')
+    setPostInput('')
   }
   
 

@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,MAAM,EAAE,cAAc;EACtB,MAAM,EAAE,mBAAmB;CAM5B;;AARD,AAII,QAJI,CAGN,OAAO,CACL,MAAM,CAAC;EACL,OAAO,EAAE,IAAI;CACd",
-    "sources": [
-        "Comment.scss"
-    ],
-    "names": [],
-    "file": "Comment.css"
-}
+{"version":3,"sourceRoot":"","sources":["Comment.scss","../../sass/_variables.scss","../../sass/_mixins.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE,OCTO;EDUP;;AAGJ;EACE;EACA;EACA;;AAGI;EACE;EACA;EACA;EACA;EEpBR;;AFsBQ;EACE;EACA,OC3BC;ED4BD;;AAGJ;EACE;EACA;EACA;;AACA;EACE;EACA;EACA;;AAKF;EACE;;AAMV;EACE;EACA,OCpDS","file":"Comment.css"}

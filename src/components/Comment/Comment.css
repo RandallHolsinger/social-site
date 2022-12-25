@@ -1,11 +1,56 @@
 .Comment {
-  border: 1px solid #000;
-  margin: 10px 10px 10px 10px;
+  display: flex;
+  padding: 10px;
+  margin: 0px 0px 0px 20px;
 }
-
-.Comment article header {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.Comment .comment-user-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid #ed1dc0;
+  border-radius: 100%;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+}
+.Comment .comment-user-image-container .comment-user-icon {
+  color: #ed1dc0;
+  font-size: 1.2em;
+}
+.Comment article {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.Comment article section .comment-container p {
+  display: inline-block;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+.Comment article section .comment-container p .comment-username {
+  margin-right: 5px;
+  color: #ed1dc0;
+  font-weight: 600;
+}
+.Comment article section .comment-container .comment-details {
+  display: flex;
+  margin-top: 5px;
+  color: #fff;
+}
+.Comment article section .comment-container .comment-details .comment-date-time {
+  display: flex;
+  font-size: 0.9em;
+  margin-right: 20px;
+}
+.Comment article section .comment-container .comment-details .comment-options {
   display: flex;
 }
+.Comment .comment-options-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
+
 /*# sourceMappingURL=Comment.css.map */

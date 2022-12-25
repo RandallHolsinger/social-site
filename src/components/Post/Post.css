@@ -1,48 +1,103 @@
 .Post {
-  -webkit-box-shadow: 0px 0px 4px #000;
-          box-shadow: 0px 0px 4px #000;
+  box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #2b2b2b;
+  box-sizing: border-box;
   margin: 10px 5px 0px 5px;
 }
-
 .Post article {
   width: 100%;
   height: auto;
 }
-
 .Post article header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  padding: 5px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.Post article header span {
-  margin: 0px 5px 0px 5px;
+.Post article header .post-user-container {
+  display: flex;
+  align-items: center;
 }
-
-.Post article header span img {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #000;
-  border-radius: 50%;
+.Post article header .post-user-container .post-user-default-icon {
+  color: #ed1dc0;
+  font-size: 1.3em;
+  border: 1.5px solid #ed1dc0;
+  border-radius: 100%;
+  padding: 6px;
 }
-
-.Post article p {
-  padding: 20px;
+.Post article header .post-user-container span {
+  margin-right: 10px;
 }
-
+.Post article header .post-user-container .post-username {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.Post article header .post-user-container .post-username .post-date-time {
+  font-size: 0.7em;
+}
+.Post article header .post-date {
+  color: #fff;
+}
+.Post article header .post-dropdown {
+  color: #fff;
+  font-size: 1.5em;
+}
+.Post article .post-content {
+  background-color: #fff;
+}
+.Post article .post-content h4 {
+  padding: 10px;
+}
+.Post article .post-content p {
+  padding: 10px;
+}
+.Post article .post-content img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  max-height: 250px;
+  object-fit: cover;
+}
 .Post article footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 5px;
-  border-top: 1px solid #000;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
 }
+.Post article footer .post-like-button {
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 0.3em;
+}
+.Post article footer .post-like-button .post-like-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
+.Post article footer .post-dislike-button {
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 0.3em;
+}
+.Post article footer .post-dislike-button .post-dislike-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
+.Post article footer .post-comments-button {
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 0.3em;
+}
+.Post article footer .post-comments-button .post-comments-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
+
 /*# sourceMappingURL=Post.css.map */

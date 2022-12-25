@@ -17,37 +17,19 @@ function Navbar() {
   const firstName = useSelector(state => state.user.firstName)
   const lastName = useSelector(state => state.user.lastName)
 
-  const controlNav = () => {
-    const { scrollTop, offsetHeight } = document.documentElement;
-    const { innerHeight } = window;
-    const bottomOfWindow = Math.round(scrollTop) + innerHeight === offsetHeight;
-    if(bottomOfWindow) {
-      setShowNav(false)
-    } else {
-      setShowNav(true)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', controlNav)
-    return () => {
-      window.removeEventListener('scroll', controlNav)
-    }
-  }, [])
-
   return(
     <div className={showNav ? 'Navbar' : 'hide-nav'}>
       {showMessenger ? <Messenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
-        <Link to={'/Friends'} className='mobile-nav-icons'>
+        <Link to={'/Friends'} className='navbar-items'>
           <span><FontAwesomeIcon icon={faUserGroup}/></span>
           <FriendsNotificationBubble />
         </Link>
-        <Link to={'/MessageInbox'} className='mobile-nav-icons'>
+        <Link to={'/MessageInbox'} className='navbar-items'>
           <span><FontAwesomeIcon icon={faEnvelope}/></span>
         </Link>
-        <span onClick={() => setShowMessenger(true)} ><FontAwesomeIcon icon={faCommentDots} /></span>
-        <span onClick={() => setShowMenu(!showMenu)}><FontAwesomeIcon icon={faBars} /></span>
+        <span onClick={() => setShowMessenger(true)} className='navbar-items'><FontAwesomeIcon icon={faCommentDots} /></span>
+        <span onClick={() => setShowMenu(!showMenu)} className='navbar-items'><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 
           <ul>
             <header>
@@ -55,19 +37,19 @@ function Navbar() {
               <Logout />
             </header>
             <li>
-              <Link to={'/Home'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Home</Link>
+              <Link to={'/Home'} onClick={() => setShowMenu(false)} className='dropdown-links'>Home</Link>
             </li>
             <li>
-              <Link to={'/PersonalProfile'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Profile</Link>
+              <Link to={'/PersonalProfile'} onClick={() => setShowMenu(false)} className='dropdown-links'>Profile</Link>
             </li>
             <li>
-              <Link to={'/MessageInbox'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Messages</Link>
+              <Link to={'/MessageInbox'} onClick={() => setShowMenu(false)} className='dropdown-links'>Messages</Link>
             </li>
             <li>
-              <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>Friends</Link>
+              <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='dropdown-links'>Friends</Link>
             </li>
             <li>
-              <Link to={'/Profiles'} onClick={() => setShowMenu(false)} className='mobile-nav-links'>People</Link>
+              <Link to={'/Profiles'} onClick={() => setShowMenu(false)} className='dropdown-links'>People</Link>
             </li>
           </ul>
         :

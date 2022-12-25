@@ -3,7 +3,6 @@ import './MessageInbox.scss'
 import axios from 'axios'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
-import Search from '../Search/Search'
 import Navbar from '../Navbar/Navbar'
 
 
@@ -36,11 +35,10 @@ function MessageInbox() {
 
   return(
     <div className="MessageInbox">
-      <Search />
+      <Navbar />
       <button onClick={() => setShowCreateMessage(!showCreateMessage)}>Create Message</button>
       {showCreateMessage ? <MessageCreate /> : null}
       {mappedMessageInbox}
-      <Navbar />
     </div>
   )
 }

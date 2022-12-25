@@ -1,13 +1,15 @@
 import React from 'react'
 import './ProfileHeader.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faPencil } from '@fortawesome/free-solid-svg-icons'
 
 function ProfileHeader(props) {
   return(
     <div className="ProfileHeader">
-      <header>
-        <img src={'./images/user-image-default-white.svg'} alt="profile" />
-        <span>user's name here</span>
-      </header>
+      <span className='user-image-header-container'>
+        <span><FontAwesomeIcon icon={faPencil} /></span>
+        <FontAwesomeIcon icon={faUser} className='header-user-icon' />
+      </span>
     </div>
   )
 }

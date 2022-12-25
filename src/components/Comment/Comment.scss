@@ -1,9 +1,63 @@
+@import '../../sass/variables', '../../sass/mixins';
+
 .Comment {
-  border: 1px solid #000;
-  margin: 10px 10px 10px 10px;
-  article {
-    header {
-      display: flex;
+  display: flex;
+  padding: 10px;
+  margin: 0px 0px 0px 20px;
+  .comment-user-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid $util-color;
+    border-radius: 100%;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    .comment-user-icon {
+      color: $util-color;
+      font-size: 1.2em;
     }
+  }
+  article {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    section {
+      .comment-container {
+        p {
+          display: inline-block;
+          align-items: center;
+          background-color: #fff;
+          padding: 5px;
+          @include border-radius;
+          .comment-username {
+            margin-right: 5px;
+            color: $util-color;
+            font-weight: 600;
+          }
+        }
+        .comment-details {
+          display: flex;
+          margin-top: 5px;
+          color:  #fff;
+          .comment-date-time {
+            display: flex;
+            font-size: .9em;
+            margin-right: 20px;
+          }
+          .comment-options-container {
+          
+          }
+          .comment-options {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+  .comment-options-icon {
+    font-size: 1.2em;
+    color: $util-color;
   }
 }

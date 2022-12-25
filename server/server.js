@@ -109,7 +109,7 @@ app.post('/api/post/add', imageUpload.single('file'), ctrlPosts.addPost)
 app.get('/api/posts', ctrlPosts.getAllPosts)
 
 // Get User Posts
-app.get('/api/posts/user', ctrlPosts.getUserPosts)
+app.get('/api/posts/:user_id', ctrlPosts.getUserPosts)
 
 // Edit Post 
 app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
