@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "CommentDeleteButton.scss"
-    ],
-    "names": [],
-    "file": "CommentDeleteButton.css"
-}
+{"version":3,"sourceRoot":"","sources":["CommentDeleteButton.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;ECEA;EAIA;EDHA;EACA,kBEIO;EFHP;EACA;EACA;;AACA;EACG;EACA;EACA","file":"CommentDeleteButton.css"}

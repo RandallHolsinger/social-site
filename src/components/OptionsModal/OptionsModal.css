@@ -1,0 +1,25 @@
+.OptionsModal {
+  box-sizing: border-box;
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  z-index: 5;
+  position: absolute;
+  padding: 20px;
+  bottom: -90px;
+  right: -10px;
+  border: 1px solid #000;
+}
+
+.OptionsModal::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 75%;
+  width: 0px;
+  height: 0px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #ed1dc0;
+}
+
+/*# sourceMappingURL=OptionsModal.css.map */

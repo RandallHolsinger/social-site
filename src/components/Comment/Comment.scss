@@ -3,61 +3,69 @@
 .Comment {
   display: flex;
   padding: 10px;
-  margin: 0px 0px 0px 20px;
   .comment-user-image-container {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1.5px solid $util-color;
+    border: 1px solid $util-color;
     border-radius: 100%;
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    padding: 5px;
+    margin: 0px 10px 0px 10px;
+    width: 40px;
+    height: 40px;
     .comment-user-icon {
       color: $util-color;
-      font-size: 1.2em;
+      font-size: 1.5em;
+    }
+    .comment-user-image {
+      border-radius: 100%;
+      max-width: 60px;
+      max-height: 100%;
     }
   }
   article {
     display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    section {
-      .comment-container {
-        p {
-          display: inline-block;
-          align-items: center;
-          background-color: #fff;
-          padding: 5px;
-          @include border-radius;
-          .comment-username {
-            margin-right: 5px;
-            color: $util-color;
-            font-weight: 600;
-          }
+    .comment-container {
+      max-width: 80%;
+      p {
+        display: inline-block;
+        word-break: break-all;
+        white-space: normal;
+        align-items: center;
+        background-color: #fff;
+        padding: 5px;
+        @include border-radius;
+        .comment-username {
+          margin-right: 5px;
+          color: $util-color;
+          font-weight: 600;
         }
-        .comment-details {
-          display: flex;
-          margin-top: 5px;
-          color:  #fff;
-          .comment-date-time {
-            display: flex;
-            font-size: .9em;
-            margin-right: 20px;
-          }
-          .comment-options-container {
-          
-          }
-          .comment-options {
-            display: flex;
-          }
+      }
+      .comment-details {
+        width: 100%;
+        display: flex;
+        font-size: .8em;
+        margin-top: 5px;
+        color: #fff;
+        .comment-date {
+          margin-right: 10px;
+        }
+        .comment-time {
+          margin-right: 10px;
+        }
+        .comment-edit-tag {
+
         }
       }
     }
   }
   .comment-options-icon {
+    position: relative;
     font-size: 1.2em;
     color: $util-color;
+    margin-left: 10px;
+  }
+  .comment-options-container {
+    position: relative;
   }
 }

@@ -24,9 +24,22 @@ module.exports = {
   updateUser: async (req, res) => {
     const {user_id} = req.session.user
     const {email, dob, city, state, aboutMe} = req.body
+    const db = req.app.get('db')
     try {
-      let user = await db.update_user([user_id, email, dob, city, state, aboutMe])
+      let user = await db.users.update_user([user_id, email, dob, city, state, aboutMe])
       res.status(200).send(user)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  updateProfileImage: async (req, res) => {
+    const {user_id} = req.session.user
+    const {filename} = req.file
+    const db = req.app.get('db')
+    try {
+      db.users.update_user_image({filename, user_id})
+      res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
     }
@@ -34,6 +47,7 @@ module.exports = {
 
   deleteUser: async (req, res) => {
     const {user_id} = req.session.user
+    const db = req.app.get('db')
     try {
       await db.delete_user({user_id})
       res.sendStatus(200)

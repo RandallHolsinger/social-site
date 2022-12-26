@@ -1,0 +1,71 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.CommentEditor {
+  @include component-color;
+  @include border-radius;
+  @include box-shadow;
+  border: 1px solid #000;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .editor-header {
+    display: flex;
+    margin-bottom: 5px;
+    .editor-header-icon {
+      font-size: 1.3em;
+      margin-right: 5px;
+      color: $util-color;
+    }
+    h3 {
+      color: #fff;
+    }
+  }
+  label {
+    color: $util-color;
+    font-size: .8em;
+  }
+  textarea {
+    @include border-radius;
+    @include box-shadow;
+  }
+  textarea:focus {
+    @include input-focus;
+  }
+  .comment-editor-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    .comment-edit-save {
+      @include border-radius;
+      @include box-shadow;
+      border: none;
+      width: 50%;
+      padding: 5px;
+      background-color: $util-color-2;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 600;
+      .comment-editor-save-icon {
+        color: #fff;
+        margin-right: 5px;
+      }
+    }
+    .comment-edit-cancel {
+      @include border-radius;
+      @include box-shadow;
+      border: none;
+      width: 40%;
+      padding: 5px;
+      font-size: 1em;
+      font-weight: 600;
+      color: #fff;
+      background-color: $danger;
+      .comment-editor-cancel-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+}

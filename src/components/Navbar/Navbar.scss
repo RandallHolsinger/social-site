@@ -2,17 +2,23 @@
 
 .Navbar{
   nav {
+    position: fixed;
+    top: 0px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: $dark;
+    width: 100%;
     color: #fff;
     padding: 10px;
-    height: 50px;
+    height: 60px;
     font-size: 1.5em;
     .navbar-items {
       text-decoration: none;
+      color: #fff;
+    }
+    .dropdown-menu {
       color: $util-color;
     }
     ul {

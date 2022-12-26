@@ -1,0 +1,19 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.comment-delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include box-shadow;
+  @include border-radius;
+  border: none;
+  background-color: $danger;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px;
+  .comment-delete-icon {
+     color: #fff;
+     margin-right: 5px;
+     font-size: 1.3em;
+  }
+}

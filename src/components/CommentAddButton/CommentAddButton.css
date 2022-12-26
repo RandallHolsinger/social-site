@@ -9,6 +9,7 @@
 }
 .CommentAddButton form input {
   border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
   border: none;
   padding: 5px;
   margin-right: 10px;
@@ -17,7 +18,7 @@
   caret-color: #ed1dc0;
 }
 .CommentAddButton form input:focus {
-  outline: 2px solid #ed1dc0;
+  outline: 1px solid #ed1dc0;
   border: none;
 }
 .CommentAddButton form button {

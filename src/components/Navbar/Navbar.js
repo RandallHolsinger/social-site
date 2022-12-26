@@ -29,7 +29,7 @@ function Navbar() {
           <span><FontAwesomeIcon icon={faEnvelope}/></span>
         </Link>
         <span onClick={() => setShowMessenger(true)} className='navbar-items'><FontAwesomeIcon icon={faCommentDots} /></span>
-        <span onClick={() => setShowMenu(!showMenu)} className='navbar-items'><FontAwesomeIcon icon={faBars} /></span>
+        <span onClick={() => setShowMenu(!showMenu)} className='dropdown-menu'><FontAwesomeIcon icon={faBars} /></span>
         {showMenu ? 
           <ul>
             <header>

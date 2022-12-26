@@ -11,13 +11,15 @@ import PostEditButton from '../PostEditButton/PostEditButton'
 
 function Post(props) {
 
+  const {value, getPosts} = props
+
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
 
   const userId = useSelector(state => state.user.userId)
 
   useEffect(() => {
-    console.log(props.value)
+    console.log(value)
   }, [])
 
 
@@ -26,26 +28,29 @@ function Post(props) {
       <article>
         <header>
           <div className='post-user-container'>
-            <span>
-              {props.value.profile_img ? <img src="" alt="profile" /> : <FontAwesomeIcon icon={faUser} className='post-user-default-icon'/> }
+            <span className='post-user-image-container'>
+              {value.profile_img ? 
+                <img src={`uploads/images/${props.value.profile_img}`} alt="profile" className='post-user-image'/> 
+              : 
+                <FontAwesomeIcon icon={faUser} className='post-user-default-icon'/> }
             </span>
             <span className='post-username'>
-              {props.value.first_name}{' '}{props.value.last_name}
+              {value.first_name}{' '}{value.last_name}
               <div className='post-date-time'>
-                <FormatedDate date={props.value.date} />
-                <FormatedTime time={props.value.date} />
+                <FormatedDate date={value.date} />
+                <FormatedTime time={value.date} />
               </div>
             </span>
           </div>
-          {props.value.user_id === userId ? 
+          {value.user_id === userId ? 
             <span onClick={() => setShowOptions(!showOptions)}><FontAwesomeIcon icon={faEllipsis} className='post-dropdown'/></span>
           :
             null
           }
           {showOptions ? 
             <div>
-              <PostEditButton post={props.value} getPosts={props.getPosts}/>
-              <PostDeleteButton post_id={props.value.post_id} getPosts={props.getPosts}/>
+              <PostEditButton post={value} getPosts={getPosts}/>
+              <PostDeleteButton post_id={value.post_id} getPosts={getPosts}/>
             </div>
           :
             null
@@ -54,7 +59,7 @@ function Post(props) {
         <section className='post-content'>
           <h4>{props.value.title}</h4>
           <p>{props.value.post}</p>
-          <img src={`/uploads/images/${props.value.image_file}`} alt='image' />
+          <img src={`/uploads/images/${props.value.image_file}`} alt='post' className='post-image'/>
         </section>
         <footer>
           <span className='post-like-button'><FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like</span>

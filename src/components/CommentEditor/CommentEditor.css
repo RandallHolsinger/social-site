@@ -1,0 +1,72 @@
+.CommentEditor {
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  border: 1px solid #000;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.CommentEditor .editor-header {
+  display: flex;
+  margin-bottom: 5px;
+}
+.CommentEditor .editor-header .editor-header-icon {
+  font-size: 1.3em;
+  margin-right: 5px;
+  color: #ed1dc0;
+}
+.CommentEditor .editor-header h3 {
+  color: #fff;
+}
+.CommentEditor label {
+  color: #ed1dc0;
+  font-size: 0.8em;
+}
+.CommentEditor textarea {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+}
+.CommentEditor textarea:focus {
+  outline: 1px solid #ed1dc0;
+  border: none;
+}
+.CommentEditor .comment-editor-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.CommentEditor .comment-editor-buttons .comment-edit-save {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  border: none;
+  width: 50%;
+  padding: 5px;
+  background-color: #07c52a;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+}
+.CommentEditor .comment-editor-buttons .comment-edit-save .comment-editor-save-icon {
+  color: #fff;
+  margin-right: 5px;
+}
+.CommentEditor .comment-editor-buttons .comment-edit-cancel {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  border: none;
+  width: 40%;
+  padding: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ff3860;
+}
+.CommentEditor .comment-editor-buttons .comment-edit-cancel .comment-editor-cancel-icon {
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=CommentEditor.css.map */

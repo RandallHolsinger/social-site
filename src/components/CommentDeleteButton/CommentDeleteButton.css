@@ -1,1 +1,19 @@
-/* No CSS *//*# sourceMappingURL=CommentDeleteButton.css.map */
+.comment-delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff3860;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px;
+}
+.comment-delete-button .comment-delete-icon {
+  color: #fff;
+  margin-right: 5px;
+  font-size: 1.3em;
+}
+
+/*# sourceMappingURL=CommentDeleteButton.css.map */

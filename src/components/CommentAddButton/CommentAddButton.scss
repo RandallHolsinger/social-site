@@ -9,6 +9,7 @@
     padding: 10px;
     input {
       @include border-radius;
+      @include box-shadow;
       border: none;
       padding: 5px;
       margin-right: 10px;

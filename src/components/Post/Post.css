@@ -19,12 +19,25 @@
   display: flex;
   align-items: center;
 }
-.Post article header .post-user-container .post-user-default-icon {
-  color: #ed1dc0;
-  font-size: 1.3em;
-  border: 1.5px solid #ed1dc0;
+.Post article header .post-user-container .post-user-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ed1dc0;
   border-radius: 100%;
+  width: 60px;
+  height: 60px;
+}
+.Post article header .post-user-container .post-user-image-container .post-user-default-icon {
+  color: #ed1dc0;
+  font-size: 2.3em;
   padding: 6px;
+}
+.Post article header .post-user-container .post-user-image-container .post-user-image {
+  border-radius: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 .Post article header .post-user-container span {
   margin-right: 10px;
@@ -53,7 +66,7 @@
 .Post article .post-content p {
   padding: 10px;
 }
-.Post article .post-content img {
+.Post article .post-content .post-image {
   display: block;
   width: 100%;
   height: 250px;

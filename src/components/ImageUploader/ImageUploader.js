@@ -6,14 +6,18 @@ import Oval from 'react-loader-spinner';
 
 function ImageUploader(props) {
  
-const {setPostData} = props
+const {setPostData, setProfileImageData, type} = props
   
 const [image, setImage] = useState({preview:'', data:'' })
 
 const updateImage = async (e) => {
   const formData = new FormData()
   formData.append('file', image.data)
-  setPostData(formData)
+  if(type === 'post') {
+    setPostData(formData)
+  } else if(type === 'profile image') {
+    setProfileImageData(formData)
+  }
 }
 
 const handleFileChange = (e) => {

@@ -7,6 +7,7 @@ import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
 import CommentDeleteButton from '../CommentDeleteButton/CommentDeleteButton'
 import CommentEditButton from '../CommentEditButton/CommentEditButton'
+import OptionsModal from '../OptionsModal/OptionsModal'
 
 function Comment(props) {
   
@@ -18,45 +19,52 @@ function Comment(props) {
 
   return(
     <div className="Comment">
-      {!value.profile_image ?
-        <span className='comment-user-image-container'>
-          <FontAwesomeIcon icon={faUser} className='comment-user-icon' />
-        </span>
-      :
-         null
-      }
       <article>
-        <section>
-          <div className='comment-container'>
-            <p>
-              <span className='comment-username'>
-                {value.first_name}{' '}{value.last_name}
-              </span>
-              {value.comment}
-            </p>
-            <div className='comment-details'>
-              <div className="comment-date-time">
-                <FormatedDate date={value.date} />
-                <FormatedTime time={value.date} />
-              </div>
-              <div className='comment-options-container'>
-                {showOptions ? 
-                 <div className='comment-options'>
-                   <CommentEditButton comment={value} getComments={getComments}/>
-                   <CommentDeleteButton comment_id={value.comment_id} getComments={getComments} />
-                 </div> 
-                 : 
-                 null
-                }
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className='comment-user-image-container'>
+        {value.profile_img ?
+          <img src={`/uploads/images/${value.profile_img}`} alt='profile' className='comment-user-image'/>
+        :
+            <FontAwesomeIcon icon={faUser} className='comment-user-icon' />
+        }
+      </div>
+        <div className='comment-container'>
+        <p>
+          <span className='comment-username'>
+            {value.first_name}{' '}{value.last_name}
+          </span>
+          {value.comment}
+        </p>
+        <div className="comment-details">
+          <span className='comment-date'>
+            <FormatedDate date={value.date} />
+          </span>
+          <span className="comment-time">
+            <FormatedTime time={value.date} />
+          </span>
+          <span className='comment-edit-tag'>
+            {value.edited ? '- Edited' : null}
+          </span>
+        </div>
+      </div>
       </article>
       {value.user_id = userId ?
-        <span onClick={() => setShowOptions(!showOptions)}>
-          <FontAwesomeIcon icon={faEllipsis} className='comment-options-icon'/>
-        </span>
+        <div className="comment-options-container">
+          <span onClick={() => setShowOptions(!showOptions)} className='comment-options-icon'>
+            <FontAwesomeIcon icon={faEllipsis} />
+          </span>
+          {showOptions ? 
+            <OptionsModal 
+              id={value.comment_id}
+              value={value} 
+              getItems={getComments}
+              setShowOptions={setShowOptions} 
+              DeleteButton={<CommentDeleteButton comment_id={value.comment_id} getComments={getComments} setShowOptions={setShowOptions}/>} 
+              EditButton={<CommentEditButton comment={value} getComments={getComments} setShowOptions={setShowOptions}/>}
+            />
+          : 
+            null
+          }
+        </div>
       :
         null
       }

@@ -1,0 +1,29 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.CommentEditButton {
+  z-index: 2;
+  .comment-edit-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    @include border-radius;
+    @include box-shadow;
+    background-color: $util-color-2;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    .comment-edit-icon {
+      margin-right: 5px;
+      font-size: 1.3em;
+    }
+  }
+  .comment-editor-container {
+    border: 1px solid red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

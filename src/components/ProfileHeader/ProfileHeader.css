@@ -1,10 +1,11 @@
 .ProfileHeader {
+  margin-top: 60px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #2b2b2b;
-  height: 150px;
+  padding: 20px;
 }
 .ProfileHeader .user-image-header-container {
   position: relative;
@@ -32,6 +33,49 @@
 .ProfileHeader .user-image-header-container .header-user-icon {
   font-size: 3.5em;
   color: #ed1dc0;
+}
+.ProfileHeader .image-upload-modal {
+  background-color: #2b2b2b;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 90%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.ProfileHeader .image-upload-modal .upload-user-image-buttons {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+.ProfileHeader .image-upload-modal .upload-user-image-buttons .save-user-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  background-color: #07c52a;
+  width: 60%;
+  padding: 10px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+}
+.ProfileHeader .image-upload-modal .upload-user-image-buttons .cancel-user-image {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  background-color: #ff3860;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 700;
+  width: 30%;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=ProfileHeader.css.map */

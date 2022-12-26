@@ -61,7 +61,7 @@ function PostAddButton(props) {
               className='post-area'
             />
           </div>
-          <ImageUploader setPostData={setPostData}/>
+          <ImageUploader setPostData={setPostData} type={'post'}/>
           <div className='post-buttons-container'>
             <button onClick={() => addPost()} className='add-post-button'>
               <FontAwesomeIcon icon={faPlus} className='add-post-plus-icon'/>

@@ -1,41 +1,28 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import './CommentEditButton.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenSquare } from '@fortawesome/free-solid-svg-icons'
+import CommentEditor from '../CommentEditor/CommentEditor'
 
 function CommentEditButton(props) {
 
-  const [editCommentInput, setEditCommentInput] = useState('')
   const [showEditComment, setShowEditComment] = useState(false)
 
-  const {comment, getComments} = props
-
-  console.log('here uis comment object =>', comment)
-
-  const editComment = async () => {
-    const {comment_id} = comment
-    const data = editCommentInput
-    try {
-      await axios.put(`/api/comment/edit/${comment_id}`, {data})
-      getComments()
-      setShowEditComment(false)
-    } catch(err) {
-      console.log(err)
-    }
-  }
+  const {comment, getComments, setShowOptions} = props
 
   return(
-    <div className="CommentEditButton">
-      <button onClick={() => setShowEditComment(true)}>Edit</button>
+    <div className='CommentEditButton'>
+      <button onClick={() => setShowEditComment(true)} className='comment-edit-button'>
+        <FontAwesomeIcon icon={faPenSquare} className='comment-edit-icon'/>
+        Edit
+      </button>
       {showEditComment ?
-        <div className="comment-editor">
-          <textarea
-            onChange={(e) => setEditCommentInput(e.target.value)}
-            defaultValue={comment.comment} 
-            name="comment-editor" 
-            cols="30" 
-            rows="10"
-           />
-           <button onClick={() => editComment()}>Save</button>
-        </div>
+        <CommentEditor 
+          comment={comment} 
+          getComments={getComments}
+          setShowOptions={setShowOptions}
+          setShowEditComment={setShowEditComment}
+        />
       :
         null
       }
