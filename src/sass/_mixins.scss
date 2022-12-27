@@ -17,9 +17,8 @@
 }
 
 @mixin input-style {
+  border: none;
   caret-color: $util-color;
-  color: #000; 
-  border-radius: 5px;
   padding: .4em;
 }
 

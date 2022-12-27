@@ -3,6 +3,7 @@
 .Navbar{
   nav {
     position: fixed;
+    z-index: 5;
     top: 0px;
     box-sizing: border-box;
     display: flex;

@@ -54,13 +54,14 @@
 .Register form input {
   display: flex;
   justify-content: center;
+  border: none;
   caret-color: #ed1dc0;
-  color: #000;
-  border-radius: 5px;
   padding: 0.4em;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
 }
 .Register form input:focus {
-  outline: 2px solid #ed1dc0;
+  outline: 1px solid #ed1dc0;
   border: none;
 }
 .Register form span {
@@ -78,6 +79,7 @@
   font-weight: 700;
   color: #fff;
   border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
 }
 
 /*# sourceMappingURL=Register.css.map */

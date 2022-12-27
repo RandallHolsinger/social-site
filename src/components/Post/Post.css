@@ -19,25 +19,31 @@
   display: flex;
   align-items: center;
 }
-.Post article header .post-user-container .post-user-image-container {
+.Post article header .post-user-container .post-user-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ed1dc0;
-  border-radius: 100%;
   width: 60px;
   height: 60px;
-}
-.Post article header .post-user-container .post-user-image-container .post-user-default-icon {
-  color: #ed1dc0;
-  font-size: 2.3em;
-  padding: 6px;
-}
-.Post article header .post-user-container .post-user-image-container .post-user-image {
+  border: 0.5px solid #fff;
   border-radius: 100%;
-  max-width: 100%;
-  max-height: 100%;
+}
+.Post article header .post-user-container .post-user-image .post-user-image {
+  width: 100%;
   object-fit: cover;
+}
+.Post article header .post-user-container .post-user-image-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+}
+.Post article header .post-user-container .post-user-image-default .post-user-default-icon {
+  font-size: 2.5em;
+  color: #ed1dc0;
 }
 .Post article header .post-user-container span {
   margin-right: 10px;
@@ -53,8 +59,16 @@
 .Post article header .post-date {
   color: #fff;
 }
-.Post article header .post-dropdown {
-  color: #fff;
+.Post article header .post-options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.Post article header .post-options-container .post-dropdown {
+  color: #ed1dc0;
   font-size: 1.5em;
 }
 .Post article .post-content {

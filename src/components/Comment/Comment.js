@@ -60,6 +60,7 @@ function Comment(props) {
               setShowOptions={setShowOptions} 
               DeleteButton={<CommentDeleteButton comment_id={value.comment_id} getComments={getComments} setShowOptions={setShowOptions}/>} 
               EditButton={<CommentEditButton comment={value} getComments={getComments} setShowOptions={setShowOptions}/>}
+              commentStyle={'comment-style'}
             />
           : 
             null

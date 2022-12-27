@@ -5,11 +5,8 @@
   @include component-color;
   @include border-radius;
   @include box-shadow;
-  z-index: 5;
-  position: absolute;
   padding: 20px;
-  bottom: -90px;
-  right: -10px;
+  z-index: 5;
   border: 1px solid #000;
 }
 .OptionsModal::after {
@@ -21,4 +18,16 @@
   height: 0px;
   border: 10px solid transparent;
   border-bottom: 10px solid $util-color;
+}
+
+.comment-style {
+  position: absolute;
+  bottom: -115px;
+  right: -9px;
+}
+
+.post-style {
+  position: absolute;
+  bottom: -110px;
+  right: -3.5px;
 }

@@ -29,7 +29,7 @@
       max-width: 80%;
       p {
         display: inline-block;
-        word-break: break-all;
+        word-break: normal;
         white-space: normal;
         align-items: center;
         background-color: #fff;
@@ -59,13 +59,15 @@
       }
     }
   }
-  .comment-options-icon {
-    position: relative;
-    font-size: 1.2em;
-    color: $util-color;
-    margin-left: 10px;
-  }
   .comment-options-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    width: 20px;
+    height: 20px;
+    .comment-options-icon {
+      color: $util-color;
+    }
   }
 }

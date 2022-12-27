@@ -2,11 +2,12 @@ module.exports = {
   addPost: async (req, res) => {
     const {user_id} = req.session.user
     const {titleInput, postInput} = req.body
+    const title = titleInput
+    const data = postInput
     const {filename} = req.file
-    console.log('server ==>', titleInput, postInput, req.file)
     const db = req.app.get('db')
     try {
-      await db.posts.add_post({user_id, titleInput, postInput, filename})
+      await db.posts.add_post({user_id, title, data, filename})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
@@ -47,10 +48,13 @@ module.exports = {
 
   updatePost: async (req, res) => {
     const {post_id} = req.params
-    const {data} = req.body
+    const {editPostTitleInput, editPostInput} = req.body
+    const {filename} = req.file
+    const data = editPostInput
+    const title = editPostTitleInput
     const db = req.app.get('db')
     try {
-      await db.posts.update_post({post_id, data})
+      await db.posts.update_post({post_id, data, title, filename})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

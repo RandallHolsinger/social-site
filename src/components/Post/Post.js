@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
+import OptionsModal from '../OptionsModal/OptionsModal'
 import PostDeleteButton from '../PostDeleteButton/PostDeleteButton'
 import PostEditButton from '../PostEditButton/PostEditButton'
+import OutsideClickHandler from 'react-outside-click-handler'
 
 function Post(props) {
 
@@ -28,12 +30,15 @@ function Post(props) {
       <article>
         <header>
           <div className='post-user-container'>
-            <span className='post-user-image-container'>
               {value.profile_img ? 
-                <img src={`uploads/images/${props.value.profile_img}`} alt="profile" className='post-user-image'/> 
+                <span className='post-user-image'>
+                  <img src={`uploads/images/${props.value.profile_img}`} alt="profile" className='post-user-image'/> 
+                </span>
               : 
-                <FontAwesomeIcon icon={faUser} className='post-user-default-icon'/> }
-            </span>
+                <span className="post-user-image-default">
+                  <FontAwesomeIcon icon={faUser} className='post-user-default-icon'/> 
+                </span>
+              }
             <span className='post-username'>
               {value.first_name}{' '}{value.last_name}
               <div className='post-date-time'>
@@ -42,15 +47,24 @@ function Post(props) {
               </div>
             </span>
           </div>
-          {value.user_id === userId ? 
-            <span onClick={() => setShowOptions(!showOptions)}><FontAwesomeIcon icon={faEllipsis} className='post-dropdown'/></span>
-          :
-            null
-          }
-          {showOptions ? 
-            <div>
-              <PostEditButton post={value} getPosts={getPosts}/>
-              <PostDeleteButton post_id={value.post_id} getPosts={getPosts}/>
+          {value.user_id === userId ?
+            <div className='post-options-container'>
+              <span onClick={() => setShowOptions(!showOptions)}>
+                <FontAwesomeIcon icon={faEllipsis} className='post-dropdown'/>
+              </span>
+              {showOptions ? 
+                <OptionsModal 
+                  id={value.post_id}
+                  value={value} 
+                  getItems={getPosts}
+                  setShowOptions={setShowOptions} 
+                  DeleteButton={<PostDeleteButton post_id={value.post_id} getPosts={getPosts} setShowOptions={setShowOptions}/>} 
+                  EditButton={<PostEditButton post={value} getPosts={getPosts} setShowOptions={setShowOptions}/>}
+                  postStyle={'post-style'}
+                />
+              :
+                null
+              }
             </div>
           :
             null
@@ -67,9 +81,9 @@ function Post(props) {
           <span onClick={() => setShowComments(!showComments)} className='post-comments-button'><FontAwesomeIcon icon={faComment} post-comments-icon className='post-comments-icon'/>{' '}Comments</span>
         </footer>
         {showComments ?
-          <section>
+          <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>
             <Comments post_id={props.value.post_id} />
-          </section>
+          </OutsideClickHandler>
         :
         null
         }

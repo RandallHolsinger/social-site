@@ -41,8 +41,10 @@
       }
     }
     input {
-      margin: 5px 0px 15px 0px; 
       @include input-style;
+      @include box-shadow;
+      @include border-radius;
+      margin: 5px 0px 15px 0px; 
     }
     input:focus {
       @include input-focus;
@@ -64,6 +66,7 @@
       button {
         @include button-style;
         @include border-radius;
+        @include box-shadow;
         padding: .2em;
         font-size: 1.3em;
         font-weight: 700;  
@@ -77,7 +80,8 @@
       }
       .register-link {
         @include register-link;
-        @include border-radius;   
+        @include border-radius;
+        @include box-shadow;   
       }
     }
     

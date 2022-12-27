@@ -15,12 +15,11 @@ function PostAddButton(props) {
   const {getPosts} = props
 
   const addPost = async () => {
-    console.log('post add button', ...postData)
     try {
       postData.append('titleInput', titleInput)
       postData.append('postInput', postInput)
       await axios.post('/api/post/add', postData)
-      await getPosts()
+      getPosts()
     } catch(err) {
       console.log(err)
     }

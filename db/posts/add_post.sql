@@ -1,6 +1,6 @@
 WITH new_post as (
 INSERT INTO posts(user_id, title, post, date)
-VALUES(${user_id}, ${titleInput}, ${postInput}, now())
+VALUES(${user_id}, ${title}, ${data}, now())
 returning post_id
 )
 INSERT INTO images(post_id, image_file, date)

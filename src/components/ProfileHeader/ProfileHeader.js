@@ -29,7 +29,7 @@ function ProfileHeader(props) {
       </div>
       {showImageUploader ?
         <div className='image-upload-modal'>
-          <ImageUploader setProfileImageData={setProfileImageData} type={'profile image'} />
+          <ImageUploader setProfileImageData={setProfileImageData} type={'profile_image'} />
           <div className="upload-user-image-buttons">
             <button onClick={() => updateProfileImage()} className='save-user-image'>Save</button>
             <button onClick={() => setShowImageUploader(false)} className='cancel-user-image'>Cancel</button>

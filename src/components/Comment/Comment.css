@@ -30,7 +30,7 @@
 }
 .Comment article .comment-container p {
   display: inline-block;
-  word-break: break-all;
+  word-break: normal;
   white-space: normal;
   align-items: center;
   background-color: #fff;
@@ -55,14 +55,16 @@
 .Comment article .comment-container .comment-details .comment-time {
   margin-right: 10px;
 }
-.Comment .comment-options-icon {
-  position: relative;
-  font-size: 1.2em;
-  color: #ed1dc0;
-  margin-left: 10px;
-}
 .Comment .comment-options-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  width: 20px;
+  height: 20px;
+}
+.Comment .comment-options-container .comment-options-icon {
+  color: #ed1dc0;
 }
 
 /*# sourceMappingURL=Comment.css.map */

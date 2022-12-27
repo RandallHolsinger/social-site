@@ -115,7 +115,7 @@ app.get('/api/posts', ctrlPosts.getAllPosts)
 app.get('/api/posts/:user_id', ctrlPosts.getUserPosts)
 
 // Edit Post 
-app.put('/api/post/edit/:post_id', ctrlPosts.updatePost)
+app.put('/api/post/edit/:post_id', imageUpload.single('file'), ctrlPosts.updatePost)
 
 // Delete Post
 app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)

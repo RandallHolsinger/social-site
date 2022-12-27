@@ -12,6 +12,7 @@ function CommentDeleteButton(props) {
     setShowOptions(false)
     try {
       await axios.delete(`/api/comment/delete/${comment_id}`)
+      setShowOptions(false)
       getComments()
     } catch(err) {
       console.log(err)

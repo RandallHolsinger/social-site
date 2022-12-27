@@ -1,22 +1,22 @@
 @import '../../sass/mixins', '../../sass/variables';
 
-.CommentEditor {
+.PostEditor {
   @include component-color;
   @include border-radius;
   @include box-shadow;
-  border: 1px solid #000;
-  padding: 20px;
   position: fixed;
+  padding: 20px;
+  width: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  .editor-header {
+  .post-editor-header {
     display: flex;
-    margin-bottom: 5px;
-    .editor-header-icon {
+    margin-bottom: 10px;
+    .post-editor-header-icon {
       font-size: 1.3em;
-      margin-right: 5px;
       color: $util-color;
+      margin-right: 5px;
     }
     h3 {
       color: #fff;
@@ -24,47 +24,53 @@
   }
   label {
     color: $util-color;
-    font-size: .8em;
   }
   textarea {
     @include border-radius;
     @include box-shadow;
     padding: 5px;
+    border: none;
+    width: 100%;
   }
   textarea:focus {
     @include input-focus;
   }
-  .comment-editor-buttons {
+  .post-edit-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    .comment-edit-save {
+    .post-edit-save-button {
       @include border-radius;
       @include box-shadow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
-      width: 50%;
+      width: 65%;
       padding: 5px;
       background-color: $util-color-2;
       color: #fff;
       font-weight: 600;
       font-size: 1em;
-      .comment-editor-save-icon {
-        color: #fff;
+      .post-edit-save-icon {
         margin-right: 5px;
       }
     }
-    .comment-edit-cancel {
+    .post-edit-cancel-button {
       @include border-radius;
       @include box-shadow;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
-      width: 40%;
+      width: 30%;
       padding: 5px;
-      font-size: 1em;
-      font-weight: 600;
-      color: #fff;
       background-color: $danger;
-      .comment-editor-cancel-icon {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1em;
+      .post-edit-cancel-icon {
         margin-right: 5px;
       }
     }

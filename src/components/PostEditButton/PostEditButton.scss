@@ -1,0 +1,21 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.PostEditButton {
+  .post-edit-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    @include border-radius;
+    @include box-shadow;
+    background-color: $util-color-2;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    .post-edit-icon {
+      margin-right: 5px;
+      font-size: 1.3em;
+    }
+  }
+}

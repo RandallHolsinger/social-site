@@ -30,10 +30,12 @@ function CommentEditor(props) {
         <FontAwesomeIcon icon={faPenToSquare} className='editor-header-icon'/>
         <h3>Edit Comment</h3>
       </div>
-      <label htmlFor='commenteditor'>Please edit your comment below:</label>
+      <label htmlFor='commenteditor'>Edit your comment below:</label>
       <textarea
        onChange={(e) => setEditCommentInput(e.target.value)}
        defaultValue={comment.comment} 
+       autoFocus='true'
+       spellCheck='true'
        name="comment-editor" 
        cols="30" 
        rows="5"

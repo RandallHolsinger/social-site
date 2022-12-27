@@ -17,24 +17,30 @@
       .post-user-container {
         display: flex;
         align-items: center;
-        .post-user-image-container {
+        .post-user-image {
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 1px solid $util-color;
-          border-radius: 100%;
           width: 60px;
           height: 60px;
-          .post-user-default-icon {
-            color: $util-color;
-            font-size: 2.3em;
-            padding: 6px;
-          }
+          border: .5px solid #fff;
+          border-radius: 100%;
           .post-user-image {
-            border-radius: 100%;
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
             object-fit: cover;
+          }
+        }
+        .post-user-image-default {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 60px;
+          height: 60px;
+          border: 1px solid $util-color;
+          border-radius: 100%;
+          .post-user-default-icon {
+            font-size: 2.5em;
+            color: $util-color;
           }
         }
         span{
@@ -55,9 +61,17 @@
       .post-time {
 
       }
-      .post-dropdown {
-        color: #fff;
-        font-size: 1.5em;
+      .post-options-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        .post-dropdown {
+          color: $util-color;
+          font-size: 1.5em;
+        }
       }
     }
     .post-content {

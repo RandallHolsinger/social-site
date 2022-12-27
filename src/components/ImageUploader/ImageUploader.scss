@@ -1,7 +1,7 @@
 @import '../../sass/mixins', '../../sass/variables';
 
 .ImageUploader {
-  header {
+  .image-uploader-header {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@
     h3 {
       color: #fff;
     }
-    .upload-check-icon {
+    .upload-check-icon {  
       margin-left: 20px;
       font-size: 1em;
       border: 2px solid $util-color-2;
