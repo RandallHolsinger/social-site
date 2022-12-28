@@ -16,7 +16,6 @@ function PostEditor(props) {
 
   const editPost = async () => {
      const {post_id} = post
-    //  console.log('updated post data =>', ...updatedPostData)
      try {
       updatedPostData.append('editPostTitleInput', editPostTitleInput)
       updatedPostData.append('editPostInput', editPostInput)

@@ -1,9 +1,8 @@
 import React from 'react'
-import './Profile.scss'
+import './ProfileCard.scss'
 import FriendStatus from '../FriendStatus/FriendStatus'
-import Posts from '../Posts/Posts'
 
-function Profile(props) {
+function ProfileCard(props) {
   return(
     <div className="Profile">
       <figure>
@@ -19,4 +18,4 @@ function Profile(props) {
   )
 }
 
-export default Profile
+export default ProfileCard

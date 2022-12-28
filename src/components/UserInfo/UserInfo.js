@@ -6,26 +6,8 @@ import { faUser, faUserPen } from '@fortawesome/free-solid-svg-icons'
 import UserInfoItem from '../UserInfoItem/UserInfoItem'
 
 function UserInfo(props) {
-
-  const [user, setUser] = useState({})
-
-  const GetUserInfo = async(user_id) => {
-    console.log('user id here ==>', user_id)
-    if(user_id !== 0) {
-      try {
-        let res = await axios.get(`/api/user/${user_id}`)
-        console.log(res)
-        setUser(res.data[0])
-      } catch(err) {
-        console.log(err)
-      }
-    }
-    console.log(user)
-  }
-
-  useEffect(() => {
-    GetUserInfo(props.user_id)
-  }, [props.user_id])
+  
+  const {user} = props
 
   return(
     <div className="UserInfo">

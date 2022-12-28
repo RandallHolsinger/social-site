@@ -1,5 +1,5 @@
 @import '../../sass/mixins';
 
 .Posts {
-  @include top-nav-adjust;
+  @include adjust-content;
 }

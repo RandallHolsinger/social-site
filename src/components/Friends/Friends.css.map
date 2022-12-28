@@ -1,11 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,QAAQ,CAAC;ECCP,UAAU,EAAE,IAAI;CDCjB",
-    "sources": [
-        "Friends.scss",
-        "../../sass/_mixins.scss",
-        "../../sass/_variables.scss"
-    ],
-    "names": [],
-    "file": "Friends.css"
-}
+{"version":3,"sourceRoot":"","sources":["Friends.scss","../../sass/_mixins.scss"],"names":[],"mappings":"AAEA;ECCE;EACA","file":"Friends.css"}

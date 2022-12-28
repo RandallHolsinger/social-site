@@ -2,37 +2,62 @@
   margin-top: 60px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: #2b2b2b;
-  padding: 20px;
+  padding: 5px 0px 10px 5px;
 }
-.ProfileHeader .user-image-header-container {
+.ProfileHeader .user-header-info {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+.ProfileHeader .user-header-info .user-image-header-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80px;
   height: 80px;
-  border: 3px solid #ed1dc0;
-  padding: 10px;
+  margin-right: 5px;
+  border: 2px solid #ed1dc0;
   background-color: #2b2b2b;
-  border-radius: 50%;
+  border-radius: 100%;
 }
-.ProfileHeader .user-image-header-container span {
+.ProfileHeader .user-header-info .user-image-header-container .header-image-edit-icon {
   color: #fff;
   position: absolute;
-  font-size: 0.9em;
+  z-index: 1;
+  font-size: 0.6em;
   border: 2px solid #fff;
   padding: 5px;
   border-radius: 100%;
   background-color: #2b2b2b;
   bottom: 0px;
-  right: -5px;
+  right: 0px;
 }
-.ProfileHeader .user-image-header-container .header-user-icon {
+.ProfileHeader .user-header-info .user-image-header-container .header-user-icon {
   font-size: 3.5em;
   color: #ed1dc0;
+}
+.ProfileHeader .user-header-info .user-image-header-container .profile-user-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.ProfileHeader .user-header-info .header-user-details {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  height: 100%;
+}
+.ProfileHeader .user-header-info .header-user-details .header-username {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 .ProfileHeader .image-upload-modal {
   background-color: #2b2b2b;

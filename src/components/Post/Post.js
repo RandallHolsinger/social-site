@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Post.scss'
 import Comments from '../Comments/Comments'
 import { useSelector } from 'react-redux'
@@ -19,11 +19,6 @@ function Post(props) {
   const [showOptions, setShowOptions] = useState(false)
 
   const userId = useSelector(state => state.user.userId)
-
-  useEffect(() => {
-    console.log(value)
-  }, [])
-
 
   return(
     <div className="Post">
@@ -76,9 +71,18 @@ function Post(props) {
           <img src={`/uploads/images/${props.value.image_file}`} alt='post' className='post-image'/>
         </section>
         <footer>
-          <span className='post-like-button'><FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like</span>
-          <span className='post-dislike-button'><FontAwesomeIcon icon={faThumbsDown} className='post-dislike-icon' />{' '}Dislike</span>
-          <span onClick={() => setShowComments(!showComments)} className='post-comments-button'><FontAwesomeIcon icon={faComment} post-comments-icon className='post-comments-icon'/>{' '}Comments</span>
+          <span className='post-like-button'>
+            <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}
+            Like
+          </span>
+          <span className='post-dislike-button'>
+            <FontAwesomeIcon icon={faThumbsDown} className='post-dislike-icon' />{' '}
+            Dislike
+          </span>
+          <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
+            <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
+            Comments
+          </span>
         </footer>
         {showComments ?
           <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>

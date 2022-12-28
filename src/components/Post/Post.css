@@ -2,12 +2,11 @@
   box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
   background-color: #2b2b2b;
-  box-sizing: border-box;
-  margin: 10px 5px 0px 5px;
+  margin: 10px 5px 40px 5px;
 }
 .Post article {
-  width: 100%;
-  height: auto;
+  box-sizing: border-box;
+  margin-bottom: 60px;
 }
 .Post article header {
   display: flex;

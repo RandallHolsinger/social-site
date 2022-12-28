@@ -38,10 +38,8 @@ function Posts(props) {
 
   return(
     <div className="Posts">
-      <section>
-        <PostAddButton getPosts={getAllPosts}/>
-        {mappedPosts}
-      </section>
+      <PostAddButton getPosts={getAllPosts}/>
+      {mappedPosts}
     </div>
   )
 }

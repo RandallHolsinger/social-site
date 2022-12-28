@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import './Profiles.scss'
-import Profile from '../Profile/Profile'
+import './ProfileCards.scss'
 import Navbar from '../Navbar/Navbar'
+import ProfileCard from '../ProfileCard/ProfileCard'
 
 
-function Profiles() {
+function ProfileCards() {
   
   const [profiles, setProfiles] = useState([])
 
@@ -25,7 +25,7 @@ function Profiles() {
 
   let mappedProfiles = profiles.map(profile => {
     return(
-      <Profile key={profile.user_id} value={profile} />
+      <ProfileCard key={profile.user_id} value={profile} />
     )
   })
 
@@ -37,4 +37,4 @@ function Profiles() {
   )
 }
 
-export default Profiles
+export default ProfileCards
