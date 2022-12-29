@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "UserInfoItem.scss"
-    ],
-    "names": [],
-    "file": "UserInfoItem.css"
-}
+{"version":3,"sourceRoot":"","sources":["UserInfoItem.scss"],"names":[],"mappings":"AAAA;EACE;EACA","file":"UserInfoItem.css"}

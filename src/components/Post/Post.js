@@ -21,8 +21,8 @@ function Post(props) {
   const userId = useSelector(state => state.user.userId)
 
   return(
-    <div className="Post">
-      <article>
+    <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>
+      <div className="Post">
         <header>
           <div className='post-user-container'>
               {value.profile_img ? 
@@ -85,14 +85,12 @@ function Post(props) {
           </span>
         </footer>
         {showComments ?
-          <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>
             <Comments post_id={props.value.post_id} />
-          </OutsideClickHandler>
         :
         null
         }
-      </article>
-    </div>
+      </div>
+    </OutsideClickHandler>
   )
 }
 

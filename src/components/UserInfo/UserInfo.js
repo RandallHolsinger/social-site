@@ -4,18 +4,25 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faUserPen } from '@fortawesome/free-solid-svg-icons'
 import UserInfoItem from '../UserInfoItem/UserInfoItem'
+import UserEditor from '../UserEditor/UserEditor'
 
 function UserInfo(props) {
   
   const {user} = props
 
+  const [showUserEditor, setShowUserEditor] = useState(false)
+
   return(
     <div className="UserInfo">
-      <section>
-        <header>
-         <span><FontAwesomeIcon icon={faUser} /></span>
-         <button><FontAwesomeIcon icon={faUserPen} />{' '}Edit Info</button> 
-         <h2>Intro</h2>
+      <section className='user-info-container'>
+        <header className='user-info-header'>
+            <span className='intro'>
+              <FontAwesomeIcon icon={faUser} className='intro-icon'/>
+              <h3>Intro</h3>
+            </span>
+            <span onClick={() => setShowUserEditor(true)}>
+              <FontAwesomeIcon icon={faUserPen} className='edit-user-icon'/>
+            </span> 
         </header>
         <ul>
           {/* rewrite logic to be able to pass conditional and user details in reuseable component */}
@@ -32,6 +39,11 @@ function UserInfo(props) {
           </li>
         </ul>
       </section>
+      {showUserEditor ?
+        <UserEditor />
+      :
+        null
+      }
     </div>
   )
 }

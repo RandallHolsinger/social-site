@@ -1,9 +1,29 @@
-.UserInfo section {
-  border: 1px solid #000;
-  margin: 10px 5px 0px 5px;
+.UserInfo {
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  margin: 5px 5px 10px 5px;
+  padding: 10px;
+}
+.UserInfo .user-info-container .user-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.UserInfo .user-info-container .user-info-header .intro {
+  display: flex;
+}
+.UserInfo .user-info-container .user-info-header .intro .intro-icon {
+  color: #ed1dc0;
+  margin-right: 5px;
+  font-size: 1.3em;
+}
+.UserInfo .user-info-container .user-info-header .intro h3 {
+  color: #fff;
+}
+.UserInfo .user-info-container .user-info-header .edit-user-icon {
+  color: #ed1dc0;
+  font-size: 1em;
 }
 
-.UserInfo section header {
-  background-color: #fff;
-}
 /*# sourceMappingURL=UserInfo.css.map */

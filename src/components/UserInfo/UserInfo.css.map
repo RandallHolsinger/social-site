@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,SADO,CACP,OAAO,CAAC;EACN,MAAM,EAAE,cAAc;EACtB,MAAM,EAAE,gBAAgB;CAIzB;;AAPH,AAII,SAJK,CACP,OAAO,CAGL,MAAM,CAAC;EACL,gBAAgB,EAAE,IAAI;CACvB",
-    "sources": [
-        "UserInfo.scss"
-    ],
-    "names": [],
-    "file": "UserInfo.css"
-}
+{"version":3,"sourceRoot":"","sources":["UserInfo.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EC4BE,kBCRK;EDXL;EAJA;EDDA;EACA;;AAEE;EACE;EACA;EACA;;AACA;EACE;;AACA;EACE,OERG;EFSH;EACA;;AAEF;EACE;;AAGJ;EACE,OEjBK;EFkBL","file":"UserInfo.css"}

@@ -2,25 +2,36 @@
 
 .Comment {
   display: flex;
+  justify-content: space-between;
   padding: 10px;
   .comment-user-image-container {
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin: 0px 10px 0px 10px;
+    width: 40px;
+    height: 40px;
+    .comment-user-image {
+      border-radius: 100%;
+      border: .5px solid #fff;
+      object-fit: cover;
+      width: 60px;
+      height: 100%;
+    }
+  }
+  .comment-user-image-default-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid $util-color;
     border-radius: 100%;
+    color: $util-color;
     margin: 0px 10px 0px 10px;
     width: 40px;
     height: 40px;
     .comment-user-icon {
-      color: $util-color;
-      font-size: 1.5em;
-    }
-    .comment-user-image {
-      border-radius: 100%;
-      max-width: 60px;
-      max-height: 100%;
+      font-size: 1em;
     }
   }
   article {
@@ -34,6 +45,7 @@
         align-items: center;
         background-color: #fff;
         padding: 5px;
+        font-size: .8em;
         @include border-radius;
         .comment-username {
           margin-right: 5px;

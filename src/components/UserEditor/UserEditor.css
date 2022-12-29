@@ -1,0 +1,9 @@
+.UserEditor {
+  background-color: #2b2b2b;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=UserEditor.css.map */

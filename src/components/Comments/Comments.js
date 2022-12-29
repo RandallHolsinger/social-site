@@ -30,10 +30,10 @@ function Comments(props) {
 
   return(
     <div className="Comments">
-      <section>
-        <CommentsAddButton post_id={props.post_id} getComments={getComments}/>
+      <CommentsAddButton post_id={props.post_id} getComments={getComments}/>
+      <div className='comments-container'>
         {mappedComments}
-      </section>
+      </div>
     </div>
   )
 }

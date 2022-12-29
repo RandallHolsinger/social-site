@@ -20,13 +20,15 @@ function Comment(props) {
   return(
     <div className="Comment">
       <article>
-      <div className='comment-user-image-container'>
         {value.profile_img ?
-          <img src={`/uploads/images/${value.profile_img}`} alt='profile' className='comment-user-image'/>
+          <div className='comment-user-image-container'>
+            <img src={`/uploads/images/${value.profile_img}`} alt='profile' className='comment-user-image'/>
+          </div>
         :
+          <div className="comment-user-image-default-container">
             <FontAwesomeIcon icon={faUser} className='comment-user-icon' />
+          </div>
         }
-      </div>
         <div className='comment-container'>
         <p>
           <span className='comment-username'>

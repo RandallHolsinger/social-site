@@ -1,26 +1,37 @@
 .Comment {
   display: flex;
+  justify-content: space-between;
   padding: 10px;
 }
 .Comment .comment-user-image-container {
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ed1dc0;
   border-radius: 100%;
   margin: 0px 10px 0px 10px;
   width: 40px;
   height: 40px;
 }
-.Comment .comment-user-image-container .comment-user-icon {
-  color: #ed1dc0;
-  font-size: 1.5em;
-}
 .Comment .comment-user-image-container .comment-user-image {
   border-radius: 100%;
-  max-width: 60px;
-  max-height: 100%;
+  border: 0.5px solid #fff;
+  object-fit: cover;
+  width: 60px;
+  height: 100%;
+}
+.Comment .comment-user-image-default-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+  color: #ed1dc0;
+  margin: 0px 10px 0px 10px;
+  width: 40px;
+  height: 40px;
+}
+.Comment .comment-user-image-default-container .comment-user-icon {
+  font-size: 1em;
 }
 .Comment article {
   display: flex;
@@ -35,6 +46,7 @@
   align-items: center;
   background-color: #fff;
   padding: 5px;
+  font-size: 0.8em;
   border-radius: 5px;
 }
 .Comment article .comment-container p .comment-username {

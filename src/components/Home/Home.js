@@ -1,4 +1,5 @@
 import React from 'react'
+import './Home.scss'
 import Navbar from '../Navbar/Navbar'
 import Posts from '../Posts/Posts'
 

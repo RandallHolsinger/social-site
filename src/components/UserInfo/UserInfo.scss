@@ -1,9 +1,31 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .UserInfo {
-  section {
-    border: 1px solid #000;
-    margin: 10px 5px 0px 5px;
-    header {
-      background-color: #fff;
+  @include component-color;
+  @include border-radius;
+  @include box-shadow;
+  margin: 5px 5px 10px 5px;
+  padding: 10px;
+  .user-info-container {
+    .user-info-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .intro {
+        display: flex;
+        .intro-icon {
+          color: $util-color;
+          margin-right: 5px;
+          font-size: 1.3em;
+        }
+        h3 {
+          color: #fff;
+        }
+      }
+      .edit-user-icon {
+        color: $util-color;
+        font-size: 1em;
+      }
     }
   }
 }

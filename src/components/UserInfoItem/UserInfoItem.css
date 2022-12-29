@@ -1,1 +1,6 @@
-/* No CSS *//*# sourceMappingURL=UserInfoItem.css.map */
+li {
+  list-style-type: none;
+  color: #fff;
+}
+
+/*# sourceMappingURL=UserInfoItem.css.map */

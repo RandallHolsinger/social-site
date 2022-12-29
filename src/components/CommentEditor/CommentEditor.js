@@ -30,7 +30,7 @@ function CommentEditor(props) {
         <FontAwesomeIcon icon={faPenToSquare} className='editor-header-icon'/>
         <h3>Edit Comment</h3>
       </div>
-      <label htmlFor='commenteditor'>Edit your comment below:</label>
+      <label htmlFor='comment-editor'>Edit your comment below:</label>
       <textarea
        onChange={(e) => setEditCommentInput(e.target.value)}
        defaultValue={comment.comment} 
