@@ -2,8 +2,98 @@
 
 .UserEditor {
   @include component-color;
-  position: fixed;
+  @include border-radius;
+  @include modal-box-shadow;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 3;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 25px;
+  width: 70%;
+  .user-editor-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    .user-edit-icon {
+      color: $util-color;
+      font-size: 1.5em;
+      margin-right: 5px;
+    }
+    h2 {
+      color: #fff;
+    }
+  }
+  .user-info-inputs-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    label {
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      @include border-radius;
+      @include box-shadow;
+      caret-color: $util-color;
+      border: none;
+      padding: 5px;
+      width: 95%;
+    }
+    input:focus, textarea:focus {
+      @include input-focus;
+    }
+    .current-city, .state-province, .birthday,
+    .work, .high-school, .college, .about-me {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 15px;
+      .user-info-dropdown-icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        float: right;
+        .user-info-dropdown-icon {
+          color: $util-color;
+          font-size: 1em;
+        }
+      }
+    }
+    .current-city-icon, .state-province-icon,
+    .birthday-icon, .work-icon, .high-school-icon,
+    .college-icon, .about-me-icon {
+      box-sizing: border-box;
+      color: $util-color;
+      font-size: 1.1em;
+      margin-right: 5px;
+    }
+  }
+  .info-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    .info-submit-button {
+      @include border-radius;
+      @include box-shadow;
+      background-color: $util-color-2;
+      border: none;
+      padding: 5px;
+      width: 65%;
+      color: #fff;
+      font-weight: 700;
+    }
+    .info-cancel-button {
+      @include border-radius;
+      @include box-shadow;
+      background-color: $danger;
+      border: none;
+      padding: 5px;
+      width: 30%;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
 }

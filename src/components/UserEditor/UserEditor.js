@@ -1,20 +1,193 @@
 import React, { useState } from 'react'
 import './UserEditor.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import Input from '../Input/Input'
+import { faPenToSquare, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap, faChevronRight, faChevronDown, faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 function UserEditor(props) {
+
+  const {setShowUserEditor} = props
+  
+  //Input State
+  const [currentCityInput, setCurrentCityInput] = useState('')
+  const [stateProvinceInput, setStateProvinceInput] = useState('')
+  const [birthDayInput, setBirthDayInput] = useState('')
+  const [workInput, setWorkInput] = useState('')
+  const [highSchoolInput, setHighSchoolInput] = useState('')
+  const [collegeInput, setCollegeInput] = useState('')
+  const [aboutMeInput, setAboutMeInput] = useState('')
+  
+  //Handle State to Toggle Menus
+  const [showCurrentCity, setShowCurrentCity] = useState(false)
+  const [showStateProvince, setShowStateProvince] = useState(false)
+  const [showBirthday, setShowBirthday] = useState(false)
+  const [showWork, setShowWork] = useState(false)
+  const [showHighSchool, setShowHighSchool] = useState(false)
+  const [showCollege, setShowCollege] = useState(false)
+  const [showAboutMe, setShowAboutMe] = useState(false)
+
   return (
     <div className="UserEditor">
       <header className='user-editor-header'>
         <FontAwesomeIcon icon={faPenToSquare} className='user-edit-icon' />
-        <h3>Update Your Info</h3>
+        <h2>Update Your Info</h2>
       </header>
-      <label htmlFor=""></label>
-      <label htmlFor=""></label>
-      <label htmlFor=""></label>
+      <content className='user-info-inputs-container'>
+        <div className="current-city">
+          <label htmlFor="current-city">
+            <FontAwesomeIcon icon={faCity} className='current-city-icon'/>
+            Current City
+            <span onClick={() => setShowCurrentCity(!showCurrentCity)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showCurrentCity ? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showCurrentCity ?
+            <input 
+              onChange={(e) => setCurrentCityInput(e.target.value)}
+                value={currentCityInput}
+                id='current-city'
+                name='current-city'
+                type='text'
+                placeholder='City'
+                className=''
+              />
+            :
+            null
+          }
+        </div>
+        <div className="state-province">
+          <label htmlFor="state-province">
+            <FontAwesomeIcon icon={faCity} className='state-province-icon' />
+            State / Province
+            <span onClick={() => setShowStateProvince(!showStateProvince)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showStateProvince ? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showStateProvince ?
+            <input 
+              onChange={(e) => setStateProvinceInput(e.target.value)}
+              id='state-province'
+              name='state-province'
+              type='text'
+              placeholder='State / Province'
+              className=''
+            />
+          :
+            null
+          }
+        </div>
+        <div className="birthday">
+          <label htmlFor="birthday">
+            <FontAwesomeIcon icon={faCakeCandles} className='birthday-icon' />
+            Birthday
+            <span onClick={() => setShowBirthday(!showBirthday)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showBirthday ? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showBirthday ?
+            <input 
+              onChange={(e) => setBirthDayInput(e.target.value)}
+              id='birthday'
+              name='birthday'
+              type='date'
+              className=''
+            />
+          :
+            null
+          }
+        </div>
+        <div className="work">
+          <label htmlFor="work">
+            <FontAwesomeIcon icon={faSuitcase} className='work-icon' />
+            Work
+            <span onClick={() => setShowWork(!showWork)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showWork? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showWork ?
+            <input  
+              onChange={(e) => setWorkInput(e.target.value)}
+              id='work'
+              name='work'
+              type='text'
+              placeholder='Work'
+              className=''
+            />
+          :
+            null
+          }
+        </div>
+        <div className="high-school">
+          <label htmlFor="high-school">
+            <FontAwesomeIcon icon={faGraduationCap} className='high-school-icon' />
+            High School
+            <span onClick={() => setShowHighSchool(!showHighSchool)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showHighSchool ? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showHighSchool ?
+            <input 
+              onChange={(e) => setHighSchoolInput(e.target.value)}
+              id='high-school'
+              name='high-school'
+              type='text'
+              placeholder='High School'
+            />
+          :
+           null
+          }
+        </div>
+        <div className="college">
+          <label htmlFor="college">
+            <FontAwesomeIcon icon={faSchool} className='college-icon' />
+            College
+            <span onClick={() => setShowCollege(!showCollege)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showCollege? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showCollege ?
+            <input 
+              onChange={(e) => setCollegeInput(e.target.value)}
+              id='college'
+              name='college'
+              type='text'
+              placeholder='College'
+            />
+          :
+            null
+          }
+        </div>
+        <div className="about-me">
+          <label htmlFor="about-me">
+            <FontAwesomeIcon icon={faUser} className='about-me-icon' />
+            About Me
+            <span onClick={() => setShowAboutMe(!showAboutMe)} className='user-info-dropdown-icon-container'>
+              <FontAwesomeIcon icon={showAboutMe? faChevronDown : faChevronRight} className='user-info-dropdown-icon' />
+            </span>
+          </label>
+          {showAboutMe ?
+            <textarea 
+              onChange={(e) => setAboutMeInput(e.target.value)}
+              id='about-me'
+              name='about-me'
+              type='text'
+              placeholder='Tell people about yourself...'
+              rows='10'
+              autoCorrect='true'
+            />
+          :
+            null
+          }
+        </div>
+      </content>
+      <div className="info-buttons-container">
+        <button className='info-submit-button'>
+          Submit
+        </button>
+        <button onClick={() => setShowUserEditor(false)} className='info-cancel-button'>
+          Cancel
+        </button>
+      </div>
     </div>
   )
 }

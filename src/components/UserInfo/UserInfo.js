@@ -40,7 +40,7 @@ function UserInfo(props) {
         </ul>
       </section>
       {showUserEditor ?
-        <UserEditor />
+        <UserEditor setShowUserEditor={setShowUserEditor} />
       :
         null
       }

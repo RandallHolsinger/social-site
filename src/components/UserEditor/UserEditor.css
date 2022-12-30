@@ -1,9 +1,17 @@
-.UserEditor {
-  background-color: #2b2b2b;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+/* Error: Undefined mixin.
+ *   ,
+ * 6 |   @include modal-box-shadow;
+ *   |   ^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   UserEditor.scss 6:3  root stylesheet */
 
-/*# sourceMappingURL=UserEditor.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a   \2577 \a 6 \2502    @include modal-box-shadow;\a   \2502    ^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   UserEditor.scss 6:3  root stylesheet";
+}
