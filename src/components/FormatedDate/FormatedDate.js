@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './FormatedDate.scss'
 
 function FormatedDate(props) {
   
-  const timestamp =  new Date(props.date)
-  const newDate = timestamp.toLocaleDateString()
+  const {date} = props
 
+  const timestamp =  new Date(date)
+  const newDate = timestamp.toLocaleDateString()
+  
   return(
     <>
      <span>{newDate}</span>

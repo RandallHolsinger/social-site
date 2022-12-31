@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './UserEditor.scss'
+import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap, faChevronRight, faChevronDown, faUser } from '@fortawesome/free-solid-svg-icons'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 
 function UserEditor(props) {
@@ -11,7 +14,8 @@ function UserEditor(props) {
   //Input State
   const [currentCityInput, setCurrentCityInput] = useState('')
   const [stateProvinceInput, setStateProvinceInput] = useState('')
-  const [birthDayInput, setBirthDayInput] = useState('')
+  const [startDate, setStartDate] = useState(new Date())
+  const [formatedBirthday, setFormatedBirthday] = useState('')
   const [workInput, setWorkInput] = useState('')
   const [highSchoolInput, setHighSchoolInput] = useState('')
   const [collegeInput, setCollegeInput] = useState('')
@@ -25,6 +29,38 @@ function UserEditor(props) {
   const [showHighSchool, setShowHighSchool] = useState(false)
   const [showCollege, setShowCollege] = useState(false)
   const [showAboutMe, setShowAboutMe] = useState(false)
+
+  const userId = useSelector(state => state.user.userId)
+
+
+  const updateUserInfo = async () => {
+    try {
+      axios.put(`/api/user/update/${userId}`, {
+        currentCityInput,
+        stateProvinceInput,
+        formatedBirthday,
+        workInput,
+        highSchoolInput,
+        collegeInput,
+        aboutMeInput
+      })
+    } catch(err) {
+      console.log(err)
+    }
+  }
+  
+  const handleDateChange = (date) => {
+    setStartDate(date)
+    const timestamp =  startDate
+    const formatedDate = timestamp.toLocaleDateString()
+    setFormatedBirthday(formatedDate)
+  }
+
+  useEffect(() => {
+    console.log('date here ==>', startDate)
+    console.log('here the result =>', formatedBirthday)
+  }, [startDate, formatedBirthday])
+
 
   return (
     <div className="UserEditor">
@@ -66,6 +102,7 @@ function UserEditor(props) {
           {showStateProvince ?
             <input 
               onChange={(e) => setStateProvinceInput(e.target.value)}
+              value={stateProvinceInput}
               id='state-province'
               name='state-province'
               type='text'
@@ -85,12 +122,11 @@ function UserEditor(props) {
             </span>
           </label>
           {showBirthday ?
-            <input 
-              onChange={(e) => setBirthDayInput(e.target.value)}
-              id='birthday'
-              name='birthday'
-              type='date'
-              className=''
+            <DatePicker 
+              onChange={handleDateChange}
+              selected={startDate}
+              maxDate={new Date()}
+              className="birthday-input"
             />
           :
             null
@@ -107,6 +143,7 @@ function UserEditor(props) {
           {showWork ?
             <input  
               onChange={(e) => setWorkInput(e.target.value)}
+              value={workInput}
               id='work'
               name='work'
               type='text'
@@ -128,6 +165,7 @@ function UserEditor(props) {
           {showHighSchool ?
             <input 
               onChange={(e) => setHighSchoolInput(e.target.value)}
+              value={highSchoolInput}
               id='high-school'
               name='high-school'
               type='text'
@@ -148,6 +186,7 @@ function UserEditor(props) {
           {showCollege ?
             <input 
               onChange={(e) => setCollegeInput(e.target.value)}
+              value={collegeInput}
               id='college'
               name='college'
               type='text'
@@ -168,6 +207,7 @@ function UserEditor(props) {
           {showAboutMe ?
             <textarea 
               onChange={(e) => setAboutMeInput(e.target.value)}
+              value={aboutMeInput}
               id='about-me'
               name='about-me'
               type='text'
@@ -181,7 +221,7 @@ function UserEditor(props) {
         </div>
       </content>
       <div className="info-buttons-container">
-        <button className='info-submit-button'>
+        <button onClick={() => updateUserInfo()} className='info-submit-button'>
           Submit
         </button>
         <button onClick={() => setShowUserEditor(false)} className='info-cancel-button'>

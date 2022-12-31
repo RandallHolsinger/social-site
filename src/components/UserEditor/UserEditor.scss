@@ -62,6 +62,34 @@
         }
       }
     }
+    .birthday {
+      // React Day Picker classes start
+      .react-datepicker-wrapper {
+        .react-datepicker__input-container {
+          .birthday-input {
+            @include input-style;
+          }
+        }
+      }
+      .react-datepicker__tab-loop {
+        .react-datepicker-popper {
+          div{
+            .react-datepicker {
+              .react-datepicker_triangle {
+                border: 1px solid red;
+              }
+              button {
+
+              }
+              .react-datepicker__month-container {
+                
+              }
+            }
+          }
+        }
+      }
+      // React Daypicker classes end
+    }
     .current-city-icon, .state-province-icon,
     .birthday-icon, .work-icon, .high-school-icon,
     .college-icon, .about-me-icon {

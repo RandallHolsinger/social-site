@@ -23,7 +23,7 @@
 @mixin input-style {
   border: none;
   caret-color: $util-color;
-  padding: .4em;
+  padding: 5px;
 }
 
 @mixin input-focus {
