@@ -1,9 +1,9 @@
 UPDATE users SET
-  city = COALESCE(${city}, city),
-  state_province = COALESCE(${state_province}, state_province),
-  dob = COALESCE(${dob}, dob),
-  occupation = COALESCE(${occupation}, occupation),
-  high_school = COALESCE(${high_school}, high_school),
-  college = COALESCE(${college}, college),
-  about_me = COALESCE(${about_me}, about_me)
+  city = COALESCE(NULLIF(${city}, ''), city),
+  state_province = COALESCE(NULLIF(${state_province}, ''), state_province),
+  dob = COALESCE(NULLIF(${dob}, ''), dob),
+  occupation = COALESCE(NULLIF(${occupation}, ''), occupation),
+  high_school = COALESCE(NULLIF(${high_school}, ''), high_school),
+  college = COALESCE(NULLIF(${college}, ''), college),
+  about_me = COALESCE(NULLIF(${about_me}, ''), about_me)
 WHERE user_id = ${user_id}

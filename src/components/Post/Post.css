@@ -2,8 +2,7 @@
   box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
   background-color: #2b2b2b;
-  height: auto;
-  margin: 10px 5px 0px 5px;
+  margin: 10px 5px 30px 5px;
 }
 .Post header {
   display: flex;
@@ -71,10 +70,10 @@
   background-color: #fff;
 }
 .Post .post-content h4 {
-  padding: 10px;
+  padding: 10px 10px 3px 10px;
 }
 .Post .post-content p {
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 .Post .post-content .post-image {
   display: block;

@@ -13,18 +13,58 @@
       justify-content: space-between;
       .intro {
         display: flex;
+        align-items: center;
         .intro-icon {
           color: $util-color;
           margin-right: 5px;
-          font-size: 1.3em;
+          font-size: 1.8em;
         }
-        h3 {
+        h2 {
           color: #fff;
         }
       }
       .edit-user-icon {
         color: $util-color;
         font-size: 1em;
+      }
+    }
+    ul {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      .intro-left-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .intro-right-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .intro-city-icon, .intro-state-province-icon, .intro-birthday-icon, 
+      .intro-work-icon, .intro-high-school-icon, 
+      .intro-college-icon {
+        color: $util-color;
+        font-size: 1.3em;
+        margin-right: 5px;
+      }
+    }
+    details {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      summary {
+        color: #fff;
+        font-size: 1.3em;
+        font-weight: 600;
+      }
+      summary::marker {
+        color: $util-color;
+        font-size: 1.2em;
+      }
+      .about-me {
+        color: #fff;
+        padding: 10px;
+        font-size: 1.2em;
       }
     }
   }

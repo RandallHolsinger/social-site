@@ -1,4 +1,27 @@
-li {
+@import '../../sass/variables';
+
+.user-info-list-item {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
   color: #fff;
+  label {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $util-color;
+    p {
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+  }
+  .user-info-item-data {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
 }

@@ -9,7 +9,7 @@ import axios from 'axios'
 
 function UserEditor(props) {
 
-  const {setShowUserEditor} = props
+  const {user, setShowUserEditor} = props
   
   //Input State
   const [currentCityInput, setCurrentCityInput] = useState('')
