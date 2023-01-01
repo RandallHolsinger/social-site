@@ -12,6 +12,7 @@ module.exports = {
 
   getUser: async(req, res) => {
     const {user_id} = req.params
+    console.log('user_id on server side ==>', user_id)
     const db = req.app.get('db')
     try {
       let user = await db.users.get_user({user_id})
@@ -23,11 +24,49 @@ module.exports = {
 
   updateUser: async (req, res) => {
     const {user_id} = req.session.user
-    const {email, dob, city, state, aboutMe} = req.body
+
+    const {
+      currentCityInput,
+      stateProvinceInput,
+      formatedBirthday,
+      workInput,
+      highSchoolInput,
+      collegeInput,
+      aboutMeInput
+    } = req.body
+    
+    const city = currentCityInput
+    const state_province = stateProvinceInput
+    const dob = formatedBirthday
+    const occupation = workInput
+    const high_school = highSchoolInput
+    const college = collegeInput
+    const about_me = aboutMeInput
+
     const db = req.app.get('db')
+    
+    console.log('data ==>',
+      city,
+      state_province,
+      dob,
+      occupation, 
+      high_school,
+      college, 
+      about_me
+    )
+
     try {
-      let user = await db.users.update_user([user_id, email, dob, city, state, aboutMe])
-      res.status(200).send(user)
+      db.users.update_user({
+        user_id, 
+        city, 
+        state_province, 
+        dob, 
+        occupation,
+        high_school,
+        college,
+        about_me
+      })
+      res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
     }

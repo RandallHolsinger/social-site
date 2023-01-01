@@ -30,12 +30,12 @@ function UserEditor(props) {
   const [showCollege, setShowCollege] = useState(false)
   const [showAboutMe, setShowAboutMe] = useState(false)
 
-  const userId = useSelector(state => state.user.userId)
 
 
   const updateUserInfo = async () => {
+    console.log('dob =>', formatedBirthday)
     try {
-      axios.put(`/api/user/update/${userId}`, {
+      axios.put('/api/user/update/info', {
         currentCityInput,
         stateProvinceInput,
         formatedBirthday,
@@ -48,18 +48,14 @@ function UserEditor(props) {
       console.log(err)
     }
   }
-  
-  const handleDateChange = (date) => {
-    setStartDate(date)
-    const timestamp =  startDate
-    const formatedDate = timestamp.toLocaleDateString()
-    setFormatedBirthday(formatedDate)
-  }
 
   useEffect(() => {
-    console.log('date here ==>', startDate)
-    console.log('here the result =>', formatedBirthday)
-  }, [startDate, formatedBirthday])
+    if(startDate) {
+      const timestamp =  startDate
+      const formatedDate = timestamp.toLocaleDateString()
+      setFormatedBirthday(formatedDate) 
+    }
+  }, [startDate])
 
 
   return (
@@ -68,7 +64,7 @@ function UserEditor(props) {
         <FontAwesomeIcon icon={faPenToSquare} className='user-edit-icon' />
         <h2>Update Your Info</h2>
       </header>
-      <content className='user-info-inputs-container'>
+      <section className='user-info-inputs-container'>
         <div className="current-city">
           <label htmlFor="current-city">
             <FontAwesomeIcon icon={faCity} className='current-city-icon'/>
@@ -123,7 +119,7 @@ function UserEditor(props) {
           </label>
           {showBirthday ?
             <DatePicker 
-              onChange={handleDateChange}
+              onChange={(date) => setStartDate(date)}
               selected={startDate}
               maxDate={new Date()}
               className="birthday-input"
@@ -219,7 +215,7 @@ function UserEditor(props) {
             null
           }
         </div>
-      </content>
+      </section>
       <div className="info-buttons-container">
         <button onClick={() => updateUserInfo()} className='info-submit-button'>
           Submit
