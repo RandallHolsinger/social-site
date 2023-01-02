@@ -1,0 +1,45 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.Search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  @include component-color;
+  @include box-shadow;
+  position: fixed;
+  top: 60px;
+  padding: 10px;
+  width: 100%;
+  span {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  .search-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .search-icon {
+      @include box-shadow;
+      background-color: $util-color;
+      color: $dark;
+      font-size: 1.2em;
+      border: 1px inset #fff;
+      border-radius: 5px 0px 0px 5px;
+      padding: 5px;
+    }
+    .search-input {
+      @include box-shadow;
+      font-size: 1em;
+      padding: 5px;
+      width: 80%;
+      border: 1px solid #fff;
+      border-radius: 0px 5px 5px 0px;
+    }
+    .search-input:focus {
+      @include input-focus;
+    }
+  }
+}
