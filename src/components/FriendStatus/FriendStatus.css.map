@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "FriendStatus.scss"
-    ],
-    "names": [],
-    "file": "FriendStatus.css"
-}
+{"version":3,"sourceRoot":"","sources":["FriendStatus.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAII;ECsDF;EACA;EACA;EACA;EACA;EACA;EACA;;AD1DI;EC8DJ,OC5DW;ED6DX;EACA","file":"FriendStatus.css"}

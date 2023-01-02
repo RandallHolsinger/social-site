@@ -1,0 +1,60 @@
+.Profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  padding: 15px;
+  margin: 10px 5px 20px 5px;
+  width: 60%;
+}
+.Profile .profile-card-user-image-container {
+  width: 125px;
+  height: 125px;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+}
+.Profile .profile-card-user-image-container .profile-card-user-image {
+  border-radius: 100%;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+.Profile .profile-card-default-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 125px;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+}
+.Profile .profile-card-default-image-container .profile-card-default-icon {
+  color: #ed1dc0;
+  font-size: 5em;
+}
+.Profile figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Profile figcaption .profile-card-name {
+  color: #ed1dc0;
+  margin-top: 5px;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+.Profile figcaption .profile-card-city-info {
+  color: #fff;
+  font-size: 1.2em;
+}
+.Profile figcaption .profile-card-occupation {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/*# sourceMappingURL=ProfileCard.css.map */

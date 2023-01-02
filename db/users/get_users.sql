@@ -1,1 +1,1 @@
-SELECT user_id, first_name, last_name, city, state, profile_img FROM users
+SELECT user_id, first_name, last_name, city, state_province, occupation, profile_img FROM users AS U

@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
+import './FriendAddButton.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 function FriendAddButton(props) {
   
-  const [showRequestSent, setShowRequestSent] = useState(false)
   const {user_id} = props
+  
+  const [showRequestSent, setShowRequestSent] = useState(false)
+  
   
   const sendFriendRequest = async () => {
     try {
@@ -18,9 +23,15 @@ function FriendAddButton(props) {
   return(
     <div className="FriendAddButton">
       {showRequestSent ?
-        <p>Request Sent</p>
+        <span className='request-sent'>
+          <FontAwesomeIcon icon={faPaperPlane} className='request-sent-icon' />
+          Request Sent
+        </span>
       :
-        <button onClick={() => sendFriendRequest()}>Add Friend +</button>
+        <button onClick={() => sendFriendRequest()} className='add-friend-button' >
+          <FontAwesomeIcon icon={faUserPlus} className='add-friend-icon' />
+          Add Friend
+        </button>
       }
     </div>
   )

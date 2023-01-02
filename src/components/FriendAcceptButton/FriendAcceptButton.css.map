@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "FriendAcceptButton.scss"
-    ],
-    "names": [],
-    "file": "FriendAcceptButton.css"
-}
+{"version":3,"sourceRoot":"","sources":["FriendAcceptButton.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAWI;EACE;EACA;EACA;ECCJ;EARA;EDUI;EACA;EACA;EACA,kBEEC;EFDD;EACA;EACA;EACA;;AACA;EACE,OElBK;EFmBL;EACA;;AAGJ;EACE;EACA;EACA;ECnBJ;EARA;ED8BI;EACA;EACA,kBEjBC;EFkBD;EACA;EACA;EACA;;AACA;EACE,OErCK;EFsCL;EACA","file":"FriendAcceptButton.css"}

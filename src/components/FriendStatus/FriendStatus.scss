@@ -1,0 +1,18 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.FriendStatus {
+  .friend-tag-container { 
+    .friend-tag {
+      @include friend-tag-style;
+      .friend-tag-icon {
+        @include friend-tag-icon;
+      }
+    }
+  }
+  .request-sent {
+    @include request-sent-style;
+    .request-sent-icon {
+      @include request-sent-icon;
+    }
+  }
+}

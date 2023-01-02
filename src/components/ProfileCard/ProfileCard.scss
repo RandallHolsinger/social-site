@@ -1,0 +1,62 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.Profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include component-color;
+  @include border-radius;
+  @include box-shadow;
+  padding: 15px;
+  margin: 10px 5px 20px 5px;
+  width: 60%;
+  // adust width to below at tablet
+  // width: 25%;
+    .profile-card-user-image-container{
+      width: 125px;
+      height: 125px;
+      border: 1px solid $util-color;
+      border-radius: 100%;
+      .profile-card-user-image {
+        border-radius: 100%;
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+      }
+    }
+    .profile-card-default-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 125px;
+      height: 125px;
+      border: 1px solid $util-color;
+      border-radius: 100%;
+      .profile-card-default-icon {
+        color: $util-color;
+        font-size: 5em;
+      }
+    }
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .profile-card-name {
+      color: $util-color;
+      margin-top: 5px;
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+    .profile-card-city-info {
+      color: #fff;
+      font-size: 1.2em;
+    }
+    .profile-card-occupation {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+  }
+}

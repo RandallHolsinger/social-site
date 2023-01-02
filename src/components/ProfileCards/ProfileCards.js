@@ -3,11 +3,14 @@ import axios from 'axios'
 import './ProfileCards.scss'
 import Navbar from '../Navbar/Navbar'
 import ProfileCard from '../ProfileCard/ProfileCard'
+import { useSelector } from 'react-redux'
 
 
 function ProfileCards() {
   
   const [profiles, setProfiles] = useState([])
+
+  const userId = useSelector(state => state.user.userId)
 
   const getProfiles = async () => {
     try {
@@ -24,15 +27,20 @@ function ProfileCards() {
   }, [])
 
   let mappedProfiles = profiles.map(profile => {
-    return(
-      <ProfileCard key={profile.user_id} value={profile} />
+    return (
+      profile.user_id !== userId ?
+        <ProfileCard key={profile.user_id} value={profile} />
+      :
+        null
     )
-  })
+   })
 
   return(
-    <div className="Profiles">
+    <div className="ProfileCards">
       <Navbar />
-      {mappedProfiles}
+      <div className="profile-cards-container">
+        {mappedProfiles}
+      </div>
     </div>
   )
 }

@@ -168,7 +168,7 @@ function Register(props) {
         <span className={lastNameStatus}>{validLastName ? 'This is a valid Last Name' : 'Please enter a valid Last Name' }</span>
         <label htmlFor="password">
           <FontAwesomeIcon icon={faKey} className='label-icons' />
-          Enter Password
+          Create A Password
         </label>
         <input  
          type="password" 

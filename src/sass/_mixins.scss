@@ -1,9 +1,6 @@
 @import './variables';
 
-@mixin adjust-content() {
-
-}
-
+//Component styles
 @mixin box-shadow {
   box-shadow: 3px 3px 3px #000;
 }
@@ -16,10 +13,11 @@
   border-radius: 5px;
 }
 
-@mixin letter-spacing {
-  letter-spacing: .05em;
+@mixin component-color {
+  background-color: $dark;
 }
 
+//Inputs / TextAreas
 @mixin input-style {
   border: none;
   caret-color: $util-color;
@@ -31,10 +29,11 @@
   border: none;
 }
 
-@mixin component-color {
-  background-color: $dark;
+@mixin letter-spacing {
+  letter-spacing: .05em;
 }
 
+//Button Styles
 @mixin button-style {
   border: none;
   color: $button-text;
@@ -52,5 +51,39 @@
   font-size: 1.3em;
   font-weight: 700;
   color: #fff;
+}
+
+//Friends Tag Style
+
+@mixin request-sent-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+@mixin request-sent-icon {
+  color: $util-color; 
+  margin-right: 5px;
+  font-size: 1.3em;
+}
+
+@mixin friend-tag-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 10px;
+  font-weight: 600;
+}
+
+@mixin friend-tag-icon {
+  color: $util-color;
+  font-size: 1.3em;
+  margin-right: 5px;
 }
 

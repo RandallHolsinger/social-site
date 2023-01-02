@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import './FriendAcceptButton.scss'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus, faX, faUserGroup } from '@fortawesome/free-solid-svg-icons'  
 import FriendDeleteButton from '../FriendDeleteButton/FriendDeleteButton'
 
 function FriendAcceptButton(props) {
 
   const [showIsFriend, setShowIsFriend] = useState(false)
+  const [showDeleteFriend, setShowDeleteFriend] = useState(false)
 
-  const {user_id, friend_id} = props
+  const {user_id, friend_id, status} = props
 
   const acceptFriendRequest = async () => {
     try {
@@ -20,12 +24,31 @@ function FriendAcceptButton(props) {
   return(
     <div className="FriendAcceptButton">
       {showIsFriend ?
-        <div>
-          <p>Friends</p>
-          <FriendDeleteButton friend_id={friend_id} />
+        <div className='friend-tag-container'>
+          <span className='friend-tag'>
+            <FontAwesomeIcon icon={faUserGroup} className='friend-tag-icon' />
+            Friends
+          </span>
+          {showDeleteFriend ?
+            <span>
+              <FriendDeleteButton friend_id={friend_id} />
+            </span>
+          :
+            null
+          }
         </div>
+        
       :
-        <button onClick={() => acceptFriendRequest() }>Accept</button>
+        <div className="accept-decline-requests-container">
+          <button onClick={() => acceptFriendRequest() } className='friend-accept-button'>
+            <FontAwesomeIcon icon={faUserPlus} className='friend-accept-icon' />
+            Accept Request
+          </button>
+          <button className="friend-decline-button">
+            <FontAwesomeIcon icon={faX} className='friend-decline-icon' />
+            Decline Request
+          </button>
+        </div>
       }
     </div>
   )
