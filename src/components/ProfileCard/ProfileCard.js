@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './ProfileCard.scss'
 import FriendStatus from '../FriendStatus/FriendStatus'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,9 +21,11 @@ function ProfileCard(props) {
         </div>
       }
       <figcaption>
-        <span className="profile-card-name">
-          {value.first_name}{' '}{value.last_name}
-        </span>
+        <Link to={`/Profile/View/${value.user_id}`} className='profile-view-link'>
+          <span className="profile-card-name">
+            {value.first_name}{' '}{value.last_name}
+          </span>
+        </Link> 
         <span className="profile-card-city-info">
           {value.city}{' '}{value.state_province}
         </span>

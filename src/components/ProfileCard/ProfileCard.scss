@@ -43,11 +43,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .profile-card-name {
-      color: $util-color;
-      margin-top: 5px;
-      font-size: 1.4em;
-      font-weight: 600;
+    .profile-view-link {
+      text-decoration: none;
+      cursor: pointer;
+      .profile-card-name {
+        color: $util-color;
+        margin-top: 5px;
+        font-size: 1.4em;
+        font-weight: 600;
+      }
     }
     .profile-card-city-info {
       color: #fff;

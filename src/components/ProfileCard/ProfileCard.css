@@ -41,7 +41,11 @@
   justify-content: center;
   align-items: center;
 }
-.Profile figcaption .profile-card-name {
+.Profile figcaption .profile-view-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+.Profile figcaption .profile-view-link .profile-card-name {
   color: #ed1dc0;
   margin-top: 5px;
   font-size: 1.4em;
