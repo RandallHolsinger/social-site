@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faEnvelope, faCommentDots, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faEnvelope, faCommentDots, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
+import OutsideClickHandler from 'react-outside-click-handler'
 import './Navbar.scss'
 import Logout from '../Logout/Logout'
 import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
@@ -11,14 +12,14 @@ import Messenger from '../Messenger/Messenger'
 function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false)
-  const [showNav, setShowNav] = useState(true)
   const [showMessenger, setShowMessenger] = useState(false)
   
   const firstName = useSelector(state => state.user.firstName)
   const lastName = useSelector(state => state.user.lastName)
+  const profileImage = useSelector(state => state.user.profileImage)
 
   return(
-    <div className={showNav ? 'Navbar' : 'hide-nav'}>
+    <div className='Navbar'>
       {showMessenger ? <Messenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
         <Link to={'/Friends'} className='navbar-items'>
@@ -28,34 +29,67 @@ function Navbar() {
         <Link to={'/MessageInbox'} className='navbar-items'>
           <span><FontAwesomeIcon icon={faEnvelope}/></span>
         </Link>
-        <span onClick={() => setShowMessenger(true)} className='navbar-items'><FontAwesomeIcon icon={faCommentDots} /></span>
-        <span onClick={() => setShowMenu(!showMenu)} className='dropdown-menu'><FontAwesomeIcon icon={faBars} /></span>
+        <span onClick={() => setShowMessenger(true)} className='navbar-items'>
+          <FontAwesomeIcon icon={faCommentDots} />
+        </span>
+        <span onClick={() => setShowMenu(!showMenu)} className='nav-menu-icon'>
+          <FontAwesomeIcon icon={faBars} />
+        </span>
+      </nav>
         {showMenu ? 
-          <ul>
-            <header>
-              <span>{`Welcome: \n${firstName} ${lastName}`}</span>
-              <Logout />
-            </header>
-            <li>
-              <Link to={'/Home'} onClick={() => setShowMenu(false)} className='dropdown-links'>Home</Link>
-            </li>
-            <li>
-              <Link to={'/PersonalProfile'} onClick={() => setShowMenu(false)} className='dropdown-links'>Profile</Link>
-            </li>
-            <li>
-              <Link to={'/MessageInbox'} onClick={() => setShowMenu(false)} className='dropdown-links'>Messages</Link>
-            </li>
-            <li>
-              <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='dropdown-links'>Friends</Link>
-            </li>
-            <li>
-              <Link to={'/Profiles'} onClick={() => setShowMenu(false)} className='dropdown-links'>People</Link>
-            </li>
-          </ul>
+          <OutsideClickHandler onOutsideClick={() => setShowMenu(false)}>
+            <div className="nav-menu">
+              <ul className='menu-items-container'>
+                <header className='nav-menu-header'>
+                  {profileImage ?
+                    <div className='nav-menu-user-image-container'>
+                      <img src={`/uploads/images/${profileImage}`} className='nav-menu-user-image' alt='profile' />
+                    </div>
+                  :
+                    <div className='nav-menu-default-image-container'>
+                      <FontAwesomeIcon icon={faUser} className='nav-menu-default-user-image'/>
+                    </div>
+                  }
+                  <span className='nav-menu-first-name'>{firstName}</span>
+                  <span className='nav-menu-last-name'>{lastName}</span>
+                  <Logout />
+                </header>
+                <li>
+                  <Link to={'/Home'} onClick={() => setShowMenu(false)} className='menu-links'>
+                    <FontAwesomeIcon icon={faHouseChimney} className='menu-icon'/>
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/PersonalProfile'} onClick={() => setShowMenu(false)} className='menu-links'>
+                    <FontAwesomeIcon icon={faAddressCard} className='menu-icon' />
+                    My Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/MessageInbox'} onClick={() => setShowMenu(false)} className='menu-links'>
+                    <FontAwesomeIcon icon={faEnvelope} className='menu-icon' />
+                    Messages
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/Friends'} onClick={() => setShowMenu(false)} className='menu-links'>
+                    <FontAwesomeIcon icon={faUserGroup} className='menu-icon' />
+                    Friends
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/Profiles'} onClick={() => setShowMenu(false)} className='menu-links'>
+                    <FontAwesomeIcon icon={faPeopleGroup} className='menu-icon' />
+                    People
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </OutsideClickHandler>
         :
           null
         }
-      </nav>
     </div>
   )
 }

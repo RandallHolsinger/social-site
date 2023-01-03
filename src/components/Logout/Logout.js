@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import './Logout.scss'
 import { useDispatch } from 'react-redux'
 import { clearUser } from '../../redux/slices/userSlice'
 import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import socketIO from 'socket.io-client';
 const socket = socketIO.connect('http://localhost:3000/', {autoConnect: false});
@@ -32,7 +35,10 @@ function Logout() {
 
   return(
     <div className="Logout">
-      <button onClick={() => logout()}>Logout</button>
+      <button onClick={() => logout()} className='logout-button'>
+        <FontAwesomeIcon icon={faRightFromBracket} className='logout-icon' />
+        Logout
+      </button>
     </div>
   )
 }

@@ -27,7 +27,7 @@ function Post(props) {
           <div className='post-user-container'>
               {value.profile_img ? 
                 <span className='post-user-image'>
-                  <img src={`uploads/images/${props.value.profile_img}`} alt="profile" className='post-user-image'/> 
+                  <img src={`/uploads/images/${props.value.profile_img}`} alt="profile" className='post-user-image'/> 
                 </span>
               : 
                 <span className="post-user-image-default">

@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "Logout.scss"
-    ],
-    "names": [],
-    "file": "Logout.css"
-}
+{"version":3,"sourceRoot":"","sources":["Logout.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;;AACA;EACE;EACA;EACA;ECLF;EAQA;EDAE,kBEUG;EFTH;EACA;EACA;EACA;EACA;;AACA;EACE,OEXO;EFYP;EACA","file":"Logout.css"}

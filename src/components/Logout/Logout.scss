@@ -1,0 +1,25 @@
+@import '../../sass/mixins', '../../sass/variables';
+
+.Logout {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  .logout-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include box-shadow;
+    @include border-radius;
+    background-color: $dark;
+    border: 1px solid $util-color;
+    padding: 5px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    .logout-icon {
+      color: $util-color;
+      font-size: 1.4em;
+      margin-right: 5px;
+    }
+  }
+}

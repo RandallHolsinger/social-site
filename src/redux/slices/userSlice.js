@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   userId: 0,
   firstName: '',
-  lastName: '' 
+  lastName: '',
+  profileImage: '' 
 }
 
 export const userSlice = createSlice({
@@ -14,6 +15,7 @@ export const userSlice = createSlice({
       state.userId = action.payload.user_id
       state.firstName = action.payload.first_name
       state.lastName = action.payload.last_name
+      state.profileImage = action.payload.profile_img
     },
     clearUser: (initialState) => initialState
   }   
