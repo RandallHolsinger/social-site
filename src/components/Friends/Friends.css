@@ -1,17 +1,10 @@
-/* Error: Undefined mixin.
- *   ,
- * 4 |   @include adjust-content;
- *   |   ^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   Friends.scss 4:3  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a   \2577 \a 4 \2502    @include adjust-content;\a   \2502    ^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   Friends.scss 4:3  root stylesheet";
+.Friends {
+  margin-top: 80px;
 }
+.Friends .friends-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=Friends.css.map */

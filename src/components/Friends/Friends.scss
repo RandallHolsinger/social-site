@@ -1,5 +1,10 @@
 @import '../../sass/mixins';
 
 .Friends {
-  @include adjust-content;
+  margin-top: 80px;
+  .friends-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

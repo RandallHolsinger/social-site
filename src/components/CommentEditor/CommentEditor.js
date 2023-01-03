@@ -34,7 +34,7 @@ function CommentEditor(props) {
       <textarea
        onChange={(e) => setEditCommentInput(e.target.value)}
        defaultValue={comment.comment} 
-       autoFocus='true'
+       autoFocus={true}
        spellCheck='true'
        name="comment-editor" 
        cols="30" 

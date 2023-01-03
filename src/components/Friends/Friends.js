@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import './Friends.scss'
 import axios from 'axios'
 import Navbar from '../Navbar/Navbar'
-import Friend from '../Friend/Friend'
+import ProfileCard from '../ProfileCard/ProfileCard'
 
 function Friends() {
 
@@ -11,6 +12,7 @@ function Friends() {
     try {
       let res = await axios.get('/api/friends')
       setFriends(res.data)
+      console.log('friends ==>', res.data)
     } catch(err) {
       console.log(err)
     }
@@ -18,7 +20,7 @@ function Friends() {
 
   let mappedFriends = friends.map(friend => {
     return (
-      <Friend key={friend.friend_id} value={friend} />
+      <ProfileCard key={friend.friend_id} value={friend} />
     )
   })
 
@@ -29,7 +31,9 @@ function Friends() {
   return (
     <div className="Friends">
       <Navbar />
+      <div className="friends-container">
         {mappedFriends}
+      </div>
     </div>
   )
 }

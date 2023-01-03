@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Comments.scss'
-import CommentsAddButton from '../CommentAddButton/CommentAddButton'
+import CommentsAddButton from '../CommentAdd/CommentAdd'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
 

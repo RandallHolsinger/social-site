@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faUserPen, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap, faC } from '@fortawesome/free-solid-svg-icons'
 import UserInfoItem from '../UserInfoItem/UserInfoItem'
 import UserEditor from '../UserEditor/UserEditor'
+import { useSelector } from 'react-redux'
 
 function UserInfo(props) {
   
   const { user } = props
 
   const [showUserEditor, setShowUserEditor] = useState(false)
+
+  const userId = useSelector(state => state.user.userId)
 
   return(
     <div className="UserInfo">
@@ -19,9 +22,13 @@ function UserInfo(props) {
               <FontAwesomeIcon icon={faUser} className='intro-icon'/>
               <h2>Intro</h2>
             </span>
-            <span onClick={() => setShowUserEditor(true)}>
-              <FontAwesomeIcon icon={faUserPen} className='edit-user-icon'/>
-            </span> 
+            {user.user_id === userId ?
+              <span onClick={() => setShowUserEditor(true)}>
+                <FontAwesomeIcon icon={faUserPen} className='edit-user-icon'/>
+              </span> 
+            :
+              null
+            }
         </header>
         <ul>
           <div className='intro-left-container'>

@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-import FriendAddButton from '../FriendAddButton/FriendAddButton'
-import FriendAcceptButton from '../FriendAcceptButton/FriendAcceptButton'
-import FriendDeleteButton from '../FriendDeleteButton/FriendDeleteButton'
+import FriendAdd from '../FriendAdd/FriendAdd'
+import FriendAccept from '../FriendAccept/FriendAccept'
+import FriendDelete from '../FriendDelete/FriendDelete'
 
 function FriendStatus(props) {
 
   const [friendStatus, setFriendStatus] = useState([])
-  const [showFriendDeleteButton, setShowFriendDeleteButton] = useState(false)
+  const [showFriendDelete, setShowFriendDelete] = useState(false)
   
   const currentUserId =  useSelector(state => state.user.userId)
   
@@ -36,7 +36,7 @@ function FriendStatus(props) {
           </span>
         )
       } else if(friendStatus.target_id === currentUserId && friendStatus.friend_status !== 'friend') {
-        return <FriendAcceptButton user_id={user_id} friend_id={friendStatus.friend_id} />
+        return <FriendAccept user_id={user_id} friend_id={friendStatus.friend_id} />
       } 
       else if(friendStatus.friend_status === 'friend') {
         return(
@@ -45,8 +45,8 @@ function FriendStatus(props) {
               <FontAwesomeIcon icon={faUserGroup} className='friend-tag-icon'/>
               Friends
             </span>
-            {showFriendDeleteButton ?
-              <FriendDeleteButton friend_id={friendStatus.friend_id}/>
+            {showFriendDelete ?
+              <FriendDelete friend_id={friendStatus.friend_id}/>
             : 
               null
             }
@@ -54,7 +54,7 @@ function FriendStatus(props) {
         )
       }
     } else {
-      return <FriendAddButton user_id={user_id} />
+      return <FriendAdd user_id={user_id} />
     }
   }
       

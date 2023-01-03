@@ -5,8 +5,8 @@ import {faUser, faEllipsis} from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
-import CommentDeleteButton from '../CommentDeleteButton/CommentDeleteButton'
-import CommentEditButton from '../CommentEditButton/CommentEditButton'
+import CommentDelete from '../CommentDelete/CommentDelete'
+import CommentEdit from '../CommentEdit/CommentEdit'
 import OptionsModal from '../OptionsModal/OptionsModal'
 
 function Comment(props) {
@@ -60,8 +60,8 @@ function Comment(props) {
               value={value} 
               getItems={getComments}
               setShowOptions={setShowOptions} 
-              DeleteButton={<CommentDeleteButton comment_id={value.comment_id} getComments={getComments} setShowOptions={setShowOptions}/>} 
-              EditButton={<CommentEditButton comment={value} getComments={getComments} setShowOptions={setShowOptions}/>}
+              DeleteButton={<CommentDelete comment_id={value.comment_id} getComments={getComments} setShowOptions={setShowOptions}/>} 
+              EditButton={<CommentEdit comment={value} getComments={getComments} setShowOptions={setShowOptions}/>}
               commentStyle={'comment-style'}
             />
           : 

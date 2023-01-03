@@ -7,8 +7,8 @@ import { faUser, faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortaw
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
 import OptionsModal from '../OptionsModal/OptionsModal'
-import PostDeleteButton from '../PostDeleteButton/PostDeleteButton'
-import PostEditButton from '../PostEditButton/PostEditButton'
+import PostDelete from '../PostDelete/PostDelete'
+import PostEdit from '../PostEdit/PostEdit'
 import OutsideClickHandler from 'react-outside-click-handler'
 
 function Post(props) {
@@ -53,8 +53,8 @@ function Post(props) {
                   value={value} 
                   getItems={getPosts}
                   setShowOptions={setShowOptions} 
-                  DeleteButton={<PostDeleteButton post_id={value.post_id} getPosts={getPosts} setShowOptions={setShowOptions}/>} 
-                  EditButton={<PostEditButton post={value} getPosts={getPosts} setShowOptions={setShowOptions}/>}
+                  DeleteButton={<PostDelete post_id={value.post_id} getPosts={getPosts} setShowOptions={setShowOptions}/>} 
+                  EditButton={<PostEdit post={value} getPosts={getPosts} setShowOptions={setShowOptions}/>}
                   postStyle={'post-style'}
                 />
               :
