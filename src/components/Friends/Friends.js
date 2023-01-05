@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import './Friends.scss'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar/Navbar'
+import PageTitle from '../PageTitle/PageTitle'
 import ProfileCard from '../ProfileCard/ProfileCard'
 
 function Friends() {
@@ -31,6 +34,7 @@ function Friends() {
   return (
     <div className="Friends">
       <Navbar />
+      <PageTitle icon={<FontAwesomeIcon icon={faUserGroup} />} title={'Friends'} />
       <div className="friends-container">
         {mappedFriends}
       </div>

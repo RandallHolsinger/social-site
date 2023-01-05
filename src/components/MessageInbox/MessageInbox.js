@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './MessageInbox.scss'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import Navbar from '../Navbar/Navbar'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
-import Navbar from '../Navbar/Navbar'
+import PageTitle from '../PageTitle/PageTitle'
 
 
 
@@ -36,6 +39,7 @@ function MessageInbox() {
   return(
     <div className="MessageInbox">
       <Navbar />
+      <PageTitle icon={<FontAwesomeIcon icon={faEnvelope} />} title={'Message Inbox'} />
       <button onClick={() => setShowCreateMessage(!showCreateMessage)}>Create Message</button>
       {showCreateMessage ? <MessageCreate /> : null}
       {mappedMessageInbox}

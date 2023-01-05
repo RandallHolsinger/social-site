@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './ProfileCards.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar/Navbar'
 import ProfileCard from '../ProfileCard/ProfileCard'
+import PageTitle from '../PageTitle/PageTitle'
 import Search from '../Search/Search'
 import { useSelector } from 'react-redux'
 
@@ -49,6 +52,7 @@ function ProfileCards() {
   return(
     <div className="ProfileCards">
       <Navbar />
+      <PageTitle icon={<FontAwesomeIcon icon={faPeopleGroup} />} title={'People'} />
       <Search items={profiles} setItems={setFilteredProfiles}/>
       <div className="profile-cards-container">
         {filteredProfiles[0] ?
