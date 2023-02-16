@@ -8,6 +8,7 @@ import ProfileView from './components/ProfileView/ProfileView'
 import ProfileCards from './components/ProfileCards/ProfileCards'
 import Friends from './components/Friends/Friends'
 import MessageInbox from './components/MessageInbox/MessageInbox'
+import Messages from './components/Messages/Messages'
 
 export default (
   <Routes>
@@ -19,5 +20,6 @@ export default (
     <Route path='/Profile/View/:user_id' element={<ProfileView />} />
     <Route path="/Friends" element={<Friends />} />
     <Route path="/MessageInbox" element={<MessageInbox />} />
+    <Route path="/Messages/:inbox_id" element={<Messages />} />
   </Routes>
 )

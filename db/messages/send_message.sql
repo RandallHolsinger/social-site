@@ -1,5 +1,15 @@
-INSERT INTO messages(user_id_sender, user_id_receiver, subject, message, date)
-VALUES(${user_id_sender}, ${user_id_receiver} ${subject}, ${message}, now());
+with new_inbox as (
+  INSERT INTO inbox(user_id, id_sender, last_subject, last_message, date)
+  values (${user_id}, ${id_sender}, ${subject}, ${message}, now())
+  on conflict (inbox_id)
+  DO UPDATE SET 
+   last_subject = ${subject},
+   last_message = ${message},
+   date = now()
+  returning inbox_id
+)
 
+INSERT INTO messages(id_sender, inbox_id, subject, message, date)
+VALUES(${id_sender}, (select inbox_id from new_inbox), ${subject}, ${message}, now());
 
 

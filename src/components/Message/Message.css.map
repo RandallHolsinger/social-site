@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,QADM,CACN,OAAO,CAAC;EACN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,GAAG;CACX",
-    "sources": [
-        "Message.scss"
-    ],
-    "names": [],
-    "file": "Message.css"
-}
+{"version":3,"sourceRoot":"","sources":["Message.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAII;ECYF,kBCMK","file":"Message.css"}

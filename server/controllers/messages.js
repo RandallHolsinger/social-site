@@ -12,13 +12,13 @@ module.exports = {
   },
 
   sendMessage: async (req, res) => {
-    const user_id_sender = req.session.user.user_id
-    const user_id_receiver = req.params.user_id
+    const id_sender = req.session.user.user_id
+    const {user_id} = req.params
     const {subject, message} = req.body
-    console.log(user_id_sender, user_id_receiver, subject, message)
+    console.log('me =>', id_sender,'target =>', user_id, subject, message)
     const db = req.app.get('db')
     try {
-      await db.messages.send_message({user_id_sender, user_id_receiver, subject, message})
+      await db.messages.send_message({id_sender, user_id, subject, message})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
@@ -29,9 +29,10 @@ module.exports = {
   
   getMessages: async (req, res) => {
     const {user_id} = req.session.user
+    const {inbox_id} = req.params
     const db = req.app.get('db')
     try {
-      let messages = await db.messages.get_messages({user_id})
+      let messages = await db.messages.get_messages({user_id, inbox_id})
       res.status(200).send(messages)
     } catch(err) {
       res.status(500).send(err)

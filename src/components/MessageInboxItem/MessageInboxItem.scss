@@ -1,9 +1,39 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .MessageInboxItem {
+ margin: 10px 5px 10px 5px;
+ padding: 5px;
+ @include component-color;
+ @include border-radius;
+ @include box-shadow;
+ color: #fff;
  article {
   display: flex;
-  flex-direction: column;
-  width: 80%;
-  height: auto;
-  border: 1px solid aquamarine,
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  .inbox-profile-img {
+    border: 1px solid $util-color;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    object-fit: cover;
+    img {
+     width: 75px;
+     height: 75px;
+     border-radius: 100%;
+    }
+  }
+  .inbox-content {
+    display: flex;
+    flex-direction: column;
+    .inbox-friend-name {
+      color: $util-color;
+    }
+  }
+  .inbox-datetime {
+    display: flex;
+    flex-direction: column;
+  }
  }
 }

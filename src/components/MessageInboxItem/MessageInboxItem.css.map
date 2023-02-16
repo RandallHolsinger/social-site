@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACC,iBADgB,CAChB,OAAO,CAAC;EACP,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,UAAU;CAC5B",
-    "sources": [
-        "MessageInboxItem.scss"
-    ],
-    "names": [],
-    "file": "MessageInboxItem.css"
-}
+{"version":3,"sourceRoot":"","sources":["MessageInboxItem.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACC;EACA;ECYC,kBCMK;EDVL;EARA;EDID;;AACA;EACC;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;;AACA;EACC;EACA;EACA;;AAGH;EACE;EACA;;AACA;EACE,OEtBO;;AFyBX;EACE;EACA","file":"MessageInboxItem.css"}

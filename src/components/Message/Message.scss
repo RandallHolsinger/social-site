@@ -1,8 +1,15 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .Message {
   Article {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 80%;
+    .message-header {
+      @include component-color;
+      h2 {
+
+      }
+    }
+    p {
+
+    }
   }
 }

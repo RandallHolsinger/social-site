@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "Messages.scss"
-    ],
-    "names": [],
-    "file": "Messages.css"
-}
+{"version":3,"sourceRoot":"","sources":["Messages.scss"],"names":[],"mappings":"AAAA;EACE","file":"Messages.css"}

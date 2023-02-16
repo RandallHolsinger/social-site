@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
 import PageTitle from '../PageTitle/PageTitle'
+import { Link } from 'react-router-dom'
 
 
 
@@ -19,18 +20,21 @@ function MessageInbox() {
     try {
       let res = await axios.get('/api/message/inbox')
       setMessageInbox(res.data)
+      console.log('message inbox ==>', res.data)
     } catch(err) {
       console.log(err)
     }
   }
 
   useEffect(() => {
-    // getMessageInbox()
+    getMessageInbox()
   }, [])
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {
     return(
-      <MessageInboxItem key={inboxItem.message_id} value={inboxItem} />
+      <Link to={`/Messages/${inboxItem.inbox_id}`}>
+        <MessageInboxItem key={inboxItem.inbox_id} value={inboxItem}/>
+      </Link>
     )
   })
 

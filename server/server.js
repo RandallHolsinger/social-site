@@ -172,7 +172,7 @@ app.post('/api/message/send/:user_id', ctrlMessages.sendMessage)
 app.delete('/api/message/delete/:message_id', ctrlMessages.deleteMessage)
 
 // Get All Messages
-app.get('/api/messages', ctrlMessages.getMessages)
+app.get('/api/messages/:inbox_id', ctrlMessages.getMessages)
 
 // Get Message 
 app.get('/api/message/:message_id', ctrlMessages.getMessage)
