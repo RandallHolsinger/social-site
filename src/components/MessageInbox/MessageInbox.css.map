@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAEE,aAFW,CAEX,MAAM,CAAC;EACL,UAAU,EAAE,KAAK;CAClB",
-    "sources": [
-        "MessageInbox.scss"
-    ],
-    "names": [],
-    "file": "MessageInbox.css"
-}
+{"version":3,"sourceRoot":"","sources":["MessageInbox.scss"],"names":[],"mappings":"AACE;EACE;;AAEF;EACE","file":"MessageInbox.css"}

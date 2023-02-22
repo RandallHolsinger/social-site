@@ -7,6 +7,10 @@ function FormatedDate(props) {
 
   const timestamp =  new Date(date)
   const newDate = timestamp.toLocaleDateString()
+
+  useEffect(() => {
+    console.log('date from props =>', date)
+  })
   
   return(
     <>

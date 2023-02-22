@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["Messages.scss"],"names":[],"mappings":"AAAA;EACE","file":"Messages.css"}
+{"version":3,"sourceRoot":"","sources":["Messages.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;;AACA;EACE;EACA;EACA,kBCeG;EDdH;EACA;;AACA;EACE;;AAEF;EACE;EACA;;AACA;EACE,OCTK;EDUL;;AAGJ;EACE;EACA;;AAEF;EACE,OClBO;EDmBP","file":"Messages.css"}

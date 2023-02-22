@@ -15,10 +15,19 @@ function Message(props) {
     <div className="Message">
       <article>
         <header className='message-header'>
-          <h2>{value.subject}</h2>
-          <h4><FormatedDate date={value.date}/>{' '}<FormatedTime time={value.time}/></h4>
+          <div className="message-profile-img-container">
+            <img src={`/uploads/images/${value.profile_img}`} alt='profile' />
+          </div>
+          <div className="message-details">
+            <h3 className='message-sender-name'>{value.first_name}{' '}{value.last_name}</h3>
+            <h4><FormatedDate date={value.date}/></h4>
+            <h4><FormatedTime time={value.date}/></h4>
+          </div>
         </header>
-        <p>{value.message}</p>
+        <div className="message-content">
+          <h3>{value.subject}</h3>
+          <p>{value.message}</p>
+        </div>
       </article>
     </div>
   )

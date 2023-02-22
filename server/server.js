@@ -165,8 +165,11 @@ app.get('/api/friends/list', ctrlFriends.getFriendsList)
 // Get Messaging Inbox
 app.get('/api/message/inbox', ctrlMessages.getInbox)
 
-// Send Message
+// Create Inbox and Send Message
 app.post('/api/message/send/:user_id', ctrlMessages.sendMessage)
+
+//Message Reply
+app.post('/api/message/reply/send', ctrlMessages.messageReply)
 
 // Delete Message
 app.delete('/api/message/delete/:message_id', ctrlMessages.deleteMessage)

@@ -1,5 +1,7 @@
 .MessageInbox {
-  // need to make a toolbar container here
+  .messages-link {
+    text-decoration: none;
+  }
   button {
     margin-top: 100px;
   }

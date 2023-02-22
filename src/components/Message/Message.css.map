@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["Message.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAII;ECYF,kBCMK","file":"Message.css"}
+{"version":3,"sourceRoot":"","sources":["Message.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;;AACA;ECQA;EARA;EDGE;;AACA;EACE;EACA;EACA;EACA;ECIJ,kBCMK;EFRD;;AACA;EACE;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;;AAGJ;EACE,OErBK;;AFuBP;EACE;;AAGJ;EACE;;AAIA;EACE","file":"Message.css"}

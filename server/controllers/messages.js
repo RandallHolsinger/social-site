@@ -25,6 +25,19 @@ module.exports = {
     }
   },
 
+  messageReply: async (req, res) => {
+    const id_sender = req.session.user.user_id
+    const {inbox_id, subject, message} = req.body
+    const db = req.app.get('db')
+    console.log('hitting backend message reply')
+    try {
+      db.messages.send_message_reply({id_sender, inbox_id, subject, message})
+      res.sendStatus(200)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
   deleteMessage: async (req, res) => {},
   
   getMessages: async (req, res) => {

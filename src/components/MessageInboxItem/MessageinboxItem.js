@@ -15,7 +15,7 @@ function MessageInboxItem(props) {
         </div>
         <div className="inbox-content">
           <h3 className='inbox-friend-name'>{value.first_name}{' '}{value.last_name}</h3>
-          <h4 className='inbox-last-subject'>{value.last_subject}</h4>
+          <h4 className='inbox-last-subject'>Subject: {value.last_subject}</h4>
           <h4 className='inbox-last-message'>{value.last_message.slice(0, 20) + '...'}</h4>
         </div>
         <div className="inbox-datetime">

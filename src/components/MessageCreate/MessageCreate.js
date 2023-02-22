@@ -3,7 +3,9 @@ import './MessageCreate.scss'
 import axios from 'axios'
 import Select from 'react-select'
 
-function MessageCreate() {
+function MessageCreate(props) {
+
+  const {getMessageInbox, setShowCreateMessage} = props
 
   const [friends, setFriends] = useState([])
   const [selectedFriend, setSelectedFriend] = useState(null)
@@ -32,7 +34,8 @@ function MessageCreate() {
     console.log('Data ==>', user_id, subject, message)
     try {
       await axios.post(`/api/message/send/${user_id}`, {subject, message})
-      resetInputs()
+      setShowCreateMessage(false)
+      getMessageInbox()
     } catch(err) {
       console.log(err)
     }

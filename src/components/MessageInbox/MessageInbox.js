@@ -32,8 +32,8 @@ function MessageInbox() {
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {
     return(
-      <Link to={`/Messages/${inboxItem.inbox_id}`}>
-        <MessageInboxItem key={inboxItem.inbox_id} value={inboxItem}/>
+      <Link to={`/Messages/${inboxItem.inbox_id}`} key={inboxItem.inbox_id} className='messages-link'>
+        <MessageInboxItem value={inboxItem}/>
       </Link>
     )
   })
@@ -45,7 +45,7 @@ function MessageInbox() {
       <Navbar />
       <PageTitle icon={<FontAwesomeIcon icon={faEnvelope} />} title={'Message Inbox'} />
       <button onClick={() => setShowCreateMessage(!showCreateMessage)}>Create Message</button>
-      {showCreateMessage ? <MessageCreate /> : null}
+      {showCreateMessage ? <MessageCreate getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
       {mappedMessageInbox}
     </div>
   )

@@ -1,2 +1,3 @@
-SELECT * FROM messages 
-WHERE inbox_id = ${inbox_id}
+SELECT * FROM messages AS m
+JOIN (SELECT user_id, first_name, last_name, profile_img FROM users) AS u on m.id_sender = u.user_id 
+WHERE m.inbox_id = ${inbox_id}

@@ -1,15 +1,46 @@
 @import '../../sass/mixins', '../../sass/variables';
 
 .Message {
+  margin: 30px 5px 0px 5px;
   Article {
+    @include border-radius;
+    @include box-shadow;
+    background-color: #fff;
     .message-header {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      border-radius: 5px 5px 0px 0px;
       @include component-color;
-      h2 {
-
+      padding: 10px;
+      .message-profile-img-container {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #fff;
+        border-radius: 100%;
+        margin-right: 10px;
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 100%;
+          object-fit: cover;
+        }
+      }
+      .message-sender-name {
+        color: $util-color;
+      }
+      h4 {
+        color: #fff;
       }
     }
-    p {
-
+    .message-content {
+      padding: 10px;
+      h2 {
+      
+      }
+      p {
+        font-size: 1.1em;
+      }
     }
   }
 }

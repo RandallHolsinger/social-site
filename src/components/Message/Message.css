@@ -1,5 +1,43 @@
+.Message {
+  margin: 30px 5px 0px 5px;
+}
+.Message Article {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  background-color: #fff;
+}
 .Message Article .message-header {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 5px 5px 0px 0px;
   background-color: #2b2b2b;
+  padding: 10px;
+}
+.Message Article .message-header .message-profile-img-container {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.Message Article .message-header .message-profile-img-container img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.Message Article .message-header .message-sender-name {
+  color: #ed1dc0;
+}
+.Message Article .message-header h4 {
+  color: #fff;
+}
+.Message Article .message-content {
+  padding: 10px;
+}
+.Message Article .message-content p {
+  font-size: 1.1em;
 }
 
 /*# sourceMappingURL=Message.css.map */

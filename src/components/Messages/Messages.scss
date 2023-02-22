@@ -1,3 +1,31 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .Messages {
-  border: 1px solid #fff;
+  margin-top: 60px;
+  .message-toolbar {
+    display: flex;
+    align-items: center;
+    background-color: $dark;
+    padding: 20px;
+    justify-content: space-between;
+    .message-inbox-link {
+      text-decoration: none;
+    }
+    .message-back {
+      font-size: 1.3em;
+      color: #fff;
+      .message-back-arrow-icon {
+        color: $util-color;
+        margin-right: 5px;
+      }
+    }
+    .message-reply {
+      color: #fff;
+      font-size: 1.3em;
+    }
+    .message-reply-icon {
+      color: $util-color;
+      margin-right: 5px;
+    }
+  }
 }
