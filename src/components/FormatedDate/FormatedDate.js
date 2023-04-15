@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './FormatedDate.scss'
 
 function FormatedDate(props) {
@@ -7,10 +7,6 @@ function FormatedDate(props) {
 
   const timestamp =  new Date(date)
   const newDate = timestamp.toLocaleDateString()
-
-  useEffect(() => {
-    console.log('date from props =>', date)
-  })
   
   return(
     <>

@@ -1,8 +1,42 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .MessageCreate {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  margin: 0px 5px 0px 5px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: 10000;
+  width: 80%;
+  @include component-color;
+  box-shadow: 0px 0px 100px 50px #000;
+  @include border-radius;
   padding: 20px;
-  label {
-    margin-top: 20px;
+  .friend-list-dropdown {
+   background-color: #fff;
+   box-shadow: 2px 2px 2px #000;
+    .friend-list-item {   
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      .select-friend-img-container {
+        width: 30px;
+        height: 30px;
+        .friend-list-profile-img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+        }
+        .friend-list-default-img {
+          width: 30px;
+          height: 30px;
+        }
+        .dropdown-list-item {
+          display: flex;
+        }
+      }
+    }
   }
 }

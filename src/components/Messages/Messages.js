@@ -15,13 +15,12 @@ function Messages() {
   const [message, setMessage] = useState('')
   const [showReplyMessage, setShowReplyMessage] = useState(false)
   
-  const {inbox_id} = useParams()
+  const {conversation_id} = useParams()
 
   const getMessages = async () => {
     try {
-      let res = await axios.get(`/api/messages/${inbox_id}`)
+      let res = await axios.get(`/api/messages/${conversation_id}`)
       setMessages(res.data)
-      console.log('messages here', res.data)
     } catch(err) {
       console.log(err)
     }
@@ -29,7 +28,7 @@ function Messages() {
 
   const sendMessageReply = async () => {
     try {
-      await axios.post('/api/message/reply/send', {inbox_id, subject, message})
+      await axios.post('/api/message/reply/send', {conversation_id, subject, message})
       getMessages()
     } catch(err) {
       console.log(err)

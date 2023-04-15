@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,IAAI;CAId;;AAPD,AAIE,cAJY,CAIZ,KAAK,CAAC;EACJ,UAAU,EAAE,IAAI;CACjB",
-    "sources": [
-        "MessageCreate.scss"
-    ],
-    "names": [],
-    "file": "MessageCreate.css"
-}
+{"version":3,"sourceRoot":"","sources":["MessageCreate.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;ECKA,kBCMK;EFTL;ECDA;EDGA;;AACA;EACC;EACA;;AACC;EACE;EACA;EACA;;AACA;EACE;EACA;;AACA;EACE;EACA;EACA;;AAEF;EACE;EACA;;AAEF;EACE","file":"MessageCreate.css"}

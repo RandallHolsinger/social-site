@@ -2,10 +2,20 @@ import React from 'react'
 import './MessageInboxItem.scss'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
+import axios from 'axios'
 
 function MessageInboxItem(props) {
 
   const {value} = props
+  
+  // delete inbox item 
+  const deleteInboxitem = async (inbox_id) => {
+    try {
+      axios.delete(`/api/inbox/delete/${inbox_id}`)
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   return(
     <div className="MessageInboxItem">
@@ -25,6 +35,7 @@ function MessageInboxItem(props) {
           <span className='inbox-time'>
             <FormatedTime time={value.date} />
           </span>
+          <button onClick={() => deleteInboxitem(value.inbox_id)}>Delete</button>
         </div>
       </article>
     </div>

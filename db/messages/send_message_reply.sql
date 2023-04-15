@@ -1,7 +1,7 @@
 with new_inbox as (
   INSERT INTO inbox(inbox_id, last_subject, last_message, date)
   values (${inbox_id}, ${subject}, ${message}, now())
-  on conflict (inbox_id)
+  on conflict (conversation_id)
   DO UPDATE SET 
    last_subject = ${subject},
    last_message = ${message},

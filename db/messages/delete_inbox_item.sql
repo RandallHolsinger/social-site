@@ -1,0 +1,1 @@
+delete from inbox where inbox_id = ${inbox_id}

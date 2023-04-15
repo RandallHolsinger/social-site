@@ -160,10 +160,16 @@ app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
 app.get('/api/friends/list', ctrlFriends.getFriendsList)
 
 
-///// Messages Endpoints /////
+///// Inbox EndPoints /////
 
 // Get Messaging Inbox
 app.get('/api/message/inbox', ctrlMessages.getInbox)
+
+// Delete Inbox Item
+app.delete('/api/inbox/delete/:inbox_id', ctrlMessages.deleteInboxItem)
+
+
+///// Messages Endpoints /////
 
 // Create Inbox and Send Message
 app.post('/api/message/send/:user_id', ctrlMessages.sendMessage)
@@ -175,7 +181,7 @@ app.post('/api/message/reply/send', ctrlMessages.messageReply)
 app.delete('/api/message/delete/:message_id', ctrlMessages.deleteMessage)
 
 // Get All Messages
-app.get('/api/messages/:inbox_id', ctrlMessages.getMessages)
+app.get('/api/messages/:conversation_id', ctrlMessages.getMessages)
 
 // Get Message 
 app.get('/api/message/:message_id', ctrlMessages.getMessage)

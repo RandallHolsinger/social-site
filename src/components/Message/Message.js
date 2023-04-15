@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Message.scss'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
@@ -7,10 +7,6 @@ function Message(props) {
 
   const {value} = props
    
-  useEffect(() => {
-    console.log('value', value) 
-  }, [])
-
   return(
     <div className="Message">
       <article>
@@ -25,7 +21,7 @@ function Message(props) {
           </div>
         </header>
         <div className="message-content">
-          <h3>{value.subject}</h3>
+          <h3>Subject: {value.subject}</h3>
           <p>{value.message}</p>
         </div>
       </article>

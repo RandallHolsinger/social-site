@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import './MessageCreate.scss'
 import axios from 'axios'
-import Select from 'react-select'
 
 function MessageCreate(props) {
 
   const {getMessageInbox, setShowCreateMessage} = props
 
   const [friends, setFriends] = useState([])
-  const [selectedFriend, setSelectedFriend] = useState(null)
+  const [selectedFriend, setSelectedFriend] = useState('')
+  const [showFriendsList, setShowFriendsList] = useState(false)
   const [subjectInput, setSubjectInput] = useState('')
   const [messageInput, setMessageInput] = useState('')
 
   const resetInputs = () => {
     setSelectedFriend(null)
     setSubjectInput('')
-    setMessageInput('')
+    setMessageInput('') 
   }
 
-  const getFriends = async () => {
+  const getFriendsList = async () => {
     try {
-      let res = await axios.get('/api/friends')
+      let res = await axios.get('/api/friends/list')
       setFriends(res.data)
+      console.log(res.data)
     } catch(err) {
       console.log(err)
     }
@@ -31,7 +34,6 @@ function MessageCreate(props) {
     const user_id = selectedFriend.value
     const subject = subjectInput
     const message = messageInput
-    console.log('Data ==>', user_id, subject, message)
     try {
       await axios.post(`/api/message/send/${user_id}`, {subject, message})
       setShowCreateMessage(false)
@@ -39,33 +41,49 @@ function MessageCreate(props) {
     } catch(err) {
       console.log(err)
     }
+    resetInputs()
   }
 
   const handleSelectedFriend = (selectedFriend) => {
     setSelectedFriend(selectedFriend)
   }
   
-  const options = friends.map(friend => {
-    return {
-      value: friend.user_id,
-      label: `${friend.first_name} ${friend.last_name}`
-    }
+  const mappedFriendsList = friends.map(friend => {
+    return (
+      <div key={friend.friend_id} className="friend-list-item">
+        <div className="select-friend-img-container">
+          {friend.profile_img ?
+            <img src={`/uploads/images/${friend.profile_img}`} alt='profile' className='friend-list-profile-img'/>
+          :
+            <FontAwesomeIcon icon={faUser} className='friend-list-default-img' /> 
+          }
+          </div>
+          <span>{friend.first_name}{' '}{friend.last_name}</span>
+      </div>
+    )
   })
 
 
   useEffect(() => {
-    getFriends()
+    getFriendsList()
   }, [])
 
   return(
     <div className="MessageCreate">
       <label htmlFor='friends'>To:</label>
-      <Select
-        onClick={() => getFriends()}
+      <input
+        onClick={() => setShowFriendsList(true)}
         value={selectedFriend}
         onChange={handleSelectedFriend}
-        options={options}
       />
+      {showFriendsList ? 
+        <div className="friend-list-dropdown">
+          {mappedFriendsList}
+        </div>
+      :
+        null
+      }
+
       <label>Subject:</label>
       <input 
         type="text"
@@ -75,7 +93,10 @@ function MessageCreate(props) {
       />
       <label>Message:</label>
       <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} placeholder='Message...' />
-      <button onClick={() => sendMessage()}>Send Message</button>
+      <div className='message-create-buttons'>
+        <button onClick={() => sendMessage()} className='message-send-button'>Send Message</button>
+        <button onClick={() => setShowCreateMessage(false)} className='message-cancel-button'>Cancel</button>
+      </div>
     </div>
   )
 }

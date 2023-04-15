@@ -1,15 +1,42 @@
 .MessageCreate {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
+  position: fixed;
+  margin: 0px 5px 0px 5px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: 10000;
+  width: 80%;
+  background-color: #2b2b2b;
+  box-shadow: 0px 0px 100px 50px #000;
+  border-radius: 5px;
   padding: 20px;
 }
-
-.MessageCreate label {
-  margin-top: 20px;
+.MessageCreate .friend-list-dropdown {
+  background-color: #fff;
+  box-shadow: 2px 2px 2px #000;
 }
+.MessageCreate .friend-list-dropdown .friend-list-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container {
+  width: 30px;
+  height: 30px;
+}
+.MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container .friend-list-profile-img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container .friend-list-default-img {
+  width: 30px;
+  height: 30px;
+}
+.MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container .dropdown-list-item {
+  display: flex;
+}
+
 /*# sourceMappingURL=MessageCreate.css.map */

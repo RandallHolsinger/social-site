@@ -20,7 +20,6 @@ function MessageInbox() {
     try {
       let res = await axios.get('/api/message/inbox')
       setMessageInbox(res.data)
-      console.log('message inbox ==>', res.data)
     } catch(err) {
       console.log(err)
     }
@@ -32,13 +31,11 @@ function MessageInbox() {
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {
     return(
-      <Link to={`/Messages/${inboxItem.inbox_id}`} key={inboxItem.inbox_id} className='messages-link'>
+      <Link to={`/Messages/${inboxItem.conversation_id}`} key={inboxItem.inbox_id} className='messages-link'>
         <MessageInboxItem value={inboxItem}/>
       </Link>
     )
   })
-
-  console.log('message inbox here ==>', messageInbox)
 
   return(
     <div className="MessageInbox">
