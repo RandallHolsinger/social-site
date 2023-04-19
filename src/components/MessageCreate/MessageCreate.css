@@ -1,4 +1,6 @@
 .MessageCreate {
+  background-color: #2b2b2b;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -6,36 +8,57 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -40%);
-  z-index: 10000;
+  z-index: 1000;
   width: 80%;
-  background-color: #2b2b2b;
   box-shadow: 0px 0px 100px 50px #000;
-  border-radius: 5px;
   padding: 20px;
 }
+.MessageCreate .select-friend-input {
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  border: none;
+  caret-color: #ed1dc0;
+  padding: 5px;
+  outline: 1px solid #ed1dc0;
+  border: none;
+}
 .MessageCreate .friend-list-dropdown {
-  background-color: #fff;
+  background-color: #2b2b2b;
   box-shadow: 2px 2px 2px #000;
+  border-top: 1px solid #ed1dc0;
+  position: relative;
+  min-height: 50px;
+  max-height: 200px;
+  overflow: scroll;
 }
 .MessageCreate .friend-list-dropdown .friend-list-item {
   display: flex;
   align-items: center;
+  color: #fff;
+  z-index: 1001;
   padding: 5px;
 }
 .MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container {
-  width: 30px;
-  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
 }
 .MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container .friend-list-profile-img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
   object-fit: cover;
 }
 .MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container .friend-list-default-img {
-  width: 30px;
-  height: 30px;
+  color: #ed1dc0;
+  font-size: 1.3em;
 }
-.MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container .dropdown-list-item {
+.MessageCreate .friend-list-dropdown .friend-list-item .dropdown-list-name {
   display: flex;
 }
 

@@ -23,8 +23,9 @@ function MessageInbox() {
     } catch(err) {
       console.log(err)
     }
+    console.log('messageInbox ==>', messageInbox)
   }
-
+  
   useEffect(() => {
     getMessageInbox()
   }, [])
@@ -42,7 +43,7 @@ function MessageInbox() {
       <Navbar />
       <PageTitle icon={<FontAwesomeIcon icon={faEnvelope} />} title={'Message Inbox'} />
       <button onClick={() => setShowCreateMessage(!showCreateMessage)}>Create Message</button>
-      {showCreateMessage ? <MessageCreate getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
+      {showCreateMessage ? <MessageCreate messageInbox={messageInbox} getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
       {mappedMessageInbox}
     </div>
   )

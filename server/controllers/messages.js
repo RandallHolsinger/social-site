@@ -1,11 +1,11 @@
 module.exports = {
   getInbox: async (req, res) => {
     const {user_id} = req.session.user 
-    console.log('hitting!! user_id =>', user_id)
     const db = req.app.get('db')
     try {
       let inbox = await db.messages.get_message_inbox({user_id})
       res.status(200).send(inbox)
+      console.log('inbox from database to be sent back =>', inbox)
     } catch(err) {
       res.status(500).send(err)
     }
