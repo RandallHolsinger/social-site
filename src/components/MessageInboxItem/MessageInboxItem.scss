@@ -7,17 +7,26 @@
  @include border-radius;
  @include box-shadow;
  color: #fff;
+ .messages-link {
+   text-decoration: none;
+ }
  article {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
   .inbox-profile-img {
     border: 1px solid $util-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 75px;
     height: 75px;
     border-radius: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    .inbox-default-user-img {
+      color: $util-color;
+      font-size: 3em;
+    }
     img {
      width: 75px;
      height: 75px;
@@ -27,13 +36,19 @@
   .inbox-content {
     display: flex;
     flex-direction: column;
+    width: 200px;
+    padding: 3px;
+    color: #FFF;
     .inbox-friend-name {
       color: $util-color;
     }
+    .inbox-datetime {
+      display: flex;
+      flex-direction: column;
+    }
   }
-  .inbox-datetime {
-    display: flex;
-    flex-direction: column;
+  .message-delete-button {
+    
   }
  }
 }

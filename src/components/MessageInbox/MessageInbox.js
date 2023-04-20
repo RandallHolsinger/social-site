@@ -32,9 +32,7 @@ function MessageInbox() {
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {
     return(
-      <Link to={`/Messages/${inboxItem.conversation_id}`} key={inboxItem.inbox_id} className='messages-link'>
-        <MessageInboxItem value={inboxItem}/>
-      </Link>
+      <MessageInboxItem key={inboxItem.inbox_id} value={inboxItem}/>
     )
   })
 

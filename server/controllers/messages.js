@@ -5,7 +5,6 @@ module.exports = {
     try {
       let inbox = await db.messages.get_message_inbox({user_id})
       res.status(200).send(inbox)
-      console.log('inbox from database to be sent back =>', inbox)
     } catch(err) {
       res.status(500).send(err)
     }
@@ -13,7 +12,6 @@ module.exports = {
 
   deleteInboxItem: async (req, res) => {
     const {inbox_id} = req.params
-    console.log('delete inbox =>', req.params)
     const db = req.app.get('db')
     try {
       db.messages.delete_inbox_item({inbox_id})
@@ -27,8 +25,6 @@ module.exports = {
     const id_sender = req.session.user.user_id
     const id_receiver = req.params.user_id
     const {subject, message} = req.body
-    console.log(id_receiver)
-    console.log('me =>', id_sender,'target =>', id_receiver, subject, message)
     const db = req.app.get('db')
     try {
       await db.messages.send_message({id_sender, id_receiver, subject, message})
@@ -40,11 +36,10 @@ module.exports = {
 
   messageReply: async (req, res) => {
     const id_sender = req.session.user.user_id
-    const {inbox_id, conversation_id, subject, message} = req.body
+    const {inbox_id, conversation_id, message} = req.body
     const db = req.app.get('db')
-    console.log('hitting backend message reply')
     try {
-      db.messages.send_message_reply({id_sender, inbox_id, conversation_id, subject, message})
+      db.messages.send_message_reply({id_sender, inbox_id, conversation_id, message})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

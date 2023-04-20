@@ -25,7 +25,6 @@ function MessageCreate(props) {
     try {
       let res = await axios.get('/api/friends/list')
       setFriends(res.data)
-      console.log(res.data)
     } catch(err) {
       console.log(err)
     }
@@ -43,20 +42,13 @@ function MessageCreate(props) {
       console.log(err)
     }
     resetInputs()
-    console.log('message inbox here =>', props.messageInbox)
   }
 
   const handleSelectedFriend = (id, firstName, lastName) => {
-    console.log(id, firstName, lastName)
     setSelectedFriend(firstName + ' ' + lastName)
     setSelectedFriendId(id)
     setShowFriendsList(false)
   }
-
-  useEffect(() => {
-    console.log('selected friend =>', selectedFriend)
-    console.log('get message inbox =>', props.messageInbox)
-  }, [selectedFriend])
   
   const mappedFriendsList = friends.map(friend => {
     return (

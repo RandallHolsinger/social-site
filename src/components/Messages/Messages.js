@@ -62,12 +62,6 @@ function Messages() {
       </div>
       {showReplyMessage ? 
         <div className="reply-message-container">
-          <input 
-            onChange={(e) => setSubject(e.target.value)}
-            value={subject}
-            placeholder='Subject'
-            type="text" 
-          />
           <textarea 
             onChange={(e) => setMessage(e.target.value)}
             value={message}
