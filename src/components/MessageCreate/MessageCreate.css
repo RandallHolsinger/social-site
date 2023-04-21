@@ -13,7 +13,24 @@
   box-shadow: 0px 0px 100px 50px #000;
   padding: 20px;
 }
-.MessageCreate .select-friend-input {
+.MessageCreate .message-create-header {
+  display: flex;
+  align-items: center;
+}
+.MessageCreate .message-create-header .message-create-header-icon {
+  color: #ed1dc0;
+  font-size: 2em;
+  margin-right: 5px;
+}
+.MessageCreate .message-create-header h2 {
+  color: #fff;
+}
+.MessageCreate label {
+  color: #ed1dc0;
+  font-size: 1.2em;
+  margin: 10px 0px 5px 0px;
+}
+.MessageCreate .select-friend-input, .MessageCreate .subject-input, .MessageCreate .message-input {
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   border: none;
@@ -24,18 +41,17 @@
 }
 .MessageCreate .friend-list-dropdown {
   background-color: #2b2b2b;
-  box-shadow: 2px 2px 2px #000;
-  border-top: 1px solid #ed1dc0;
+  box-shadow: 0px 2px 2px 2px #000;
   position: relative;
   min-height: 50px;
   max-height: 200px;
   overflow: scroll;
+  padding: 5px;
 }
 .MessageCreate .friend-list-dropdown .friend-list-item {
   display: flex;
   align-items: center;
   color: #fff;
-  z-index: 1001;
   padding: 5px;
 }
 .MessageCreate .friend-list-dropdown .friend-list-item .select-friend-img-container {
@@ -60,6 +76,40 @@
 }
 .MessageCreate .friend-list-dropdown .friend-list-item .dropdown-list-name {
   display: flex;
+  font-weight: 500;
+}
+.MessageCreate .message-create-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+.MessageCreate .message-create-buttons .message-send-button, .MessageCreate .message-create-buttons .message-cancel-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  box-shadow: 3px 3px 3px #000;
+}
+.MessageCreate .message-create-buttons .message-send-button {
+  background-color: #07c52a;
+  width: 60%;
+  margin-right: 5px;
+}
+.MessageCreate .message-create-buttons .message-send-button .message-send-icon {
+  margin-right: 5px;
+}
+.MessageCreate .message-create-buttons .message-cancel-button {
+  background-color: #ff3860;
+  width: 35%;
+}
+.MessageCreate .message-create-buttons .message-cancel-button .message-cancel-icon {
+  margin-right: 5px;
 }
 
 /*# sourceMappingURL=MessageCreate.css.map */

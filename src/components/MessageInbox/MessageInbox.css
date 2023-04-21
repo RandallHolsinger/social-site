@@ -1,8 +1,32 @@
 .MessageInbox {
-  margin-top: 150px;
+  margin-top: 200px;
 }
-.MessageInbox .messages-link {
-  text-decoration: none;
+.MessageInbox .message-inbox-toolbar {
+  background-color: #2b2b2b;
+  position: fixed;
+  top: 134px;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 3px #000;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.MessageInbox .message-inbox-toolbar .create-message-button {
+  background-color: #2b2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ed1dc0;
+  border-radius: 3px;
+  padding: 5px;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+.MessageInbox .message-inbox-toolbar .create-message-button .create-message-button-icon {
+  color: #ed1dc0;
+  margin-right: 3px;
 }
 
 /*# sourceMappingURL=MessageInbox.css.map */

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare, faUser, faPaperPlane, faX } from '@fortawesome/free-solid-svg-icons'
 import './MessageCreate.scss'
 import axios from 'axios'
 
@@ -73,10 +73,15 @@ function MessageCreate(props) {
 
   return(
     <div className="MessageCreate">
+      <div className="message-create-header">
+        <FontAwesomeIcon icon={faPenToSquare} className='message-create-header-icon'/>
+        <h2>Create Message</h2>
+      </div>
       <label htmlFor='friends'>To:</label>
       <input
         onClick={() => setShowFriendsList(true)}
         value={selectedFriend}
+        placeholder='Friend'
         onChange={handleSelectedFriend}
         className='select-friend-input'
       />
@@ -94,12 +99,25 @@ function MessageCreate(props) {
         placeholder='Subject'
         value={subjectInput}
         onChange={(e) => setSubjectInput(e.target.value)}
+        className='subject-input'
       />
       <label>Message:</label>
-      <textarea value={messageInput} onChange={(e) => setMessageInput(e.target.value)} placeholder='Message...' />
+      <textarea 
+        value={messageInput}
+        rows={15} 
+        onChange={(e) => setMessageInput(e.target.value)} 
+        placeholder='Write your message here'
+        className='message-input' 
+      />
       <div className='message-create-buttons'>
-        <button onClick={() => sendMessage()} className='message-send-button'>Send Message</button>
-        <button onClick={() => setShowCreateMessage(false)} className='message-cancel-button'>Cancel</button>
+        <button onClick={() => sendMessage()} className='message-send-button'>
+          <FontAwesomeIcon icon={faPaperPlane} className='message-send-icon' />
+          Send Message
+        </button>
+        <button onClick={() => setShowCreateMessage(false)} className='message-cancel-button'>
+          <FontAwesomeIcon icon={faX} className='message-cancel-icon'/>
+          Cancel
+        </button>
       </div>
     </div>
   )

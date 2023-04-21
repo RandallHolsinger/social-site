@@ -1,3 +1,32 @@
+@import '../../sass/mixins', '../../sass/variables';
+
 .MessageInbox {
-  margin-top: 150px;
+  margin-top: 200px;
+  .message-inbox-toolbar {
+    @include component-color;
+    position: fixed;
+    top: 134px;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 3px #000;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    .create-message-button {
+      @include component-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $util-color;
+      border-radius: 3px;
+      padding: 5px;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      .create-message-button-icon {
+        color: $util-color;
+        margin-right: 3px;
+      }
+    }
+  }
 }
