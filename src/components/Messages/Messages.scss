@@ -28,4 +28,60 @@
       margin-right: 5px;
     }
   }
+  .message-reply-container {
+    @include component-color;
+    @include border-radius;
+    @include box-shadow;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    .message-reply-header {
+      display: flex;
+      align-items: center;
+      .message-reply-header-icon {
+        color: $util-color;
+        font-size: 1.3em;
+        margin-right: 5px;
+      }
+      h2 {
+        color: #fff;
+      }
+    }
+    textarea {
+      @include input-style;
+      @include input-focus;
+      border-radius: 3px;
+      margin: 10px 0px 10px 0px;
+    }
+    .message-reply-buttons {
+      display: flex;
+      justify-content: space-around;
+      border: none;
+      .message-reply-send-button, .message-reply-cancel-button {
+        padding: 5px;
+        border: none;
+        border-radius: 3px;
+        color: #000;
+        font-weight: 600;
+      }
+      .message-reply-send-button {
+        background-color: $util-color-2;
+        width: 65%;
+        margin-right: 10px;
+        .message-reply-send-icon {
+          margin-right: 3px;
+        }
+      }
+      .message-reply-cancel-button {
+        background-color: $danger;
+        width: 30%;
+        .message-reply-cancel-icon {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
 }

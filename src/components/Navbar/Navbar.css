@@ -47,15 +47,23 @@
   padding: 20px;
 }
 .Navbar .nav-menu .menu-items-container .nav-menu-header .nav-menu-user-image-container {
-  width: 125px;
-  height: 125px;
-  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ed1dc0;
   border-radius: 100%;
+  margin-bottom: 3px;
+}
+.Navbar .nav-menu .menu-items-container .nav-menu-header .nav-menu-user-image-container .nav-menu-default-user-image {
+  color: #ed1dc0;
+  font-size: 3em;
 }
 .Navbar .nav-menu .menu-items-container .nav-menu-header .nav-menu-user-image-container .nav-menu-user-image {
   border-radius: 100%;
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 .Navbar .nav-menu .menu-items-container .nav-menu-header .nav-menu-first-name {

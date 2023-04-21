@@ -41,15 +41,13 @@ function Navbar() {
             <div className="nav-menu">
               <ul className='menu-items-container'>
                 <header className='nav-menu-header'>
-                  {profileImage ?
-                    <div className='nav-menu-user-image-container'>
+                  <div className='nav-menu-user-image-container'>
+                    {profileImage ?
                       <img src={`/uploads/images/${profileImage}`} className='nav-menu-user-image' alt='profile' />
-                    </div>
-                  :
-                    <div className='nav-menu-default-image-container'>
+                    :
                       <FontAwesomeIcon icon={faUser} className='nav-menu-default-user-image'/>
-                    </div>
-                  }
+                    } 
+                  </div>
                   <span className='nav-menu-first-name'>{firstName}</span>
                   <span className='nav-menu-last-name'>{lastName}</span>
                   <Logout />

@@ -11,7 +11,6 @@ import Message from '../Message/Message'
 function Messages() {
 
   const [messages, setMessages] = useState([])
-  const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [showReplyMessage, setShowReplyMessage] = useState(false)
   
@@ -27,9 +26,12 @@ function Messages() {
   }
 
   const sendMessageReply = async () => {
+    let subject = messages[0].subject
+    console.log('subject being sent =>', subject)
     try {
-      await axios.post('/api/message/reply/send', {conversation_id, subject, message})
+      await axios.post('/api/message/reply/send', {conversation_id, message, subject})
       getMessages()
+      setShowReplyMessage(false)
     } catch(err) {
       console.log(err)
     }
@@ -61,7 +63,11 @@ function Messages() {
         </span>
       </div>
       {showReplyMessage ? 
-        <div className="reply-message-container">
+        <div className="message-reply-container">
+          <div className="message-reply-header">
+            <FontAwesomeIcon icon={faReply} className='message-reply-header-icon'/>
+            <h2>Message Reply</h2>
+          </div>
           <textarea 
             onChange={(e) => setMessage(e.target.value)}
             value={message}
@@ -69,14 +75,14 @@ function Messages() {
             cols="30" 
             rows="10"
           />
-          <div className="message-buttons">
-            <button onClick={() => setShowReplyMessage(false)}>
-              <FontAwesomeIcon icon={faX} className='message-cancel-icon' />
-              Cancel
-            </button>
-            <button onClick={() => sendMessageReply()}>
-              <FontAwesomeIcon icon={faPaperPlane} className='message-send-icon' />
+          <div className="message-reply-buttons">
+            <button onClick={() => sendMessageReply()} className='message-reply-send-button'>
+              <FontAwesomeIcon icon={faPaperPlane} className='message-reply-send-icon' />
               Send
+            </button>
+            <button onClick={() => setShowReplyMessage(false)} className='message-reply-cancel-button'>
+              <FontAwesomeIcon icon={faX} className='message-reply-cancel-icon' />
+              Cancel
             </button>
           </div>
         </div>

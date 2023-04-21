@@ -36,10 +36,10 @@ module.exports = {
 
   messageReply: async (req, res) => {
     const id_sender = req.session.user.user_id
-    const {inbox_id, conversation_id, message} = req.body
+    const {inbox_id, conversation_id, message, subject} = req.body
     const db = req.app.get('db')
     try {
-      db.messages.send_message_reply({id_sender, inbox_id, conversation_id, message})
+      db.messages.send_message_reply({id_sender, inbox_id, conversation_id, message, subject})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

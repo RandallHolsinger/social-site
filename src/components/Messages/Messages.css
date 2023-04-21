@@ -27,5 +27,64 @@
   color: #ed1dc0;
   margin-right: 5px;
 }
+.Messages .message-reply-container {
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.Messages .message-reply-container .message-reply-header {
+  display: flex;
+  align-items: center;
+}
+.Messages .message-reply-container .message-reply-header .message-reply-header-icon {
+  color: #ed1dc0;
+  font-size: 1.3em;
+  margin-right: 5px;
+}
+.Messages .message-reply-container .message-reply-header h2 {
+  color: #fff;
+}
+.Messages .message-reply-container textarea {
+  border: none;
+  caret-color: #ed1dc0;
+  padding: 5px;
+  outline: 1px solid #ed1dc0;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 0px 10px 0px;
+}
+.Messages .message-reply-container .message-reply-buttons {
+  display: flex;
+  justify-content: space-around;
+  border: none;
+}
+.Messages .message-reply-container .message-reply-buttons .message-reply-send-button, .Messages .message-reply-container .message-reply-buttons .message-reply-cancel-button {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  color: #000;
+  font-weight: 600;
+}
+.Messages .message-reply-container .message-reply-buttons .message-reply-send-button {
+  background-color: #07c52a;
+  width: 65%;
+  margin-right: 10px;
+}
+.Messages .message-reply-container .message-reply-buttons .message-reply-send-button .message-reply-send-icon {
+  margin-right: 3px;
+}
+.Messages .message-reply-container .message-reply-buttons .message-reply-cancel-button {
+  background-color: #ff3860;
+  width: 30%;
+}
+.Messages .message-reply-container .message-reply-buttons .message-reply-cancel-button .message-reply-cancel-icon {
+  margin-right: 3px;
+}
 
 /*# sourceMappingURL=Messages.css.map */
