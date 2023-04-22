@@ -1,20 +1,15 @@
+@import '../../sass/variables', '../../sass/mixins';
+
 .Messenger {
-  background-color: #1b1818;
+  @include component-color;
   box-sizing: border-box;
   padding: 15px;
   width: 100%;
-  height: auto;
-  max-height: 50%;
-  overflow: scroll;
+  height: 100%;
   color: #fff;
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translate(-50%, -35px);
-  z-index: 99;
-  .sidebar-container {
-    
-  }
+  top: 60px;
+  z-index: 1000;
   .message-interface {
     box-sizing: border-box;
     border: 1px solid aquamarine;

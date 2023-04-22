@@ -8,9 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import './Login.scss'
 
-function Login(props) {
-
-  const {socket} = props
+function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -24,39 +22,16 @@ function Login(props) {
     setPassword('')
   }
 
-  const setLocalStorageForSocket = (data) => {
-    console.log('data setting storage ==>', data)
-    localStorage.setItem('userId', data.user_id)
-    localStorage.setItem('firstName', data.first_name)
-    localStorage.setItem('lastName', data.last_name)
-  }
-
-  const socketLogin = async () => {
-    socket.on('connect', () => {
-    console.log('client login socket id ==>', socket.id)
-    socket.emit('login', {
-      userId: localStorage.getItem('userId'), 
-      firstName: localStorage.getItem('firstName') , 
-      lastName: localStorage.getItem('lastName'), 
-      socketID: socket.id
-    })
-    socket.connect()
-    })
-  }
-
   const login = async (event) => {
     event.preventDefault()
     try {
       console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
-      console.log(res.errorMessage)
       await dispatch(updateUser(res.data))
-      socket.connect()
-      setLocalStorageForSocket(res.data)
-      socketLogin()
       navigate("/home")
     } catch(err) {
       setShowAlertMessage(true)
+      console.log(err)
     }
     clearInputs()
   }

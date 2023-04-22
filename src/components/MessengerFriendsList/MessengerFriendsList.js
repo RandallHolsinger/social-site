@@ -10,23 +10,13 @@ function MessengerFriendsList(props) {
   
   const [friendsList, setFriendsList] = useState([])
   const [onlineFriends, setOnlineFriends] = useState([])
-  const [onlineFriendList, setOnlineFriendList] = useState([])
   const userID = useSelector(state => state.user.userId)
-  
-  
-  const createOnlineFriendList = () => {
-    let mergedArr = [...friendsList, ...onlineFriends]
-    let newArray = []
-    let mergeObj = (obj1, obj2) => ({...obj1, ...obj2})
-
-  }
   
   const checkOnlineStatus = (friends) => {
     socket.emit('checkOnlineStatus', friends)
     socket.on('onlineStatus', (friendsArr) => {
       setOnlineFriends(friendsArr)
     })
-    createOnlineFriendList()
   }
   
   const getMessengerFriendList = async () => {

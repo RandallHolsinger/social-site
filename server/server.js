@@ -192,7 +192,6 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 //Socket.io connects
 let onlineUsers = []
 io.on('connection', (socket) => {
-
   
   console.log(`${socket.id} user just connected...`)
   
@@ -201,23 +200,12 @@ io.on('connection', (socket) => {
     socket.emit('onlineUsersList', onlineUsers)
     console.log('list of online users ==>', onlineUsers)
   })
- 
-  //user joins room with other user emits message between clients
-  // socket.on('joinRoom', room => {
-  //   console.log('joining room =>', room)
-  //   socket.join(room)
-  // })
   
   socket.on('privateMessage', data => {
     console.log('here is the message going to server ==>', data)
     io.to(data.targetSocketID).emit('messageResponse', data)
   })
 
-  // leaves current room
-  // socket.on('leaveRoom', room => {
-  //    console.log('leaving room =>', room)
-  //    socket.leave(room)
-  // })
 
   // emits an is typing message to other client sockets
   socket.on('typing', data => socket.broadcast.emit('typing response', data))
@@ -243,6 +231,7 @@ io.on('connection', (socket) => {
     })
     socket.emit('onlineStatus', onlineFriendsArray)
     })
+    
   // Disconnects the socket
   socket.on('disconnect', () => {
     console.log(`user: ${socket.id} disconnected...`)

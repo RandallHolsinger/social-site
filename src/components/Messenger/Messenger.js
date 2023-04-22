@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Messenger.scss'
-// import MessengerFriendsList from '../MessengerFriendsList/MessengerFriendsList'
+import MessengerFriendsList from '../MessengerFriendsList/MessengerFriendsList'
 import MessengerOnlineUsers from '../MessengerOnlineUsers/MessengerOnlineUsers'
 import MessengerInput from '../MessengerInput/MessengerInput'
 import MessengerContent from '../MessengerContent/MessengerContent'
@@ -20,14 +20,14 @@ function Messenger(props) {
   
   return(
     <div className="Messenger">
-      {/* disable component below when finished creating functionality to do personal messaging with friends
-      instead of every online client */}
-      {/* <MessengerFriendsList socket={socket} setShowMessenger={setShowMessenger} /> */}
       {selected ?
-      <div>
-        {selectedUser.firstName}{' '}{selectedUser.lastName}
-        <button onClick={() => leaveChat()}>Leave Chat</button>
-      </div> : null}
+        <div className='messenger-selected-user-container'>
+          {selectedUser.firstName}{' '}{selectedUser.lastName}
+          <button onClick={() => leaveChat()}>Leave Chat</button>
+        </div> 
+      : 
+        <MessengerFriendsList socket={socket} setShowMessenger={setShowMessenger} />
+      }
       {selected ? 
         <div className='message-interface'>
           <MessengerContent 

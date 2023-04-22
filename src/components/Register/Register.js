@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
-import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faUser, faEnvelope, faKey} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import './Register.scss'
 import axios from 'axios'
 
-function Register(props) {
+function Register() {
   
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -33,9 +32,6 @@ function Register(props) {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const socketUserId = useSelector(state => state.user.userId)
-  const socketFirstName = useSelector(state => state.user.firstName)
-  const socketLastName = useSelector(state => state.user.lastName)
 
   const clearInputs = () => {
     setFirstName('')
@@ -107,16 +103,12 @@ function Register(props) {
 
   const registerUser = async (event) => {
     event.preventDefault()
-    const {socket} = props
     let validForm = validFirstName && validLastName && validEmail && validConfirmEmail && validPassword 
     if(validForm) {
       try {
         let res = await axios.post('/auth/user/register', {firstName, lastName, email, password})
         console.log('registered the user', res)
         dispatch(updateUser(res.data))
-        localStorage.setItem('userId', socketUserId)
-        localStorage.setItem('firstName', socketFirstName)
-        localStorage.setItem('lastName', socketLastName)
         navigate('/Home')
       } catch(err) {
         console.log(err)

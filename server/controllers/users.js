@@ -12,7 +12,6 @@ module.exports = {
 
   getUser: async(req, res) => {
     const {user_id} = req.params
-    console.log('user_id on server side ==>', user_id)
     const db = req.app.get('db')
     try {
       let user = await db.users.get_user({user_id})
@@ -44,16 +43,6 @@ module.exports = {
     const about_me = aboutMeInput
 
     const db = req.app.get('db')
-    
-    console.log('data ==>',
-      city,
-      state_province,
-      dob,
-      occupation, 
-      high_school,
-      college, 
-      about_me
-    )
 
     try {
       db.users.update_user({
