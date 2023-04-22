@@ -14,11 +14,18 @@
       @include component-color;
       padding: 10px;
       .message-profile-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 70px;
         height: 70px;
-        border: 1px solid #fff;
+        border: 1px solid $util-color;
         border-radius: 100%;
         margin-right: 10px;
+        .message-default-user-image {
+          color: $util-color;
+          font-size: 2em;
+        }
         img {
           width: 70px;
           height: 70px;

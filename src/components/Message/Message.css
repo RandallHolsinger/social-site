@@ -15,11 +15,18 @@
   padding: 10px;
 }
 .Message Article .message-header .message-profile-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70px;
   height: 70px;
-  border: 1px solid #fff;
+  border: 1px solid #ed1dc0;
   border-radius: 100%;
   margin-right: 10px;
+}
+.Message Article .message-header .message-profile-img-container .message-default-user-image {
+  color: #ed1dc0;
+  font-size: 2em;
 }
 .Message Article .message-header .message-profile-img-container img {
   width: 70px;
