@@ -36,6 +36,10 @@
   width: 95%;
   height: 65%;
 }
+.GlobalMessenger .messenger-content .online-user-count {
+  padding: 5px;
+  color: #fff;
+}
 .GlobalMessenger .global-message-input-container {
   display: flex;
   justify-content: center;

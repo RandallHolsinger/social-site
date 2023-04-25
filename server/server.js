@@ -190,8 +190,10 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 ///// Socket.IO /////
 
 //Socket.io connects
-
+let onlineUsersCount = 0
 io.on('connection', (socket) => {
+  onlineUsersCount++
+  io.emit('onlineCount', onlineUsersCount)
   console.log(`A new user connected socketID: ${socket.id}`)
   io.emit('welcome', 'user has joined the chat')
   socket.on('message', (data) => {
@@ -201,7 +203,9 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', (reason) => {
     console.log(`User left chat because => ${reason}`)
+    onlineUsersCount--
     io.emit('userLeft', 'user has left the chat')
+    io.emit('onlineCount', onlineUsersCount)
   })
 })
 

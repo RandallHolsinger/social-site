@@ -19,6 +19,7 @@ function GlobalMessenger(props) {
 
 
   const [messages, setMessages] = useState([])
+  const [onlineUsers, setOnlineUsers] = useState(0)
   const [globalInput, setGlobalInput] = useState('')
 
   const leaveChat = () => {
@@ -31,15 +32,14 @@ function GlobalMessenger(props) {
     if(globalInput.trim()) {
       socket.emit('message', {globalInput, userId, firstName, lastName, profileImg})
     }
+    setGlobalInput('')
     formRef.current.reset()
   }
 
   useEffect(() => {
     socket.on('messageResponse', data => {
-      console.log('data on client side recieved =>', data)
       setMessages([...messages, data])
     })
-    console.log('messages on state =>', messages)
   }, [socket, messages])
 
   useEffect(() => {
@@ -48,6 +48,13 @@ function GlobalMessenger(props) {
       socket.disconnect()
     }
   }, [])
+
+  useEffect(() => {
+    socket.on('onlineCount', number => {
+      console.log('number here =>', number)
+      setOnlineUsers(number)
+    })
+  }, [socket])
 
   let mappedMessages = messages.map((message, index) => {
     return(
@@ -63,6 +70,7 @@ function GlobalMessenger(props) {
         <button onClick={() => leaveChat()} className="leave-chat-button">Leave Chat</button>
       </div>
       <div className="messenger-content">
+      <span className='online-user-count'>Users Online: {onlineUsers} </span>
         {mappedMessages}
       </div>
       <div className="global-message-input-container">
@@ -70,6 +78,8 @@ function GlobalMessenger(props) {
           <input 
             type="text" 
             placeholder='Share whats on your mind...'
+            value={globalInput}
+            autoComplete='True'
             onChange={(e) => setGlobalInput(e.target.value)} 
           />
           <button onClick={(e) => sendMessage(e)}>

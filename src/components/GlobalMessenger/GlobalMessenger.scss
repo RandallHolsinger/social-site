@@ -36,6 +36,10 @@
     overflow: scroll;
     width: 95%;
     height: 65%;
+    .online-user-count {
+      padding:5px;
+      color: #fff;
+    }
   }
   .global-message-input-container {
     display: flex;
