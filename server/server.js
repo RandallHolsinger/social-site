@@ -190,56 +190,20 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 ///// Socket.IO /////
 
 //Socket.io connects
-let onlineUsers = []
+
 io.on('connection', (socket) => {
-  
-  console.log(`${socket.id} user just connected...`)
-  
-  socket.on('getOnlineUsers', (text) => {
-    console.log('server message =>', text)
-    socket.emit('onlineUsersList', onlineUsers)
-    console.log('list of online users ==>', onlineUsers)
-  })
-  
-  socket.on('privateMessage', data => {
-    console.log('here is the message going to server ==>', data)
-    io.to(data.targetSocketID).emit('messageResponse', data)
+  console.log(`A new user connected socketID: ${socket.id}`)
+  io.emit('welcome', 'user has joined the chat')
+  socket.on('message', (data) => {
+    console.log('message on server =>', data)
+    io.emit('messageResponse', data)
   })
 
-
-  // emits an is typing message to other client sockets
-  socket.on('typing', data => socket.broadcast.emit('typing response', data))
-
-  // Logic when user logs in adds the user to local storage then sent here
-  // to be added to the online users list.
-  socket.on('login', data => {
-    onlineUsers.push(data)
-    console.log('online user login =>', data)
-  })
-  
-  
-  // Compares online sockets with friends list and sends to client
-  // which friends are online.
-  socket.on('checkOnlineStatus', friends => {
-    let onlineFriendsArray = []
-    onlineUsers.forEach( user => {
-      friends.forEach( friend => {
-        if(user.userId == friend.user_id) {
-          onlineFriendsArray.push(user)
-        }
-      })
-    })
-    socket.emit('onlineStatus', onlineFriendsArray)
-    })
-    
-  // Disconnects the socket
-  socket.on('disconnect', () => {
-    console.log(`user: ${socket.id} disconnected...`)
-    onlineUsers = onlineUsers.filter((user) => user.socketID !== socket.id);
-    socket.disconnect()
+  socket.on('disconnect', (reason) => {
+    console.log(`User left chat because => ${reason}`)
+    io.emit('userLeft', 'user has left the chat')
   })
 })
-
 
 
 

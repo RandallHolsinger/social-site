@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,MAAM,EAAE,oBAAoB;EAC5B,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,GAAG;CACb",
-    "sources": [
-        "MessengerOnlineUser.scss"
-    ],
-    "names": [],
-    "file": "MessengerOnlineUser.css"
-}

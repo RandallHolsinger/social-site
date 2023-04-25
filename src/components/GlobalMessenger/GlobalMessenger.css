@@ -1,0 +1,75 @@
+.GlobalMessenger {
+  background-color: #2b2b2b;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+  top: 60px;
+  height: 100%;
+  width: 100%;
+}
+.GlobalMessenger .global-messenger-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #fff;
+}
+.GlobalMessenger .global-messenger-header .global-messenger-icon {
+  color: #ed1dc0;
+  font-size: 2em;
+  margin-right: 5px;
+}
+.GlobalMessenger .global-messenger-header .leave-chat-button {
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #ed1dc0;
+  color: #fff;
+  font-weight: 600;
+  margin-left: 30px;
+}
+.GlobalMessenger .messenger-content {
+  border: 1px solid #ed1dc0;
+  box-sizing: border-box;
+  margin: 0px auto;
+  overflow: scroll;
+  width: 95%;
+  height: 65%;
+}
+.GlobalMessenger .global-message-input-container {
+  display: flex;
+  justify-content: center;
+}
+.GlobalMessenger .global-message-input-container form {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+.GlobalMessenger .global-message-input-container form input {
+  border: none;
+  caret-color: #ed1dc0;
+  padding: 5px;
+  outline: 1px solid #ed1dc0;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  width: 70%;
+  margin-right: 10px;
+}
+.GlobalMessenger .global-message-input-container form button {
+  box-shadow: 3px 3px 3px #000;
+  border: none;
+  border-radius: 3px;
+  background-color: #ed1dc0;
+  color: #fff;
+  font-weight: 600;
+  width: 20%;
+}
+.GlobalMessenger .global-message-input-container form button .messenger-send-icon {
+  margin-right: 3px;
+}
+
+/*# sourceMappingURL=GlobalMessenger.css.map */

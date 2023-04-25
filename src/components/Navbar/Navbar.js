@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faEnvelope, faCommentDots, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
+import { faBars, faEnvelope, faGlobe, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler'
 import './Navbar.scss'
 import Logout from '../Logout/Logout'
 import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
-import Messenger from '../Messenger/Messenger'
+import GlobalMessenger from '../GlobalMessenger/GlobalMessenger'
 
 function Navbar() {
 
@@ -20,7 +20,7 @@ function Navbar() {
 
   return(
     <div className='Navbar'>
-      {showMessenger ? <Messenger setShowMessenger={setShowMessenger}/> : null} 
+      {showMessenger ? <GlobalMessenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
         <Link to={'/Friends'} className='navbar-items'>
           <span><FontAwesomeIcon icon={faUserGroup}/></span>
@@ -30,7 +30,7 @@ function Navbar() {
           <span><FontAwesomeIcon icon={faEnvelope}/></span>
         </Link>
         <span onClick={() => setShowMessenger(true)} className='navbar-items'>
-          <FontAwesomeIcon icon={faCommentDots} />
+          <FontAwesomeIcon icon={faGlobe} />
         </span>
         <span onClick={() => setShowMenu(!showMenu)} className='nav-menu-icon'>
           <FontAwesomeIcon icon={faBars} />

@@ -1,0 +1,72 @@
+@import '../../sass/variables', '../../sass/mixins';
+
+.GlobalMessenger {
+  @include component-color;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+  top: 60px;
+  height: 100%;
+  width: 100%;
+  .global-messenger-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+    .global-messenger-icon {
+      color: $util-color;
+      font-size: 2em;
+      margin-right: 5px;
+    }
+    .leave-chat-button {
+      border: none;
+      padding: 5px;
+      border-radius: 3px;
+      background-color: $util-color;
+      color: #fff;
+      font-weight: 600;
+      margin-left: 30px;
+    }
+  }
+  .messenger-content {
+    border: 1px solid $util-color;
+    box-sizing: border-box;
+    margin: 0px auto;
+    overflow: scroll;
+    width: 95%;
+    height: 65%;
+  }
+  .global-message-input-container {
+    display: flex;
+    justify-content: center;
+    form {
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      input {
+        @include input-style;
+        @include input-focus;
+        @include border-radius;
+        @include box-shadow;
+        width: 70%;
+        margin-right: 10px;
+      }
+      button {
+        @include box-shadow;
+        border: none;
+        border-radius: 3px;
+        background-color: $util-color;
+        color: #fff;
+        font-weight: 600;
+        width: 20%;
+        .messenger-send-icon {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+}
