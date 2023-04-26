@@ -4,7 +4,7 @@ const initialState = {
   userId: 0,
   firstName: '',
   lastName: '',
-  profileImage: '' 
+  profileImage: '', 
 }
 
 export const userSlice = createSlice({
