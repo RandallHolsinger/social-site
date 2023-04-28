@@ -29,8 +29,12 @@ function App() {
   }
   
   useEffect(() => {
-    getUser()
+    getUser()    
   }, [])
+
+  useEffect(() => {
+  
+  })
 
   return (
     <div className="App">
