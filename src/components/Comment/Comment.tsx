@@ -2,20 +2,34 @@ import React, { useState } from 'react'
 import './Comment.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUser, faEllipsis} from '@fortawesome/free-solid-svg-icons'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/reduxHooks'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
 import CommentDelete from '../CommentDelete/CommentDelete'
 import CommentEdit from '../CommentEdit/CommentEdit'
 import OptionsModal from '../OptionsModal/OptionsModal'
 
-function Comment(props) {
+interface commentProps {
+  value: {
+    user_id?: number,
+    first_name: string,
+    last_name: string,
+    profile_img?: string,
+    comment_id: number,
+    comment: string,
+    edited: boolean,
+    date: string
+  },
+  getComments: () => void
+}
+
+function Comment(props: commentProps) {
   
   const {value, getComments} = props
+  
+  const [showOptions, setShowOptions] = useState<boolean>(false)
 
-  const [showOptions, setShowOptions] = useState(false)
-
-  const userId = useSelector(state => state.user.userId)
+  const userId = useAppSelector(state => state.user.userId)
 
   return(
     <div className="Comment">
@@ -49,7 +63,7 @@ function Comment(props) {
         </div>
       </div>
       </article>
-      {value.user_id = userId ?
+      {value.user_id === userId ?
         <div className="comment-options-container">
           <span onClick={() => setShowOptions(!showOptions)} className='comment-options-icon'>
             <FontAwesomeIcon icon={faEllipsis} />
