@@ -3,11 +3,10 @@ import './Home.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouseChimney } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar/Navbar'
-import PostAdd from '../PostAdd/PostAdd'
 import Posts from '../Posts/Posts'
 import PageTitle from '../PageTitle/PageTitle'
 
-function Home() {
+export const Home: React.FC = () => {
   
   return(
     <div className="Home">

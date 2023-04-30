@@ -1,15 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, SetStateAction } from 'react'
 import './ImageUploader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage, faUpload, faX, faCheck } from '@fortawesome/free-solid-svg-icons'
 
-function ImageUploader(props) {
+interface ImageUploaderProps {
+  setPostData: (formData: FormData) => React.SetStateAction<string>
+  setProfileImageData: (formData: FormData) => React.SetStateAction<string>
+  setUpdatedPostData: (formData: FormData) => React.SetStateAction<string>
+  type: string
+}
+
+interface IImage {
+  preview: string 
+  data: string
+}
+
+export const ImageUploader: React.FC<ImageUploaderProps> = (props) => {
   
   const {setPostData, setProfileImageData, setUpdatedPostData, type} = props
   
-  const [image, setImage] = useState({preview:'', data:'' })
+  const [image, setImage] = useState<IImage>({preview:'', data:'' })
   
-  const updateImage = async (e) => {
+  const updateImage = async () => {
     const formData = new FormData()
     formData.append('file', image.data)
     switch(type) {
@@ -27,11 +39,12 @@ function ImageUploader(props) {
     }
   }
   
-  const handleFileChange = (e) => {
-    setImage({
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0]
-    })
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(typeof e.target.files == 'string')
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        data: e.target.files[0]
+      })
   }
   
   const cancelImage = () => {
