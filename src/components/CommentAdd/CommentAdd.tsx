@@ -16,7 +16,7 @@ function CommentAdd(props: commentAddProps) {
 
   const [commentInput, setCommentInput] = useState<string>('')
 
-  const addComment = async (e: React.FormEvent<HTMLInputElement | HTMLFormElement>) => {
+  const addComment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const data = commentInput
     try {

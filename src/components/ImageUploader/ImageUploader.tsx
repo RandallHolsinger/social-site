@@ -1,4 +1,4 @@
-import React, { useState, useEffect, SetStateAction } from 'react'
+import React, { useState, useEffect } from 'react'
 import './ImageUploader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage, faUpload, faX, faCheck } from '@fortawesome/free-solid-svg-icons'
