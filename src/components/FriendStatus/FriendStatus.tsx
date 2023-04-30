@@ -1,32 +1,43 @@
 import React, {useState, useEffect} from 'react'
 import './FriendStatus.scss'
-import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import FriendAdd from '../FriendAdd/FriendAdd'
+import { useAppSelector } from '../../redux/reduxHooks'
 import FriendAccept from '../FriendAccept/FriendAccept'
 import FriendDelete from '../FriendDelete/FriendDelete'
 
-function FriendStatus(props) {
+interface FriendStatusProps {
+  user_id: number
+}
 
-  const [friendStatus, setFriendStatus] = useState([])
-  const [showFriendDelete, setShowFriendDelete] = useState(false)
-  
-  const currentUserId =  useSelector(state => state.user.userId)
-  
-  const {user_id} = props
+interface IFriendStatus {
+  friend_id: number,
+  source_id: number,
+  target_id: number,
+  friend_status: string
+}
 
-  const getFriendStatus = async () => {
+export const FriendStatus: React.FC<FriendStatusProps> = (props) => {
+
+  const [friendStatus, setFriendStatus] = useState<IFriendStatus>()
+  
+  const currentUserId =  useAppSelector(state => state.user.userId)
+  
+  const { user_id } = props
+
+  const getFriendStatus = async (user_id: number) => {
     try {
       let res = await axios.get(`/api/friend/status/${user_id}`)
       setFriendStatus(res.data[0])
     } catch(err) {
       console.log(err)
     }
+    console.log('friend status here =>', friendStatus)
   }
   
-  const friendStatusLogic = () => {
+  const friendStatusLogic = (): JSX.Element | undefined => {
     if(friendStatus) {
       if(friendStatus.source_id === currentUserId && friendStatus.friend_status !== 'friend') {
         return (
@@ -45,22 +56,18 @@ function FriendStatus(props) {
               <FontAwesomeIcon icon={faUserGroup} className='friend-tag-icon'/>
               Friends
             </span>
-            {showFriendDelete ?
-              <FriendDelete friend_id={friendStatus.friend_id}/>
-            : 
-              null
-            }
+            <FriendDelete friend_id={friendStatus.friend_id}/>
           </div>
         )
-      }
+      } 
     } else {
       return <FriendAdd user_id={user_id} />
     }
   }
       
-      useEffect(() => {
-        getFriendStatus(user_id)
-      }, [])
+  useEffect(() => {
+    getFriendStatus(user_id)
+  }, [user_id])
       
   return(
     <div className="FriendStatus">

@@ -5,12 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus, faX, faUserGroup } from '@fortawesome/free-solid-svg-icons'  
 import FriendDeleteButton from '../FriendDelete/FriendDelete'
 
-function FriendAccept(props) {
+interface FriendAcceptProps {
+  user_id: number,
+  friend_id: number
+}
+
+export const FriendAccept: React.FC<FriendAcceptProps> = (props) => {
 
   const [showIsFriend, setShowIsFriend] = useState(false)
-  const [showDeleteFriend, setShowDeleteFriend] = useState(false)
 
-  const {user_id, friend_id, status} = props
+  const { user_id, friend_id } = props
 
   const acceptFriendRequest = async () => {
     try {
@@ -29,13 +33,7 @@ function FriendAccept(props) {
             <FontAwesomeIcon icon={faUserGroup} className='friend-tag-icon' />
             Friends
           </span>
-          {showDeleteFriend ?
-            <span>
-              <FriendDeleteButton friend_id={friend_id} />
-            </span>
-          :
-            null
-          }
+          <FriendDeleteButton friend_id={friend_id} />
         </div>
         
       :
