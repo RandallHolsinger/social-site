@@ -4,7 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-function CommentDelete(props) {
+interface CommentDeleteProps {
+  comment_id: Number,
+  getComments: () => Promise<void>
+  setShowOptions: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const CommentDelete: React.FC<CommentDeleteProps> = (props) => {
   
   const {comment_id, getComments, setShowOptions} = props
  

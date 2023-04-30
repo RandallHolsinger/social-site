@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {FC, useState } from 'react'
 import './Comment.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUser, faEllipsis} from '@fortawesome/free-solid-svg-icons'
@@ -20,14 +20,14 @@ interface commentProps {
     edited: boolean,
     date: string
   },
-  getComments: () => void
+  getComments: () => Promise<void>
 }
 
-function Comment(props: commentProps) {
+const Comment: React.FC<commentProps> = (props) => {
   
   const {value, getComments} = props
   
-  const [showOptions, setShowOptions] = useState<boolean>(false)
+  const [showOptions, setShowOptions] = useState(false)
 
   const userId = useAppSelector(state => state.user.userId)
 

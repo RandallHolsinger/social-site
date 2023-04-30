@@ -1,21 +1,27 @@
-import axios from 'axios'
+import React, { useState } from 'react'
 import './CommentAdd.scss'
+import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane} from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from 'react'
+
+interface commentAddProps {
+  post_id: number,
+  getComments: () => Promise<void>
+}
 
 
-function CommentAdd(props) {
+function CommentAdd(props: commentAddProps) {
+  
+  const {post_id, getComments} = props
 
-  const [commentInput, setCommentInput] = useState('')
+  const [commentInput, setCommentInput] = useState<string>('')
 
-  const addComment = async (e) => {
+  const addComment = async (e: React.FormEvent<HTMLInputElement | HTMLFormElement>) => {
     e.preventDefault()
-    const {post_id} = props
     const data = commentInput
     try {
       await axios.post(`/api/comment/add/${post_id}`, {data})
-      await props.getComments()
+      await getComments()
       
     } catch(err) {
       console.log(err)
@@ -30,7 +36,7 @@ function CommentAdd(props) {
           type="text"
           placeholder='Add a comment here'
           value={commentInput}
-          onChange={(e) => setCommentInput(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCommentInput(e.target.value)}
           autoFocus={true}
         />
         <button type='submit'>

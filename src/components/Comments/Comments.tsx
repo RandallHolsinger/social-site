@@ -4,9 +4,25 @@ import CommentsAddButton from '../CommentAdd/CommentAdd'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
 
-function Comments(props) {
+interface commentsProps {
+  post_id: number
+  comment: string
+}
 
-  const [comments, setComments] = useState([])
+interface Comment {
+  user_id?: number,
+  first_name: string,
+  last_name: string,
+  profile_img?: string,
+  comment_id: number,
+  comment: string,
+  edited: boolean,
+  date: string
+}
+
+export const Comments: React.FC<commentsProps> = (props) => {
+
+  const [comments, setComments] = useState<Comment[]>([])
 
   const getComments = async () => {
     try {
