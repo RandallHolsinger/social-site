@@ -8,24 +8,16 @@ import FormatedTime from '../FormatedTime/FormatedTime'
 import CommentDelete from '../CommentDelete/CommentDelete'
 import CommentEdit from '../CommentEdit/CommentEdit'
 import OptionsModal from '../OptionsModal/OptionsModal'
+import { IComment as IProps} from '../Comments/Comments'
 
 export interface commentProps {
-  value: {
-    user_id?: number,
-    first_name: string,
-    last_name: string,
-    profile_img?: string,
-    comment_id: number,
-    comment: string,
-    edited: boolean,
-    date: string
-  },
+  value: IProps
   getComments: () => Promise<void>
 }
 
-const Comment: React.FC<commentProps> = (props) => {
+export const Comment: React.FC<commentProps> = (props) => {
   
-  const {value, getComments} = props
+  const { value, getComments } = props
   
   const [showOptions, setShowOptions] = useState(false)
 

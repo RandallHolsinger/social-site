@@ -1,13 +1,31 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './ProfileCard.scss'
-import FriendStatus from '../FriendStatus/FriendStatus'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import FriendStatus from '../FriendStatus/FriendStatus'
 
-function ProfileCard(props) {
+interface ProfileCardProps {
+  value: {
+    user_id: number,
+    first_name: string,
+    last_name: string,
+    dob?: string,
+    city?: string,
+    state_province?: string,
+    occupation?: string,
+    profile_img?: string,
+    friend_id?: number,
+    source_id?: number,
+    target_id?: number,
+    friend_status?: string,
+    date?: string
+  }
+}
+
+export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
   
-  const {value} = props
+  const { value } = props
 
   return(
     <figure className='Profile'>

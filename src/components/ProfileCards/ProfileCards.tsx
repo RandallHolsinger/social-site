@@ -7,15 +7,22 @@ import Navbar from '../Navbar/Navbar'
 import ProfileCard from '../ProfileCard/ProfileCard'
 import PageTitle from '../PageTitle/PageTitle'
 import Search from '../Search/Search'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/reduxHooks'
 
+interface IProfile {
+  user_id: number,
+  first_name: string,
+  last_name: string,
+  occupation?: string,
+  profile_img?: string
+}
 
-function ProfileCards() {
+export const ProfileCards: React.FC = () => {
   
-  const [profiles, setProfiles] = useState([])
-  const [filteredProfiles, setFilteredProfiles] = useState([])
+  const [profiles, setProfiles] = useState<IProfile[]>([])
+  const [filteredProfiles, setFilteredProfiles] = useState<IProfile[]>([])
 
-  const userId = useSelector(state => state.user.userId)
+  const userId = useAppSelector(state => state.user.userId)
 
   const getProfiles = async () => {
     try {

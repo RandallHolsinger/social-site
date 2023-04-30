@@ -1,5 +1,5 @@
 SELECT * FROM friends as f
-JOIN (SELECT user_id, first_name, last_name, profile_img FROM users) AS u ON (
+JOIN (SELECT user_id, first_name, last_name, profile_img, dob, city, state_province, occupation FROM users) AS u ON (
  CASE 
    WHEN f.source_id = ${user_id} THEN f.target_id 
    WHEN f.target_id = ${user_id} THEN f.source_id

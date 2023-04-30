@@ -4,10 +4,10 @@ import { faX, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faFloppyDisk } from '@fortawesome/free-regular-svg-icons'
 import './CommentEditor.scss'
 import axios from "axios" 
-import { commentProps } from '../Comment/Comment'
+import { IComment as Props } from '../Comments/Comments'
 
 interface CommentEditorProps {
-  comment: commentProps["value"]
+  comment: Props,
   getComments: () => Promise<void>
   setShowOptions: React.Dispatch<React.SetStateAction<boolean>>,
   setShowEditComment: React.Dispatch<React.SetStateAction<boolean>>
@@ -15,7 +15,7 @@ interface CommentEditorProps {
 
 export const CommentEditor: React.FC<CommentEditorProps> = (props) => {
 
-  const {comment, getComments, setShowOptions, setShowEditComment} = props
+  const { comment, getComments, setShowOptions, setShowEditComment } = props
 
   const [editCommentInput, setEditCommentInput] = useState('')
 

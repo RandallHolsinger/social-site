@@ -9,7 +9,7 @@ interface commentsProps {
   comment: string
 }
 
-interface Comment {
+export interface IComment {
   user_id?: number,
   first_name: string,
   last_name: string,
@@ -22,7 +22,7 @@ interface Comment {
 
 export const Comments: React.FC<commentsProps> = (props) => {
 
-  const [comments, setComments] = useState<Comment[]>([])
+  const [comments, setComments] = useState<IComment[]>([])
 
   const getComments = async () => {
     try {

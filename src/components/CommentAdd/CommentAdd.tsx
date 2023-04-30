@@ -12,7 +12,7 @@ interface commentAddProps {
 
 function CommentAdd(props: commentAddProps) {
   
-  const {post_id, getComments} = props
+  const { post_id, getComments } = props
 
   const [commentInput, setCommentInput] = useState<string>('')
 

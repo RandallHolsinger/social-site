@@ -7,15 +7,30 @@ import Navbar from '../Navbar/Navbar'
 import PageTitle from '../PageTitle/PageTitle'
 import ProfileCard from '../ProfileCard/ProfileCard'
 
-function Friends() {
+export interface IFriend {
+  user_id: number,
+  first_name: string,
+  last_name: string,
+  dob?: string,
+  city?: string,
+  state_province?: string,
+  occupation?: string,
+  profile_img?: string,
+  friend_id: number,
+  source_id: number,
+  target_id: number,
+  friend_status: string,
+  date: string
+}
 
-  const [friends, setFriends] = useState([])
+export const Friends: React.FC = () => {
+
+  const [friends, setFriends] = useState<IFriend[]>([])
 
   const getFriends = async () => {
     try {
       let res = await axios.get('/api/friends')
       setFriends(res.data)
-      console.log('friends ==>', res.data)
     } catch(err) {
       console.log(err)
     }
