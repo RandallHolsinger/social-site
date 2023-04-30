@@ -1,12 +1,16 @@
 import React from 'react'
 import './FormatedDate.scss'
 
-function FormatedDate(props) {
+interface DateProps {
+  date: string
+}
+
+export const FormatedDate: React.FC<DateProps>  = (props) => {
   
   const {date} = props
 
   const timestamp =  new Date(date)
-  const newDate = timestamp.toLocaleDateString()
+  const newDate: string = timestamp.toLocaleDateString()
   
   return(
     <>

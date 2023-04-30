@@ -1,4 +1,4 @@
-import React, {FC, useState } from 'react'
+import React, { useState } from 'react'
 import './Comment.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUser, faEllipsis} from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +9,7 @@ import CommentDelete from '../CommentDelete/CommentDelete'
 import CommentEdit from '../CommentEdit/CommentEdit'
 import OptionsModal from '../OptionsModal/OptionsModal'
 
-interface commentProps {
+export interface commentProps {
   value: {
     user_id?: number,
     first_name: string,

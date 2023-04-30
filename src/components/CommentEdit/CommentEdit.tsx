@@ -3,8 +3,15 @@ import './CommentEdit.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons'
 import CommentEditor from '../CommentEditor/CommentEditor'
+import { commentProps } from '../Comment/Comment'
 
-function CommentEdit(props) {
+interface CommentEditProps {
+  comment: commentProps["value"],
+  getComments: () => Promise<void>,
+  setShowOptions: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const CommentEdit: React.FC<CommentEditProps> = (props) => {
 
   const [showEditComment, setShowEditComment] = useState(false)
 

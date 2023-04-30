@@ -4,8 +4,16 @@ import { faX, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faFloppyDisk } from '@fortawesome/free-regular-svg-icons'
 import './CommentEditor.scss'
 import axios from "axios" 
+import { commentProps } from '../Comment/Comment'
 
-function CommentEditor(props) {
+interface CommentEditorProps {
+  comment: commentProps["value"]
+  getComments: () => Promise<void>
+  setShowOptions: React.Dispatch<React.SetStateAction<boolean>>,
+  setShowEditComment: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const CommentEditor: React.FC<CommentEditorProps> = (props) => {
 
   const {comment, getComments, setShowOptions, setShowEditComment} = props
 
@@ -32,13 +40,13 @@ function CommentEditor(props) {
       </div>
       <label htmlFor='comment-editor'>Edit your comment below:</label>
       <textarea
-       onChange={(e) => setEditCommentInput(e.target.value)}
+       onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setEditCommentInput(e.target.value)}
        defaultValue={comment.comment} 
        autoFocus={true}
        spellCheck='true'
        name="comment-editor" 
-       cols="30" 
-       rows="5"
+       cols={30} 
+       rows={5}
       />
       <div className="comment-editor-buttons">
         <button onClick={() => editComment()} className='comment-edit-save'>

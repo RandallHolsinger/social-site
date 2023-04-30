@@ -1,8 +1,14 @@
 import React from 'react'
 
-function FormatedTime(props) {
+interface TimeProps {
+  time: string
+}
+
+export const FormatedTime: React.FC<TimeProps> = (props) => {
   
-  const timestamp = new Date(props.time)
+  const { time } = props
+
+  const timestamp = new Date(time)
   const newTime = timestamp.toLocaleTimeString()
   
   return(
