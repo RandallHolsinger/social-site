@@ -7,13 +7,25 @@ import Navbar from '../Navbar/Navbar'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
 import PageTitle from '../PageTitle/PageTitle'
-import { Link } from 'react-router-dom'
 
+export interface IMessageInbox {
+  inbox_id: number,
+  owner_id: number,
+  conversation_id: number,
+  friend_uid: number,
+  last_sent_id: number
+  last_subject: string,
+  last_message: string,
+  date: string,
+  user_id: number,
+  first_name: string,
+  last_name: string,
+  profile_img?: string
+}
 
+export const MessageInbox: React.FC = () => {
 
-function MessageInbox() {
-
-  const [messageInbox, setMessageInbox] = useState([])
+  const [messageInbox, setMessageInbox] = useState<IMessageInbox[]>([])
   const [showCreateMessage, setShowCreateMessage] = useState(false)
 
   const getMessageInbox = async () => {
@@ -23,9 +35,9 @@ function MessageInbox() {
     } catch(err) {
       console.log(err)
     }
-    console.log('messageInbox ==>', messageInbox)
   }
   
+  console.log('messageInbox ==>', messageInbox)
   useEffect(() => {
     getMessageInbox()
   }, [])

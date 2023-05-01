@@ -6,13 +6,17 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import { IMessageInbox as IProps } from '../MessageInbox/MessageInbox'
 
-function MessageInboxItem(props) {
+interface MessageInboxItemProps {
+  value: IProps,
+}
 
-  const {value} = props
+export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
+
+  const { value } = props
   
-  // delete inbox item 
-  const deleteInboxitem = async (inbox_id) => {
+  const deleteInboxitem = async (inbox_id: number) => {
     try {
       axios.delete(`/api/inbox/delete/${inbox_id}`)
     } catch(err) {

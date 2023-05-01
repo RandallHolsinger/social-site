@@ -8,13 +8,27 @@ import { Link } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Message from '../Message/Message'
 
-function Messages() {
+interface IMessage {
+  message_id: number,
+  message_sender: number,
+  conversation_id: number,
+  subject: string,
+  message: string,
+  date: string,
+  user_id: number,
+  first_name: string,
+  last_name: string,
+  profile_img?: string
+}
 
-  const [messages, setMessages] = useState([])
+
+export const Messages: React.FC = () => {
+
+  const [messages, setMessages] = useState<IMessage[]>([])
   const [message, setMessage] = useState('')
   const [showReplyMessage, setShowReplyMessage] = useState(false)
   
-  const {conversation_id} = useParams()
+  const { conversation_id } = useParams()
 
   const getMessages = async () => {
     try {
@@ -24,14 +38,17 @@ function Messages() {
       console.log(err)
     }
   }
+  console.log('messages here =>', messages)
 
   const sendMessageReply = async () => {
-    let subject = messages[0].subject
-    console.log('subject being sent =>', subject)
     try {
+      if(messages[0]){
+      let subject = messages[0].subject
+      console.log('subject being sent =>', subject)
       await axios.post('/api/message/reply/send', {conversation_id, message, subject})
       getMessages()
       setShowReplyMessage(false)
+      }
     } catch(err) {
       console.log(err)
     }
@@ -69,11 +86,10 @@ function Messages() {
             <h2>Message Reply</h2>
           </div>
           <textarea 
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
             value={message}
-            type='text'
-            cols="30" 
-            rows="10"
+            cols={30} 
+            rows={10}
           />
           <div className="message-reply-buttons">
             <button onClick={() => sendMessageReply()} className='message-reply-send-button'>

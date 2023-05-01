@@ -7,10 +7,10 @@ interface DateProps {
 
 export const FormatedDate: React.FC<DateProps>  = (props) => {
   
-  const {date} = props
+  const { date } = props
 
   const timestamp =  new Date(date)
-  const newDate: string = timestamp.toLocaleDateString()
+  const newDate = timestamp.toLocaleDateString()
   
   return(
     <>
