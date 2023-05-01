@@ -7,7 +7,7 @@ import { faGlobe, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { useAppSelector } from '../../redux/reduxHooks'
 
 interface GlobalMessengerProps {
-  setShowMessenger: () => React.Dispatch<SetStateAction<boolean>>
+  setShowMessenger: React.Dispatch<SetStateAction<boolean>>
 }
 
 export interface SocketMessageData {
@@ -36,7 +36,7 @@ export const GlobalMessenger: React.FC<GlobalMessengerProps> = (props) => {
 
   const leaveChat = () => {
    socket.disconnect()
-   setShowMessenger()
+   setShowMessenger(false)
   }
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {

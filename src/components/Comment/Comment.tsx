@@ -62,9 +62,6 @@ export const Comment: React.FC<commentProps> = (props) => {
           </span>
           {showOptions ? 
             <OptionsModal 
-              id={value.comment_id}
-              value={value} 
-              getItems={getComments}
               setShowOptions={setShowOptions} 
               DeleteButton={<CommentDelete comment_id={value.comment_id} getComments={getComments} setShowOptions={setShowOptions}/>} 
               EditButton={<CommentEdit comment={value} getComments={getComments} setShowOptions={setShowOptions}/>}

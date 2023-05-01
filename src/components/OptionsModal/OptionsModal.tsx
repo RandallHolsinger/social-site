@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react'
 import './OptionsModal.scss'
 import OutsideClickHandler from 'react-outside-click-handler'
 
-function OptionsModal(props) {
+interface OptionsModalProps {
+  EditButton: React.ReactNode,
+  DeleteButton: React.ReactNode,
+  setShowOptions: React.Dispatch<React.SetStateAction<boolean>>
+  commentStyle?: string,
+  postStyle?: string
+}
+
+export const OptionsModal: React.FC<OptionsModalProps> = (props) => {
   
   const {EditButton, DeleteButton, setShowOptions, commentStyle, postStyle} = props
 

@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import './Navbar.scss'
+import { useAppSelector } from '../../redux/reduxHooks'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faEnvelope, faGlobe, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
 import OutsideClickHandler from 'react-outside-click-handler'
-import './Navbar.scss'
 import Logout from '../Logout/Logout'
 import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
 import GlobalMessenger from '../GlobalMessenger/GlobalMessenger'
 
-function Navbar() {
+export const Navbar: React.FC = () => {
 
   const [showMenu, setShowMenu] = useState(false)
   const [showMessenger, setShowMessenger] = useState(false)
   
-  const firstName = useSelector(state => state.user.firstName)
-  const lastName = useSelector(state => state.user.lastName)
-  const profileImage = useSelector(state => state.user.profileImage)
+  const firstName = useAppSelector(state => state.user.firstName)
+  const lastName = useAppSelector(state => state.user.lastName)
+  const profileImage = useAppSelector(state => state.user.profileImage)
 
   return(
     <div className='Navbar'>
