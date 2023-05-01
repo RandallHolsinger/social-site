@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/reduxHooks' 
 import axios from 'axios'
 import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import UserInfo from '../UserInfo/UserInfo'
 import Posts from '../Posts/Posts'
 import Navbar from '../Navbar/Navbar'
 
-function PersonalProfile() {
+export const PersonalProfile: React.FC = () => {
   
-  const userId = useSelector(state => state.user.userId)
+  const userId = useAppSelector(state => state.user.userId)
   
   const [user, setUser] = useState({})
   
-  const getUserInfo = async(user_id) => {
+  const getUserInfo = async(user_id: number) => {
     console.log('user id here ==>', user_id)
     if(user_id !== 0) {
       try {

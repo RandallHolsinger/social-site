@@ -4,17 +4,33 @@ import './Posts.scss'
 import Post from '../Post/Post'
 import PostAdd from "../PostAdd/PostAdd";
 
+interface PostProps {
+  user_id?: number
+}
 
-function Posts(props) {
+export interface IPost {
+  user_id: number,
+  first_name: string,
+  last_name: string,
+  profile_img?: string,
+  post_id: number,
+  title: string,
+  post: string,
+  image_file: string,
+  date: string
+}
 
-  const {user_id} = props
 
-  const [posts, setPosts] = useState([])
+export const Posts: React.FC<PostProps> = (props) => {
+
+  const { user_id } = props
+
+  const [posts, setPosts] = useState<IPost[]>([])
   
   const getAllPosts = async () => {
     
     try {
-      if(props.user_id) {
+      if(user_id) {
         let res = await axios.get(`/api/posts/${user_id}`)
         setPosts(res.data)
       } else {
@@ -25,6 +41,8 @@ function Posts(props) {
       console.log(err)
     }
   }
+
+  console.log('posts ==>', posts)
 
   useEffect(() => {
     getAllPosts()

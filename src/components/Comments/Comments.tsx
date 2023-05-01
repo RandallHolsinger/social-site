@@ -5,8 +5,7 @@ import Comment from '../Comment/Comment'
 import axios from 'axios'
 
 interface commentsProps {
-  post_id: number
-  comment: string
+  post_id: number,
 }
 
 export interface IComment {
@@ -26,7 +25,7 @@ export const Comments: React.FC<commentsProps> = (props) => {
 
   const getComments = async () => {
     try {
-     const {post_id} = props
+     const { post_id } = props
      let res = await axios.get(`/api/comments/${post_id}`)
      setComments(res.data)
     } catch(err) {

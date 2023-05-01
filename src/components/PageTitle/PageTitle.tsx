@@ -1,9 +1,14 @@
 import React from 'react'
 import './PageTitle.scss'
 
-function PageTitle(props) {
+interface PageTitleProps {
+  icon: React.ReactNode,
+  title: string,
+}
+
+export const PageTitle: React.FC<PageTitleProps> = (props) => {
   
-  const {icon, title, Component} = props
+  const { icon, title } = props
 
   return(
     <div className="PageTitle">
@@ -13,13 +18,6 @@ function PageTitle(props) {
       <span className="page-title-text">
         {title}
       </span>
-      {Component ?
-        <div className="page-title-component-container">
-          {Component}
-        </div>
-      :
-        null
-      }
     </div>
   )
 }

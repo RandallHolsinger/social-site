@@ -1,24 +1,30 @@
 import React, { useState } from 'react'
 import './Post.scss'
-import Comments from '../Comments/Comments'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/reduxHooks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import Comments from '../Comments/Comments'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
 import OptionsModal from '../OptionsModal/OptionsModal'
 import PostDelete from '../PostDelete/PostDelete'
 import PostEdit from '../PostEdit/PostEdit'
 import OutsideClickHandler from 'react-outside-click-handler'
+import { IPost as IProps } from '../Posts/Posts'
 
-function Post(props) {
+interface PostProps {
+  value: IProps,
+  getPosts: () => Promise<void>
+}
 
-  const {value, getPosts} = props
+export const Post: React.FC<PostProps> = (props) => {
+
+  const { value, getPosts } = props
 
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
 
-  const userId = useSelector(state => state.user.userId)
+  const userId = useAppSelector(state => state.user.userId)
 
   return(
     <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>
@@ -27,7 +33,7 @@ function Post(props) {
           <div className='post-user-container'>
               {value.profile_img ? 
                 <span className='post-user-image'>
-                  <img src={`/uploads/images/${props.value.profile_img}`} alt="profile" className='post-user-image'/> 
+                  <img src={`/uploads/images/${value.profile_img}`} alt="profile" className='post-user-image'/> 
                 </span>
               : 
                 <span className="post-user-image-default">
@@ -49,9 +55,6 @@ function Post(props) {
               </span>
               {showOptions ? 
                 <OptionsModal 
-                  id={value.post_id}
-                  value={value} 
-                  getItems={getPosts}
                   setShowOptions={setShowOptions} 
                   DeleteButton={<PostDelete post_id={value.post_id} getPosts={getPosts} setShowOptions={setShowOptions}/>} 
                   EditButton={<PostEdit post={value} getPosts={getPosts} setShowOptions={setShowOptions}/>}
@@ -66,9 +69,9 @@ function Post(props) {
           }
         </header>
         <section className='post-content'>
-          <h4>{props.value.title}</h4>
-          <p>{props.value.post}</p>
-          <img src={`/uploads/images/${props.value.image_file}`} alt='post' className='post-image'/>
+          <h4>{value.title}</h4>
+          <p>{value.post}</p>
+          <img src={`/uploads/images/${value.image_file}`} alt='post' className='post-image'/>
         </section>
         <footer>
           <span className='post-like-button'>
@@ -85,7 +88,7 @@ function Post(props) {
           </span>
         </footer>
         {showComments ?
-            <Comments post_id={props.value.post_id} />
+            <Comments post_id={value.post_id} />
         :
         null
         }
