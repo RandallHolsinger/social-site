@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import Message from '../Message/Message'
 
-interface IMessage {
+export interface IMessage {
   message_id: number,
   message_sender: number,
   conversation_id: number,

@@ -4,10 +4,15 @@ import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { IMessage as IProps } from '../Messages/Messages'
 
-function Message(props) {
+interface MessageProps {
+  value: IProps
+}
 
-  const {value} = props
+export const Message: React.FC<MessageProps> = (props) => {
+
+  const { value } = props
    
   return(
     <div className="Message">
