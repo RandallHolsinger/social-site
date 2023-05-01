@@ -58,7 +58,7 @@ export const MessageInbox: React.FC = () => {
           Create Message
         </button>
       </div>
-      {showCreateMessage ? <MessageCreate messageInbox={messageInbox} getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
+      {showCreateMessage ? <MessageCreate  getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
       {mappedMessageInbox}
     </div>
   )

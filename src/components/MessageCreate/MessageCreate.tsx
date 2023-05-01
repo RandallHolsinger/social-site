@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, SetStateAction } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faPaperPlane, faX } from '@fortawesome/free-solid-svg-icons'
 import './MessageCreate.scss'
 import axios from 'axios'
-import { IFriend as IProps } from '../Friends/Friends'
+import { IFriend as IMessageCreate } from '../Friends/Friends'
 import FriendListItem from '../FriendListItem/FriendListItem'
 
 interface MessageCreateProps {
-  friend: IProps,
   getMessageInbox: () => Promise<void>,
-  setShowCreateMessage: (boolean: boolean) => React.Dispatch<React.SetStateAction<boolean>>
+  setShowCreateMessage: React.Dispatch<SetStateAction<boolean>>
 }
 
 export const MessageCreate: React.FC<MessageCreateProps> = (props) => {
 
-  const { getMessageInbox, setShowCreateMessage} = props
+  const { getMessageInbox, setShowCreateMessage } = props
 
-  const [friends, setFriends] = useState<IProps[]>([])
+  const [friends, setFriends] = useState<IMessageCreate[]>([])
   const [selectedFriend, setSelectedFriend] = useState('')
   const [selectedFriendId, setSelectedFriendId] = useState(0)
   const [showFriendsList, setShowFriendsList] = useState(false)
