@@ -1,9 +1,13 @@
-import react from 'react'
+import React from 'react'
 import axios from 'axios'
 
-function FriendDelete(props) {
+interface FriendDeleteProps {
+  friend_id: number
+}
 
-  const {friend_id} = props
+export const FriendDelete: React.FC<FriendDeleteProps> = (props) => {
+
+  const { friend_id } = props
 
   const deleteFriend = async () => {
     try {

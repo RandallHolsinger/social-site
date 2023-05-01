@@ -1,0 +1,32 @@
+.friend-list-item {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 5px;
+}
+.friend-list-item .select-friend-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+.friend-list-item .select-friend-img-container .friend-list-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.friend-list-item .select-friend-img-container .friend-list-default-img {
+  color: #ed1dc0;
+  font-size: 1.3em;
+}
+.friend-list-item .dropdown-list-name {
+  display: flex;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=FriendListItem.css.map */

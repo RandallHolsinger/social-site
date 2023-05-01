@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faUser, faPaperPlane, faX } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare, faPaperPlane, faX } from '@fortawesome/free-solid-svg-icons'
 import './MessageCreate.scss'
 import axios from 'axios'
+import { IFriend as IProps } from '../Friends/Friends'
+import FriendListItem from '../FriendListItem/FriendListItem'
 
-function MessageCreate(props) {
+interface MessageCreateProps {
+  friend: IProps,
+  getMessageInbox: () => Promise<void>,
+  setShowCreateMessage: (boolean: boolean) => React.Dispatch<React.SetStateAction<boolean>>
+}
 
-  const {getMessageInbox, setShowCreateMessage} = props
+export const MessageCreate: React.FC<MessageCreateProps> = (props) => {
 
-  const [friends, setFriends] = useState([])
+  const { getMessageInbox, setShowCreateMessage} = props
+
+  const [friends, setFriends] = useState<IProps[]>([])
   const [selectedFriend, setSelectedFriend] = useState('')
   const [selectedFriendId, setSelectedFriendId] = useState(0)
   const [showFriendsList, setShowFriendsList] = useState(false)
@@ -16,7 +24,7 @@ function MessageCreate(props) {
   const [messageInput, setMessageInput] = useState('')
 
   const resetInputs = () => {
-    setSelectedFriend(null)
+    setSelectedFriend('')
     setSubjectInput('')
     setMessageInput('') 
   }
@@ -44,24 +52,15 @@ function MessageCreate(props) {
     resetInputs()
   }
 
-  const handleSelectedFriend = (id, firstName, lastName) => {
+  const handleSelectedFriend = (id: number, firstName: string, lastName: string) => {
     setSelectedFriend(firstName + ' ' + lastName)
     setSelectedFriendId(id)
     setShowFriendsList(false)
   }
-  
+
   const mappedFriendsList = friends.map(friend => {
     return (
-      <div key={friend.friend_id} onClick={() => handleSelectedFriend(friend.user_id, friend.first_name, friend.last_name )} className="friend-list-item">
-        <div className="select-friend-img-container">
-          {friend.profile_img ?
-            <img src={`/uploads/images/${friend.profile_img}`} alt='profile' className='friend-list-profile-img'/>
-          :
-            <FontAwesomeIcon icon={faUser} className='friend-list-default-img' /> 
-          }
-        </div>
-        <span className='dropdown-list-name'>{friend.first_name}{' '}{friend.last_name}</span>
-      </div>
+      <FriendListItem key={friend.friend_id} friend={friend} handleSelectedFriend={handleSelectedFriend}/>
     )
   })
 
@@ -82,7 +81,6 @@ function MessageCreate(props) {
         onClick={() => setShowFriendsList(true)}
         value={selectedFriend}
         placeholder='Friend'
-        onChange={handleSelectedFriend}
         className='select-friend-input'
       />
       {showFriendsList ? 
