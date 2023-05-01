@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppSelector, useAppDispatch } from './redux/reduxHooks';
 import { useNavigate } from 'react-router-dom';
 import { updateUser } from './redux/slices/userSlice';
 import './App.scss';
 import routes from './routes';
 
-function App() {
+export const App: React.FC = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  const userId = useSelector(state => state.user.userId)
+  const userId = useAppSelector(state => state.user.userId)
   
   const getUser = async () => {
     if(userId === 0) {

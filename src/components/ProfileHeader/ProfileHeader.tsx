@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './ProfileHeader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faPencil } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import ImageUploader from '../ImageUploader/ImageUploader'
+import { IUser as IProps } from '../PersonalProfile/PersonalProfile'
 
-function ProfileHeader(props) {
+interface ProfileHeaderProps {
+  user: IProps,
+  getUserInfo: () => Promise<void>
+}
 
-  const {user, getUserInfo} = props
+export const ProfileHeader: React.FC<ProfileHeaderProps> = (props) => {
+
+  const { user, getUserInfo } = props
   
   const [profileImageData, setProfileImageData] = useState({})
   const [showImageUploader, setShowImageUploader] = useState(false)
@@ -21,10 +27,6 @@ function ProfileHeader(props) {
       console.log(err)
     }
   }
-
-  useEffect(() => {
-    console.log('here is the user =>', user)
-  })
 
   return(
     <div className="ProfileHeader">

@@ -4,7 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-function PostDelete(props) {
+interface PostDeleteProps {
+  post_id: number,
+  getPosts: () => Promise<void>
+  setShowOptions: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const PostDelete: React.FC<PostDeleteProps> = (props) => {
   
   const {post_id, getPosts, setShowOptions} = props
 

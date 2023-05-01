@@ -1,0 +1,19 @@
+.PostEdit .post-edit-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  background-color: #07c52a;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.PostEdit .post-edit-button .post-edit-icon {
+  margin-right: 5px;
+  font-size: 1.3em;
+}
+
+/*# sourceMappingURL=PostEdit.css.map */

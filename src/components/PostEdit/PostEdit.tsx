@@ -3,8 +3,15 @@ import './PostEdit.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons'
 import PostEditor from '../PostEditor/PostEditor'
+import { IPost as IProps } from '../Posts/Posts'
 
-function PostEdit(props) {
+interface PostEditProps {
+  post: IProps,
+  getPosts: () => Promise<void>
+  setShowOptions: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const PostEdit: React.FC<PostEditProps> = (props) => {
  
   const [showEditPost, setShowEditPost] = useState(false)
 

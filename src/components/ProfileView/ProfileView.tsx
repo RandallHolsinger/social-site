@@ -7,24 +7,24 @@ import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import UserInfo from '../UserInfo/UserInfo'
 import Posts from '../Posts/Posts'
 
-function ProfileView() {
+export const ProfileView: React.FC = () => {
 
   const [user, setUser] = useState({})
   
   let {user_id} = useParams()
   
-  const getUserInfo = async(user_id) => {
+  const getUserInfo = async(user_id?: number) => {
     try {
       let res = await axios.get(`/api/user/${user_id}`)
-      console.log(res.data)
       setUser(res.data[0])
     } catch(err) {
       console.log(err)
     }
   }
 
+  
   useEffect(() => {
-    getUserInfo(user_id)
+    getUserInfo(Number(user_id))
   }, [])
 
 
@@ -34,7 +34,7 @@ function ProfileView() {
       <Navbar />
       <ProfileHeader user={user} getUserInfo={getUserInfo}/>
       <UserInfo user={user}/>
-      <Posts user_id={user_id}/>
+      <Posts user_id={Number(user_id)}/>
     </div>
   )
 }
