@@ -1,7 +1,14 @@
 import React from 'react'
 import './UserInfoItem.scss'
 
-function UserInfoItem(props) {
+interface UserInfoItemProps {
+  htmlFor: string,
+  label: string,
+  data?: string | undefined,
+  icon: JSX.Element
+}
+
+export const UserInfoItem: React.FC<UserInfoItemProps> = (props) => {
 
   const {htmlFor, label, data, icon} = props
 

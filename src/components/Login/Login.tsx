@@ -1,20 +1,20 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../redux/reduxHooks'
 import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import './Login.scss'
 
-function Login() {
+export const Login: React.FC = () => {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showAlertMessage, setShowAlertMessage] = useState(false)
   
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
   
   const clearInputs = () => {
@@ -22,7 +22,7 @@ function Login() {
     setPassword('')
   }
 
-  const login = async (event) => {
+  const login = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
       console.log('hitting')
@@ -52,7 +52,7 @@ function Login() {
           value={email}
           id='email'
           placeholder='Email'
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         />
         <label htmlFor="password">
           <FontAwesomeIcon icon={faLock} className='login-icons' />
@@ -62,7 +62,7 @@ function Login() {
           type='password'
           placeholder='Password'
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         />
         {showAlertMessage ? 
           <div className='alert-container'>

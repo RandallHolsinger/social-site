@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './UserInfo.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faUserPen, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap, faC } from '@fortawesome/free-solid-svg-icons'
-import UserInfoItem from '../UserInfoItem/UserInfoItem'
+import { faUser, faUserPen, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap} from '@fortawesome/free-solid-svg-icons'
+import { useAppSelector } from '../../redux/reduxHooks'
 import UserEditor from '../UserEditor/UserEditor'
-import { useSelector } from 'react-redux'
+import UserInfoItem from '../UserInfoItem/UserInfoItem'
+import { IUser as IProps } from '../PersonalProfile/PersonalProfile'
 
-function UserInfo(props) {
+interface UserInfoProps {
+  user: IProps
+}
+
+export const UserInfo:  React.FC<UserInfoProps> = (props) => {
   
   const { user } = props
 
   const [showUserEditor, setShowUserEditor] = useState(false)
 
-  const userId = useSelector(state => state.user.userId)
+  const userId = useAppSelector(state => state.user.userId)
 
   return(
     <div className="UserInfo">
@@ -73,12 +78,12 @@ function UserInfo(props) {
           </div>
         </ul>
         <details>
-          <summary htmlFor="about-me">About Me</summary>
+          <summary>About Me</summary>
           <p className='about-me'>{user.about_me}</p>
         </details>
       </section>
       {showUserEditor ?
-        <UserEditor user={user} setShowUserEditor={setShowUserEditor} />
+        <UserEditor setShowUserEditor={setShowUserEditor} />
       :
         null
       }

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import './UserEditor.scss'
-import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap, faChevronRight, faChevronDown, faUser } from '@fortawesome/free-solid-svg-icons'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 
-function UserEditor(props) {
+interface UserEditorProps {
+  setShowUserEditor: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-  const {user, setShowUserEditor} = props
+export const UserEditor: React.FC<UserEditorProps> = (props) => {
+
+  const { setShowUserEditor } = props
   
   //Input State
   const [currentCityInput, setCurrentCityInput] = useState('')
   const [stateProvinceInput, setStateProvinceInput] = useState('')
-  const [startDate, setStartDate] = useState(new Date())
+  const [startDate, setStartDate] = useState<Date>(new Date())
   const [formatedBirthday, setFormatedBirthday] = useState('')
   const [workInput, setWorkInput] = useState('')
   const [highSchoolInput, setHighSchoolInput] = useState('')
@@ -33,7 +36,6 @@ function UserEditor(props) {
 
 
   const updateUserInfo = async () => {
-    console.log('dob =>', formatedBirthday)
     try {
       axios.put('/api/user/update/info', {
         currentCityInput,
@@ -119,7 +121,7 @@ function UserEditor(props) {
           </label>
           {showBirthday ?
             <DatePicker 
-              onChange={(date) => setStartDate(date)}
+              onChange={(date: Date) => setStartDate(date)}
               selected={startDate}
               maxDate={new Date()}
               className="birthday-input"
@@ -206,9 +208,8 @@ function UserEditor(props) {
               value={aboutMeInput}
               id='about-me'
               name='about-me'
-              type='text'
               placeholder='Tell people about yourself...'
-              rows='10'
+              rows={10}
               autoCorrect='true'
             />
           :

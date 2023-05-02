@@ -42,8 +42,6 @@ export const Posts: React.FC<PostProps> = (props) => {
     }
   }
 
-  console.log('posts ==>', posts)
-
   useEffect(() => {
     getAllPosts()
   }, [])

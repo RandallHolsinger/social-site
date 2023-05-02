@@ -9,7 +9,7 @@ import PageTitle from '../PageTitle/PageTitle'
 import Search from '../Search/Search'
 import { useAppSelector } from '../../redux/reduxHooks'
 
-interface IProfile {
+export interface IProfile {
   user_id: number,
   first_name: string,
   last_name: string,
