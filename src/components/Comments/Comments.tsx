@@ -16,7 +16,7 @@ export interface IComment {
   comment_id: number,
   comment: string,
   edited?: boolean,
-  date?: string
+  date: string
 }
 
 export const Comments: React.FC<commentsProps> = (props) => {

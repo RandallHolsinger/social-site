@@ -28,16 +28,23 @@ export const Comment: React.FC<commentProps> = (props) => {
       <article>
         {value.profile_img ?
           <div className='comment-user-image-container'>
-            <img src={`/uploads/images/${value.profile_img}`} alt='profile' className='comment-user-image'/>
+            <img 
+              src={`/uploads/images/${value.profile_img}`} 
+              alt='profile' className='comment-user-image'/>
+              role='profile-image'
           </div>
         :
           <div className="comment-user-image-default-container">
-            <FontAwesomeIcon icon={faUser} className='comment-user-icon' />
+            <FontAwesomeIcon 
+              icon={faUser} 
+              className='comment-user-icon' 
+              role='default-profile-image'
+            />
           </div>
         }
         <div className='comment-container'>
         <p>
-          <span className='comment-username'>
+          <span className='comment-username' role='name'>
             {value.first_name}{' '}{value.last_name}
           </span>
           {value.comment}
