@@ -14,7 +14,6 @@ module.exports = {
         session.user = user
          return res.status(200).send(session.user)
      } else {
-      console.log('email is taken!')
       return res.sendStatus(409)
      }
   },
