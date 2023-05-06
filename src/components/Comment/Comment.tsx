@@ -30,8 +30,8 @@ export const Comment: React.FC<commentProps> = (props) => {
           <div className='comment-user-image-container'>
             <img 
               src={`/uploads/images/${value.profile_img}`} 
-              alt='profile' className='comment-user-image'/>
-              role='profile-image'
+              alt='profile' className='comment-user-image'
+            />
           </div>
         :
           <div className="comment-user-image-default-container">
@@ -43,7 +43,7 @@ export const Comment: React.FC<commentProps> = (props) => {
           </div>
         }
         <div className='comment-container'>
-        <p>
+        <p role='comment'>
           <span className='comment-username' role='name'>
             {value.first_name}{' '}{value.last_name}
           </span>
@@ -56,7 +56,7 @@ export const Comment: React.FC<commentProps> = (props) => {
           <span className="comment-time">
             <FormatedTime time={value.date} />
           </span>
-          <span className='comment-edit-tag'>
+          <span className='comment-edit-tag' role='edited'>
             {value.edited ? '- Edited' : null}
           </span>
         </div>
@@ -64,7 +64,7 @@ export const Comment: React.FC<commentProps> = (props) => {
       </article>
       {value.user_id === userId ?
         <div className="comment-options-container">
-          <span onClick={() => setShowOptions(!showOptions)} className='comment-options-icon'>
+          <span onClick={() => setShowOptions(!showOptions)} className='comment-options-icon' role='button'>
             <FontAwesomeIcon icon={faEllipsis} />
           </span>
           {showOptions ? 

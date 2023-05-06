@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { Comment } from "./Comment"; 
+import { Provider } from "react-redux";
+import { store } from "../../redux/store";
 
-const propArgs = {
+const propCommentArgs = {
   value: {
     user_id: 0,
     first_name: 'Randall',
@@ -13,12 +15,24 @@ const propArgs = {
   getComments: jest.fn()
 }
 
+const testComponent = 
+  <Provider store={store}>
+    <Comment {...propCommentArgs} />
+  </Provider>
+
+
 describe('Comment Component Tests', () => {
   test('Should Render Comment Component', () => {
-    render(<Comment {...propArgs} />)
+    render(testComponent)
   })
   test('Should Contain A Username', () => {
-    let username = screen.getByRole('name')
-    expect(username).toHaveTextContent
+    render(testComponent)
+    let usernameElement = screen.getByRole('name')
+    expect(usernameElement).toBeInTheDocument
+  })
+  test('Should Contain A Comment', () => {
+    render(testComponent)
+    let commentElement = screen.getByRole('comment')
+    expect(commentElement).toBeInDocument
   })
 })
