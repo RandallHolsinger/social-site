@@ -10,13 +10,13 @@ interface commentAddProps {
 }
 
 
-function CommentAdd(props: commentAddProps) {
+export const CommentAdd: React.FC<commentAddProps> = (props) => {
   
   const { post_id, getComments } = props
 
   const [commentInput, setCommentInput] = useState<string>('')
 
-  const addComment = async (e: React.FormEvent<HTMLFormElement>) => {
+  const addComment =  async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const data = commentInput
     try {
@@ -34,7 +34,7 @@ function CommentAdd(props: commentAddProps) {
       <form onSubmit={addComment}>
         <input 
           type="text"
-          placeholder='Add a comment here'
+          placeholder='Add A Comment Here'
           value={commentInput}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCommentInput(e.target.value)}
           autoFocus={true}
