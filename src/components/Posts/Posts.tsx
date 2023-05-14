@@ -17,6 +17,7 @@ export interface IPost {
   title: string,
   post: string,
   image_file: string,
+  likes: number,
   date: string
 }
 

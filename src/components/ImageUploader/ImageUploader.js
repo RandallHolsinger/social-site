@@ -12,7 +12,6 @@ function ImageUploader(props) {
   const updateImage = async () => {
     const formData = new FormData()
     formData.append('file', image.data)
-    console.log('image data in update image ==>', image.data)
     switch(type) {
       case 'post':
         setPostData(formData)
@@ -35,9 +34,6 @@ function ImageUploader(props) {
       })
   }
   
-  console.log('preview =>', image.preview)
-  console.log('data =>', image.data)
-
   const cancelImage = () => {
     setImage({
       preview: '',

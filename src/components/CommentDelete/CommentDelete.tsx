@@ -5,7 +5,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 interface CommentDeleteProps {
-  comment_id: Number,
+  comment_id: number,
   getComments: () => Promise<void>
   setShowOptions: React.Dispatch<React.SetStateAction<boolean>>
 }

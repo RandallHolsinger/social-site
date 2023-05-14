@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './Post.scss'
 import { useAppSelector } from '../../redux/reduxHooks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faEllipsis ,faComment, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faEllipsis ,faComment, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 import Comments from '../Comments/Comments'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
@@ -23,8 +24,31 @@ export const Post: React.FC<PostProps> = (props) => {
 
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
+  const [liked, setLiked] = useState(false)
 
   const userId = useAppSelector(state => state.user.userId)
+  
+  const updateLikedPost = () => {
+    if(liked) {
+      axios.put(`/api/post/like/${value.post_id}`)
+
+    } else if (!liked) {
+      axios.put(`/api/post/like/${value.post_id}`)
+    }
+  }
+  
+  const toggleLiked = () => {
+    setLiked(!liked)
+    updateLikedPost()
+  }
+
+  const renderLike = () => {
+    if (liked) {
+      return <>Liked {value.likes + 1}</>;
+    } else {
+      return <>Like {value.likes}</>;
+    }
+  }
 
   return(
     <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>
@@ -74,13 +98,9 @@ export const Post: React.FC<PostProps> = (props) => {
           <img src={`/uploads/images/${value.image_file}`} alt='post' className='post-image'/>
         </section>
         <footer>
-          <span className='post-like-button'>
+          <span onClick={toggleLiked} className='post-like-button'>
             <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}
-            Like
-          </span>
-          <span className='post-dislike-button'>
-            <FontAwesomeIcon icon={faThumbsDown} className='post-dislike-icon' />{' '}
-            Dislike
+            {renderLike()}
           </span>
           <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
             <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}

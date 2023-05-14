@@ -59,5 +59,27 @@ module.exports = {
     } catch(err) {
       res.status(500).send(err)
     }
+  },
+
+  likePost: async (req, res) => {
+    const {post_id} = req.params
+    const db = req.app.get('db')
+    try {
+      db.posts.like_post({post_id})
+      res.status(200)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  unlikePost: async (req, res) => {
+    const {post_id} = req.params
+    const db = req.app.get('db')
+    try {
+      db.posts.unlike_post({post_id})
+      res.status(200)
+    } catch(err) {
+      res.status(500).send(err)
+    }
   }
 }
