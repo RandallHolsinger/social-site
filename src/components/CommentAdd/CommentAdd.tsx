@@ -24,7 +24,7 @@ export const CommentAdd: React.FC<commentAddProps> = (props) => {
       await getComments()
       
     } catch(err) {
-      console.log(err)
+      console.log(err)  
     }
     setCommentInput('')
   }
