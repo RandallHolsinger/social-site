@@ -15,7 +15,6 @@ export const CommentDelete: React.FC<CommentDeleteProps> = (props) => {
   const { comment_id, getComments, setShowOptions } = props
  
   const deleteComment = async () => {
-    setShowOptions(false)
     try {
       await axios.delete(`/api/comment/delete/${comment_id}`)
       setShowOptions(false)

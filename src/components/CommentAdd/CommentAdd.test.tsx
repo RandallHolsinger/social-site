@@ -2,12 +2,12 @@ import { CommentAdd } from '../CommentAdd/CommentAdd'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-const propsCommentAddArgs = {
+const props = {
   post_id: 1,
   getComments: jest.fn()
 }
 
-const commentAddComponent = <CommentAdd {...propsCommentAddArgs}/>
+const commentAddComponent = <CommentAdd {...props}/>
 
 describe('CommentAdd Tests', () => {
   test('Should Render CommentAdd Component', () => {
