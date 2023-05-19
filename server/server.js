@@ -7,7 +7,7 @@ const massive = require('massive')
 const session = require('express-session')
 const multer = require('multer')
 const uuid = require('uuid').v4
-const http = require('http');
+const http = require('https');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   pingTimeout: 8 * 60 * 60 * 1000,
@@ -25,8 +25,12 @@ const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
 
+
 app.use(cors())
+
 app.use(express.json())
+
+app.use( express.static( `${__dirname}/../build` ) )
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
