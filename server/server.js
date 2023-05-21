@@ -3,12 +3,11 @@ require('dotenv').config()
 const { SERVER_PORT, CONNECTION_STRING, CA_CERT, SESSION_SECRET} = process.env
 const express = require('express')
 const app = express()
-const path = require('path')
 const massive = require('massive')
 const session = require('express-session')
 const multer = require('multer')
 const uuid = require('uuid').v4
-const http = require('https');
+const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   pingTimeout: 8 * 60 * 60 * 1000,
@@ -31,11 +30,7 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.use( express.static(`${__dirname}/../build`))
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
