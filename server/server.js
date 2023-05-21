@@ -3,6 +3,7 @@ require('dotenv').config()
 const { SERVER_PORT, CONNECTION_STRING, CA_CERT, SESSION_SECRET} = process.env
 const express = require('express')
 const app = express()
+const path = require('path')
 const massive = require('massive')
 const session = require('express-session')
 const multer = require('multer')
