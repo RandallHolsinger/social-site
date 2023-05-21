@@ -25,16 +25,16 @@ const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
 
-app.use(express.static( `${__dirname}/../build` ))
-
-app.get('/*', function (req, res) {
-  res.sendFile(`${__dirname}/../build`);
-});
 
 app.use(cors())
 
 app.use(express.json())
 
+app.use(express.static( `${__dirname}/../build` ))
+
+app.get('/*', function (req, res) {
+  res.sendFile(`${__dirname}/../build`);
+});
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
