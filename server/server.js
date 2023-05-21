@@ -3,6 +3,7 @@ require('dotenv').config()
 const { SERVER_PORT, CONNECTION_STRING, CA_CERT, SESSION_SECRET} = process.env
 const express = require('express')
 const app = express()
+const path = require('path')
 const massive = require('massive')
 const session = require('express-session')
 const multer = require('multer')
@@ -30,7 +31,11 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use( express.static(`${__dirname}/../build`))
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
@@ -52,6 +57,12 @@ const sessionMiddleware =  session({
 app.use(sessionMiddleware)
 const wrap = middleware => (socket, next) => middleware(socket.request, {}, next)
 io.use(wrap(sessionMiddleware))
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 //Connects to the database
 massive(CONNECTION_STRING).then(db => {
