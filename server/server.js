@@ -8,6 +8,7 @@ const session = require('express-session')
 const multer = require('multer')
 const uuid = require('uuid').v4
 const http = require('http');
+const path = require('path')
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   pingTimeout: 8 * 60 * 60 * 1000,
@@ -33,7 +34,7 @@ app.use(express.json())
 app.use(express.static( `${__dirname}/../build` ))
 
 app.get('/*', function (req, res) {
-  res.sendFile(`${__dirname}/../build`);
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 const pgPool = new pg.Pool({
