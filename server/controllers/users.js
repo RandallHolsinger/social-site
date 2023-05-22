@@ -1,5 +1,6 @@
 module.exports = {
   getUsers: async (req, res) => {
+    console.log('hitting backend getting users!')
     const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
