@@ -33,10 +33,6 @@ app.use(express.json())
 
 app.use(express.static( `${__dirname}/../build` ))
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
 })
@@ -200,6 +196,10 @@ app.get('/api/messages/:conversation_id', ctrlMessages.getMessages)
 // Get Message 
 app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
+///// Catch All Route /////
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 ///// Socket.IO /////
 
