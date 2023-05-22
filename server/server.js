@@ -197,7 +197,7 @@ app.get('/api/message/:message_id', ctrlMessages.getMessage)
 
 ///// Catch All Route /////
 app.get('/*', function (req, res) {
-  res.sendFile(`${__dirname}/../build/index.html`);
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 ///// Socket.IO /////
