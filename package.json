@@ -73,7 +73,6 @@
     ]
   },
   "proxy": "http://localhost:5050",
-  "homepage": "http://socialyze.com",
   "main": "server/server.js",
   "devDependencies": {
     "@jest/globals": "^29.5.0",
