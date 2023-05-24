@@ -17,7 +17,7 @@ export const FriendListItem: React.FC<FriendListItemProps> = (props) => {
     <div className="friend-list-item" onClick={() => handleSelectedFriend(friend.user_id, friend.first_name, friend.last_name)} >
         <div className="select-friend-img-container">
           {friend.profile_img ?
-            <img src={`/uploads/images/${friend.profile_img}`} alt='profile' className='friend-list-profile-img'/>
+            <img src={require(`../../../server/uploads/images/${friend.profile_img}`)} alt='profile' className='friend-list-profile-img'/>
           :
             <FontAwesomeIcon icon={faUser} className='friend-list-default-img' /> 
           }

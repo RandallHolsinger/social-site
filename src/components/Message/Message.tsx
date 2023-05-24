@@ -20,7 +20,7 @@ export const Message: React.FC<MessageProps> = (props) => {
         <header className='message-header'>
           <div className="message-profile-img-container">
             {value.profile_img ? 
-              <img src={`/uploads/images/${value.profile_img}`} alt='profile' />
+              <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt='profile' />
             :
               <FontAwesomeIcon icon={faUser} className='message-default-user-image'/>
             }

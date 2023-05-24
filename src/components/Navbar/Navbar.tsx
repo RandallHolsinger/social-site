@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
                 <header className='nav-menu-header'>
                   <div className='nav-menu-user-image-container'>
                     {profileImage ?
-                      <img src={`/uploads/images/${profileImage}`} className='nav-menu-user-image' alt='profile' />
+                      <img src={require(`../../../server/uploads/images/${profileImage}`)} className='nav-menu-user-image' alt='profile' />
                     :
                       <FontAwesomeIcon icon={faUser} className='nav-menu-default-user-image'/>
                     } 

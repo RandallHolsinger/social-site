@@ -29,7 +29,7 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
       <article>
         <div className="inbox-profile-img">
           {value.profile_img ? 
-            <img src={`/uploads/images/${value.profile_img}`} alt='profile'/>
+            <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt='profile'/>
           :
             <FontAwesomeIcon icon={faUser} className='inbox-default-user-img'/>
           }

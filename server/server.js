@@ -65,15 +65,13 @@ massive(CONNECTION_STRING).then(db => {
 ///// Multer MiddleWare /////
 const imageStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/images')
+    cb(null, 'server/uploads/images')
   },
   filename: (req, file, cb) => {
     cb(null, `${uuid()}-${file.originalname}`)
   }
 })
 const imageUpload = multer({storage: imageStorage})
-///// Upload Endpoints To File System /////
-// app.post('/api/post/image', imageUpload.single('file'))
 
 
 ///// Authentication Endpoints /////

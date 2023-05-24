@@ -31,7 +31,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     <figure className='Profile'>
       {value.profile_img ? 
         <div className='profile-card-user-image-container'>
-          <img src={`uploads/images/${value.profile_img}`} alt='profile' className='profile-card-user-image'/>
+          <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt='profile' className='profile-card-user-image'/>
         </div>
       : 
         <div className='profile-card-default-image-container'>

@@ -29,7 +29,7 @@ export const Comment: React.FC<commentProps> = (props) => {
         {value.profile_img ?
           <div className='comment-user-image-container'>
             <img 
-              src={`/uploads/images/${value.profile_img}`} 
+              src={require(`../../../server/uploads/images/${value.profile_img}`)} 
               alt='profile' className='comment-user-image'
             />
           </div>

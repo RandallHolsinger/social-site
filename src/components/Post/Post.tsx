@@ -57,7 +57,7 @@ export const Post: React.FC<PostProps> = (props) => {
           <div className='post-user-container'>
               {value.profile_img ? 
                 <span className='post-user-image'>
-                  <img src={`/uploads/images/${value.profile_img}`} alt="profile" className='post-user-image'/> 
+                  <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt="profile" className='post-user-image'/> 
                 </span>
               : 
                 <span className="post-user-image-default">
