@@ -32,6 +32,8 @@ app.use(express.json())
 
 app.use(express.static( `${__dirname}/../build` ))
 
+app.use(express.static(`${__dirname}/../public/uploads/images`));
+
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
 })
