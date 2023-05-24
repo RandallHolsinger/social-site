@@ -36,7 +36,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = (props) => {
             <FontAwesomeIcon icon={faPencil} />
           </span>
           {user.profile_img ?
-            <img src={`/uploads/images/${user.profile_img}`} className='profile-user-image' alt='profile' />
+            <img src={`/public/uploads/images/${user.profile_img}`} className='profile-user-image' alt='profile' />
           :
             <FontAwesomeIcon icon={faUser} className='header-user-icon' />
           }
