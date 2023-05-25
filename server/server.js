@@ -26,11 +26,14 @@ const ctrlPosts = require('./controllers/posts')
 const ctrlComments = require('./controllers/comments')
 const ctrlMessages = require('./controllers/messages')
 
+
 app.use(cors())
 
 app.use(express.json())
 
 app.use(express.static( `${__dirname}/../build` ))
+
+app.use(express.static(`${__dirname}/./uploads/images`))
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
