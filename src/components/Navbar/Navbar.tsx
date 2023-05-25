@@ -1,23 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.scss'
 import { useAppSelector } from '../../redux/reduxHooks'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faEnvelope, faGlobe, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 import OutsideClickHandler from 'react-outside-click-handler'
 import Logout from '../Logout/Logout'
 import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
 import GlobalMessenger from '../GlobalMessenger/GlobalMessenger'
 
-export const Navbar: React.FC = () => {
+interface NavBarUser {
+  first_name: string,
+  last_name: string,
+  profile_img: string
+}
 
+export const Navbar: React.FC = () => {
+  
+  const [user, setUser] = useState<NavBarUser>({first_name: '', last_name: '', profile_img: ''})
   const [showMenu, setShowMenu] = useState(false)
   const [showMessenger, setShowMessenger] = useState(false)
   
-  const firstName = useAppSelector(state => state.user.firstName)
-  const lastName = useAppSelector(state => state.user.lastName)
-  const profileImage = useAppSelector(state => state.user.profileImage)
+  const userId = useAppSelector(state => state.user.userId)
 
+  const getUserInfo = async () => {
+    try {
+      let res = await axios.get(`/api/user/${userId}`)
+      setUser(res.data)
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getUserInfo()
+  }, [])
+  
   return(
     <div className='Navbar'>
       {showMessenger ? <GlobalMessenger setShowMessenger={setShowMessenger}/> : null} 
@@ -42,14 +61,14 @@ export const Navbar: React.FC = () => {
               <ul className='menu-items-container'>
                 <header className='nav-menu-header'>
                   <div className='nav-menu-user-image-container'>
-                    {profileImage ?
-                      <img src={require(`../../../server/uploads/images/${profileImage}`)} className='nav-menu-user-image' alt='profile' />
+                    {user.profile_img ?
+                      <img src={require(`../../../server/uploads/images/${user.profile_img}`)} className='nav-menu-user-image' alt='profile' />
                     :
                       <FontAwesomeIcon icon={faUser} className='nav-menu-default-user-image'/>
                     } 
                   </div>
-                  <span className='nav-menu-first-name'>{firstName}</span>
-                  <span className='nav-menu-last-name'>{lastName}</span>
+                  <span className='nav-menu-first-name'>{user.first_name}</span>
+                  <span className='nav-menu-last-name'>{user.last_name}</span>
                   <Logout />
                 </header>
                 <li>
