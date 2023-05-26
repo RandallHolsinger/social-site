@@ -5,7 +5,7 @@ import Post from '../Post/Post'
 import PostAdd from "../PostAdd/PostAdd";
 
 interface PostProps {
-  user_id?: number
+  user_id?: number | undefined
 }
 
 export interface IPost {

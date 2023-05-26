@@ -95,7 +95,7 @@ export const Post: React.FC<PostProps> = (props) => {
         <section className='post-content'>
           <h4>{value.title}</h4>
           <p>{value.post}</p>
-          <img src={`/uploads/images/${value.image_file}`} alt='post' className='post-image'/>
+          <img src={require(`../../../server/uploads/images/${value.image_file}`)} alt='post' className='post-image'/>
         </section>
         <footer>
           <span onClick={toggleLiked} className='post-like-button'>

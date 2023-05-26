@@ -95,8 +95,11 @@ app.get('/auth/user/current', ctrlAuth.current)
 // Get Users
 app.get('/api/users', ctrlUsers.getUsers)
 
-// Get User
+// Get A Target User Info
 app.get('/api/user/:user_id', ctrlUsers.getUser)
+
+// Get Logged In User Info
+app.get('/api/user/current', ctrlUsers.getCurrentUserInfo)
 
 // Update User Personal Profile
 app.put('/api/user/update/:user_id', ctrlUsers.updateUser)

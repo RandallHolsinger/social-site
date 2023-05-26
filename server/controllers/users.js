@@ -12,8 +12,19 @@ module.exports = {
     }
   },
 
-  getUser: async(req, res) => {
+  getUser: async (req, res) => {
     const {user_id} = req.params
+    const db = req.app.get('db')
+    try {
+      let user = await db.users.get_user({user_id})
+      res.status(200).send(user)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  getCurrentUserInfo: async (req, res) => {
+    const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
       let user = await db.users.get_user({user_id})
