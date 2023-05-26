@@ -104,6 +104,9 @@ app.put('/api/user/update/:user_id', ctrlUsers.updateUser)
 // Update User Profile Image
 app.put('/api/user/update/profile/image', imageUpload.single('file'), ctrlUsers.updateProfileImage)
 
+// Get User Profile Imagers
+app.get('/api/user/image', ctrlUsers.getProfileImage)
+
 // Delete User Personal Profile
 app.delete('/api/user/delete/:user_id', ctrlUsers.deleteUser)
 
