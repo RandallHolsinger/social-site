@@ -14,7 +14,7 @@ export const ProfileImage: React.FC<ImageProps> = (props) => {
   
   const getProfileImage = async () => {
     try {
-      let res = await axios.get(`/api/user/image/${image}`)
+      let res = await axios.get(`/api/user/image/${image}`, {responseType: 'blob'})
       const imageUrl = URL.createObjectURL(res.data)
       setImageSrc(imageUrl)
     } catch(err) {

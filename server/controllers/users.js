@@ -1,6 +1,5 @@
-const fs = require('fs')
-
 module.exports = {
+
   getUsers: async (req, res) => {
     console.log('hitting backend getting users!')
     const {user_id} = req.session.user
@@ -78,11 +77,9 @@ module.exports = {
 
   getProfileImage: async (req, res) => {
     const {image} = req.params
-    console.log('Image params ==>', image)
     try {
-      let imageFile = await fs.readFile(`./uploads/images/${image}`)
-      console.log('here is the image! ==>', imageFile)
-      res.status(200).send(imageFile)
+      let imagePath = `./uploads/images/${image}`
+      res.status(200).sendFile(imagePath)
     } catch(err) {
       res.status(500).send(err)
     }
