@@ -37,7 +37,6 @@ export const MessageInbox: React.FC = () => {
     }
   }
   
-  console.log('messageInbox ==>', messageInbox)
   useEffect(() => {
     getMessageInbox()
   }, [])

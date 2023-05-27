@@ -20,11 +20,9 @@ export const Navbar: React.FC = () => {
   const userId = useAppSelector(state => state.user.userId)
 
   const getUserInfo = async () => {
-    console.log(userId)
     try {
       let res = await axios.get(`/api/user/${userId}`)
       setUser(res.data[0])
-      console.log('user here in nav =>', res.data)
     } catch(err) {
       console.log(err)
     }
