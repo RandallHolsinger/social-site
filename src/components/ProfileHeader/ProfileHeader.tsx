@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faPencil } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import ImageUploader from '../ImageUploader/ImageUploader'
-import ProfileImage from '../ProfileImage/ProfileImage'
+import Image from '../Image/Image'
 import { IUser as IProps } from '../PersonalProfile/PersonalProfile'
 
 interface ProfileHeaderProps {
@@ -37,7 +37,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = (props) => {
             <FontAwesomeIcon icon={faPencil} />
           </span>
           {user.profile_img ?
-            <ProfileImage image={user.profile_img} style={'profile-user-image'}/>
+            <Image image={user.profile_img} style={'profile-user-image'}/>
           :
             <FontAwesomeIcon icon={faUser} className='header-user-icon' />
           }

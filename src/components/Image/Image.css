@@ -1,0 +1,62 @@
+.profile-user-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.comment-user-image {
+  border-radius: 100%;
+  border: 1px solid #ed1dc0;
+  object-fit: cover;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.post-user-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.post-image {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+}
+
+.profile-card-user-image {
+  border-radius: 100%;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+
+.friend-list-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.inbox-user-image {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+}
+
+.message-profile-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=Image.css.map */

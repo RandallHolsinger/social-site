@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import './Image.scss'
 import axios from 'axios'
 
 interface ImageProps {
@@ -6,9 +7,9 @@ interface ImageProps {
   style: string
 }
 
-export const ProfileImage: React.FC<ImageProps> = (props) => {
+export const Image: React.FC<ImageProps> = (props) => {
 
-  const { image, style} = props
+  const { image, style } = props
 
   const [imageSrc, setImageSrc] = useState<string>('')
   
@@ -34,4 +35,4 @@ export const ProfileImage: React.FC<ImageProps> = (props) => {
   )
 }
 
-export default ProfileImage
+export default Image

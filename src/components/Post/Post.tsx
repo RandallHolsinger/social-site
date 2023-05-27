@@ -10,6 +10,7 @@ import FormatedTime from '../FormatedTime/FormatedTime'
 import OptionsModal from '../OptionsModal/OptionsModal'
 import PostDelete from '../PostDelete/PostDelete'
 import PostEdit from '../PostEdit/PostEdit'
+import Image from '../Image/Image'
 import OutsideClickHandler from 'react-outside-click-handler'
 import { IPost as IProps } from '../Posts/Posts'
 
@@ -56,9 +57,7 @@ export const Post: React.FC<PostProps> = (props) => {
         <header>
           <div className='post-user-container'>
               {value.profile_img ? 
-                <span className='post-user-image'>
-                  <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt="profile" className='post-user-image'/> 
-                </span>
+                <Image image={value.profile_img} style={'post-user-image'} />
               : 
                 <span className="post-user-image-default">
                   <FontAwesomeIcon icon={faUser} className='post-user-default-icon'/> 
@@ -95,7 +94,7 @@ export const Post: React.FC<PostProps> = (props) => {
         <section className='post-content'>
           <h4>{value.title}</h4>
           <p>{value.post}</p>
-          <img src={require(`../../../server/uploads/images/${value.image_file}`)} alt='post' className='post-image'/>
+          <Image image={value.image_file} style={'post-image'} />
         </section>
         <footer>
           <span onClick={toggleLiked} className='post-like-button'>

@@ -15,15 +15,34 @@
     color: #fff;
     padding: 10px;
     height: 60px;
-    font-size: 1.5em;
     border-top: .3px solid $util-color;
     border-bottom: .3px solid $util-color;
     box-shadow: 0px 0px 10px #000;
-    .navbar-items {
+    .navbar-logo {
+      width: 100px;
+      height: 50px;
+    }
+    .navbar-link {
       text-decoration: none;
-      color: #fff;
+    }
+    .navbar-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: .8em;
+      color: $util-color;
+      .navbar-icon {
+        font-size: 1.4em;
+      }
+      label {
+        font-size: 1em;
+        font-weight: 600;
+        color: #fff;
+      }
     }
     .nav-menu-icon {
+      font-size: 1.4em;
       color: $util-color;
     }
   }
@@ -83,11 +102,11 @@
       }
       li:nth-child(6) {
         border-radius: 0px 0px 0px 5px;
+        border-bottom: 1px solid $util-color;
       }
       li {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid $util-color;
         padding: 10px;
         .menu-links {
           text-decoration: none;

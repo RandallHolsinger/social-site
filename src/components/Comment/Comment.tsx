@@ -8,6 +8,7 @@ import FormatedTime from '../FormatedTime/FormatedTime'
 import CommentDelete from '../CommentDelete/CommentDelete'
 import CommentEdit from '../CommentEdit/CommentEdit'
 import OptionsModal from '../OptionsModal/OptionsModal'
+import Image from '../Image/Image'
 import { IComment as IProps} from '../Comments/Comments'
 
 export interface commentProps {
@@ -28,10 +29,7 @@ export const Comment: React.FC<commentProps> = (props) => {
       <article>
         {value.profile_img ?
           <div className='comment-user-image-container'>
-            <img 
-              src={require(`../../../server/uploads/images/${value.profile_img}`)} 
-              alt='profile' className='comment-user-image'
-            />
+             <Image image={value.profile_img} style={'comment-user-image'}/>
           </div>
         :
           <div className="comment-user-image-default-container">

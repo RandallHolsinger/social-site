@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import FriendStatus from '../FriendStatus/FriendStatus'
+import Image from '../Image/Image'
 
 interface ProfileCardProps {
   value: {
@@ -31,7 +32,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
     <figure className='Profile'>
       {value.profile_img ? 
         <div className='profile-card-user-image-container'>
-          <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt='profile' className='profile-card-user-image'/>
+          <Image image={value.profile_img} style={'profile-card-user-image'} />
         </div>
       : 
         <div className='profile-card-default-image-container'>

@@ -1,11 +1,12 @@
 import React from 'react'
 import './MessageInboxItem.scss'
+import axios from 'axios'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
+import Image from '../Image/Image'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
 import { IMessageInbox as IProps } from '../MessageInbox/MessageInbox'
 
 interface MessageInboxItemProps {
@@ -28,8 +29,8 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
     <div className="MessageInboxItem">
       <article>
         <div className="inbox-profile-img">
-          {value.profile_img ? 
-            <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt='profile'/>
+          {value.profile_img ?
+            <Image image={value.profile_img} style={'inbox-user-image'} /> 
           :
             <FontAwesomeIcon icon={faUser} className='inbox-default-user-img'/>
           }

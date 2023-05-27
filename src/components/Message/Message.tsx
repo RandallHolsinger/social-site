@@ -2,6 +2,7 @@ import React from 'react'
 import './Message.scss'
 import FormatedDate from '../FormatedDate/FormatedDate'
 import FormatedTime from '../FormatedTime/FormatedTime'
+import Image from '../Image/Image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { IMessage as IProps } from '../Messages/Messages'
@@ -20,7 +21,7 @@ export const Message: React.FC<MessageProps> = (props) => {
         <header className='message-header'>
           <div className="message-profile-img-container">
             {value.profile_img ? 
-              <img src={require(`../../../server/uploads/images/${value.profile_img}`)} alt='profile' />
+              <Image image={value.profile_img} style={'message-profile-image'} />
             :
               <FontAwesomeIcon icon={faUser} className='message-default-user-image'/>
             }

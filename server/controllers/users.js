@@ -23,17 +23,6 @@ module.exports = {
     }
   },
 
-  getCurrentUserInfo: async (req, res) => {
-    const {user_id} = req.session.user
-    const db = req.app.get('db')
-    try {
-      let user = await db.users.get_user({user_id})
-      res.status(200).send(user)
-    } catch(err) {
-      res.status(500).send(err)
-    }
-  },
-
   updateUser: async (req, res) => {
     const {user_id} = req.session.user
 

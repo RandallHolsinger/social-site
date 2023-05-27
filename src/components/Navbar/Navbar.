@@ -14,35 +14,16 @@
   color: #fff;
   padding: 10px;
   height: 60px;
+  font-size: 1.5em;
   border-top: 0.3px solid #ed1dc0;
   border-bottom: 0.3px solid #ed1dc0;
   box-shadow: 0px 0px 10px #000;
 }
-.Navbar nav .navbar-logo {
-  width: 100px;
-  height: 50px;
-}
-.Navbar nav .navbar-link {
-  text-decoration: none;
-}
 .Navbar nav .navbar-items {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8em;
-  color: #ed1dc0;
-}
-.Navbar nav .navbar-items .navbar-icon {
-  font-size: 1.4em;
-}
-.Navbar nav .navbar-items label {
-  font-size: 1em;
-  font-weight: 600;
+  text-decoration: none;
   color: #fff;
 }
 .Navbar nav .nav-menu-icon {
-  font-size: 1.4em;
   color: #ed1dc0;
 }
 .Navbar .nav-menu {
@@ -98,11 +79,11 @@
 }
 .Navbar .nav-menu .menu-items-container li:nth-child(6) {
   border-radius: 0px 0px 0px 5px;
-  border-bottom: 1px solid #ed1dc0;
 }
 .Navbar .nav-menu .menu-items-container li {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #ed1dc0;
   padding: 10px;
 }
 .Navbar .nav-menu .menu-items-container li .menu-links {
@@ -118,4 +99,4 @@
   margin-right: 5px;
 }
 
-/*# sourceMappingURL=Navbar.css.map */
+/*# sourceMappingURL=Navbar..map */

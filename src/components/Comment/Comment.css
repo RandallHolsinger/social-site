@@ -1,6 +1,7 @@
 .Comment {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
 }
 .Comment .comment-user-image-container {
@@ -9,13 +10,6 @@
   align-items: center;
   border-radius: 100%;
   margin: 0px 0px 0px 15px;
-  width: 60px;
-  height: 60px;
-}
-.Comment .comment-user-image-container .comment-user-image {
-  border-radius: 100%;
-  border: 0.5px solid #fff;
-  object-fit: cover;
   width: 60px;
   height: 60px;
 }
@@ -49,6 +43,7 @@
   background-color: #fff;
   padding: 5px;
   font-size: 0.9em;
+  margin-top: 10px;
   border-radius: 5px;
 }
 .Comment article .comment-container p .comment-username {
@@ -79,6 +74,7 @@
 }
 .Comment .comment-options-container .comment-options-icon {
   color: #ed1dc0;
+  margin-right: 5px;
 }
 
 /*# sourceMappingURL=Comment.css.map */
