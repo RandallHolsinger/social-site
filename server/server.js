@@ -18,6 +18,7 @@ const io = require('socket.io')(server, {
 })
 const cors = require('cors')
 const pg = require('pg')
+const path = require('path')
 const pgSession = require('connect-pg-simple')(session)
 const ctrlAuth = require('./controllers/auth')
 const ctrlUsers = require('./controllers/users')
@@ -33,7 +34,8 @@ app.use(express.json())
 
 app.use(express.static( `${__dirname}/../build` ))
 
-app.use(express.static(`${__dirname}/./uploads/images`))
+const imagesPath = path.join(__dirname, 'uploads', 'images');
+app.use(express.static(imagesPath));
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
