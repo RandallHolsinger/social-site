@@ -16,7 +16,6 @@ export const Image: React.FC<ImageProps> = (props) => {
   const getProfileImage = async () => {
     try {
       let res = await axios.get(`/api/user/image/${image}`, {
-        responseType: 'blob', 
         headers: {
           'Content-Type': 'image/jpeg, image/png, image/svg, image/heic, image/heif, image/bpm, image/gif'
            }
