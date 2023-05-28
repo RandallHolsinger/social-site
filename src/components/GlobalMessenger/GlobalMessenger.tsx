@@ -26,7 +26,6 @@ export const GlobalMessenger: React.FC<GlobalMessengerProps> = (props) => {
   const userId = useAppSelector(state => state.user.userId)
   const firstName = useAppSelector(state => state.user.firstName)
   const lastName = useAppSelector(state => state.user.lastName)
-  const profileImg = useAppSelector(state => state.user.profileImage)
   const formRef = useRef<HTMLFormElement | null>(null)
 
 
@@ -42,7 +41,7 @@ export const GlobalMessenger: React.FC<GlobalMessengerProps> = (props) => {
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if(globalInput.trim()) {
-      socket.emit('message', {globalInput, userId, firstName, lastName, profileImg})
+      socket.emit('message', {globalInput, userId, firstName, lastName})
     }
     setGlobalInput('')
     formRef.current?.reset()

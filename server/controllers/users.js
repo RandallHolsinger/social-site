@@ -64,8 +64,8 @@ module.exports = {
   },
 
   updateProfileImage: async (req, res) => {
-    const {user_id} = req.session.user
     const {filename} = req.file
+    const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
       db.users.update_user_image({filename, user_id})

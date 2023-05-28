@@ -24,8 +24,10 @@ export const ProfileView: React.FC = () => {
 
   
   useEffect(() => {
-    getUserInfo(Number(user_id))
-  }, [])
+    if (user_id) {
+      getUserInfo(Number(user_id))
+    }
+  }, [user_id])
 
 
 

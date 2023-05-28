@@ -26,19 +26,19 @@ export const PersonalProfile: React.FC = () => {
   
   const [user, setUser] = useState({})
   
-  const getUserInfo = async(user_id?: number) => {
-    if(user_id !== 0) {
-      try {
-        let res = await axios.get(`/api/user/${user_id}`)
-        setUser(res.data[0])
-      } catch(err) {
-        console.log(err)
-      }
+  const getUserInfo = async () => {
+    try {
+      let res = await axios.get(`/api/user/${userId}`)
+      setUser(res.data[0])
+    } catch(err) {
+      console.log(err)
     }
   }
 
   useEffect(() => {
-    getUserInfo(Number(userId))
+    if(userId != 0) {
+      getUserInfo()
+    }
   }, [userId])
 
   return(
