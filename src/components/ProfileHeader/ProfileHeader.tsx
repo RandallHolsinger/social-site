@@ -22,7 +22,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = (props) => {
   const updateProfileImage = async () => {
     try {
       await axios.put(`/api/user/update/profile/image`, profileImageData)
-      await getUserInfo()
+      getUserInfo()
       setShowImageUploader(false)
     } catch(err) {
       console.log(err)
