@@ -83,24 +83,6 @@ module.exports = {
   getProfileImage: async (req, res) => {
     const {image} = req.params
     try {
-      const fileExtension = image.substring(image.lastIndexOf('.')).toLowerCase();
-      let contentType;
-
-  switch (fileExtension) {
-    case '.jpg':
-    case '.jpeg':
-      contentType = 'image/jpeg';
-      break;
-    case '.png':
-      contentType = 'image/png';
-      break;
-    case '.gif':
-      contentType = 'image/gif';
-      break;
-    default:
-      contentType = 'application/octet-stream';
-      break;
-  }
       let imagePath = path.join(__dirname, '..', 'uploads', 'images', image);
       console.log('image path here ==>', imagePath)
       res.status(200).sendFile(imagePath)
