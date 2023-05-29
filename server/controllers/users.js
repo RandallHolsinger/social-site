@@ -1,3 +1,4 @@
+const { rmSync } = require('fs')
 const path = require('path')
 
 module.exports = {
@@ -82,7 +83,7 @@ module.exports = {
   getProfileImage: async (req, res) => {
     const {image} = req.params
     try {
-      let imagePath = path.join('..', 'uploads', 'images', image);
+      let imagePath = path.join(__dirname,'..', 'uploads', 'images', image);
       console.log('image path here ==>', imagePath)
       const fileExtension = path.extname(imagePath).toLowerCase();
       let contentType;
