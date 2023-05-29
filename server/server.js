@@ -18,7 +18,6 @@ const io = require('socket.io')(server, {
 })
 const cors = require('cors')
 const pg = require('pg')
-const path = require('path')
 const pgSession = require('connect-pg-simple')(session)
 const ctrlAuth = require('./controllers/auth')
 const ctrlUsers = require('./controllers/users')
@@ -34,7 +33,7 @@ app.use(express.json())
 
 app.use(express.static( `${__dirname}/../build` ))
 
-app.use('/images', express.static(path.join(__dirname, 'uploads', 'images')));
+app.use('*/images', express.static('./uploads/images'))
 
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
@@ -106,7 +105,7 @@ app.put('/api/user/update/:user_id', ctrlUsers.updateUser)
 app.put('/api/user/update/profile/image', imageUpload.single('file'), ctrlUsers.updateProfileImage)
 
 // Get User Profile Imagers
-app.get('/api/user/image', ctrlUsers.getProfileImage)
+app.get('/api/user/image/:image', ctrlUsers.getProfileImage)
 
 // Delete User Personal Profile
 app.delete('/api/user/delete/:user_id', ctrlUsers.deleteUser)

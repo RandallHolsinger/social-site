@@ -21,7 +21,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = (props) => {
 
   const updateProfileImage = async () => {
     try {
-      await axios.put(`/api/user/update/profile/image?timestamp=${Date.now()}`, profileImageData)
+      await axios.put(`/api/user/update/profile/image`, profileImageData)
       await getUserInfo()
       setShowImageUploader(false)
     } catch(err) {
