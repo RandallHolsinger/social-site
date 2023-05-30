@@ -41,7 +41,7 @@ export const Login: React.FC = () => {
       <form onSubmit={login}>
         <header>
           <FontAwesomeIcon icon={faUserGroup} className='login-header-icon'/>
-          <h2>Social Network</h2>
+          <h2>Socialyze</h2>
         </header>
         <label htmlFor="email">
           <FontAwesomeIcon icon={faEnvelope} className='login-icons'/>
