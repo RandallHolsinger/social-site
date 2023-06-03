@@ -125,13 +125,13 @@ function Register() {
   
   return(
     <div className="Register">
-      <header>
-        <Link to={'/'} className='back-arrow'>
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </Link>
-        <h2>Registeration Form</h2>
-      </header>
       <form onSubmit={registerUser}>
+        <header>
+          <Link to={'/'} className='back-arrow'>
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Link>
+          <h2>Registeration Form</h2>
+        </header>
         <label htmlFor="first-name">
           <FontAwesomeIcon icon={faUser} className='label-icons' />{' '}
           First Name
