@@ -29,17 +29,17 @@ export const Post: React.FC<PostProps> = (props) => {
 
   const userId = useAppSelector(state => state.user.userId)
   
-  const updateLikedPost = () => {
+  const updateLikedPost = async () => {
     if(liked) {
-      axios.put(`/api/post/like/${value.post_id}`)
-
-    } else if (!liked) {
-      axios.put(`/api/post/like/${value.post_id}`)
+      await axios.put(`/api/post/like/${value.post_id}`)
+      setLiked(true)
+    } else if(!liked) {
+      await axios.put(`/api/post/unlike/${value.post_id}`)
+      setLiked(false)
     }
   }
   
   const toggleLiked = () => {
-    setLiked(!liked)
     updateLikedPost()
   }
 
@@ -97,7 +97,7 @@ export const Post: React.FC<PostProps> = (props) => {
           <Image image={value.image_file} style={'post-image'} />
         </section>
         <footer>
-          <span onClick={toggleLiked} className='post-like-button'>
+          <span onClick={() => toggleLiked()} className='post-like-button'>
             <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}
             {renderLike()}
           </span>

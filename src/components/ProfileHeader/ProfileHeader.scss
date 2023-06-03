@@ -1,12 +1,12 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .ProfileHeader {
+  @include component-color;
   margin-top: 60px;
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: $dark;
   padding: 5px 0px 10px 5px;
   .user-header-info {
     display: flex;

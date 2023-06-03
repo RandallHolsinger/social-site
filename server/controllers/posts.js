@@ -65,8 +65,8 @@ module.exports = {
     const {post_id} = req.params
     const db = req.app.get('db')
     try {
-      db.posts.like_post({post_id})
-      res.status(200)
+      await db.posts.like_post({post_id})
+      res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
     }
@@ -76,8 +76,8 @@ module.exports = {
     const {post_id} = req.params
     const db = req.app.get('db')
     try {
-      db.posts.unlike_post({post_id})
-      res.status(200)
+      await db.posts.unlike_post({post_id})
+      res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
     }

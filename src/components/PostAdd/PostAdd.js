@@ -12,7 +12,7 @@ function PostAdd(props) {
   const [postData, setPostData] = useState({})
   const [showPostModal, setShowPostModal] = useState(false)
 
-  const {getPosts} = props
+  const {getPosts, style} = props
 
   const addPost = async () => {
     try {
@@ -30,7 +30,7 @@ function PostAdd(props) {
   
 
   return(
-    <div className="PostAdd">
+    <div className={`PostAdd ${style}`}>
       {showPostModal ?
         <div className="add-post-container">
           <header>
@@ -70,7 +70,7 @@ function PostAdd(props) {
           </div>
         </div>
       :
-        <div className="post-add" onClick={() => setShowPostModal(true)}>
+        <div className='post-add' onClick={() => setShowPostModal(true)}>
           <FontAwesomeIcon icon={faPenToSquare} className='add-post-icon'/>
           <h3>Create A Post</h3>
         </div>

@@ -46,6 +46,7 @@ export const UserEditor: React.FC<UserEditorProps> = (props) => {
         collegeInput,
         aboutMeInput
       })
+      setShowUserEditor(false)
     } catch(err) {
       console.log(err)
     }

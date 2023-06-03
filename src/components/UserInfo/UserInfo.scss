@@ -2,10 +2,9 @@
 
 .UserInfo {
   @include component-color;
-  @include border-radius;
-  @include box-shadow;
-  margin: 5px 5px 10px 5px;
   padding: 10px;
+  margin-top: -1px;
+  margin-bottom: -1px;
   .user-info-container {
     .user-info-header {
       display: flex;

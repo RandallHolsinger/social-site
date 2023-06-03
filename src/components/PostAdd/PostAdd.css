@@ -1,13 +1,13 @@
 .PostAdd {
+  background-color: #2b2b2b;
   display: flex;
   justify-content: center;
+  box-shadow: 0px 3px 3px #000;
+  padding: 10px;
+  margin-bottom: 50px;
 }
 .PostAdd .add-post-container {
-  box-shadow: 3px 3px 3px #000;
-  border-radius: 5px;
-  background-color: #2b2b2b;
-  padding: 15px;
-  margin: 5px 5px 10px 5px;
+  justify-content: center;
 }
 .PostAdd .add-post-container header {
   display: flex;
@@ -65,13 +65,15 @@
   padding: 10px;
 }
 .PostAdd .post-add {
-  display: flex;
-  align-items: center;
-  box-shadow: 3px 3px 3px #000;
-  border-radius: 5px;
   background-color: #2b2b2b;
-  margin: 5px 5px 10px 5px;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ed1dc0;
+  border-radius: 3px;
+  padding: 5px;
+  color: #fff;
+  font-size: 1em;
 }
 .PostAdd .post-add .add-post-icon {
   color: #ed1dc0;
@@ -80,6 +82,16 @@
 .PostAdd .post-add h3 {
   color: #fff;
   margin: 0px auto;
+}
+
+.home-posts-styles {
+  position: sticky;
+  top: 130px;
+}
+
+.post-add-user-info {
+  position: sticky;
+  top: 120px;
 }
 
 /*# sourceMappingURL=PostAdd.css.map */

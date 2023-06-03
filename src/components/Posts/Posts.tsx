@@ -5,7 +5,8 @@ import Post from '../Post/Post'
 import PostAdd from "../PostAdd/PostAdd";
 
 interface PostProps {
-  user_id?: number | undefined
+  user_id?: number | undefined,
+  style?: string
 }
 
 export interface IPost {
@@ -24,7 +25,7 @@ export interface IPost {
 
 export const Posts: React.FC<PostProps> = (props) => {
 
-  const { user_id } = props
+  const { user_id, style } = props
 
   const [posts, setPosts] = useState<IPost[]>([])
   
@@ -54,9 +55,11 @@ export const Posts: React.FC<PostProps> = (props) => {
   })
 
   return(
-    <div className="Posts">
-      <PostAdd getPosts={getAllPosts}/>
-      {mappedPosts}
+    <div className={`Posts`}>
+      <PostAdd getPosts={getAllPosts} style={style}/>
+      <div className="posts">
+        {mappedPosts}
+      </div>
     </div>
   )
 }

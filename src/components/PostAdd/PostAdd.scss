@@ -1,14 +1,14 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .PostAdd {
+  @include component-color;
   display: flex;
   justify-content: center;
+  box-shadow: 0px 3px 3px #000;
+  padding: 10px;
+  margin-bottom: 50px;
   .add-post-container {
-    @include box-shadow;
-    @include border-radius;
-    @include component-color;
-    padding: 15px;
-    margin: 5px 5px 10px 5px;
+    justify-content: center;
     header {
       display: flex;
       align-items: center;
@@ -69,13 +69,15 @@
     }
   }
   .post-add {
-    display: flex;
-    align-items: center;
-    @include box-shadow;
-    @include border-radius;
     @include component-color;
-    margin: 5px 5px 10px 5px;
-    padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $util-color;
+      border-radius: 3px;
+      padding: 5px;
+      color: #fff;
+      font-size: 1em;
     .add-post-icon {
       color: $util-color;
       font-size: 1.3em;
@@ -85,4 +87,12 @@
       margin: 0px auto;
     }
   }
+}
+.home-posts-styles {
+  position: sticky;
+  top: 130px;
+}
+.post-add-user-info {
+  position: sticky;
+  top: 120px;
 }
