@@ -1,6 +1,6 @@
 
 require('dotenv').config()
-const { SERVER_PORT, CONNECTION_STRING, CA_CERT, SESSION_SECRET} = process.env
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 const express = require('express')
 const app = express()
 const massive = require('massive')
@@ -13,7 +13,7 @@ const server = http.createServer(app);
 const io = require('socket.io')(server, {
   pingTimeout: 8 * 60 * 60 * 1000,
   cors: {
-    origin: 'http://localhost:3000'
+    origin: ['http://localhost:3000', `http://localhost:${SERVER_PORT}`]
   }
 })
 const cors = require('cors')
