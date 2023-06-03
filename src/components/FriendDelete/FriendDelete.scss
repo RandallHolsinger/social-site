@@ -1,0 +1,19 @@
+ @import '../../sass/variables', '../../sass/mixins';
+ 
+ .FriendDelete {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+   .friend-delete-button {
+    @include component-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    padding: 3px;
+    color: #fff;
+    font-size: 1em;
+    border: 1px solid $util-color;
+    border-radius: 3px;
+   }
+}

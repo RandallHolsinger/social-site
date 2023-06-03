@@ -16,12 +16,6 @@
   border: 1px solid #ed1dc0;
   border-radius: 100%;
 }
-.Profile .profile-card-user-image-container .profile-card-user-image {
-  border-radius: 100%;
-  width: 125px;
-  height: 125px;
-  object-fit: cover;
-}
 .Profile .profile-card-default-image-container {
   display: flex;
   justify-content: center;
@@ -46,9 +40,9 @@
   cursor: pointer;
 }
 .Profile figcaption .profile-view-link .profile-card-name {
-  color: #ed1dc0;
-  margin-top: 5px;
-  font-size: 1.4em;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 1.5em;
   font-weight: 600;
 }
 .Profile figcaption .profile-card-city-info {

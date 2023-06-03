@@ -1,27 +1,25 @@
 .user-info-list-item {
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   list-style-type: none;
   color: #fff;
+  margin-top: 10px;
+}
+.user-info-list-item .user-information-icons {
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  color: #ed1dc0;
+  font-size: 1.2em;
+  margin-right: 10px;
 }
 .user-info-list-item label {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ed1dc0;
-}
-.user-info-list-item label p {
-  font-size: 1.2em;
   font-weight: 600;
+  font-size: 1.2em;
 }
 .user-info-list-item .user-info-item-data {
-  display: flex;
-  justify-content: center;
-  margin-top: 3px;
-  font-size: 1.1em;
-  font-weight: 600;
+  font-size: 1.2em;
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=UserInfoItem.css.map */

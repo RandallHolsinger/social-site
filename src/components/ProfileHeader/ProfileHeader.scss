@@ -19,7 +19,7 @@
       align-items: center;
       width: 80px;
       height: 80px;
-      margin-right: 5px;
+      margin-right: 15px;
       border: 2px solid $util-color;
       background-color: $dark;
       border-radius: 100%;
@@ -27,13 +27,13 @@
         color: #fff;
         position: absolute;
         z-index: 1;
-        font-size: .6em;
-        border: 2px solid #fff;
-        padding: 5px;
+        font-size: .7em;
+        border: 1px solid $util-color;
+        padding: 7px;
         border-radius: 100%;
         background-color: $dark;
-        bottom: 0px;
-        right: 0px;
+        bottom: -5px;
+        right: -7px;
       }
       .header-user-icon {
         font-size: 3.5em;

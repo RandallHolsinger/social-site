@@ -73,10 +73,10 @@
 
 @mixin friend-tag-style {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1.2em;
   padding: 10px;
   font-weight: 600;
 }

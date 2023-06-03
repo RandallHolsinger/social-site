@@ -15,9 +15,9 @@ export const UserInfoItem: React.FC<UserInfoItemProps> = (props) => {
   return(
     <>
       <li className='user-info-list-item'>
+       <span className='user-information-icons'>{icon}</span>
        <label htmlFor={htmlFor}>
-         {icon}
-         <p>{label}</p>
+         {label}{' '}:
        </label>
        {data ? 
          <span className='user-info-item-data'>{data}</span>

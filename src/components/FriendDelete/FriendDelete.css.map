@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"FriendDelete.css"}
+{"version":3,"sourceRoot":"","sources":["FriendDelete.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEC;EACC;EACA;EACA;;AACC;ECUD,kBCMK;EFdH;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA","file":"FriendDelete.css"}

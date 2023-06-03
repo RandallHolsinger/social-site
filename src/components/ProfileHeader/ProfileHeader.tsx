@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ProfileHeader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faPencil } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCamera } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import ImageUploader from '../ImageUploader/ImageUploader'
 import Image from '../Image/Image'
@@ -34,7 +34,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = (props) => {
       <div className="user-header-info">
         <div className='user-image-header-container'>
           <span onClick={() => setShowImageUploader(true)} className='header-image-edit-icon'>
-            <FontAwesomeIcon icon={faPencil} />
+            <FontAwesomeIcon icon={faCamera} />
           </span>
           {user.profile_img ?
             <Image image={user.profile_img} style={'profile-user-image'}/>

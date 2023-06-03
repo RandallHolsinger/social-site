@@ -2,7 +2,7 @@
   background-color: #2b2b2b;
   padding: 10px;
   margin-top: -1px;
-  margin-bottom: -1px;
+  margin-bottom: 15px;
 }
 .UserInfo .user-info-container .user-info-header {
   display: flex;
@@ -11,58 +11,53 @@
 }
 .UserInfo .user-info-container .user-info-header .intro {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .UserInfo .user-info-container .user-info-header .intro .intro-icon {
   color: #ed1dc0;
-  margin-right: 5px;
-  font-size: 1.8em;
+  margin-right: 10px;
+  font-size: 1.5em;
 }
 .UserInfo .user-info-container .user-info-header .intro h2 {
   color: #fff;
 }
 .UserInfo .user-info-container .user-info-header .edit-user-icon {
   color: #ed1dc0;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 .UserInfo .user-info-container ul {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-.UserInfo .user-info-container ul .intro-left-container {
-  display: flex;
   flex-direction: column;
+  margin: 10px;
 }
-.UserInfo .user-info-container ul .intro-right-container {
+.UserInfo .user-info-container .about-me-title {
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
 }
-.UserInfo .user-info-container ul .intro-city-icon, .UserInfo .user-info-container ul .intro-state-province-icon, .UserInfo .user-info-container ul .intro-birthday-icon,
-.UserInfo .user-info-container ul .intro-work-icon, .UserInfo .user-info-container ul .intro-high-school-icon,
-.UserInfo .user-info-container ul .intro-college-icon {
+.UserInfo .user-info-container .about-me-title .about-me-icon {
   color: #ed1dc0;
-  font-size: 1.3em;
   margin-right: 5px;
-}
-.UserInfo .user-info-container details {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-.UserInfo .user-info-container details summary {
-  color: #fff;
-  font-size: 1.3em;
-  font-weight: 600;
-}
-.UserInfo .user-info-container details summary::marker {
-  color: #ed1dc0;
   font-size: 1.2em;
 }
-.UserInfo .user-info-container details .about-me {
+.UserInfo .user-info-container .about-me-title h3 {
+  color: #fff;
+}
+.UserInfo .user-info-container .about-me {
   color: #fff;
   padding: 10px;
-  font-size: 1.2em;
+}
+.UserInfo .user-info-container .my-posts-title {
+  display: flex;
+  margin-top: 20px;
+}
+.UserInfo .user-info-container .my-posts-title .my-posts-icon {
+  color: #ed1dc0;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+.UserInfo .user-info-container .my-posts-title h2 {
+  color: #fff;
 }
 
 /*# sourceMappingURL=UserInfo.css.map */

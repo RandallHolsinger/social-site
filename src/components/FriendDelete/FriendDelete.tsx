@@ -1,4 +1,5 @@
 import React from 'react'
+import './FriendDelete.scss'
 import axios from 'axios'
 
 interface FriendDeleteProps {
@@ -18,8 +19,8 @@ export const FriendDelete: React.FC<FriendDeleteProps> = (props) => {
   }
 
   return(
-    <div className="FriendDelete">
-      <button onClick={() => deleteFriend()}>Delete</button>
+    <div className='FriendDelete'>
+      <button onClick={() => deleteFriend()} className='friend-delete-button'>Remove Friend</button>
     </div>
   )
 }

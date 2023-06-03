@@ -1,27 +1,25 @@
-@import '../../sass/variables';
+@import '../../sass/variables', '../../sass/mixins';
 
 .user-info-list-item {
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   list-style-type: none;
   color: #fff;
-  label {
-    margin-top: 20px;
+  margin-top: 10px;
+  .user-information-icons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid $util-color;
-    p {
-      font-size: 1.2em;
-      font-weight: 600;
-    }
+    width: 20px;
+    color: $util-color;
+    font-size: 1.2em;
+    margin-right: 10px;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1.2em;
   }
   .user-info-item-data {
-    display: flex;
-    justify-content: center;
-    margin-top: 3px;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1.2em;
+    margin-left: 10px;
   }
 }

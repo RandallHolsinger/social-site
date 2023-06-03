@@ -1,17 +1,30 @@
-/* Error: Undefined mixin.
- *    ,
- * 13 |     @include request-sent-style;
- *    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   FriendStatus.scss 13:5  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 13 \2502      @include request-sent-style;\a    \2502      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   FriendStatus.scss 13:5  root stylesheet";
+.FriendStatus .friend-tag-container .friend-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 10px;
+  font-weight: 600;
 }
+.FriendStatus .friend-tag-container .friend-tag .friend-tag-icon {
+  color: #ed1dc0;
+  font-size: 1.3em;
+  margin-right: 5px;
+}
+.FriendStatus .request-sent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.FriendStatus .request-sent .request-sent-icon {
+  color: #ed1dc0;
+  margin-right: 5px;
+  font-size: 1.3em;
+}
+
+/*# sourceMappingURL=FriendStatus.css.map */
