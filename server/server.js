@@ -13,7 +13,7 @@ const server = http.createServer(app);
 const io = require('socket.io')(server, {
   pingTimeout: 8 * 60 * 60 * 1000,
   cors: {
-    origin: 'http://localhost:3000/'
+    origin: 'http://localhost:3000'
   }
 })
 const cors = require('cors')
