@@ -96,11 +96,13 @@ export const Post: React.FC<PostProps> = (props) => {
           {value.liked || liked === true ?
 
             <span onClick={() => unlikePost()} className='post-like-button'>
-              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked{' '}{value.likes}
+              {value.likes}{' '}
+              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked
             </span>
           :
             <span onClick={() => likePost()} className='post-like-button'>
-              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like{' '}{value.likes}
+              {value.likes} {' '}
+              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like
             </span>
           }
           <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
