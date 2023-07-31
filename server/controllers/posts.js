@@ -65,9 +65,10 @@ module.exports = {
 
   likePost: async (req, res) => {
     const {post_id} = req.params
+    const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
-      await db.posts.like_post({post_id})
+      await db.posts.like_post({post_id, user_id})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
@@ -76,9 +77,10 @@ module.exports = {
 
   unlikePost: async (req, res) => {
     const {post_id} = req.params
+    const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
-      await db.posts.unlike_post({post_id})
+      await db.posts.unlike_post({post_id, user_id})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

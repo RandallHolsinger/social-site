@@ -129,10 +129,10 @@ app.put('/api/post/edit/:post_id', imageUpload.single('file'), ctrlPosts.updateP
 app.delete('/api/post/delete/:post_id', ctrlPosts.deletePost)
 
 // Like Post
-app.put('/api/post/like/:post_id', ctrlPosts.likePost)
+app.post('/api/post/like/:post_id', ctrlPosts.likePost)
 
 // Unlike Post
-app.put('/api/post/unlike/:post_id', ctrlPosts.unlikePost)
+app.delete('/api/post/unlike/:post_id', ctrlPosts.unlikePost)
 
 ///// Comment's Endpoints /////
 

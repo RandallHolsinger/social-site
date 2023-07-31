@@ -25,32 +25,28 @@ export const Post: React.FC<PostProps> = (props) => {
 
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
-  const [liked, setLiked] = useState(false)
+  const [liked, setLiked] = useState(value.liked || false)
 
   const userId = useAppSelector(state => state.user.userId)
-  
-  const updateLikedPost = async () => {
-    if(liked) {
-      await axios.put(`/api/post/like/${value.post_id}`)
-      setLiked(true)
-    } else if(!liked) {
-      await axios.put(`/api/post/unlike/${value.post_id}`)
+
+  const likePost = async() => {
+    try {
+     await axios.post(`/api/post/like/${value.post_id}`)
+     setLiked(true)
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+  const unlikePost = async() => {
+    try {
+      await axios.delete(`/api/post/unlike/${value.post_id}`)
       setLiked(false)
+    } catch(err) {
+      console.log(err)
     }
   }
   
-  const toggleLiked = () => {
-    updateLikedPost()
-  }
-
-  const renderLike = () => {
-    if (liked) {
-      return <>Liked</>;
-    } else {
-      return <>Like</>;
-    }
-  }
-
   return(
     <OutsideClickHandler onOutsideClick={() => setShowComments(false)}>
       <div className="Post">
@@ -97,10 +93,16 @@ export const Post: React.FC<PostProps> = (props) => {
           <Image image={value.image_file} style={'post-image'} />
         </section>
         <footer>
-          <span onClick={() => toggleLiked()} className='post-like-button'>
-            <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}
-            {renderLike()}
-          </span>
+          {value.liked || liked === true ?
+
+            <span onClick={() => unlikePost()} className='post-like-button'>
+              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked{' '}{value.likes}
+            </span>
+          :
+            <span onClick={() => likePost()} className='post-like-button'>
+              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like{' '}{value.likes}
+            </span>
+          }
           <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
             <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
             Comments
