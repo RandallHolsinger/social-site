@@ -27,9 +27,11 @@ module.exports = {
 
   getAllPosts: async (req, res) => {
     const db = req.app.get('db')
+    console.log('hitting backend getting all posts')
     try {
       let posts = await db.posts.get_all_posts()
       res.status(200).send(posts)
+      console.log('posts getting sent to client ==>', posts)
     } catch(err) {
       res.status(500).send(err)
     }

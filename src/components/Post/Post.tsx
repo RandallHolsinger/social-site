@@ -45,9 +45,9 @@ export const Post: React.FC<PostProps> = (props) => {
 
   const renderLike = () => {
     if (liked) {
-      return <>Liked {value.likes + 1}</>;
+      return <>Liked</>;
     } else {
-      return <>Like {value.likes}</>;
+      return <>Like</>;
     }
   }
 

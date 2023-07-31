@@ -46,7 +46,7 @@ export const Comments: React.FC<commentsProps> = (props) => {
   return(
     <div className="Comments">
       <CommentsAddButton post_id={props.post_id} getComments={getComments}/>
-      <div className='comments-container'>
+      <div className='comments-container' role='list'>
         {mappedComments}
       </div>
     </div>

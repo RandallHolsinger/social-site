@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store";
 import { IComment } from "../Comments/Comments";
 
-const propCommentArgs: IComment = {
+export const propCommentArgs: IComment = {
       user_id: 0,
       first_name: 'John',
       last_name: 'Doe',

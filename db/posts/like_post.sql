@@ -1,3 +1,2 @@
-update posts 
-set likes = likes + 1
-where post_id = ${post_id};
+insert into liked_posts (post_id, user_id, date)
+values (${post_id}, ${user_id}, now())

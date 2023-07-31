@@ -38,6 +38,7 @@ export const Posts: React.FC<PostProps> = (props) => {
       } else {
         let res = await axios.get('/api/posts')
         setPosts(res.data)
+        console.log('here is the post data ==>', res.data)
       }
     } catch(err) {
       console.log(err)

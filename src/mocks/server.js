@@ -1,4 +1,4 @@
 import { setupServer } from 'msw/lib/node'
-import { handlers } from './handlers'
+import { commentHandlers } from './handlers/commentHandlers'
 
-export const server = setupServer(...handlers)
+export const server = setupServer(...commentHandlers)
