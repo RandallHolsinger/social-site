@@ -1,17 +1,20 @@
 .PostAdd {
-  background-color: #2b2b2b;
   display: flex;
   justify-content: center;
-  box-shadow: 0px 3px 3px #000;
   padding: 10px;
-  margin-bottom: 50px;
 }
 .PostAdd .add-post-container {
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px 20px #000;
+  position: fixed;
+  bottom: 20px;
   justify-content: center;
+  padding: 10px;
 }
 .PostAdd .add-post-container header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 10px;
 }
 .PostAdd .add-post-container header .create-post-icon {
@@ -21,6 +24,11 @@
 }
 .PostAdd .add-post-container header h3 {
   color: #fff;
+  font-size: 1.3em;
+}
+.PostAdd .add-post-container label {
+  color: #fff;
+  margin-bottom: 5px;
 }
 .PostAdd .add-post-container .text-area-container {
   display: flex;
@@ -67,7 +75,7 @@
 .PostAdd .post-add {
   background-color: #2b2b2b;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   border: 1px solid #ed1dc0;
   border-radius: 3px;
@@ -82,11 +90,6 @@
 .PostAdd .post-add h3 {
   color: #fff;
   margin: 0px auto;
-}
-
-.home-posts-styles {
-  position: sticky;
-  top: 130px;
 }
 
 .post-add-user-info {

@@ -49,6 +49,7 @@ function PostAdd(props) {
               onChange={(e) => setTitleInput(e.target.value)}
               className='title-area'
             />
+            <label>Content</label>
             <textarea 
               type='text'
               spellCheck='true'

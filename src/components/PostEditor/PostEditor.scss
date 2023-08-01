@@ -3,7 +3,8 @@
 .PostEditor {
   @include component-color;
   @include border-radius;
-  @include box-shadow;
+  z-index: 10000;
+  box-shadow: 0px 0px 100px 50px #000;
   position: fixed;
   padding: 20px;
   width: 80%;
