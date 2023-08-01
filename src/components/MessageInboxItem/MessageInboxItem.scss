@@ -43,7 +43,12 @@
     }
   }
   .message-delete-button {
-    
+    padding: 5px;
+    border: 1px solid $util-color;
+    border-radius: 3px;
+    background-color: $dark;
+    font-size: 1em;
+    color: #fff;
   }
- }
+}
 }

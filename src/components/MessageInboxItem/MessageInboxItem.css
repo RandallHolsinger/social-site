@@ -28,11 +28,6 @@
   color: #ed1dc0;
   font-size: 3em;
 }
-.MessageInboxItem article .inbox-profile-img img {
-  width: 75px;
-  height: 75px;
-  border-radius: 100%;
-}
 .MessageInboxItem article .inbox-content {
   display: flex;
   flex-direction: column;
@@ -46,6 +41,14 @@
 .MessageInboxItem article .inbox-content .inbox-datetime {
   display: flex;
   flex-direction: column;
+}
+.MessageInboxItem article .message-delete-button {
+  padding: 5px;
+  border: 1px solid #ed1dc0;
+  border-radius: 3px;
+  background-color: #2b2b2b;
+  font-size: 1em;
+  color: #fff;
 }
 
 /*# sourceMappingURL=MessageInboxItem.css.map */
