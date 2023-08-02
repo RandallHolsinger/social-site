@@ -34,7 +34,6 @@ export const FriendStatus: React.FC<FriendStatusProps> = (props) => {
     } catch(err) {
       console.log(err)
     }
-    console.log('friend status here =>', friendStatus)
   }
   
   const friendStatusLogic = (): JSX.Element | undefined => {

@@ -38,10 +38,9 @@
   margin-right: 8px;
 }
 .Login form input {
+  border: none;
   caret-color: #ed1dc0;
-  color: #000;
-  border-radius: 5px;
-  padding: 0.4em;
+  padding: 5px;
   box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
   margin: 5px 0px 15px 0px;
@@ -95,6 +94,32 @@
   color: #fff;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
+}
+
+/* Media query for small devices (e.g., phones) */
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .Login form {
+    width: 60%;
+  }
+}
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .Login {
+    margin-top: 30px;
+  }
+  .Login form {
+    width: 40%;
+  }
+}
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .Login {
+    margin-top: 30px;
+  }
+  .Login form {
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=Login.css.map */
