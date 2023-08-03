@@ -18,9 +18,21 @@
     border-top: .3px solid $util-color;
     border-bottom: .3px solid $util-color;
     box-shadow: 0px 0px 10px #000;
-    .navbar-logo {
-      width: 100px;
-      height: 50px;
+    .logo-container {
+      display: flex;
+      align-items: center;
+      .logo-icon {
+        margin-right: 3px;
+        font-size: 1.2em;
+        color: $util-color;
+        border: 1px solid $util-color;
+        border-radius: 100%;
+        padding: 5px;
+      }
+      span {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
     }
     .navbar-link {
       text-decoration: none;

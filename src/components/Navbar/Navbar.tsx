@@ -36,7 +36,10 @@ export const Navbar: React.FC = () => {
     <div className='Navbar'>
       {showMessenger ? <GlobalMessenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
-        {/* <img src={'/images/???'} className='navbar-logo'/> */}
+        <div className="logo-container">
+          <FontAwesomeIcon icon={faUser} className='logo-icon'/>
+          <span>Socialyze</span>
+        </div>
         <Link to={'/Friends'} className='navbar-link'>
           <span className='navbar-items'>
             <FontAwesomeIcon icon={faUserGroup}className='navbar-icon'/>

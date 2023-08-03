@@ -1,9 +1,14 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .PostAdd {
+  @include component-color;
+  @include border-radius;
+  @include box-shadow;
   display: flex;
+  margin: 20px 5px 30px 5px;
   justify-content: center;
-  padding: 10px;
+  margin-top: 175px;
+  padding: 20px;
   .add-post-container {
     @include component-color;
     @include border-radius;
@@ -99,6 +104,5 @@
 .home-posts-styles {}
 
 .post-add-user-info {
-  position: sticky;
   top: 120px;
 }

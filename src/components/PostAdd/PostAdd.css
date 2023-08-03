@@ -1,7 +1,12 @@
 .PostAdd {
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
   display: flex;
+  margin: 20px 5px 30px 5px;
   justify-content: center;
-  padding: 10px;
+  margin-top: 175px;
+  padding: 20px;
 }
 .PostAdd .add-post-container {
   background-color: #2b2b2b;
@@ -93,7 +98,6 @@
 }
 
 .post-add-user-info {
-  position: sticky;
   top: 120px;
 }
 
