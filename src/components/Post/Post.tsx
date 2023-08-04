@@ -25,7 +25,8 @@ export const Post: React.FC<PostProps> = (props) => {
 
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
-  const [liked, setLiked] = useState(value.liked || false)
+  const [liked, setLiked] = useState(false)
+  const [likeCount, setLikeCount] = useState(value.likes) 
 
   const userId = useAppSelector(state => state.user.userId)
 
@@ -33,6 +34,7 @@ export const Post: React.FC<PostProps> = (props) => {
     try {
      await axios.post(`/api/post/like/${value.post_id}`)
      setLiked(true)
+     setLikeCount(value.likes + 1)
     } catch(err) {
       console.log(err)
     }
@@ -42,6 +44,7 @@ export const Post: React.FC<PostProps> = (props) => {
     try {
       await axios.delete(`/api/post/unlike/${value.post_id}`)
       setLiked(false)
+      setLikeCount(value.likes - 1)
     } catch(err) {
       console.log(err)
     }
@@ -93,10 +96,9 @@ export const Post: React.FC<PostProps> = (props) => {
           <Image image={value.image_file} style={'post-image'} />
         </section>
         <footer>
-          {value.liked || liked === true ?
-
-            <span onClick={() => unlikePost()} className='post-like-button'>
-              {value.likes}{' '}
+          {liked ?
+           <span onClick={() => unlikePost()} className='post-like-button'>
+              {likeCount}{' '}
               <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked
             </span>
           :
