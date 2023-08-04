@@ -102,4 +102,27 @@
   color: #ed1dc0;
 }
 
+/* Media query for small devices (e.g., phones) */
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .Post {
+    width: 60%;
+    margin: 20px auto 30px auto;
+  }
+}
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .Post {
+    width: 50%;
+    margin: 20px auto 30px auto;
+  }
+}
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .Post {
+    width: 40%;
+    margin: 20px auto 30px auto;
+  }
+}
+
 /*# sourceMappingURL=Post.css.map */

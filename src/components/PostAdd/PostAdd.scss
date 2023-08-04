@@ -4,11 +4,12 @@
   @include component-color;
   @include border-radius;
   @include box-shadow;
+  box-sizing: border-box;
   display: flex;
   margin: 20px 5px 30px 5px;
   justify-content: center;
   margin-top: 175px;
-  padding: 20px;
+  padding: 30px;
   .add-post-container {
     @include component-color;
     @include border-radius;
@@ -105,4 +106,29 @@
 
 .post-add-user-info {
   top: 120px;
+}
+
+/* Media query for small devices (e.g., phones) */
+@media only screen and (min-width: 320px) {}
+
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .PostAdd {
+    width: 60%;
+    margin: 200px auto 30px auto;
+  }
+}
+
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .PostAdd {
+    width: 50%;
+  }
+}
+
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .PostAdd {
+    width: 40%;
+  }
 }

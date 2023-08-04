@@ -1,15 +1,13 @@
 @import '../../sass/mixins', '../../sass/variables';
 
 .MessageInbox {
-  margin-top: 200px;
+  margin-top: 150px;
   .message-inbox-toolbar {
     @include component-color;
-    position: fixed;
-    top: 133px;
+    @include border-radius;
+    @include box-shadow;
     box-sizing: border-box;
-    box-shadow: 0px 3px 3px #000;
-    width: 100%;
-    padding: 10px;
+    padding: 30px;
     display: flex;
     justify-content: center;
     .create-message-button {
@@ -28,5 +26,36 @@
         margin-right: 3px;
       }
     }
+  }
+}
+
+/* Media query for small devices (e.g., phones) */
+@media only screen and (min-width: 320px) {
+  .message-inbox-toolbar {
+    margin: 20px 5px 30px 5px;
+  }
+}
+
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .message-inbox-toolbar {
+    width: 60%;
+    margin: 20px auto 30px auto;
+  }
+}
+
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .message-inbox-toolbar {
+    width: 50%;
+    margin: 20px auto 30px auto;
+  }
+}
+
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .message-inbox-toolbar {
+    width: 40%;
+    margin: 20px auto 30px auto;
   }
 }

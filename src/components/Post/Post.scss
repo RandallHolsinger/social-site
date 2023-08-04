@@ -118,7 +118,7 @@
 @media only screen and (min-width: 768px) {
   .Post {
     width: 60%;
-    margin: 0px auto;
+    margin: 20px auto 30px auto;
   }
 }
 
@@ -126,14 +126,14 @@
 @media only screen and (min-width: 1024px) {
   .Post {
     width: 50%;
-    margin: 0px auto;
-  }
+    margin: 20px auto 30px auto;
+  } 
 }
 
 /* Media query for extra-large devices (e.g., large desktops and TVs) */
 @media only screen and (min-width: 1200px) {
   .Post {
     width: 40%;
-    margin: 0px auto;
+    margin: 20px auto 30px auto;
   }
 }

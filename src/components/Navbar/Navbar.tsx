@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     getUserInfo()
-  }, [showMenu])
+  }, [])
   
   return(
     <div className='Navbar'>
