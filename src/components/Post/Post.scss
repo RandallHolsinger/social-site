@@ -1,119 +1,128 @@
-@import '../../sass/variables', '../../sass//mixins';
-
 .Post {
-  @include box-shadow;
-  @include border-radius;
-  @include component-color;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 5px;
+  background-color: #2b2b2b;
   margin: 10px 5px 30px 5px;
-  header {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-between;
-    .post-user-container {
-      display: flex;
-      align-items: center;
-      .post-user-image-default {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 60px;
-        height: 60px;
-        border: 1px solid $util-color;
-        border-radius: 100%;
-        .post-user-default-icon {
-          font-size: 2.5em;
-          color: $util-color;
-        }
-      }
-      span{
-        margin-right: 10px;
-      }
-      .post-username {
-        color: #fff;
-        font-weight: 700;
-        font-size: 1.2em;
-        .post-date-time {
-          font-size: .7em;
-        }
-      }
-    }
-    .post-date {
-      color: #fff;
-    }
-    .post-time {
-    }
-    .post-options-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      width: 30px;
-      height: 30px;
-      .post-dropdown {
-        color: $util-color;
-        font-size: 1.5em;
-      }
-    }
-  }
-  .post-content {
-    background-color: #fff;
-    h4 {
-      padding: 10px 10px 3px 10px;
-    }
-    p {
-      padding: 0px 10px 10px 10px;
-    }
-  }
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-    .post-like-button {
-      color: #fff;
-      @include border-radius;
-      @include letter-spacing;
-      font-weight: 500;
-      padding: .3em;
-      .post-like-icon {
-        font-size: 1.2em;
-        color: $util-color;
-      }
-    }
-    .post-dislike-button {
-      color: #fff;
-      @include border-radius;
-      @include letter-spacing;
-      font-weight: 500;
-      padding: .3em;
-      .post-dislike-icon {
-        font-size: 1.2em;
-        color: $util-color;
-      }
-    }
-    .post-comments-button {
-      color: #fff;
-      @include border-radius;
-      @include letter-spacing;
-      font-weight: 500;
-      padding: .3em;
-      .post-comments-icon {
-        font-size: 1.2em;
-        color: $util-color;
-      }
-    }
-  }
 }
 
+.Post header {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Post header .post-user-container {
+  display: flex;
+  align-items: center;
+}
+
+.Post header .post-user-container .post-user-image-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ed1dc0;
+  border-radius: 100%;
+}
+
+.Post header .post-user-container .post-user-image-default .post-user-default-icon {
+  font-size: 2.5em;
+  color: #ed1dc0;
+}
+
+.Post header .post-user-container span {
+  margin-right: 10px;
+}
+
+.Post header .post-user-container .post-username {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.Post header .post-user-container .post-username .post-date-time {
+  font-size: 0.7em;
+}
+
+.Post header .post-date {
+  color: #fff;
+}
+
+.Post header .post-options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.Post header .post-options-container .post-dropdown {
+  color: #ed1dc0;
+  font-size: 1.5em;
+}
+
+.Post .post-content {
+  background-color: #fff;
+}
+
+.Post .post-content h4 {
+  padding: 10px 10px 3px 10px;
+}
+
+.Post .post-content p {
+  padding: 0px 10px 10px 10px;
+}
+
+.Post footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.Post footer .post-like-button {
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 0.3em;
+}
+
+.Post footer .post-like-button .post-like-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
+
+.Post footer .post-dislike-button {
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 0.3em;
+}
+
+.Post footer .post-dislike-button .post-dislike-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
+
+.Post footer .post-comments-button {
+  color: #fff;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 0.3em;
+}
+
+.Post footer .post-comments-button .post-comments-icon {
+  font-size: 1.2em;
+  color: #ed1dc0;
+}
 
 /* Media query for small devices (e.g., phones) */
-@media only screen and (min-width: 320px) {
-  .Post {
-    
-  }
-}
-
 /* Media query for medium devices (e.g., tablets) */
 @media only screen and (min-width: 768px) {
   .Post {
@@ -121,15 +130,13 @@
     margin: 20px auto 30px auto;
   }
 }
-
 /* Media query for large devices (e.g., laptops and desktops) */
 @media only screen and (min-width: 1024px) {
   .Post {
     width: 50%;
     margin: 20px auto 30px auto;
-  } 
+  }
 }
-
 /* Media query for extra-large devices (e.g., large desktops and TVs) */
 @media only screen and (min-width: 1200px) {
   .Post {

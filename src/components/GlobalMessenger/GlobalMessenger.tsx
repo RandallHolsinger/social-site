@@ -76,7 +76,7 @@ export const GlobalMessenger: React.FC<GlobalMessengerProps> = (props) => {
     <div className="GlobalMessenger">
       <div className="global-messenger-header">
         <FontAwesomeIcon icon={faGlobe} className='global-messenger-icon'/>
-        <h2>Global Chat</h2>
+        <h2>Live Chat</h2>
         <button onClick={() => leaveChat()} className="leave-chat-button">Leave Chat</button>
       </div>
       <div className="messenger-content">

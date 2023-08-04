@@ -31,7 +31,7 @@
 .GlobalMessenger .messenger-content {
   border: 1px solid #ed1dc0;
   box-sizing: border-box;
-  margin: 0px auto;
+  margin: 0px auto 5px auto;
   overflow: scroll;
   width: 95%;
   height: 65%;
@@ -75,5 +75,87 @@
 .GlobalMessenger .global-message-input-container form button .messenger-send-icon {
   margin-right: 3px;
 }
+/* Media query for small devices (e.g., phones) */
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .GlobalMessenger .global-messenger-header .global-messenger-icon {
+    font-size: 3em;
+    margin-right: 30px;
+  }
+  .GlobalMessenger .global-messenger-header h2 {
+    font-size: 2.5em;
+    margin-right: 30px;
+  }
+  .GlobalMessenger .global-messenger-header .leave-chat-button {
+    padding: 10px;
+    float: right;
+    font-size: 1.2em;
+  }
+  .GlobalMessenger .messenger-content {
+    width: 80%;
+    margin: 10px auto 20px auto;
+  }
+  .GlobalMessenger .messenger-content .online-user-count {
+    padding: 10px;
+    font-size: 1.4em;
+    color: #fff;
+  }
+  .GlobalMessenger .global-message-input-container form input {
+    box-sizing: border-box;
+    width: 60%;
+    padding: 15px;
+    font-size: 1.2em;
+  }
+  .GlobalMessenger .global-message-input-container form button {
+    width: 20%;
+    font-size: 1.3em;
+  }
+}
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .GlobalMessenger {
+    width: 45%;
+    height: 90%;
+    position: fixed;
+    top: auto;
+    bottom: 0px;
+    right: 0;
+  }
+  .GlobalMessenger .global-messenger-header .global-messenger-icon {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  .GlobalMessenger .global-messenger-header h2 {
+    font-size: 1.8em;
+    margin-right: 30px;
+  }
+  .GlobalMessenger .global-messenger-header .leave-chat-button {
+    padding: 5px;
+    float: right;
+    font-size: 1em;
+  }
+  .GlobalMessenger .messenger-content {
+    width: 90%;
+    height: 75%;
+    margin: 10px auto 20px auto;
+  }
+  .GlobalMessenger .messenger-content .online-user-count {
+    padding: 10px;
+    font-size: 1.4em;
+    color: #fff;
+  }
+  .GlobalMessenger .global-message-input-container form input {
+    box-sizing: border-box;
+    width: 70%;
+    padding: 5px;
+    font-size: 1em;
+  }
+  .GlobalMessenger .global-message-input-container form button {
+    width: 20%;
+    font-size: 1.3em;
+    padding: 5px;
+  }
+}
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
 
 /*# sourceMappingURL=GlobalMessenger.css.map */
