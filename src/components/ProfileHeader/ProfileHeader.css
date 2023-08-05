@@ -55,9 +55,9 @@
 }
 .ProfileHeader .image-upload-modal {
   background-color: #2b2b2b;
-  box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
   box-sizing: border-box;
+  box-shadow: 0px 0px 20px 10px;
   width: 90%;
   padding: 20px;
   position: fixed;
@@ -95,6 +95,38 @@
   font-weight: 700;
   width: 30%;
   padding: 10px;
+}
+
+/* Media query for small devices (e.g., phones) */
+@media only screen and (min-width: 320px) {
+  /* Styles for small devices */
+}
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .ProfileHeader .user-header-info .header-user-details .header-username {
+    font-size: 2em;
+  }
+  .ProfileHeader .image-upload-modal {
+    width: 50%;
+  }
+}
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .ProfileHeader .user-header-info .header-user-details .header-username {
+    font-size: 2em;
+  }
+  .ProfileHeader .image-upload-modal {
+    width: 40%;
+  }
+}
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .ProfileHeader .user-header-info .header-user-details .header-username {
+    font-size: 2em;
+  }
+  .ProfileHeader .image-upload-modal {
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=ProfileHeader.css.map */

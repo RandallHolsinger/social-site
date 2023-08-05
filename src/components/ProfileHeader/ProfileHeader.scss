@@ -56,9 +56,9 @@
   }
   .image-upload-modal {
     @include component-color;
-    @include box-shadow;
     @include border-radius;
     box-sizing: border-box;
+    box-shadow: 0px 0px 20px 10px;
     width: 90%;
     padding: 20px;
     position: fixed;
@@ -94,6 +94,86 @@
         font-weight: 700;
         width: 30%;
         padding: 10px;
+      }
+    }
+  }
+}
+
+/* Media query for small devices (e.g., phones) */
+@media only screen and (min-width: 320px) {
+  /* Styles for small devices */
+}
+
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .ProfileHeader {
+    .user-header-info {
+      .user-image-header-container {
+        .header-image-edit-icon {
+        }
+        .header-user-icon {}
+      }
+      .header-user-details {
+        .header-username {
+          font-size: 2em;
+        }
+      }
+    }
+    .image-upload-modal {
+      width: 50%;
+      .upload-user-image-buttons {
+        .save-user-image {}
+        .cancel-user-image {}
+      }
+    }
+  }
+}
+
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .ProfileHeader {
+    .user-header-info {
+      .user-image-header-container {
+        .header-image-edit-icon {
+        }
+        .header-user-icon {}
+      }
+      .header-user-details {
+        .header-username {
+          font-size: 2em;
+        }
+      }
+    }
+    .image-upload-modal {
+      width: 40%;
+      .upload-user-image-buttons {
+        .save-user-image {}
+        .cancel-user-image {}
+      }
+    }
+  }
+}
+
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .ProfileHeader {
+    .user-header-info {
+      .user-image-header-container {
+        .header-image-edit-icon {
+        }
+        .header-user-icon {}
+      }
+      .header-user-details {
+        .header-username {
+          font-size: 2em;
+        }
+      }
+    }
+    .image-upload-modal {
+      width: 30%;
+      .upload-user-image-buttons {
+        .save-user-image {}
+        .cancel-user-image {}
       }
     }
   }

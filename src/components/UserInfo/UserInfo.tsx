@@ -17,7 +17,7 @@ export const UserInfo:  React.FC<UserInfoProps> = (props) => {
 
   const [showUserEditor, setShowUserEditor] = useState(false)
 
-  const userId = useAppSelector(state => state.user.userId)
+  const mainUserId = useAppSelector(state => state.user.userId)
 
   return(
     <div className="UserInfo">
@@ -27,7 +27,7 @@ export const UserInfo:  React.FC<UserInfoProps> = (props) => {
               <FontAwesomeIcon icon={faAddressCard} className='intro-icon'/>
               <h2>Information</h2>
             </span>
-            {user.user_id === userId ?
+            {user.user_id === mainUserId ?
               <span onClick={() => setShowUserEditor(true)}>
                 <FontAwesomeIcon icon={faUserPen} className='edit-user-icon'/>
               </span> 
@@ -79,8 +79,14 @@ export const UserInfo:  React.FC<UserInfoProps> = (props) => {
         </div>
         <p className='about-me'>{user.about_me}</p>
         <div className="my-posts-title">
-          <span className='my-posts-icon'><FontAwesomeIcon icon={faNewspaper} /></span>
-          <h2>My Posts</h2>
+          <span className='my-posts-icon'>
+            <FontAwesomeIcon icon={faNewspaper} />
+          </span>
+          {user.user_id === mainUserId ?
+            <h2>My Posts</h2>
+          :
+            <h2>{user.first_name}'s Posts</h2>
+          }
         </div>
       </section>
       {showUserEditor ?
