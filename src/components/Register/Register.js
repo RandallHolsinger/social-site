@@ -192,7 +192,7 @@ function Register() {
          onChange={(e) => setConfirmEmail(e.target.value)}
         />
         <span className={confirmEmailStatus}>{validConfirmEmail ? 'This is a match' : "Please Confirm Email Address"}</span>
-        <button type="submit">Register</button>
+        <button type='submit'>Register</button>
       </form>
     </div>
   )
