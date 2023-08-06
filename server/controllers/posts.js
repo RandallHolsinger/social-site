@@ -2,9 +2,11 @@ module.exports = {
   addPost: async (req, res) => {
     const {user_id} = req.session.user
     const {titleInput, postInput} = req.body
+    const {filename} = req.file || {}
+    console.log('result after destructuring ===>', filename)
     const title = titleInput
     const data = postInput
-    const {filename} = req.file
+    
     const db = req.app.get('db')
     try {
       await db.posts.add_post({user_id, title, data, filename})
