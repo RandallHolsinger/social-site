@@ -81,6 +81,7 @@
       }
       .post-like-button {
         color: #fff;
+        cursor: pointer;
         @include border-radius;
         @include letter-spacing;
         font-weight: 500;
@@ -92,6 +93,7 @@
       }
       .post-dislike-button {
         color: #fff;
+        cursor: pointer;
         @include border-radius;
         @include letter-spacing;
         font-weight: 500;
@@ -113,6 +115,7 @@
       }
       .post-comments-button {
         color: #fff;
+        cursor: pointer;
         @include border-radius;
         @include letter-spacing;
         font-weight: 500;
