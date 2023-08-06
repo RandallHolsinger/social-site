@@ -20,6 +20,7 @@ export interface IPost {
   image_file: string,
   likes: number,
   liked: boolean,
+  comment_count: number,
   date: string
 }
 

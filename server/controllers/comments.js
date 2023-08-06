@@ -13,10 +13,11 @@ module.exports = {
   },
 
   deleteComment: async (req, res) => {
-    const {comment_id} = req.params
+    const {comment_id, post_id} = req.params
+    console.log('IDs are here ==>', comment_id, post_id)
     const db = req.app.get('db')
     try {
-      await db.comments.delete_comment({comment_id})
+      await db.comments.delete_comment({comment_id, post_id})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)

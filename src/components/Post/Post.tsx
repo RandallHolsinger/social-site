@@ -28,7 +28,8 @@ export const Post: React.FC<PostProps> = (props) => {
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [liked, setLiked] = useState(false || value.liked)
-  const [likeCount, setLikeCount] = useState(value.likes) 
+  const [likeCount, setLikeCount] = useState(value.likes)
+  const [commentCount, setCommentCount] = useState(value.comment_count) 
 
   const userId = useAppSelector(state => state.user.userId)
 
@@ -114,12 +115,13 @@ export const Post: React.FC<PostProps> = (props) => {
             </span>
           }
           <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
+            <span className='comment-count'>{commentCount}</span>
             <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
             Comments
           </span>
         </footer>
         {showComments ?
-            <Comments post_id={value.post_id} />
+            <Comments post_id={value.post_id} setCommentCount={setCommentCount}/>
         :
         null
         }

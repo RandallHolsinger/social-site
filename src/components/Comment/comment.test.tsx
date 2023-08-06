@@ -13,9 +13,20 @@ export const propCommentArgs: IComment = {
       date: '2022-12-31 17:39:56.177 -0800'
   }
 
+type postProp = {
+  post_id: number
+}
+
+const postProp: postProp  = {
+  post_id: 5,
+}
+
+
+
+
 const testComponent = 
   <Provider store={store}>
-    <Comment value={propCommentArgs} getComments={jest.fn()}/>
+    <Comment value={propCommentArgs} post_id={postProp.post_id} setCommentCount={jest.fn()} getComments={jest.fn()}/>
   </Provider>
 
 

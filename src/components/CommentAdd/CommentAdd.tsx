@@ -6,13 +6,14 @@ import { faPaperPlane} from '@fortawesome/free-solid-svg-icons'
 
 interface commentAddProps {
   post_id: number,
-  getComments: () => Promise<void>
+  getComments: () => Promise<void>,
+  setCommentCount: React.Dispatch<React.SetStateAction<number>>
 }
 
 
 export const CommentAdd: React.FC<commentAddProps> = (props) => {
   
-  const { post_id, getComments } = props
+  const { post_id, getComments, setCommentCount } = props
 
   const [commentInput, setCommentInput] = useState<string>('')
 
@@ -21,6 +22,7 @@ export const CommentAdd: React.FC<commentAddProps> = (props) => {
     const data = commentInput
     try {
       await axios.post(`/api/comment/add/${post_id}`, {data})
+      setCommentCount(state => state + 1)
       await getComments()
       
     } catch(err) {

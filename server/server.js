@@ -140,7 +140,7 @@ app.delete('/api/post/unlike/:post_id', ctrlPosts.unlikePost)
 app.post('/api/comment/add/:post_id', ctrlComments.addComment)
 
 // Delete Comment
-app.delete('/api/comment/delete/:comment_id', ctrlComments.deleteComment)
+app.delete('/api/comment/delete/:post_id/:comment_id', ctrlComments.deleteComment)
 
 // Get Comments
 app.get('/api/comments/:post_id', ctrlComments.getComments)

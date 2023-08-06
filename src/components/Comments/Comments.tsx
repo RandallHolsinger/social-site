@@ -4,8 +4,9 @@ import CommentsAddButton from '../CommentAdd/CommentAdd'
 import Comment from '../Comment/Comment'
 import axios from 'axios'
 
-interface commentsProps {
+export interface commentsProps {
   post_id: number,
+  setCommentCount: React.Dispatch<React.SetStateAction<number>>
 }
 
 export interface IComment {
@@ -23,9 +24,10 @@ export const Comments: React.FC<commentsProps> = (props) => {
 
   const [comments, setComments] = useState<IComment[]>([])
 
+  const {post_id, setCommentCount} = props
+
   const getComments = async () => {
     try {
-     const { post_id } = props
      let res = await axios.get(`/api/comments/${post_id}`)
      setComments(res.data)
     } catch(err) {
@@ -35,7 +37,13 @@ export const Comments: React.FC<commentsProps> = (props) => {
 
   let mappedComments = comments.map(comment => {
     return(
-      <Comment key={comment.comment_id} value={comment} getComments={getComments}/>
+      <Comment 
+        key={comment.comment_id} 
+        value={comment} 
+        post_id={props.post_id} 
+        getComments={getComments}
+        setCommentCount={setCommentCount}
+      />
     )
   })
 
@@ -45,7 +53,7 @@ export const Comments: React.FC<commentsProps> = (props) => {
 
   return(
     <div className="Comments">
-      <CommentsAddButton post_id={props.post_id} getComments={getComments}/>
+      <CommentsAddButton post_id={props.post_id}  getComments={getComments} setCommentCount={setCommentCount}/>
       <div className='comments-container' role='list'>
         {mappedComments}
       </div>

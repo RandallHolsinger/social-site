@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event'
 
 const props = {
   post_id: 1,
+  setCommentCount: jest.fn(),
   getComments: jest.fn()
 }
 

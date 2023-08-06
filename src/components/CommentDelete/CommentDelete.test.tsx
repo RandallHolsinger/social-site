@@ -4,7 +4,9 @@ import userEvent from '@testing-library/user-event'
 
 const props = {
   comment_id: 1,
+  post_id: 5,
   getComments: jest.fn(),
+  setCommentCount: jest.fn(),
   setShowOptions: jest.fn()
 }
 

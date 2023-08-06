@@ -12,13 +12,15 @@ import Image from '../Image/Image'
 import { IComment as IProps} from '../Comments/Comments'
 
 export interface commentProps {
-  value: IProps
+  value: IProps,
+  post_id: number,
   getComments: () => Promise<void>
+  setCommentCount: React.Dispatch<React.SetStateAction<number>>,
 }
 
 export const Comment: React.FC<commentProps> = (props) => {
   
-  const { value, getComments } = props
+  const { value, getComments, setCommentCount} = props
   
   const [showOptions, setShowOptions] = useState(false)
 
@@ -68,8 +70,22 @@ export const Comment: React.FC<commentProps> = (props) => {
           {showOptions ? 
             <OptionsModal 
               setShowOptions={setShowOptions} 
-              DeleteButton={<CommentDelete comment_id={value.comment_id} getComments={getComments} setShowOptions={setShowOptions}/>} 
-              EditButton={<CommentEdit comment={value} getComments={getComments} setShowOptions={setShowOptions}/>}
+              DeleteButton={
+                <CommentDelete 
+                  comment_id={value.comment_id} 
+                  post_id={props.post_id}  
+                  getComments={getComments} 
+                  setCommentCount={setCommentCount}
+                  setShowOptions={setShowOptions}
+                />
+              } 
+              EditButton={
+                <CommentEdit 
+                  comment={value} 
+                  getComments={getComments} 
+                  setShowOptions={setShowOptions}
+                />
+              }
               commentStyle={'comment-style'}
             />
           : 
