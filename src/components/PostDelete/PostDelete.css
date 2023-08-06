@@ -2,16 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 3px 3px 3px #000;
+  background-color: #2b2b2b;
   border-radius: 5px;
-  border: none;
-  background-color: #ff3860;
+  border: 1px solid #ed1dc0;
   color: #fff;
+  font-size: 1em;
   font-weight: 600;
-  padding: 5px;
+  padding: 10px;
 }
 .post-delete-button .post-delete-icon {
-  color: #fff;
+  color: #ed1dc0;
   margin-right: 5px;
   font-size: 1.3em;
 }

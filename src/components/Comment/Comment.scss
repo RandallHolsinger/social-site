@@ -3,15 +3,17 @@
 .Comment {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
   padding: 10px;
+  width: 100%;
   .comment-user-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
     margin: 0px 0px 0px 15px;
-    width: 60px;
+    width: 20%;
     height: 60px;
   }
   .comment-user-image-default-container {
@@ -25,26 +27,28 @@
     width: 60px;
     height: 60px;
     .comment-user-icon {
-      font-size: 1em;
+      font-size: 2em;
     }
   }
   article {
     display: flex;
-    justify-content: space-around;
     margin-right: 5px;
     .comment-container {
-      max-width: 70%;
+      width: 65%;
+      // border: 1px solid red;
       p {
+        width: 100%;
         display: inline-block;
         word-break: normal;
         white-space: normal;
         align-items: center;
         background-color: #fff;
         padding: 5px;
-        font-size: .9em;
-        margin-top: 10px;
+        font-size: 1em;
+        margin: 5px 5px 5px 10px;
         @include border-radius;
         .comment-username {
+          display: inline-block;
           margin-right: 5px;
           color: $util-color;
           font-weight: 600;
@@ -55,6 +59,7 @@
         display: flex;
         font-size: .8em;
         margin-top: 5px;
+        margin-left: 10px;
         color: #fff;
         .comment-date {
           margin-right: 10px;

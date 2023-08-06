@@ -1,8 +1,10 @@
 .Comment {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
   padding: 10px;
+  width: 100%;
 }
 .Comment .comment-user-image-container {
   display: flex;
@@ -10,7 +12,7 @@
   align-items: center;
   border-radius: 100%;
   margin: 0px 0px 0px 15px;
-  width: 60px;
+  width: 20%;
   height: 60px;
 }
 .Comment .comment-user-image-default-container {
@@ -25,28 +27,29 @@
   height: 60px;
 }
 .Comment .comment-user-image-default-container .comment-user-icon {
-  font-size: 1em;
+  font-size: 2em;
 }
 .Comment article {
   display: flex;
-  justify-content: space-around;
   margin-right: 5px;
 }
 .Comment article .comment-container {
-  max-width: 70%;
+  width: 65%;
 }
 .Comment article .comment-container p {
+  width: 100%;
   display: inline-block;
   word-break: normal;
   white-space: normal;
   align-items: center;
   background-color: #fff;
   padding: 5px;
-  font-size: 0.9em;
-  margin-top: 10px;
+  font-size: 1em;
+  margin: 5px 5px 5px 10px;
   border-radius: 5px;
 }
 .Comment article .comment-container p .comment-username {
+  display: inline-block;
   margin-right: 5px;
   color: #ed1dc0;
   font-weight: 600;
@@ -56,6 +59,7 @@
   display: flex;
   font-size: 0.8em;
   margin-top: 5px;
+  margin-left: 10px;
   color: #fff;
 }
 .Comment article .comment-container .comment-details .comment-date {

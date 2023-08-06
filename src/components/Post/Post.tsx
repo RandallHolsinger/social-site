@@ -22,10 +22,12 @@ interface PostProps {
 export const Post: React.FC<PostProps> = (props) => {
 
   const { value, getPosts } = props
+  
+  console.log('value here ==>', value)
 
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
-  const [liked, setLiked] = useState(false)
+  const [liked, setLiked] = useState(false || value.liked)
   const [likeCount, setLikeCount] = useState(value.likes) 
 
   const userId = useAppSelector(state => state.user.userId)
@@ -93,7 +95,11 @@ export const Post: React.FC<PostProps> = (props) => {
         <section className='post-content'>
           <h4>{value.title}</h4>
           <p>{value.post}</p>
-          <Image image={value.image_file} style={'post-image'} />
+          {value.image_file ? 
+            <Image image={value.image_file} style={'post-image'} />
+          :
+            null
+          }
         </section>
         <footer>
           {liked ?

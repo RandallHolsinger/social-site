@@ -4,15 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @include box-shadow;
   @include border-radius;
-  border: none;
-  background-color: $danger;
+  @include component-color;
+  border: 1px solid $util-color;
   color: #fff;
+  font-size: 1em;
   font-weight: 600;
-  padding: 5px;
+  padding: 10px;
   .comment-delete-icon {
-     color: #fff;
+     color: $util-color;
      margin-right: 5px;
      font-size: 1.3em;
   }

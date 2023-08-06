@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["CommentEdit.scss","../../sass/_mixins.scss"],"names":[],"mappings":"AAEA;EACE;;AACA;EACE;EACA;EACA;ECKF;EARA;EDME;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;;AAGJ;EACE;EACA;EACA;EACA;EACA","file":"CommentEdit.css"}
+{"version":3,"sourceRoot":"","sources":["CommentEdit.scss","../../sass/_mixins.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;;AACA;EACE;EACA;EACA;ECKF;EAIA,kBCMK;EFZH;EACA;EACA;EACA;EACA;EACA;;AACA;EACE,OETO;EFUP;EACA;;AAGJ;EACE;EACA;EACA;EACA","file":"CommentEdit.css"}
