@@ -103,22 +103,25 @@ export const Post: React.FC<PostProps> = (props) => {
           }
         </section>
         <footer>
-          {liked ?
-           <span onClick={() => unlikePost()} className='post-like-button'>
-              {likeCount}{' '}
-              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked
-            </span>
-          :
-            <span onClick={() => likePost()} className='post-like-button'>
-              {value.likes} {' '}
-              <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like
-            </span>
-          }
-          <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
+          <div className="post-like-container">
+            <span className="like-count">{likeCount}</span>
+            {liked ?
+             <span onClick={() => unlikePost()} className='post-like-button'>
+                <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked
+              </span>
+            :
+              <span onClick={() => likePost()} className='post-like-button'>
+                <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like
+              </span>
+            }
+          </div>
+          <div className="post-comment-container">
             <span className='comment-count'>{commentCount}</span>
-            <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
-            Comments
-          </span>
+            <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
+              <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
+              Comments
+            </span>
+          </div>
         </footer>
         {showComments ?
             <Comments post_id={value.post_id} setCommentCount={setCommentCount}/>
