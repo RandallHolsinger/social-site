@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
 import PageTitle from '../PageTitle/PageTitle'
+import NoContentMessage from '../NoContentMessage/NoContentMessage'
 
 export interface IMessageInbox {
   inbox_id: number,
@@ -58,7 +59,13 @@ export const MessageInbox: React.FC = () => {
         </button>
       </div>
       {showCreateMessage ? <MessageCreate  getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
-      {mappedMessageInbox}
+        {messageInbox[0] ?
+          <div className='message-inbox-container'>
+              {mappedMessageInbox}
+          </div>
+          :
+            <NoContentMessage subject={'No Messages'} />
+        }  
     </div>
   )
 }

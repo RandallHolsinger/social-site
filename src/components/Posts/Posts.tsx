@@ -3,6 +3,7 @@ import axios from "axios";
 import './Posts.scss'
 import Post from '../Post/Post'
 import PostAdd from "../PostAdd/PostAdd";
+import NoContentMessage from "../NoContentMessage/NoContentMessage";
 
 interface PostProps {
   user_id?: number | undefined,
@@ -60,9 +61,13 @@ export const Posts: React.FC<PostProps> = (props) => {
   return(
     <div className={`Posts`}>
       <PostAdd getPosts={getAllPosts} style={style}/>
-      <div className="posts">
-        {mappedPosts}
-      </div>
+      {posts[0] ?
+        <div className="posts">
+          {mappedPosts}
+        </div>
+      :
+        <NoContentMessage subject={'There are no posts to show'} />
+      }
     </div>
   )
 }

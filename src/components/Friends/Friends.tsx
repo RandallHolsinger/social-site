@@ -6,6 +6,7 @@ import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar/Navbar'
 import PageTitle from '../PageTitle/PageTitle'
 import ProfileCard from '../ProfileCard/ProfileCard'
+import NoContentMessage from '../NoContentMessage/NoContentMessage'
 
 export interface IFriend {
   user_id: number,
@@ -50,9 +51,13 @@ export const Friends: React.FC = () => {
     <div className="Friends">
       <Navbar />
       <PageTitle icon={<FontAwesomeIcon icon={faUserGroup} />} title={'Friends'} />
-      <div className="friends-container">
-        {mappedFriends}
-      </div>
+      {friends[0] ?
+        <div className="friends-container">
+          {mappedFriends}
+        </div>
+      :
+        <NoContentMessage subject={'No friends to show'} />
+      }
     </div>
   )
 }

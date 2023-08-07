@@ -1,0 +1,47 @@
+.NoContentMessage {
+  background-color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 5px 0px 5px;
+  height: 300px;
+}
+.NoContentMessage .message-container {
+  box-sizing: border-box;
+  border: 1px solid #ed1dc0;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NoContentMessage .message-container span {
+  font-size: 1.3em;
+  color: #fff;
+}
+
+/* Media query for small devices (e.g., phones) */
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .NoContentMessage {
+    width: 60%;
+    margin: 20px auto;
+  }
+}
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .NoContentMessage {
+    width: 50%;
+  }
+}
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .NoContentMessage {
+    width: 40%;
+  }
+}
+
+/*# sourceMappingURL=NoContentMessage.css.map */
