@@ -32,11 +32,11 @@ export const Posts: React.FC<PostProps> = (props) => {
   const [posts, setPosts] = useState<IPost[]>([])
   
   const getAllPosts = async () => {
-    
-    try {
+  try {
       if(user_id) {
         let res = await axios.get(`/api/posts/${user_id}`)
         setPosts(res.data)
+        console.log(res.data)
       } else {
         let res = await axios.get('/api/posts')
         setPosts(res.data)

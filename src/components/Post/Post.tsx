@@ -28,7 +28,7 @@ export const Post: React.FC<PostProps> = (props) => {
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [liked, setLiked] = useState(false || value.liked)
-  const [likeCount, setLikeCount] = useState(value.likes)
+  const [likeCount, setLikeCount] = useState(value.likes || 0)
   const [commentCount, setCommentCount] = useState(value.comment_count) 
 
   const userId = useAppSelector(state => state.user.userId)
@@ -37,7 +37,7 @@ export const Post: React.FC<PostProps> = (props) => {
     try {
      await axios.post(`/api/post/like/${value.post_id}`)
      setLiked(true)
-     setLikeCount(value.likes + 1)
+     setLikeCount(prevState => prevState + 1)
     } catch(err) {
       console.log(err)
     }
@@ -47,7 +47,7 @@ export const Post: React.FC<PostProps> = (props) => {
     try {
       await axios.delete(`/api/post/unlike/${value.post_id}`)
       setLiked(false)
-      setLikeCount(value.likes - 1)
+      setLikeCount(prevState => prevState - 1)
     } catch(err) {
       console.log(err)
     }
