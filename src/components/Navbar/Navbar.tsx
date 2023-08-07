@@ -3,7 +3,7 @@ import './Navbar.scss'
 import { useAppSelector } from '../../redux/reduxHooks'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faEnvelope, faGlobe, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
+import { faBars, faEnvelope, faGlobe, faUser, faUserGroup, faHouseChimney, faAddressCard, faPeopleGroup, faChevronCircleRight, faChevronCircleDown} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import Logout from '../Logout/Logout'
 import GlobalMessenger from '../GlobalMessenger/GlobalMessenger'
@@ -38,10 +38,12 @@ export const Navbar: React.FC = () => {
     <div className='Navbar'>
       {showMessenger ? <GlobalMessenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
-        <div className="logo-container">
-          <FontAwesomeIcon icon={faUser} className='logo-icon'/>
-          <span>Socialyze</span>
-        </div>
+        <Link to={'/Home'} className='logo-link'>
+          <div className="logo-container">
+            <FontAwesomeIcon icon={faUser} className='logo-icon'/>
+            <span>Socialyze</span>
+          </div>
+        </Link>
         <Link to={'/Friends'} className='navbar-link'>
           <span className='navbar-items'>
             <FontAwesomeIcon icon={faUserGroup}className='navbar-icon'/>
@@ -54,13 +56,21 @@ export const Navbar: React.FC = () => {
             <label>Inbox</label>
           </span>
         </Link>
-        <span onClick={() => setShowMessenger(true)} className='navbar-items'>
+        <span onClick={() => setShowMessenger(true)} className='navbar-messenger'>
           <FontAwesomeIcon icon={faGlobe} className='navbar-icon'/>
           <label>Live Chat</label>
         </span>
         <span onClick={() => setShowMenu(!showMenu)} className='nav-menu-icon'>
           <FontAwesomeIcon icon={faBars} />
         </span>
+        <div onClick={() => setShowMenu(!showMenu)} className='nav-menu-dropdown'>
+          <label>Menu</label>
+          {!showMenu ?
+            <FontAwesomeIcon icon={faChevronCircleRight} className='nav-dropdown-icon' />
+          :
+            <FontAwesomeIcon icon={faChevronCircleDown} className='nav-dropdown-icon' />
+          }
+        </div>
       </nav>
         {showMenu ? 
           <div className="nav-menu">
