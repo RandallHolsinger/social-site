@@ -1,9 +1,9 @@
 .FriendAccept .friend-tag-container .friend-tag {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1.2em;
   padding: 10px;
   font-weight: 600;
 }
@@ -17,7 +17,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 3px 3px 3px #000;
   padding: 5px;
   margin-bottom: 10px;
   border: 1px solid #ed1dc0;
