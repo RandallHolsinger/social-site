@@ -1,12 +1,15 @@
-.GlobalMessage {
+.GlobalMessage p {
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
   border: 0.5px solid #fff;
-  box-shadow: 2px 2px 2px #000;
   padding: 5px;
   margin: 8px;
-}
-.GlobalMessage p {
   color: #fff;
+  display: inline-block;
+  word-break: normal;
+  white-space: normal;
+  align-items: center;
 }
 .GlobalMessage p .messenger-name-sender, .GlobalMessage p .messenger-name-receiver {
   margin-right: 10px;
