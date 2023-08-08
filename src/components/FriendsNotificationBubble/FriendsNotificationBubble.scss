@@ -16,3 +16,24 @@
   height: 10px;
   padding: 3px;
 }
+
+/* Media query for small devices (e.g., phones) */
+@media only screen and (min-width: 320px) {}
+
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .bubble {
+    top: 3px;
+    right: -8px;
+  }
+}
+
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  /* Styles for large devices */
+}
+
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  /* Styles for extra-large devices */
+}

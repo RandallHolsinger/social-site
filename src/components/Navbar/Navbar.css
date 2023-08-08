@@ -175,23 +175,23 @@
     font-size: 1.5em;
     font-weight: 600;
   }
-  .Navbar nav .navbar-link .nav-bar-items .navbar-icon {
+  .Navbar nav .navbar-link .nav-friends .navbar-icon, .Navbar nav .navbar-link .nav-inbox .navbar-icon {
     margin-right: 5px;
   }
-  .Navbar nav .navbar-link .nav-bar-items label {
+  .Navbar nav .navbar-link .nav-friends label, .Navbar nav .navbar-link .nav-inbox label {
     font-size: 1.3em;
   }
-  .Navbar nav .navbar-items {
+  .Navbar nav .nav-friends, .Navbar nav .nav-inbox {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     padding: 5px;
   }
-  .Navbar nav .navbar-items .navbar-icon {
+  .Navbar nav .nav-friends .navbar-icon, .Navbar nav .nav-inbox .navbar-icon {
     font-size: 2em;
     margin-right: 5px;
   }
-  .Navbar nav .navbar-items label {
+  .Navbar nav .nav-friends label, .Navbar nav .nav-inbox label {
     font-size: 1.6em;
     font-style: 600;
   }
@@ -231,10 +231,10 @@
     font-size: 1.5em;
     font-weight: 600;
   }
-  .Navbar nav .navbar-link .nav-bar-items .navbar-icon {
+  .Navbar nav .navbar-link .nav-friends .navbar-icon, .Navbar nav .navbar-link .nav-inbox .navbar-icon {
     margin-right: 5px;
   }
-  .Navbar nav .navbar-link .nav-bar-items label {
+  .Navbar nav .navbar-link .nav-friends label, .Navbar nav .navbar-link .nav-inbox label {
     font-size: 1.3em;
   }
   .Navbar nav .navbar-items {

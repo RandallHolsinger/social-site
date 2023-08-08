@@ -189,7 +189,7 @@
         }
       }
       .navbar-link {
-        .nav-bar-items {
+        .nav-friends, .nav-inbox {
           .navbar-icon {
             margin-right: 5px;
           }
@@ -198,7 +198,7 @@
           }
         }
       }
-      .navbar-items {
+      .nav-friends, .nav-inbox {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
@@ -273,7 +273,7 @@
         }
       }
       .navbar-link {
-        .nav-bar-items {
+        .nav-friends, .nav-inbox {
           .navbar-icon {
             margin-right: 5px;
           }
