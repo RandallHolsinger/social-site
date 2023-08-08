@@ -1,4 +1,16 @@
 module.exports = {
+  getMessageNotifications: async (req, res) => {
+    const {user_id} = req.session.user
+    const db = req.app.get('db')
+    try {
+      let notifications = db.messages.get_message_notifications({user_id})
+      let count = notifications[0].count
+      res.status(200).send(count)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+  
   getInbox: async (req, res) => {
     const {user_id} = req.session.user 
     const db = req.app.get('db')

@@ -181,6 +181,9 @@ app.put('/api/friends/notifications/update', ctrlFriends.updateFriendNotificatio
 
 ///// Inbox EndPoints /////
 
+// Get Message Notifications
+// app.get('/api/message/notifications', ctrlMessages.getMessageNotifications)
+
 // Get Messaging Inbox
 app.get('/api/message/inbox', ctrlMessages.getInbox)
 
