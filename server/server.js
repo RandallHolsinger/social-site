@@ -154,23 +154,29 @@ app.put('/api/comment/edit/:comment_id', ctrlComments.updateComment)
 
 ///// Friend's Endpoints /////
 
-//Send A Friend Request
+// Send A Friend Request
 app.post('/api/friend/send/:user_id', ctrlFriends.sendFriendRequest)
 
-//Accept Friend Request
+// Accept Friend Request
 app.put('/api/friend/accept/:user_id', ctrlFriends.acceptFriendRequest)
 
-//Delete Friend
+// Delete Friend
 app.delete('/api/friend/delete/:friend_id', ctrlFriends.deleteFriend)
 
-//Get All Friends
+// Get All Friends
 app.get('/api/friends', ctrlFriends.getAllFriends)
 
-//Check FriendStatus
+// Check FriendStatus
 app.get('/api/friend/status/:user_id', ctrlFriends.getFriendStatus)
 
-//Get Friends List
+// Get Friends List
 app.get('/api/friends/list', ctrlFriends.getFriendsList)
+
+// Get Friend Notifications
+app.get('/api/friends/notifications', ctrlFriends.getFriendNotifications)
+
+// Update Friend Notifications
+app.put('/api/friends/notifications/update', ctrlFriends.updateFriendNotifications)
 
 
 ///// Inbox EndPoints /////

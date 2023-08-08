@@ -37,6 +37,14 @@ export const Friends: React.FC = () => {
     }
   }
 
+  const updateFriendNotifications = async () => {
+    try {
+      axios.put('/api/friends/notifications/update')
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
   let mappedFriends = friends.map(friend => {
     return (
       <ProfileCard key={friend.friend_id} value={friend} />
@@ -45,6 +53,7 @@ export const Friends: React.FC = () => {
 
   useEffect(() => {
     getFriends()
+    updateFriendNotifications()
   }, [])
 
   return (

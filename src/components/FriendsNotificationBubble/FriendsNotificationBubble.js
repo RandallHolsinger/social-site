@@ -11,22 +11,24 @@ function FriendsNotificationBubble(props) {
 
   const getFriendNotifications = async () => {
     try {
-      let res = await axios.get('/friends/notifications')
-      setFriendNotifications(res.data[0])
+      let res = await axios.get('/api/friends/notifications')
+      setFriendNotifications(res.data)
     } catch(err) {
       console.log(err)
     }
   }
 
-  // useEffect(() => {
-  //   getFriendNotifications()
-  //   ga('send', 'pageview');
-  // },[location])
+  useEffect(() => {
+    getFriendNotifications()
+  },[])
 
   return (
     <>
       {friendNotifications ? 
-        <span>{friendNotifications}</span>
+        
+        <span className='bubble'>
+          {friendNotifications}
+        </span>
       :
         null
       }

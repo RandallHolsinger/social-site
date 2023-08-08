@@ -8,6 +8,7 @@ import axios from 'axios'
 import Logout from '../Logout/Logout'
 import GlobalMessenger from '../GlobalMessenger/GlobalMessenger'
 import Image from '../Image/Image'
+import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
 import { IUser as IProps } from '../PersonalProfile/PersonalProfile'
 
 
@@ -45,13 +46,14 @@ export const Navbar: React.FC = () => {
           </div>
         </Link>
         <Link to={'/Friends'} className='navbar-link'>
-          <span className='navbar-items'>
+          <span className='nav-friends'>
+            <FriendsNotificationBubble />
             <FontAwesomeIcon icon={faUserGroup}className='navbar-icon'/>
             <label>Friends</label>
           </span>
         </Link>
         <Link to={'/MessageInbox'} className='navbar-link'>
-          <span className='navbar-items'>
+          <span className='nav-inbox'>
             <FontAwesomeIcon icon={faEnvelope} className='navbar-icon'/>
             <label>Inbox</label>
           </span>

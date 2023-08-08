@@ -60,14 +60,40 @@ module.exports = {
   },
 
   getFriendsList: async (req, res) => {
-    const db = req.app.get('db')
     const {user_id} = req.session.user
+    const db = req.app.get('db')
     try {
       let friendsList = await db.friends.get_friends_list({user_id})
       res.status(200).send(friendsList)
     } catch(err) {
       res.status(500).send(err)
     }
-  } 
+  },
+  
+  getFriendNotifications: async (req, res) => {
+    console.log('hitting backend')
+    const {user_id} = req.session.user
+    console.log(user_id)
+    const db = req.app.get('db')
+    try {
+      let notifications = await db.friends.friend_notifications({user_id})
+      const count = notifications[0].count
+      res.status(200).send(count)
+      console.log('look here ==>', notifications)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  updateFriendNotifications: async (req, res) => {
+    const {user_id} = req.session.user
+    const db = req.app.get('db')
+    try {
+      await db.friends.update_friend_notifications({user_id})
+      res.sendStatus(200)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  }
 
 }

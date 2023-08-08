@@ -40,8 +40,9 @@
 }
 .Navbar nav .navbar-link {
   text-decoration: none;
+  display: hidden;
 }
-.Navbar nav .navbar-items {
+.Navbar nav .nav-friends, .Navbar nav .nav-inbox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,13 +50,20 @@
   font-size: 0.8em;
   color: #ed1dc0;
 }
-.Navbar nav .navbar-items .navbar-icon {
+.Navbar nav .nav-friends .navbar-icon, .Navbar nav .nav-inbox .navbar-icon {
   font-size: 1.4em;
 }
-.Navbar nav .navbar-items label {
+.Navbar nav .nav-friends label, .Navbar nav .nav-inbox label {
   font-size: 1em;
   font-weight: 600;
   color: #fff;
+}
+.Navbar nav .nav-friends {
+  position: relative;
+}
+.Navbar nav .navbar-items:nth-child(2) {
+  border: 1px solid red;
+  position: relative;
 }
 .Navbar nav .navbar-messenger {
   display: flex;

@@ -40,8 +40,9 @@
     }
     .navbar-link {
       text-decoration: none;
+      display: hidden;
     }
-    .navbar-items {
+    .nav-friends, .nav-inbox {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -56,6 +57,13 @@
         font-weight: 600;
         color: #fff;
       }
+    }
+    .nav-friends {
+      position: relative;
+    }
+    .navbar-items:nth-child(2) {
+      border: 1px solid red;
+      position: relative;
     }
     .navbar-messenger {
       display: flex;
