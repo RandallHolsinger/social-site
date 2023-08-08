@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import './FriendsNotificationBubble.scss'
 
-function FriendsNotificationBubble(props) {
+
+export const FriendsNotificationBubble: React.FC = () => {
   
   const [friendNotifications, setFriendNotifications] = useState(0)
-
-  const location = useLocation()
 
   const getFriendNotifications = async () => {
     try {
