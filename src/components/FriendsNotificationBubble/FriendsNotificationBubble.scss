@@ -1,6 +1,6 @@
 @import '../../sass/variables', '../../sass/mixins';
 
-.bubble {
+.friend-notification-bubble {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
 
 /* Media query for medium devices (e.g., tablets) */
 @media only screen and (min-width: 768px) {
-  .bubble {
+  .friend-notification-bubble {
     top: 3px;
     right: -8px;
   }

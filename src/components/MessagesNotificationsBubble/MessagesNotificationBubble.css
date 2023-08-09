@@ -1,4 +1,4 @@
-.friend-notification-bubble {
+.message-notification-bubble {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@
 /* Media query for small devices (e.g., phones) */
 /* Media query for medium devices (e.g., tablets) */
 @media only screen and (min-width: 768px) {
-  .friend-notification-bubble {
+  .message-notification-bubble {
     top: 3px;
     right: -8px;
   }
@@ -32,4 +32,4 @@
   /* Styles for extra-large devices */
 }
 
-/*# sourceMappingURL=FriendsNotificationBubble.css.map */
+/*# sourceMappingURL=MessagesNotificationBubble.css.map */

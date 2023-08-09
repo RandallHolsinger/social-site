@@ -47,6 +47,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   font-size: 0.8em;
   color: #ed1dc0;
 }
@@ -57,9 +58,6 @@
   font-size: 1em;
   font-weight: 600;
   color: #fff;
-}
-.Navbar nav .nav-friends {
-  position: relative;
 }
 .Navbar nav .navbar-items:nth-child(2) {
   border: 1px solid red;

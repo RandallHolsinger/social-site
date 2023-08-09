@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import './MessagesNotificationBubble.scss'
 import axios from 'axios'
 
 export const MessageNotificationsBubble: React.FC = () => {
@@ -20,9 +21,13 @@ export const MessageNotificationsBubble: React.FC = () => {
 
   return (
     <>
-     <span className='bubble'>
-       {MessageNotifications}
-     </span>
+      {MessageNotifications ?
+        <span className='message-notification-bubble'>
+          {MessageNotifications}
+        </span>
+      :
+        null
+      }
     </>
   )
 }

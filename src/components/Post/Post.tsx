@@ -23,8 +23,6 @@ export const Post: React.FC<PostProps> = (props) => {
 
   const { value, getPosts } = props
   
-  console.log('value here ==>', value)
-
   const [showComments, setShowComments] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
   const [liked, setLiked] = useState(false || value.liked)

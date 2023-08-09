@@ -23,8 +23,7 @@ export const FriendsNotificationBubble: React.FC = () => {
   return (
     <>
       {friendNotifications ? 
-        
-        <span className='bubble'>
+        <span className='friend-notification-bubble'>
           {friendNotifications}
         </span>
       :

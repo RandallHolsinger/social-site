@@ -29,23 +29,33 @@ export const Messages: React.FC = () => {
   const [showReplyMessage, setShowReplyMessage] = useState(false)
   
   const { conversation_id } = useParams()
+  const { friend_uid } = useParams()
+
+  const updateMessageNotifications = async () => {
+    console.log('hitting front function')
+    try {
+      axios.put(`/api/messages/notifications/update/${friend_uid}`)
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   const getMessages = async () => {
     try {
       let res = await axios.get(`/api/messages/${conversation_id}`)
       setMessages(res.data)
+      updateMessageNotifications()
     } catch(err) {
       console.log(err)
     }
   }
-  console.log('messages here =>', messages)
 
   const sendMessageReply = async () => {
     try {
       if(messages[0]){
       let subject = messages[0].subject
       console.log('subject being sent =>', subject)
-      await axios.post('/api/message/reply/send', {conversation_id, message, subject})
+      await axios.post('/api/message/reply/send', {conversation_id, friend_uid, message, subject})
       getMessages()
       setShowReplyMessage(false)
       }
@@ -53,6 +63,7 @@ export const Messages: React.FC = () => {
       console.log(err)
     }
   }
+  
 
   useEffect(() => {
     getMessages()

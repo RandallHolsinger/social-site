@@ -1,27 +1,28 @@
 @import '../../sass/mixins', '../../sass/variables';
 
 .MessageInboxItem {
- margin: 10px 5px 10px 5px;
- padding: 5px;
  @include component-color;
  @include border-radius;
  @include box-shadow;
  box-sizing: border-box;
+ margin: 10px 5px 10px 5px;
+ padding: 10px;
  color: #fff;
  .messages-link {
    text-decoration: none;
  }
  article {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  box-sizing: border-box;
+  justify-content: space-around;
   .inbox-profile-img {
     border: 1px solid $util-color;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
     border-radius: 100%;
     object-fit: contain;
     .inbox-default-user-img {
@@ -32,24 +33,54 @@
   .inbox-content {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 100%;
     padding: 3px;
     color: #FFF;
     .inbox-friend-name {
-      color: $util-color;
+      display: inline-block;
+      font-size: 1em;
+    }
+    .inbox-last-subject {
+      font-size: 1em;
     }
     .inbox-datetime {
       display: flex;
-      flex-direction: column;
+      font-size: .7em;
+      .inbox-date {
+        margin-right: 10px;
+      }
     }
   }
-  .message-delete-button {
-    padding: 5px;
-    border: 1px solid $util-color;
-    border-radius: 3px;
-    background-color: $dark;
-    font-size: 1em;
-    color: #fff;
+  .inbox-options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: right;
+    .message-delete-button {
+      padding: 5px;
+      border: 1px solid $util-color;
+      border-radius: 3px;
+      background-color: $dark;
+      font-size: 1em;
+      color: #fff;
+    }
+    .new-message-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      .new-message-bubble {
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        background-color: red;
+        margin-right: 5px;
+      }
+      .new-message-tag {
+        display: flex;
+        font-size: .8em;
+        font-weight: 500;
+      }
+    }
   }
 }
 }

@@ -9,6 +9,7 @@ import Logout from '../Logout/Logout'
 import GlobalMessenger from '../GlobalMessenger/GlobalMessenger'
 import Image from '../Image/Image'
 import FriendsNotificationBubble from '../FriendsNotificationBubble/FriendsNotificationBubble'
+import MessageNotificationsBubble from '../MessagesNotificationsBubble/MessagesNotificationBubble'
 import { IUser as IProps } from '../PersonalProfile/PersonalProfile'
 
 
@@ -54,6 +55,7 @@ export const Navbar: React.FC = () => {
         </Link>
         <Link to={'/MessageInbox'} className='navbar-link'>
           <span className='nav-inbox'>
+            <MessageNotificationsBubble />
             <FontAwesomeIcon icon={faEnvelope} className='navbar-icon'/>
             <label>Inbox</label>
           </span>

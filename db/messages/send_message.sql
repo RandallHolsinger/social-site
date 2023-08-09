@@ -8,6 +8,6 @@ new_inbox AS (
     VALUES(${id_sender}, (select conversation_id from new_conversation), ${id_receiver}, ${id_sender}, ${subject}, ${message}, now()),
           (${id_receiver}, (select conversation_id from new_conversation), ${id_sender}, ${id_sender}, ${subject}, ${message}, now())
 )
-INSERT INTO messages(id_sender, conversation_id, subject, message, date)
-VALUES(${id_sender}, (select conversation_id from new_conversation), ${subject}, ${message}, now());
+INSERT INTO messages(id_sender, id_receiver, conversation_id, subject, message, date)
+VALUES(${id_sender}, ${id_receiver}, (select conversation_id from new_conversation), ${subject}, ${message}, now());
 

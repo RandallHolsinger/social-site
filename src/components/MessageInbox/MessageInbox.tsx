@@ -17,6 +17,7 @@ export interface IMessageInbox {
   last_sent_id: number
   last_subject: string,
   last_message: string,
+  seen?:  boolean, 
   date: string,
   user_id: number,
   first_name: string,

@@ -35,11 +35,11 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
             <FontAwesomeIcon icon={faUser} className='inbox-default-user-img'/>
           }
         </div>
-        <Link to={`/Messages/${value.conversation_id}`}  className='messages-link'>
+        <Link to={`/Messages/${value.conversation_id}/${value.friend_uid}`}  className='messages-link'>
         <div className="inbox-content">
           <h3 className='inbox-friend-name'>{value.first_name}{' '}{value.last_name}</h3>
-          <h4 className='inbox-last-subject'>Subject: {value.last_subject}</h4>
-          <h4 className='inbox-last-message'>{value.last_message.slice(0, 20) + '...'}</h4>
+          <h4 className='inbox-last-subject'>{value.last_subject}</h4>
+          <p className='inbox-last-message'>{value.last_message.slice(0, 20) + '...'}</p>
           <div className="inbox-datetime">
             <span className="inbox-date">
               <FormatedDate date={value.date} />
@@ -50,7 +50,17 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
           </div>
         </div>
         </Link>
-        <button onClick={() => deleteInboxitem(value.inbox_id)} className='message-delete-button'>Delete</button>
+        <div className='inbox-options-container'>
+          {!value.seen ?
+            <div className="new-message-container">
+              <span className='new-message-bubble'></span>
+              <span className='new-message-tag'>New Message</span>
+            </div>
+          :
+            null
+          }
+          <button onClick={() => deleteInboxitem(value.inbox_id)} className='message-delete-button'>Delete</button>
+        </div>
       </article>
     </div>
   )

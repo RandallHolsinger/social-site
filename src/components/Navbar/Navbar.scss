@@ -47,6 +47,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
       font-size: .8em;
       color: $util-color;
       .navbar-icon {
@@ -57,9 +58,6 @@
         font-weight: 600;
         color: #fff;
       }
-    }
-    .nav-friends {
-      position: relative;
     }
     .navbar-items:nth-child(2) {
       border: 1px solid red;

@@ -20,6 +20,6 @@ export default (
     <Route path='/Profile/View/:user_id' element={<ProfileView />} />
     <Route path="/Friends" element={<Friends />} />
     <Route path="/MessageInbox" element={<MessageInbox />} />
-    <Route path="/Messages/:conversation_id" element={<Messages />} />
+    <Route path="/Messages/:conversation_id/:friend_uid" element={<Messages />} exact/>
   </Routes>
 )

@@ -3,9 +3,20 @@ module.exports = {
     const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
-      let notifications = db.messages.get_message_notifications({user_id})
+      let notifications = await db.messages.get_message_notifications({user_id})
       let count = notifications[0].count
       res.status(200).send(count)
+    } catch(err) {
+      res.status(500).send(err)
+    }
+  },
+
+  updateMessageNotifications: async (req, res) => {
+    const {user_id} = req.session.user
+    const {friend_uid} = req.params
+    try {
+      db.messages.update_message_notifications({user_id, friend_uid})
+      res.sendStatus(500)
     } catch(err) {
       res.status(500).send(err)
     }
@@ -24,9 +35,10 @@ module.exports = {
 
   deleteInboxItem: async (req, res) => {
     const {inbox_id} = req.params
+    const {user_id} = req.session.user
     const db = req.app.get('db')
     try {
-      db.messages.delete_inbox_item({inbox_id})
+      db.messages.delete_inbox_item({inbox_id, user_id})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
@@ -48,10 +60,12 @@ module.exports = {
 
   messageReply: async (req, res) => {
     const id_sender = req.session.user.user_id
-    const {inbox_id, conversation_id, message, subject} = req.body
+    const {inbox_id, conversation_id, friend_uid, message, subject} = req.body
+    const id_receiver = friend_uid
+    console.log('id receiver on backend =>', id_receiver)
     const db = req.app.get('db')
     try {
-      db.messages.send_message_reply({id_sender, inbox_id, conversation_id, message, subject})
+      db.messages.send_message_reply({id_sender, id_receiver, inbox_id, conversation_id, message, subject})
       res.sendStatus(200)
     } catch(err) {
       res.status(500).send(err)
