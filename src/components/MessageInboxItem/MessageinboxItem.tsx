@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './MessageInboxItem.scss'
 import axios from 'axios'
 import FormatedDate from '../FormatedDate/FormatedDate'
@@ -24,10 +24,6 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
       console.log(err)
     }
   }
-
-  useEffect(() => {
-    console.log('value of inbox item props ==>', value)
-  }, [])
 
   return(
     <div className="MessageInboxItem">
