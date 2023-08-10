@@ -34,7 +34,7 @@ export const Messages: React.FC = () => {
   const updateMessageNotifications = async () => {
     console.log('hitting front function')
     try {
-      axios.put(`/api/messages/notifications/update/${friend_uid}`)
+      axios.put(`/api/messages/notifications/update/${conversation_id}`)
     } catch(err) {
       console.log(err)
     }

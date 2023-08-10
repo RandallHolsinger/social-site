@@ -1,3 +1,6 @@
 UPDATE messages
   SET seen = true
-WHERE id_sender = ${friend_uid} AND id_receiver = ${user_id} ;
+WHERE conversation_id = ${conversation_id} AND id_receiver = ${user_id} AND seen IS NOT NULL;
+UPDATE inbox
+  SET seen = true
+WHERE owner_id = ${user_id} AND conversation_id = ${conversation_id};

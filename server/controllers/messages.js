@@ -13,9 +13,10 @@ module.exports = {
 
   updateMessageNotifications: async (req, res) => {
     const {user_id} = req.session.user
-    const {friend_uid} = req.params
+    const {conversation_id} = req.params
+    const db = req.app.get('db')
     try {
-      db.messages.update_message_notifications({user_id, friend_uid})
+      db.messages.update_message_notifications({user_id, conversation_id})
       res.sendStatus(500)
     } catch(err) {
       res.status(500).send(err)

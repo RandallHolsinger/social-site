@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './MessageInboxItem.scss'
 import axios from 'axios'
 import FormatedDate from '../FormatedDate/FormatedDate'
@@ -24,6 +24,10 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    console.log('value of inbox item props ==>', value)
+  }, [])
 
   return(
     <div className="MessageInboxItem">
@@ -51,7 +55,7 @@ export const MessageInboxItem: React.FC<MessageInboxItemProps> = (props) => {
         </div>
         </Link>
         <div className='inbox-options-container'>
-          {!value.seen ?
+          {!value.seen && value.last_sent_id !== value.owner_id ?
             <div className="new-message-container">
               <span className='new-message-bubble'></span>
               <span className='new-message-tag'>New Message</span>

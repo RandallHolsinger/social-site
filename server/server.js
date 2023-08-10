@@ -185,7 +185,7 @@ app.put('/api/friends/notifications/update', ctrlFriends.updateFriendNotificatio
 app.get('/api/message/notifications', ctrlMessages.getMessageNotifications)
 
 // Update Message Notifications
-app.put('/api/messages/notifications/update/:friend_uid', ctrlMessages.updateMessageNotifications)
+app.put('/api/messages/notifications/update/:conversation_id', ctrlMessages.updateMessageNotifications)
 
 // Get Messaging Inbox
 app.get('/api/message/inbox', ctrlMessages.getInbox)
