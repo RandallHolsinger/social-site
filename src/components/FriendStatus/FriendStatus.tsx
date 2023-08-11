@@ -9,7 +9,8 @@ import FriendAccept from '../FriendAccept/FriendAccept'
 import FriendDelete from '../FriendDelete/FriendDelete'
 
 interface FriendStatusProps {
-  user_id: number
+  user_id: number,
+  getFriends: () => Promise<void>
 }
 
 interface IFriendStatus {
@@ -25,7 +26,7 @@ export const FriendStatus: React.FC<FriendStatusProps> = (props) => {
   
   const currentUserId =  useAppSelector(state => state.user.userId)
   
-  const { user_id } = props
+  const { user_id, getFriends } = props
 
   const getFriendStatus = async (user_id: number) => {
     try {
@@ -46,7 +47,7 @@ export const FriendStatus: React.FC<FriendStatusProps> = (props) => {
           </span>
         )
       } else if(friendStatus.target_id === currentUserId && friendStatus.friend_status !== 'friend') {
-        return <FriendAccept user_id={user_id} friend_id={friendStatus.friend_id} />
+        return <FriendAccept user_id={user_id} friend_id={friendStatus.friend_id} getFriends={getFriends} />
       } 
       else if(friendStatus.friend_status === 'friend') {
         return(
@@ -55,7 +56,7 @@ export const FriendStatus: React.FC<FriendStatusProps> = (props) => {
               <FontAwesomeIcon icon={faUserGroup} className='friend-tag-icon'/>
               Friends
             </span>
-            <FriendDelete friend_id={friendStatus.friend_id}/>
+            <FriendDelete friend_id={friendStatus.friend_id} getFriends={getFriends}/>
           </div>
         )
       } 

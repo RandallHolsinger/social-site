@@ -21,12 +21,13 @@ interface ProfileCardProps {
     target_id?: number,
     friend_status?: string,
     date?: string
-  }
+  },
+  getFriends?: () => Promise<any> 
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
   
-  const { value } = props
+  const { value, getFriends } = props
 
   return(
     <figure className='Profile'>
@@ -52,7 +53,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
           {value.occupation}
         </span>
       </figcaption>
-        <FriendStatus user_id={value.user_id} />
+        {getFriends &&
+          <FriendStatus user_id={value.user_id} getFriends={getFriends} />
+         }
     </figure>
   )
 }

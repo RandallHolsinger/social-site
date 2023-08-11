@@ -14,7 +14,7 @@ export interface IProfile {
   first_name: string,
   last_name: string,
   occupation?: string,
-  profile_img?: string
+  profile_img?: string,
 }
 
 export const ProfileCards: React.FC = () => {
@@ -41,7 +41,7 @@ export const ProfileCards: React.FC = () => {
   let mappedProfiles = profiles.map(profile => {
     return (
       profile.user_id !== userId ?
-        <ProfileCard key={profile.user_id} value={profile} />
+        <ProfileCard key={profile.user_id} value={profile}  />
       :
         null
     )

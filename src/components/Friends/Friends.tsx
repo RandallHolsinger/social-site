@@ -50,7 +50,7 @@ export const Friends: React.FC = () => {
 
   let mappedFriends = friends.map(friend => {
     return (
-      <ProfileCard key={friend.friend_id} value={friend} />
+      <ProfileCard key={friend.friend_id} value={friend} getFriends={getFriends} />
     )
   })
 

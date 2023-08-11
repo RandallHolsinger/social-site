@@ -3,18 +3,19 @@ import './FriendAccept.scss'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus, faX, faUserGroup } from '@fortawesome/free-solid-svg-icons'  
-import FriendDeleteButton from '../FriendDelete/FriendDelete'
+import FriendDelete from '../FriendDelete/FriendDelete'
 
 interface FriendAcceptProps {
   user_id: number,
-  friend_id: number
+  friend_id: number,
+  getFriends: () => Promise<void>
 }
 
 export const FriendAccept: React.FC<FriendAcceptProps> = (props) => {
 
   const [showIsFriend, setShowIsFriend] = useState(false)
 
-  const { user_id, friend_id } = props
+  const { user_id, friend_id, getFriends} = props
 
   const acceptFriendRequest = async () => {
     try {
@@ -33,7 +34,7 @@ export const FriendAccept: React.FC<FriendAcceptProps> = (props) => {
             <FontAwesomeIcon icon={faUserGroup} className='friend-tag-icon' />
             Friends
           </span>
-          <FriendDeleteButton friend_id={friend_id} />
+          <FriendDelete friend_id={friend_id} getFriends={getFriends}/>
         </div>
         
       :
