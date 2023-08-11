@@ -109,7 +109,12 @@
 @media only screen and (min-width: 768px) {
   .PostAdd {
     width: 60%;
-    margin: 200px auto 30px auto;
+  }
+  .home-position {
+    margin: 175px auto 30px auto;
+  }
+  .profile-position {
+    margin: 40px auto 20px auto;
   }
 }
 /* Media query for large devices (e.g., laptops and desktops) */
