@@ -186,28 +186,27 @@
           font-weight: 600;
         }
       }
-      .navbar-link {
-        .nav-friends, .nav-inbox {
-          .navbar-icon {
-            margin-right: 5px;
-          }
-          label {
-            font-size: 1.3em;
-          }
+      
+      .nav-friends, .nav-inbox {
+        .navbar-icon {
+          margin-right: 5px;
+        }
+        label {
+          font-size: 1.3em;
         }
       }
+
       .nav-friends, .nav-inbox {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        padding: 5px;
         .navbar-icon {
           font-size: 2em;
           margin-right: 5px;
         }
         label {
           font-size: 1.6em;
-          font-style: 600;
+          font-weight: 600;
         }
       }  
       .navbar-messenger {
@@ -220,7 +219,7 @@
         }
         label {
           font-size: 1.6em;
-          font-style: 600;
+          font-weight: 600;
         }
       }
       .nav-menu-icon {
@@ -270,29 +269,14 @@
           font-weight: 600;
         }
       }
-      .navbar-link {
-        .nav-friends, .nav-inbox {
-          .navbar-icon {
-            margin-right: 5px;
-          }
-          label {
-            font-size: 1.3em;
-          }
-        }
-      }
-      .navbar-items {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+      .nav-friends, .nav-inbox {
         .navbar-icon {
-          font-size: 2em;
           margin-right: 5px;
         }
         label {
           font-size: 1.6em;
-          font-style: 600;
         }
-      }  
+      }
       .navbar-messenger {
         display: flex;
         flex-direction: row;
@@ -304,7 +288,7 @@
         }
         label {
           font-size: 1.6em;
-          font-style: 600;
+          font-weight: 600;
         }
       }
       .nav-menu-icon {
