@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar'
 import PageTitle from '../PageTitle/PageTitle'
 import ProfileCard from '../ProfileCard/ProfileCard'
 import NoContentMessage from '../NoContentMessage/NoContentMessage'
+import Loader from '../Loader/Loader'
 
 export interface IFriend {
   user_id: number,
@@ -27,11 +28,13 @@ export interface IFriend {
 export const Friends: React.FC = () => {
 
   const [friends, setFriends] = useState<IFriend[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const getFriends = async () => {
     try {
       let res = await axios.get('/api/friends')
       setFriends(res.data)
+      setIsLoading(false)
     } catch(err) {
       console.log(err)
     }
@@ -51,22 +54,35 @@ export const Friends: React.FC = () => {
     )
   })
 
+  const renderFriends = () => {
+    if(isLoading) {
+      return(
+        <Loader />
+      )
+    } else {
+      if(friends[0]) {
+        return (
+          <div className="friends-container">
+            {mappedFriends}
+          </div>
+        )
+      } else {
+        <NoContentMessage subject={'No friends to show'} />
+      }
+    }
+  }
+
   useEffect(() => {
     getFriends()
     updateFriendNotifications()
+    setIsLoading(true)
   }, [])
 
   return (
     <div className="Friends">
       <Navbar />
       <PageTitle icon={<FontAwesomeIcon icon={faUserGroup} />} title={'Friends'} />
-      {friends[0] ?
-        <div className="friends-container">
-          {mappedFriends}
-        </div>
-      :
-        <NoContentMessage subject={'No friends to show'} />
-      }
+      {renderFriends()}
     </div>
   )
 }

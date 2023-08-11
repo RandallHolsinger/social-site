@@ -8,6 +8,7 @@ import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
 import PageTitle from '../PageTitle/PageTitle'
 import NoContentMessage from '../NoContentMessage/NoContentMessage'
+import Loader from '../Loader/Loader'
 
 export interface IMessageInbox {
   inbox_id: number,
@@ -29,11 +30,13 @@ export const MessageInbox: React.FC = () => {
 
   const [messageInbox, setMessageInbox] = useState<IMessageInbox[]>([])
   const [showCreateMessage, setShowCreateMessage] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const getMessageInbox = async () => {
     try {
       let res = await axios.get('/api/message/inbox')
       setMessageInbox(res.data)
+      setIsLoading(false)
     } catch(err) {
       console.log(err)
     }
@@ -41,6 +44,7 @@ export const MessageInbox: React.FC = () => {
   
   useEffect(() => {
     getMessageInbox()
+    setIsLoading(true)
   }, [])
   
   let mappedMessageInbox = messageInbox.map(inboxItem => {
@@ -48,6 +52,26 @@ export const MessageInbox: React.FC = () => {
       <MessageInboxItem key={inboxItem.inbox_id} value={inboxItem}/>
     )
   })
+
+  const renderInbox = () => {
+    if(isLoading) {
+      return(
+        <Loader />
+      )
+    } else {
+      if(messageInbox[0]) {
+        return(
+          <div className='message-inbox-container'>
+              {mappedMessageInbox}
+          </div>
+        )
+      } else {
+        return (
+          <NoContentMessage subject={'No Messages'} />
+        )
+      }
+    }
+  }
 
   return(
     <div className="MessageInbox">
@@ -60,13 +84,7 @@ export const MessageInbox: React.FC = () => {
         </button>
       </div>
       {showCreateMessage ? <MessageCreate  getMessageInbox={getMessageInbox} setShowCreateMessage={setShowCreateMessage} /> : null}
-        {messageInbox[0] ?
-          <div className='message-inbox-container'>
-              {mappedMessageInbox}
-          </div>
-          :
-            <NoContentMessage subject={'No Messages'} />
-        }  
+      {renderInbox()}
     </div>
   )
 }

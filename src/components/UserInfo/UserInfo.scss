@@ -10,9 +10,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 1px solid $util-color;
+      padding-bottom: 10px;
       .intro {
         display: flex;
         align-items: flex-start;
+        align-items: center;
         .intro-icon {
           color: $util-color;
           margin-right: 10px;
@@ -24,13 +27,12 @@
       }
       .edit-user-icon {
         color: $util-color;
-        font-size: 1.2em;
+        font-size: 1.3em;
       }
     }
     ul {
       display: flex;
       flex-direction: column;
-      margin: 10px;
     }
     .about-me-title {
       display: flex;

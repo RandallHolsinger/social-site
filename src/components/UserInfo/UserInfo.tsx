@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './UserInfo.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAddressCard, faBookOpen, faNewspaper, faUserPen, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap} from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faBookOpen, faUserPen, faCity, faCakeCandles, faSuitcase, faSchool, faGraduationCap} from '@fortawesome/free-solid-svg-icons'
 import { useAppSelector } from '../../redux/reduxHooks'
 import UserEditor from '../UserEditor/UserEditor'
 import UserInfoItem from '../UserInfoItem/UserInfoItem'
@@ -73,21 +73,15 @@ export const UserInfo:  React.FC<UserInfoProps> = (props) => {
             data={user.college} 
           />
         </ul>
-        <div className="about-me-title">
-          <span className='about-me-icon'><FontAwesomeIcon icon={faBookOpen} /></span>
-          <h3>About Me</h3>
-        </div>
+        {user.about_me ?
+          <div className="about-me-title">
+            <span className='about-me-icon'><FontAwesomeIcon icon={faBookOpen} /></span>
+            <h3>About Me</h3>
+          </div>
+        :
+          null
+        }
         <p className='about-me'>{user.about_me}</p>
-        <div className="my-posts-title">
-          <span className='my-posts-icon'>
-            <FontAwesomeIcon icon={faNewspaper} />
-          </span>
-          {user.user_id === mainUserId ?
-            <h2>My Posts</h2>
-          :
-            <h2>{user.first_name}'s Posts</h2>
-          }
-        </div>
       </section>
       {showUserEditor ?
         <UserEditor setShowUserEditor={setShowUserEditor} />

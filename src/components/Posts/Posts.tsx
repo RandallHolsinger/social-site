@@ -4,6 +4,7 @@ import './Posts.scss'
 import Post from '../Post/Post'
 import PostAdd from "../PostAdd/PostAdd";
 import NoContentMessage from "../NoContentMessage/NoContentMessage";
+import Loader from "../Loader/Loader";
 
 interface PostProps {
   user_id?: number | undefined,
@@ -31,15 +32,18 @@ export const Posts: React.FC<PostProps> = (props) => {
   const { user_id, style } = props
 
   const [posts, setPosts] = useState<IPost[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   
   const getAllPosts = async () => {
   try {
       if(user_id) {
         let res = await axios.get(`/api/posts/${user_id}`)
         setPosts(res.data)
+        setIsLoading(false)
       } else {
         let res = await axios.get('/api/posts')
         setPosts(res.data)
+        setIsLoading(false)
       }
     } catch(err) {
       console.log(err)
@@ -48,6 +52,7 @@ export const Posts: React.FC<PostProps> = (props) => {
 
   useEffect(() => {
     getAllPosts()
+    setIsLoading(true)
   }, [])
 
   let mappedPosts = posts.map(post => {
@@ -56,16 +61,30 @@ export const Posts: React.FC<PostProps> = (props) => {
     )
   })
 
+  const renderPost = () => {
+    if(isLoading) {
+      return (
+        <Loader />
+      )
+    } else {
+      if(posts[0]) {
+        return (
+          <div className="posts">
+            {mappedPosts}
+          </div>
+        ) 
+      } else {
+        return (
+          <NoContentMessage subject={'There are no posts to show'} />
+        )
+      }
+    }
+  }
+
   return(
     <div className={`Posts`}>
       <PostAdd getPosts={getAllPosts} style={style}/>
-      {posts[0] ?
-        <div className="posts">
-          {mappedPosts}
-        </div>
-      :
-        <NoContentMessage subject={'There are no posts to show'} />
-      }
+      {renderPost()}
     </div>
   )
 }

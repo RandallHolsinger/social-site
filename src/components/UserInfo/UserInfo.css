@@ -8,10 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #ed1dc0;
+  padding-bottom: 10px;
 }
 .UserInfo .user-info-container .user-info-header .intro {
   display: flex;
   align-items: flex-start;
+  align-items: center;
 }
 .UserInfo .user-info-container .user-info-header .intro .intro-icon {
   color: #ed1dc0;
@@ -23,12 +26,11 @@
 }
 .UserInfo .user-info-container .user-info-header .edit-user-icon {
   color: #ed1dc0;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 .UserInfo .user-info-container ul {
   display: flex;
   flex-direction: column;
-  margin: 10px;
 }
 .UserInfo .user-info-container .about-me-title {
   display: flex;
