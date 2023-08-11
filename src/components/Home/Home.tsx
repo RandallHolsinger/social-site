@@ -15,7 +15,7 @@ export const Home: React.FC = () => {
         icon={<FontAwesomeIcon icon={faHouseChimney} />} 
         title={'Home'}
       />
-      <Posts style={'home-posts-styles'}/>
+      <Posts pagePosition={'home-position'}/>
     </div>
   )
 }

@@ -46,7 +46,7 @@ export const PersonalProfile: React.FC = () => {
       <Navbar />
       <ProfileHeader user={user} getUserInfo={getUserInfo}/>
       <UserInfo user={user}/>
-      <Posts user_id={userId}/>
+      <Posts user_id={userId} pagePosition={'profile-position'} />
     </div>
   )
 }

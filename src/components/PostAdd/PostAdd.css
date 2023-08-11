@@ -4,9 +4,7 @@
   box-shadow: 3px 3px 3px #000;
   box-sizing: border-box;
   display: flex;
-  margin: 20px 5px 30px 5px;
   justify-content: center;
-  margin-top: 175px;
   padding: 30px;
 }
 .PostAdd .add-post-container {
@@ -98,8 +96,12 @@
   margin: 0px auto;
 }
 
-.post-add-user-info {
-  top: 120px;
+.home-position {
+  margin: 175px 5px 30px 5px;
+}
+
+.profile-position {
+  margin: 40px 5px 20px 5px;
 }
 
 /* Media query for small devices (e.g., phones) */

@@ -6,9 +6,7 @@
   @include box-shadow;
   box-sizing: border-box;
   display: flex;
-  margin: 20px 5px 30px 5px;
   justify-content: center;
-  margin-top: 175px;
   padding: 30px;
   .add-post-container {
     @include component-color;
@@ -102,10 +100,12 @@
     }
   }
 }
-.home-posts-styles {}
+.home-position {
+  margin: 175px 5px 30px 5px;
+}
 
-.post-add-user-info {
-  top: 120px;
+.profile-position {
+  margin: 40px 5px 20px 5px;
 }
 
 /* Media query for small devices (e.g., phones) */

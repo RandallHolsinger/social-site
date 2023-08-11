@@ -12,7 +12,7 @@ function PostAdd(props) {
   const [postData, setPostData] = useState({})
   const [showPostModal, setShowPostModal] = useState(false)
 
-  const {getPosts, style} = props
+  const {getPosts, pagePosition} = props
 
   const addPost = async () => {
     try {
@@ -30,7 +30,7 @@ function PostAdd(props) {
   
 
   return(
-    <div className={`PostAdd ${style}`}>
+    <div className={`PostAdd ${pagePosition}`}>
       {showPostModal ?
         <div className="add-post-container">
           <header>

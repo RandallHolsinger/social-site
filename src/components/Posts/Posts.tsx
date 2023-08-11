@@ -8,7 +8,8 @@ import Loader from "../Loader/Loader";
 
 interface PostProps {
   user_id?: number | undefined,
-  style?: string
+  pagePosition?: string;
+
 }
 
 export interface IPost {
@@ -29,7 +30,7 @@ export interface IPost {
 
 export const Posts: React.FC<PostProps> = (props) => {
 
-  const { user_id, style } = props
+  const { user_id, pagePosition } = props
 
   const [posts, setPosts] = useState<IPost[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -83,7 +84,7 @@ export const Posts: React.FC<PostProps> = (props) => {
 
   return(
     <div className={`Posts`}>
-      <PostAdd getPosts={getAllPosts} style={style}/>
+      <PostAdd getPosts={getAllPosts} pagePosition={pagePosition} />
       {renderPost()}
     </div>
   )
