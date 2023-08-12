@@ -6,15 +6,6 @@
   padding: 10px;
   width: 100%;
 }
-.Comment .comment-user-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100%;
-  margin: 0px 0px 0px 15px;
-  width: 20%;
-  height: 60px;
-}
 .Comment .comment-user-image-default-container {
   display: flex;
   justify-content: center;
