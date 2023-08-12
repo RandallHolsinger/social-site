@@ -90,6 +90,7 @@ export const Messages: React.FC = () => {
           Reply
         </span>
       </div>
+      {mappedMessages}
       {showReplyMessage ? 
         <div className="message-reply-container">
           <div className="message-reply-header">
@@ -116,7 +117,6 @@ export const Messages: React.FC = () => {
       :
         null
       }
-      {mappedMessages}
     </div>
   )
 }

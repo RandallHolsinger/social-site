@@ -16,7 +16,7 @@
   padding: 20px;
   .message-create-header {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     .message-create-header-icon {
       color: $util-color;
       font-size: 2em;
@@ -27,8 +27,7 @@
     }
   }
   label {
-    color: $util-color;
-    font-size: 1.2em;
+    color: #fff;
     margin: 10px 0px 5px 0px;
   }
   .select-friend-input, .subject-input, .message-input {

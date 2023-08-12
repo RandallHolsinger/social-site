@@ -32,11 +32,7 @@
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   padding: 20px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
+  margin: 20px 5px 20px 5px;
 }
 .Messages .message-reply-container .message-reply-header {
   display: flex;
@@ -51,13 +47,11 @@
   color: #fff;
 }
 .Messages .message-reply-container textarea {
-  border: none;
-  caret-color: #ed1dc0;
-  padding: 5px;
   outline: 1px solid #ed1dc0;
   border: none;
   border-radius: 3px;
   margin: 10px 0px 10px 0px;
+  width: 100%;
 }
 .Messages .message-reply-container .message-reply-buttons {
   display: flex;
@@ -68,8 +62,8 @@
   padding: 5px;
   border: none;
   border-radius: 3px;
-  color: #000;
-  font-weight: 600;
+  color: #fff;
+  font-weight: 700;
 }
 .Messages .message-reply-container .message-reply-buttons .message-reply-send-button {
   background-color: #07c52a;
@@ -85,6 +79,29 @@
 }
 .Messages .message-reply-container .message-reply-buttons .message-reply-cancel-button .message-reply-cancel-icon {
   margin-right: 3px;
+}
+
+/* Media query for small devices (e.g., phones) */
+/* Media query for medium devices (e.g., tablets) */
+@media only screen and (min-width: 768px) {
+  .message-reply-container {
+    width: 60%;
+    margin: 20px auto !important;
+  }
+}
+/* Media query for large devices (e.g., laptops and desktops) */
+@media only screen and (min-width: 1024px) {
+  .message-reply-container {
+    width: 50%;
+    margin: 20px auto !important;
+  }
+}
+/* Media query for extra-large devices (e.g., large desktops and TVs) */
+@media only screen and (min-width: 1200px) {
+  .message-reply-container {
+    width: 40%;
+    margin: 20px auto !important;
+  }
 }
 
 /*# sourceMappingURL=Messages.css.map */

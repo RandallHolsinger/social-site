@@ -28,8 +28,10 @@ export const Message: React.FC<MessageProps> = (props) => {
           </div>
           <div className="message-details">
             <h3 className='message-sender-name'>{value.first_name}{' '}{value.last_name}</h3>
-            <h4><FormatedDate date={value.date}/></h4>
-            <h4><FormatedTime time={value.date}/></h4>
+            <div className="message-reply-datetime">
+              <span className='message-reply-date'><FormatedDate date={value.date}/></span>
+              <span className='message-reply-time'><FormatedTime time={value.date}/></span>
+            </div>
           </div>
         </header>
         <div className="message-content">

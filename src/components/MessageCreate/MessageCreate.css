@@ -15,7 +15,7 @@
 }
 .MessageCreate .message-create-header {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 .MessageCreate .message-create-header .message-create-header-icon {
   color: #ed1dc0;
@@ -26,8 +26,7 @@
   color: #fff;
 }
 .MessageCreate label {
-  color: #ed1dc0;
-  font-size: 1.2em;
+  color: #fff;
   margin: 10px 0px 5px 0px;
 }
 .MessageCreate .select-friend-input, .MessageCreate .subject-input, .MessageCreate .message-input {
