@@ -15,24 +15,27 @@
   margin-bottom: 10px;
 }
 .PostEditor .post-editor-header .post-editor-header-icon {
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: #ed1dc0;
   margin-right: 5px;
 }
 .PostEditor .post-editor-header h3 {
   color: #fff;
+  font-size: 1.3em;
 }
-.PostEditor label {
-  color: #ed1dc0;
+.PostEditor .edit-inputs-container label {
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 5px;
 }
-.PostEditor textarea {
+.PostEditor .edit-inputs-container textarea {
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   padding: 5px;
   border: none;
   width: 100%;
 }
-.PostEditor textarea:focus {
+.PostEditor .edit-inputs-container textarea:focus {
   outline: 1px solid #ed1dc0;
   border: none;
 }
@@ -40,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .PostEditor .post-edit-buttons .post-edit-save-button {
   border-radius: 5px;

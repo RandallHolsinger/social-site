@@ -15,32 +15,37 @@
     display: flex;
     margin-bottom: 10px;
     .post-editor-header-icon {
-      font-size: 1.3em;
+      font-size: 1.5em;
       color: $util-color;
       margin-right: 5px;
     }
     h3 {
       color: #fff;
+      font-size: 1.3em;
     }
   }
-  label {
-    color: $util-color;
-  }
-  textarea {
-    @include border-radius;
-    @include box-shadow;
-    padding: 5px;
-    border: none;
-    width: 100%;
-  }
-  textarea:focus {
-    @include input-focus;
+  .edit-inputs-container {
+    label {
+      display: inline-block;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    textarea {
+      @include border-radius;
+      @include box-shadow;
+      padding: 5px;
+      border: none;
+      width: 100%;
+    }
+    textarea:focus {
+      @include input-focus;
+    }
   }
   .post-edit-buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
     .post-edit-save-button {
       @include border-radius;
       @include box-shadow;

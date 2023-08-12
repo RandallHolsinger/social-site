@@ -34,31 +34,29 @@ function PostEditor(props) {
         <FontAwesomeIcon icon={faPenToSquare} className='post-editor-header-icon' />
         <h3>Edit Post</h3>
       </div>
-      <label htmlFor="post-title-editor">
-        Edit your title:
-      </label>
-      <textarea 
-        onChange={(e) => setEditPostTitleInput(e.target.value)}
-        onDoubleClick={(e) => e.target.select}
-        defaultValue={post.post}
-        name="post-title-editor" 
-        autoFocus='true'
-        spellCheck='true'
-        cols='50'
-        rows='2'
-      />
-      <label htmlFor="post-content-editor">
-        Edit your content:
-      </label>
-      <textarea 
-        onChange={(e) => setEditPostInput(e.target.value)} 
-        onDoubleClick={(e) => e.target.select()}
-        defaultValue={post.post}
-        name="post-content-editor" 
-        spellCheck='true'
-        cols='50'
-        rows='6'
-      />
+      <div className="edit-inputs-container">
+        <label>
+          Edit your title
+        </label>
+        <textarea 
+          onChange={(e) => setEditPostTitleInput(e.target.value)}
+          defaultValue={post.title}
+          autoFocus='true'
+          spellCheck='true'
+          cols='50'
+          rows='2'
+        />
+        <label>
+          Edit your content
+        </label>
+        <textarea 
+          onChange={(e) => setEditPostInput(e.target.value)} 
+          defaultValue={post.post}
+          spellCheck='true'
+          cols='50'
+          rows='6'
+        />
+      </div>
       <ImageUploader setUpdatedPostData={setUpdatedPostData} type={'update_post'} />
       <div className="post-edit-buttons">
         <button onClick={() => editPost()} className='post-edit-save-button'>

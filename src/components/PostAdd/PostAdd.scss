@@ -30,19 +30,20 @@
         font-size: 1.3em;
       }
     }
-    label {
-      color: #fff;
-      margin-bottom: 5px;
-    }
-    .text-area-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .title-area{
-        margin-bottom: 10px;
+    .edit-inputs-container {
+      border: 1px solid red;
+      label {
+        color: #fff;
+        margin-bottom: 5px;
       }
-      .post-area {
-  
+      .text-area-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .title-area{
+          margin-bottom: 10px;
+        }
+        .post-area {}
       }
     }
     .post-buttons-container {
