@@ -22,19 +22,19 @@ export const Navbar: React.FC = () => {
   const userId = useAppSelector(state => state.user.userId)
 
   const getUserInfo = async () => {
-    if(userId) {
       try {
         let res = await axios.get(`/api/user/${userId}`)
         setUser(res.data[0])
       } catch(err) {
         console.log(err)
       }
-    }
   }
 
   useEffect(() => {
-    getUserInfo()
-  }, [])
+    if(userId != 0) {
+      getUserInfo()
+    }
+  }, [userId])
   
   return(
     <div className='Navbar'>
