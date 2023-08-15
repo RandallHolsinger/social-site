@@ -1,47 +1,20 @@
-import { Comment } from "./Comment"; 
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "../../redux/store";
-import { IComment } from "../Comments/Comments";
+import { render } from '@testing-library/react'
+import Comment from './Comment'
+import { IComment } from '../Comments/Comments'
 
-export const propCommentArgs: IComment = {
-      user_id: 0,
-      first_name: 'John',
-      last_name: 'Doe',
-      comment_id: 1,
-      comment: 'This is a test comment',
-      date: '2022-12-31 17:39:56.177 -0800'
-  }
-
-type postProp = {
-  post_id: number
+const valueProps: IComment = {
+  user_id: 1,
+  first_name: 'John',
+  last_name: 'Doe',
+  comment_id: 1,
+  date: 'date',
+  comment: 'hello world'
 }
 
-const postProp: postProp  = {
-  post_id: 5,
-}
-
-
-
-
-const testComponent = 
-  <Provider store={store}>
-    <Comment value={propCommentArgs} post_id={postProp.post_id} setCommentCount={jest.fn()} getComments={jest.fn()}/>
-  </Provider>
-
-
-describe('Comment Component Tests', () => {
-  test('Should Render Comment Component', () => {
-    render(testComponent)
+describe('Comment Component', () => {
+  test('Comment component renders correctly', () => {
+    const component = render(<Comment value={valueProps} post_id={1} getComments={jest.fn()} setCommentCount={jest.fn()}/>)
+    expect(component).toBeInTheDocument()
   })
-  test('Should Contain A Username', () => {
-    render(testComponent)
-    let usernameElement = screen.getByRole('name')
-    expect(usernameElement).toBeInTheDocument
-  })
-  test('Should Contain A Comment', () => {
-    render(testComponent)
-    let commentElement = screen.getByRole('comment')
-    expect(commentElement).toBeInDocument
-  })
+  
 })

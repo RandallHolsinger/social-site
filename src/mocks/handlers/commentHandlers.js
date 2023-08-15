@@ -1,4 +1,3 @@
-import { error } from "console";
 import { rest } from "msw";
 
 export const commentHandlers = [
@@ -6,7 +5,7 @@ export const commentHandlers = [
   // Adds Comment
   rest.post('/api/comment/add/:post_id', (req, res, ctx) => {
     const {post_id} = req.params
-    const { comment }  = req.json()
+    const comment = req.body
     if (post_id === 1 && comment) {
       return res (
         ctx.status(200),
