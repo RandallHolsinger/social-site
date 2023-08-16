@@ -64,7 +64,7 @@ export const Comment: React.FC<commentProps> = (props) => {
       </article>
       {value.user_id === userId ?
         <div className="comment-options-container">
-          <span onClick={() => setShowOptions(!showOptions)} className='comment-options-icon' role='button'>
+          <span onClick={() => setShowOptions(!showOptions)} className='comment-options-icon'>
             <FontAwesomeIcon icon={faEllipsis} />
           </span>
           {showOptions ? 
