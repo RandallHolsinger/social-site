@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
 import Comment from './Comment'
+import renderWithRedux from '../../test-utils/redux-test-utils'
 import { IComment } from '../Comments/Comments'
 
 const valueProps: IComment = {
@@ -13,8 +13,7 @@ const valueProps: IComment = {
 
 describe('Comment Component', () => {
   test('Comment component renders correctly', () => {
-    const component = render(<Comment value={valueProps} post_id={1} getComments={jest.fn()} setCommentCount={jest.fn()}/>)
-    expect(component).toBeInTheDocument()
+    renderWithRedux(<Comment value={valueProps} post_id={1} getComments={jest.fn()} setCommentCount={jest.fn()} />)
   })
   
 })

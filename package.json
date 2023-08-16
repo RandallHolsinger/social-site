@@ -50,8 +50,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "coverage": "npm test --coverage --watchAll --collectCoverageFrom='src/components/**/*.{js,ts,tsx}'  --collectCoverageFrom='!src/components/**/*.{types,test}.{js,ts,tsx}'"
   },
   "eslintConfig": {
     "extends": [
