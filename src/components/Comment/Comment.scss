@@ -7,7 +7,7 @@
   box-sizing: border-box;
   padding: 10px;
   width: 100%;
-  .comment-user-image-default-container {
+  .comment-user-image-default-container, .comment-user-image-container {
     display: flex;
     justify-content: center;
     align-items: center;

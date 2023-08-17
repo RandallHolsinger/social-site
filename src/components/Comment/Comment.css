@@ -6,7 +6,7 @@
   padding: 10px;
   width: 100%;
 }
-.Comment .comment-user-image-default-container {
+.Comment .comment-user-image-default-container, .Comment .comment-user-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@
   width: 60px;
   height: 60px;
 }
-.Comment .comment-user-image-default-container .comment-user-icon {
+.Comment .comment-user-image-default-container .comment-user-icon, .Comment .comment-user-image-container .comment-user-icon {
   font-size: 2em;
 }
 .Comment article {
