@@ -3,16 +3,17 @@ import { screen } from '@testing-library/react'
 import renderWithRedux from '../../test-utils/redux-test-utils'
 import { IComment } from '../Comments/Comments'
 
-const valueProps: IComment = {
+export const valueProps: IComment = {
   user_id: 1,
   first_name: 'John',
   last_name: 'Doe',
   comment_id: 1,
   date: 'date',
-  comment: 'hello world'
+  comment: 'hello world',
+  profile_img: 'an-image.jpg'
 }
 
-describe('Comment Component', () => {
+describe('Comment Component Tests', () => {
   // stores component in a variable for reuse
   const component = <Comment value={valueProps} post_id={1} getComments={jest.fn()} setCommentCount={jest.fn()} />
   test('Comment component renders correctly', () => {

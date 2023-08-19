@@ -5,13 +5,11 @@ export const commentHandlers = [
   // Adds Comment
   rest.post('/api/comment/add/:post_id', (req, res, ctx) => {
     const {post_id} = req.params
-    const comment = req.body
-    if (post_id === 1 && comment) {
+    if (post_id) {
       return res (
         ctx.status(200),
         ctx.json({
-          post_id,
-          comment
+          comment: 'Comment was added sucessfully'
         })
       )
     } else {
@@ -43,10 +41,12 @@ export const commentHandlers = [
     if(post_id === 1) {
       return res(
         ctx.status(200),
-        ctx.json({
-          comment_id: 1,
-          comment: 'I am a comment'
-        })
+        ctx.json([
+          {
+            comment_id: 1,
+            comment: 'I am a comment'
+          }
+        ])
       )
     } else {
       return res(
@@ -56,3 +56,4 @@ export const commentHandlers = [
     }
   })
 ]
+
