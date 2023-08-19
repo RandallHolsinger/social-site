@@ -3,7 +3,6 @@
 .PostAdd {
   @include component-color;
   @include border-radius;
-  @include box-shadow;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -11,11 +10,17 @@
   .add-post-container {
     @include component-color;
     @include border-radius;
-    box-shadow: 0px 0px 50px 20px #000;
-    position: fixed;
-    bottom: 20px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 10px;
+    z-index: 10000;
+    box-shadow: 0px 0px 100px 50px #000;
+    position: fixed;
+    padding: 20px;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     header {
       display: flex;
       align-items: flex-end;
@@ -30,22 +35,20 @@
         font-size: 1.3em;
       }
     }
-    .edit-inputs-container {
-      border: 1px solid red;
-      label {
-        color: #fff;
-        margin-bottom: 5px;
-      }
-      .text-area-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        .title-area{
-          margin-bottom: 10px;
-        }
-        .post-area {}
-      }
+    label {
+      color: #fff;
+      margin-bottom: 5px;
     }
+    .text-area-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title-area{
+        margin-bottom: 10px;
+      }
+      .post-area {}
+    }
+
     .post-buttons-container {
       display: flex;
       margin-top: 20px;
