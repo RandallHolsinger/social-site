@@ -8,12 +8,15 @@ export const commentHandlers = [
     if (post_id) {
       return res (
         ctx.status(200),
-        ctx.json({
+        ctx.json({data: [
+          {
+          post_id: 1,
           comment: 'Comment was added sucessfully'
-        })
+          }
+        ]})
       )
     } else {
-      return res(
+      return res (
         ctx.status(500),
         ctx.json({errorMessage: 'Could not add comment'})
       )
@@ -56,4 +59,3 @@ export const commentHandlers = [
     }
   })
 ]
-
