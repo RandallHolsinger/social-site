@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/slices/userSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faUser, faEnvelope, faKey} from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faUser, faEnvelope, faKey, faK} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import './Register.scss'
 import axios from 'axios'
@@ -13,21 +13,21 @@ function Register() {
   const [lastName, setLastName] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  const [confirmEmail, setConfirmEmail] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   
   //Check if input values are valid
   const [validFirstName, setValidFirstName] = useState(false)
   const [validLastName, setValidLastName] = useState(false)
   const [validEmail, setValidEmail] = useState(false)
-  const [validConfirmEmail, setValidComfirmEmail] = useState(false)
+  const [validConfirmPassword, setValidConfirmPassword] = useState(false)
   const [validPassword, setValidPassword] = useState(false)
 
   //Changes style based off input values
   const [firstNameStatus, setFirstNameStatus] = useState('')
   const [lastNameStatus, setLastNameStatus] = useState('')
   const [passwordStatus, setPasswordStatus] = useState('')
+  const [confirmPasswordStatus, setConfirmPasswordStatus] = useState('')
   const [emailStatus, setEmailStatus] = useState('')
-  const [confirmEmailStatus, setConfirmEmailStatus] = useState('')
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -37,7 +37,7 @@ function Register() {
     setLastName('')
     setPassword('')
     setEmail('')
-    setConfirmEmail('')
+    setConfirmPassword('')
   }
 
   const checkFirstName = () => {
@@ -88,21 +88,21 @@ function Register() {
     }
   }
 
-  const checkConfirmedEmail = () => {
-    if(confirmEmail.length === 0) {
-      setConfirmEmailStatus('default')
-    } else if(confirmEmail === email) {
-      setValidComfirmEmail(true)
-      setConfirmEmailStatus('valid')
-    } else if (confirmEmail !== email) {
-      setValidComfirmEmail(false)
-      setConfirmEmailStatus('invalid')
+  const checkConfirmedPassword = () => {
+    if(confirmPassword.length === 0) {
+      setConfirmPasswordStatus('default')
+    } else if(confirmPassword === password) {
+      setValidConfirmPassword(true)
+      setConfirmPasswordStatus('valid')
+    } else if (confirmPassword !== password) {
+      setValidConfirmPassword(false)
+      setConfirmPasswordStatus('invalid')
     }
   }
 
   const registerUser = async (event) => {
     event.preventDefault()
-    let validForm = validFirstName && validLastName && validEmail && validConfirmEmail && validPassword 
+    let validForm = validFirstName && validLastName && validEmail && validConfirmPassword && validPassword 
     if(validForm) {
       try {
         let res = await axios.post('/auth/user/register', {firstName, lastName, email, password})
@@ -120,8 +120,8 @@ function Register() {
     checkLastName()
     checkPassword()
     checkEmail()
-    checkConfirmedEmail()
-  }, [firstName, lastName, password, email, confirmEmail])
+    checkConfirmedPassword()
+  }, [firstName, lastName, password, email, confirmPassword])
   
   return(
     <div className="Register">
@@ -168,6 +168,18 @@ function Register() {
          onChange={(e) => setPassword(e.target.value)}
         />
         <span className={passwordStatus}>{validPassword ? 'This is a valid Password' : 'Please enter a valid Password'}</span>
+        <label htmlFor="confirm-password">
+          <FontAwesomeIcon icon={faKey} className='label-icons' />
+          Confirm Password
+        </label>
+        <input 
+         type="password" 
+         placeholder='Confirm Email'
+         id="confirm-password"
+         value={confirmPassword}
+         onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <span className={confirmPasswordStatus}>{validConfirmPassword ? 'This is a match' : "Please Confirm Password"}</span>
         <label htmlFor="email">
           <FontAwesomeIcon icon={faEnvelope} className='label-icons' />
           Enter Email
@@ -180,19 +192,12 @@ function Register() {
          onChange={(e) => setEmail(e.target.value)}
         />
         <span className={emailStatus}>{validEmail ? 'This is a valid Email address' : 'Please enter a valid Email Address'}</span>
-        <label htmlFor="confirm-email">
-          <FontAwesomeIcon icon={faEnvelope} className='label-icons' />
-          Confirm Email
-        </label>
-        <input 
-         type="text" 
-         placeholder='Confirm Email'
-         id="confirm-email"
-         value={confirmEmail}
-         onChange={(e) => setConfirmEmail(e.target.value)}
-        />
-        <span className={confirmEmailStatus}>{validConfirmEmail ? 'This is a match' : "Please Confirm Email Address"}</span>
+        <div className="register-button">
+        <Link to={'/'} className='cancel-registration'>
+            Cancel
+        </Link>
         <button type='submit'>Register</button>
+        </div>
       </form>
     </div>
   )

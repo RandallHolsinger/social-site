@@ -19,14 +19,13 @@
 
 //Inputs / TextAreas
 @mixin input-style {
-  border: none;
+  border: 2px solid transparent;
   caret-color: $util-color;
   padding: 5px;
 }
 
 @mixin input-focus {
-  outline: 1px solid $util-color;
-  border: none;
+  outline: 2px solid $util-color;
 }
 
 @mixin letter-spacing {
@@ -41,17 +40,6 @@
   border-radius: 3px;
 }
 
-@mixin register-link {
-  display: flex;
-  border: none;
-  justify-content: center;
-  text-decoration: none;
-  background-color: $util-color-2;
-  padding: .2em;
-  font-size: 1.3em;
-  font-weight: 700;
-  color: #fff;
-}
 
 //Friends Tag Style
 

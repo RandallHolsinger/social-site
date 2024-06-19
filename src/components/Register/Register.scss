@@ -26,12 +26,16 @@
     @include box-shadow;
     @include border-radius;
     @include component-color;
-    padding: 1.2em;
+    padding: 40px;
     margin: 10px 5px;
     header {
       display: flex;
       align-items: center;
+      margin-bottom: 10px;
       .back-arrow {
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
         text-decoration: none;
         color: $util-color;
         font-size: 2em;
@@ -42,9 +46,11 @@
       }
     }
     label {
-      margin: 10px 0px 5px 0px;
+      display: flex;
+      justify-content: baseline;
+      margin: 20px 0px 5px 0px;
       color: #fff;
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: 500;
       .label-icons {
         color: $util-color;
@@ -54,6 +60,7 @@
     input {
       display: flex;
       justify-content: center;
+      margin-top: 5px;
       @include input-style;
       @include border-radius;
       @include box-shadow;
@@ -62,13 +69,32 @@
       @include input-focus;
     }
     span {
-      margin: 3px 0px 0px 0px;
+      margin: 5px 0px 0px 0px;
     }
-    button {
-      margin-top: 20px;
-      @include register-link;
-      @include border-radius;
-      @include box-shadow;
+    .register-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      button {
+        width: 150px;
+        padding: 5px;
+        border: none;
+        background-color: $util-color;
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: 600;
+        @include border-radius;
+        @include box-shadow;
+      }
+      .cancel-registration {
+        text-decoration: none;
+        color: $util-color-2;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
     }
   }
 }
