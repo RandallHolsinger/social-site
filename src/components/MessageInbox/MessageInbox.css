@@ -2,31 +2,47 @@
   margin-top: 150px;
 }
 .MessageInbox .message-inbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #2b2b2b;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   box-sizing: border-box;
   margin: 20px 5px 30px 5px;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
+  padding: 20px;
+}
+.MessageInbox .message-inbox-toolbar .message-inbox-icon {
+  color: #07c52a;
+  font-size: 1em;
+  margin-right: 10px;
+}
+.MessageInbox .message-inbox-toolbar h3 {
+  color: #fff;
+}
+.MessageInbox .message-inbox-toolbar .message-add-icon {
+  border-radius: 100%;
+  color: #43c076;
+  margin-right: 5px;
 }
 .MessageInbox .message-inbox-toolbar .create-message-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #2b2b2b;
   display: flex;
   justify-content: center;
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   border-radius: 3px;
   padding: 5px;
   color: #fff;
-  font-size: 1em;
   cursor: pointer;
 }
 .MessageInbox .message-inbox-toolbar .create-message-button .create-message-button-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 3px;
 }
 

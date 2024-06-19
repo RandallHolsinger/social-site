@@ -3,15 +3,32 @@
 .MessageInbox {
   margin-top: 150px;
   .message-inbox-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     @include component-color;
     @include border-radius;
     @include box-shadow;
     box-sizing: border-box;
     margin: 20px 5px 30px 5px;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
+    padding: 20px;
+    .message-inbox-icon {
+      color: $util-color;
+      font-size: 1em;
+      margin-right: 10px;
+    }
+    h3 {
+      color: #fff;
+    }
+    .message-add-icon {
+      border-radius: 100%;
+      color: $util-color-2;
+      margin-right: 5px;
+    }
     .create-message-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       @include component-color;
       display: flex;
       justify-content: center;
@@ -19,7 +36,7 @@
       border-radius: 3px;
       padding: 5px;
       color: #fff;
-      font-size: 1em;
+      // font-weight: 600;
       cursor: pointer;
       .create-message-button-icon {
         display: flex;

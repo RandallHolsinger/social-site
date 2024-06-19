@@ -1,6 +1,6 @@
 import React, { useState, useEffect, SetStateAction } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faPaperPlane, faX } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import './MessageCreate.scss'
 import axios from 'axios'
 import { IFriend as IMessageCreate } from '../Friends/Friends'
@@ -72,7 +72,7 @@ export const MessageCreate: React.FC<MessageCreateProps> = (props) => {
   return(
     <div className="MessageCreate">
       <div className="message-create-header">
-        <FontAwesomeIcon icon={faPenToSquare} className='message-create-header-icon'/>
+        <FontAwesomeIcon icon={faEnvelope} className='message-create-header-icon'/>
         <h2>Create Message</h2>
       </div>
       <label htmlFor='friends'>To:</label>
@@ -107,13 +107,12 @@ export const MessageCreate: React.FC<MessageCreateProps> = (props) => {
         className='message-input' 
       />
       <div className='message-create-buttons'>
+        <button onClick={() => setShowCreateMessage(false)} className='message-cancel'>
+          Cancel
+        </button>
         <button onClick={() => sendMessage()} className='message-send-button'>
           <FontAwesomeIcon icon={faPaperPlane} className='message-send-icon' />
           Send Message
-        </button>
-        <button onClick={() => setShowCreateMessage(false)} className='message-cancel-button'>
-          <FontAwesomeIcon icon={faX} className='message-cancel-icon'/>
-          Cancel
         </button>
       </div>
     </div>

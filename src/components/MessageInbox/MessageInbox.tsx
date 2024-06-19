@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './MessageInbox.scss'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faAdd, faInbox } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar/Navbar'
 import MessageInboxItem from '../MessageInboxItem/MessageinboxItem'
 import MessageCreate from '../MessageCreate/MessageCreate'
@@ -37,6 +37,7 @@ export const MessageInbox: React.FC = () => {
       let res = await axios.get('/api/message/inbox')
       setMessageInbox(res.data)
       setIsLoading(false)
+      console.log(res.data)
     } catch(err) {
       console.log(err)
     }
@@ -50,7 +51,7 @@ export const MessageInbox: React.FC = () => {
   let mappedMessageInbox = messageInbox.map(inboxItem => {
     return(
       <MessageInboxItem key={inboxItem.inbox_id} value={inboxItem}/>
-    )
+      )
   })
 
   const renderInbox = () => {
@@ -78,8 +79,12 @@ export const MessageInbox: React.FC = () => {
       <Navbar />
       <PageTitle icon={<FontAwesomeIcon icon={faEnvelope} />} title={'Message Inbox'} />
       <div className="message-inbox-toolbar">
+        <h3>
+          <FontAwesomeIcon icon={faInbox} className='message-inbox-icon'/>
+          Messages{' '}({messageInbox.length})
+        </h3>
         <button onClick={() => setShowCreateMessage(!showCreateMessage)}  className='create-message-button'>
-          <FontAwesomeIcon icon={faPenToSquare} className='create-message-button-icon' />
+        <FontAwesomeIcon icon={faAdd} className='message-add-icon'/>
           Create Message
         </button>
       </div>
