@@ -32,6 +32,7 @@
 .Login form label {
   font-size: 1.2em;
   font-weight: 500;
+  margin-top: 10px;
 }
 .Login form label .login-icons {
   color: #07c52a;
@@ -44,7 +45,7 @@
   box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
   padding: 10px;
-  margin: 5px 0px 15px 0px;
+  margin: 10px 0px 15px 0px;
 }
 .Login form input:focus {
   outline: 1px solid #07c52a;
@@ -54,8 +55,8 @@
   color: #000;
 }
 .Login form .alert-container {
-  border: 1px solid #fc2c2c;
-  color: #fc2c2c;
+  border: 1px solid #43c076;
+  color: #43c076;
   border-radius: 5px;
   padding: 5px;
   margin: 5px 0px 20px 0px;
@@ -72,6 +73,7 @@
   border-radius: 3px;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
+  margin-top: 15px;
   padding: 0.2em;
   font-size: 1.3em;
   font-weight: 700;
@@ -88,13 +90,11 @@
   border: none;
   justify-content: center;
   text-decoration: none;
-  background-color: #43c076;
   padding: 0.2em;
   font-size: 1.3em;
+  color: #000;
   font-weight: 700;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px #000;
+  color: #43c076;
 }
 
 /* Media query for small devices (e.g., phones) */

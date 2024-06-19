@@ -74,7 +74,7 @@ export const Login: React.FC = () => {
         <div>
           <button type='submit'>Login</button>
           <hr />
-          <h4>Not a member yet? Register now</h4>
+          <h4>Don't have an account? Click Below</h4>
           <Link to={'/Register'} className='register-link'>Create New Account</Link>
         </div>
       </form>
