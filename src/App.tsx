@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { updateUser } from './redux/slices/userSlice';
 import './App.scss';
 import routes from './routes';
+import ParticlesBackground from './components/Particles/ParticlesBackground';
 
 export const App: React.FC = () => {
 
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
+      <ParticlesBackground />
       {routes}
     </div>
   );

@@ -25,7 +25,7 @@
   margin: 0px auto 20px auto;
 }
 .Login form header .login-header-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 1.5em;
   margin-right: 10px;
 }
@@ -34,12 +34,12 @@
   font-weight: 500;
 }
 .Login form label .login-icons {
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 8px;
 }
 .Login form input {
   border: none;
-  caret-color: #ed1dc0;
+  caret-color: #07c52a;
   padding: 5px;
   box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
@@ -47,7 +47,7 @@
   margin: 5px 0px 15px 0px;
 }
 .Login form input:focus {
-  outline: 1px solid #ed1dc0;
+  outline: 1px solid #07c52a;
   border: none;
 }
 .Login form input::placeholder {
@@ -68,7 +68,7 @@
 .Login form div button {
   border: none;
   color: #fff;
-  background-color: #ed1dc0;
+  background-color: #07c52a;
   border-radius: 3px;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
@@ -88,7 +88,7 @@
   border: none;
   justify-content: center;
   text-decoration: none;
-  background-color: #07c52a;
+  background-color: #43c076;
   padding: 0.2em;
   font-size: 1.3em;
   font-weight: 700;

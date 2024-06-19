@@ -1,17 +1,40 @@
 
+// //Main Color
+// $main-color: #930af5;
+
+// //Compliment Color
+// $compliment-color:  #c707f7;
+
+// // Color for buttons.
+// $util-color: #ed1dc0;
+
+// $util-color-2: #07c52a;
+
+// //Danger Color
+// $danger: #ff3860;
+
+// // Placeholder Color
+// $placeholder-color: #000;
+
+// // Button Text
+// $button-text: #fff;
+
+// //Dark Color for Components
+// $dark: #2b2b2b;
+
 //Main Color
-$main-color: #930af5;
+$main-color: #141414;
 
 //Compliment Color
-$compliment-color:  #c707f7;
+$compliment-color:  #43c076;
 
 // Color for buttons.
-$util-color: #ed1dc0;
+$util-color: #07c52a;
 
-$util-color-2: #07c52a;
+$util-color-2: #43c076;
 
 //Danger Color
-$danger: #ff3860;
+$danger: $util-color;
 
 // Placeholder Color
 $placeholder-color: #000;
