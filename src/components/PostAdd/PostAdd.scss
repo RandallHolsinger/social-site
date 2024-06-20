@@ -126,7 +126,7 @@
 }
 
 .profile-position {
-  margin: 15px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
 }
 
 /* Media query for small devices (e.g., phones) */
@@ -135,27 +135,27 @@
 /* Media query for medium devices (e.g., tablets) */
 @media only screen and (min-width: 768px) {
   .PostAdd {
-    width: 60%;
+    width: 100%;
   }
   .home-position {
-    margin: 175px auto 30px auto;
+    margin: 0px auto 30px auto;
   }
   
   .profile-position {
-    margin: 40px auto 20px auto;
+    margin: 0px auto 20px auto;
   }
 }
 
 /* Media query for large devices (e.g., laptops and desktops) */
 @media only screen and (min-width: 1024px) {
   .PostAdd {
-    width: 50%;
+    // width: 100%;
   }
 }
 
 /* Media query for extra-large devices (e.g., large desktops and TVs) */
 @media only screen and (min-width: 1200px) {
   .PostAdd {
-    width: 40%;
+    // width: 40%;
   }
 }
