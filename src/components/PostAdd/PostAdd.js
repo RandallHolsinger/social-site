@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './PostAdd.scss'
 import ImageUploader from '../ImageUploader/ImageUploader'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faPenToSquare} from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faIdCard} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 function PostAdd(props) {
@@ -34,8 +34,8 @@ function PostAdd(props) {
       {showPostModal ?
         <div className="add-post-container">
           <header>
-            <FontAwesomeIcon icon={faPenToSquare} className='create-post-icon'/>
-            <h3>Create a Post</h3>
+            <FontAwesomeIcon icon={faIdCard} className='create-post-icon'/>
+            <h2>Create a Post</h2>
           </header>
           <div className='text-area-container'>
             <label>Add A Title</label>
@@ -63,17 +63,23 @@ function PostAdd(props) {
           </div>
           <ImageUploader setPostData={setPostData} type={'post'}/>
           <div className='post-buttons-container'>
+            <button onClick={() => setShowPostModal(false)} className='cancel-post-button'>Cancel</button>
             <button onClick={() => addPost()} className='add-post-button'>
               <FontAwesomeIcon icon={faPlus} className='add-post-plus-icon'/>
               Add Post
             </button>
-            <button onClick={() => setShowPostModal(false)} className='cancel-post-button'>Cancel</button>
           </div>
         </div>
       :
-        <div className='post-add' onClick={() => setShowPostModal(true)}>
-          <FontAwesomeIcon icon={faPenToSquare} className='add-post-icon'/>
-          <h3>Create A Post</h3>
+        <div className='posts-toolbar'>
+          <h3>
+            <FontAwesomeIcon icon={faIdCard} className='posts-icon'/>
+            Posts
+          </h3>
+          <button onClick={() => setShowPostModal(true)} className='post-add'>
+            <FontAwesomeIcon icon={faPlus} className='add-post-icon'/>
+            Create A Post
+          </button>
         </div>
       }
     </div>

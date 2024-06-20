@@ -1,12 +1,6 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .PostAdd {
-  @include component-color;
-  @include border-radius;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  padding: 30px;
   .add-post-container {
     @include component-color;
     @include border-radius;
@@ -21,23 +15,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 25px;
     header {
       display: flex;
       align-items: flex-end;
       margin-bottom: 10px;  
       .create-post-icon {
         color: $util-color;
-        font-size: 1.5em;
-        margin-right: 5px;
+        font-size: 2em;
+        margin-right: 10px;
       }
-      h3 {
+      h2 {
         color: #fff;
-        font-size: 1.3em;
       }
     }
     label {
       color: #fff;
-      margin-bottom: 5px;
+      margin: 10px 0px 5px 0px;
     }
     .text-area-container {
       display: flex;
@@ -46,61 +40,81 @@
       .title-area{
         margin-bottom: 10px;
       }
-      .post-area {}
+      textarea {
+        @include input-style;
+        @include box-shadow;
+        @include border-radius;
+      }
+      textarea:focus {
+        @include input-focus;
+      }
     }
 
     .post-buttons-container {
       display: flex;
-      margin-top: 20px;
+      margin-top: 35px;
       justify-content: space-around;
       .add-post-button {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: none;
-        @include border-radius;
-        @include box-shadow;
-        background-color: $util-color-2;
-        width: 60%;
         padding: 10px;
+        border: 2px solid $util-color;
+        border-radius: 3px;
         color: #fff;
+        background-color: $dark;
+        font-weight: 600;
         font-size: 1em;
-        font-weight: 700;
+        width: 60%;
         .add-post-plus-icon {
           font-size: 1.3em;
           margin-right: 5px;
+          color: $util-color;
         }
       }
       .cancel-post-button {
+        background-color: $dark;
         border: none;
-        @include border-radius;
-        @include box-shadow;
-        background-color: $danger;
-        color: #fff;
+        color: $util-color-2;
         font-size: 1em;
-        font-weight: 700;
-        width: 30%;
-        padding: 10px;
+        font-weight: 600;
       }
     }
   }
-  .post-add {
-      @include component-color;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      border: 1px solid $util-color;
-      border-radius: 3px;
-      padding: 5px;
-      color: #fff;
-      font-size: 1em;
-    .add-post-icon {
+  .posts-toolbar {
+    display: flex;
+    align-items: center;
+    @include component-color;
+    @include border-radius;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    .posts-icon {
       color: $util-color;
-      font-size: 1.3em;
+      font-size: 1em;
+      margin-right: 10px;
     }
     h3 {
       color: #fff;
-      margin: 0px auto;
+    }
+    .post-add {
+        @include component-color;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border: 1px solid $util-color;
+        border-radius: 3px;
+        padding: 5px;
+        color: #fff;
+        font-size: 1em;
+      .add-post-icon {
+        color: $util-color-2;
+        margin-right: 5px;
+      }
+      h3 {
+        color: #fff;
+      }
     }
   }
 }

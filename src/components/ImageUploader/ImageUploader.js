@@ -48,9 +48,13 @@ function ImageUploader(props) {
     return(
       <div className="ImageUploader">
           <div className='image-uploader-header'>
+            <h3>
             <FontAwesomeIcon icon={faUpload} className='choose-image-icon'/>
-            <h3>Choose An Image</h3>
-            {image.preview ? <FontAwesomeIcon icon={faCheck} className='upload-check-icon' /> : null}
+              Choose An Image
+            </h3>
+            <span>
+              {image.preview ? <FontAwesomeIcon icon={faCheck} className='upload-check-icon' /> : null}
+            </span>
           </div>
           {image.preview ? 
             <div className='image-preview-container'>

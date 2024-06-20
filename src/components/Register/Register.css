@@ -61,15 +61,14 @@
   display: flex;
   justify-content: center;
   margin-top: 5px;
-  border: none;
+  border: 2px solid transparent;
   caret-color: #07c52a;
   padding: 5px;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
 }
 .Register form input:focus {
-  outline: 1px solid #07c52a;
-  border: none;
+  outline: 2px solid #07c52a;
 }
 .Register form span {
   margin: 5px 0px 0px 0px;
@@ -77,9 +76,9 @@
 .Register form .register-button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 .Register form .register-button button {

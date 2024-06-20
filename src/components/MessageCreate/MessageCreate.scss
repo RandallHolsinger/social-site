@@ -34,7 +34,6 @@
     @include border-radius;
     @include box-shadow;
     @include input-style;
-    @include input-focus;
   }
   .friend-list-dropdown {
    @include component-color;

@@ -1,24 +1,27 @@
 .ImageUploader .image-uploader-header {
   box-sizing: border-box;
   display: flex;
-  align-items: center;
-  margin: 10px 0px 10px 0px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 20px 0px 20px 0px;
   padding: 5px;
 }
 .ImageUploader .image-uploader-header .choose-image-icon {
-  color: #ed1dc0;
-  margin-right: 5px;
+  color: #07c52a;
+  margin-right: 10px;
   font-size: 1.5em;
 }
 .ImageUploader .image-uploader-header h3 {
   color: #fff;
 }
+.ImageUploader .image-uploader-header span {
+  padding: 5px;
+}
 .ImageUploader .image-uploader-header .upload-check-icon {
-  margin-left: 20px;
   font-size: 1em;
   border: 2px solid #07c52a;
   color: #07c52a;
-  padding: 3px;
+  padding: 5px;
   border-radius: 100%;
 }
 .ImageUploader form .custom-file-upload {
@@ -33,10 +36,10 @@
   height: 200px;
   width: 100%;
   border-radius: 5px;
-  border: 1px solid #ed1dc0;
+  border: 2px solid #43c076;
 }
 .ImageUploader form .custom-file-upload div .upload-file-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 5em;
 }
 .ImageUploader form .custom-file-upload input {
@@ -58,15 +61,15 @@
   width: 100%;
 }
 .ImageUploader .image-preview-container .cancel-image {
-  border-left: 2px solid #ff3860;
-  border-bottom: 2px solid #ff3860;
-  border-radius: 0px 5px 0px 5px;
-  padding: 0.5em;
+  border: 1.5px solid #43c076;
+  border-radius: 0px 5px 0px 0px;
+  padding: 1em;
   background-color: #2b2b2b;
-  color: #ff3860;
+  color: #07c52a;
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 .ImageUploader .image-preview-container img {
   border-radius: 5px;
