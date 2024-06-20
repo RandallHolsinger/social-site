@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './Friends.scss'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../Navbar/Navbar'
@@ -82,7 +83,16 @@ export const Friends: React.FC = () => {
     <div className="Friends">
       <Navbar />
       <PageTitle icon={<FontAwesomeIcon icon={faUserGroup} />} title={'Friends'} />
-      {renderFriends()}
+      {friends[0] ?
+        <>
+          {renderFriends()}
+        </>
+        :
+        <div className='no-friends-message-container'>
+          <h3>There are no friends to show</h3>
+          <h4>No Friends? Go search for <Link to={"/Profiles"} className='profiles-link'><span>people</span></Link></h4>
+        </div>
+      }
     </div>
   )
 }

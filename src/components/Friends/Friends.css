@@ -6,5 +6,36 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.Friends .no-friends-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 10px 10px 0px 10px;
+  background-color: #2b2b2b;
+  margin-top: 30px;
+  height: 400px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #000;
+}
+.Friends .no-friends-message-container h3 {
+  border: 1px solid #07c52a;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+.Friends .no-friends-message-container h4 {
+  margin-top: 20px;
+  color: #fff;
+}
+.Friends .no-friends-message-container h4 .profiles-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+.Friends .no-friends-message-container h4 span {
+  color: #43c076;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=Friends.css.map */

@@ -36,6 +36,7 @@
     overflow: scroll;
     width: 95%;
     height: 65%;
+    padding: 10px;
     .online-user-count {
       padding:5px;
       color: #fff;
@@ -53,11 +54,14 @@
       margin-top: 10px;
       input {
         @include input-style;
-        @include input-focus;
         @include border-radius;
         @include box-shadow;
         width: 70%;
+        font-size: 16px;
         margin-right: 10px;
+      }
+      input:focus {
+        @include input-focus;
       }
       button {
         @include box-shadow;

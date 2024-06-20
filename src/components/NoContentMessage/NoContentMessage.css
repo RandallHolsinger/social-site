@@ -6,12 +6,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 5px 0px 5px;
+  margin: 20px 20px 0px 20px;
   height: 300px;
 }
 .NoContentMessage .message-container {
   box-sizing: border-box;
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   border-radius: 5px;
   padding: 20px;
   display: flex;

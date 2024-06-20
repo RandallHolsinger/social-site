@@ -3,8 +3,8 @@
 .Post {
   @include box-shadow;
   @include border-radius;
-  @include component-color;
-  margin: 10px 5px 30px 5px;
+  background-color: $dark;
+  margin: 10px 30px 30px 30px;
   header {
     display: flex;
     padding: 10px;

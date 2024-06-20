@@ -14,7 +14,7 @@
 }
 
 @mixin component-color {
-  background-color: $dark;
+  background: linear-gradient(80deg, #2b2b2b, #000, #2b2b2b);
 }
 
 //Inputs / TextAreas

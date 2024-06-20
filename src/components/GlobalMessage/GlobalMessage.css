@@ -1,10 +1,13 @@
+.GlobalMessage {
+  padding: 5px;
+}
 .GlobalMessage p {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  border: 0.5px solid #fff;
-  padding: 5px;
-  margin: 8px;
+  border: 1px solid #43c076;
+  padding: 10px;
+  margin: 10px 0px 5px 0px;
   color: #fff;
   display: inline-block;
   word-break: normal;
@@ -15,10 +18,10 @@
   margin-right: 10px;
 }
 .GlobalMessage p .messenger-name-receiver {
-  color: #ed1dc0;
+  color: #07c52a;
 }
 .GlobalMessage p .messenger-name-sender {
-  color: #07c52a;
+  color: #56bdf0;
 }
 
 /*# sourceMappingURL=GlobalMessage.css.map */

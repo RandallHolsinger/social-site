@@ -1,5 +1,5 @@
 .GlobalMessenger {
-  background-color: #2b2b2b;
+  background: linear-gradient(80deg, #2b2b2b, #000, #2b2b2b);
   box-sizing: border-box;
   position: fixed;
   z-index: 999;
@@ -15,7 +15,7 @@
   color: #fff;
 }
 .GlobalMessenger .global-messenger-header .global-messenger-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 2em;
   margin-right: 5px;
 }
@@ -23,18 +23,19 @@
   border: none;
   padding: 5px;
   border-radius: 3px;
-  background-color: #ed1dc0;
+  background-color: #07c52a;
   color: #fff;
   font-weight: 600;
   margin-left: 30px;
 }
 .GlobalMessenger .messenger-content {
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   box-sizing: border-box;
   margin: 0px auto 5px auto;
   overflow: scroll;
   width: 95%;
   height: 65%;
+  padding: 10px;
 }
 .GlobalMessenger .messenger-content .online-user-count {
   padding: 5px;
@@ -53,21 +54,23 @@
   margin-top: 10px;
 }
 .GlobalMessenger .global-message-input-container form input {
-  border: none;
-  caret-color: #ed1dc0;
+  border: 2px solid transparent;
+  caret-color: #07c52a;
   padding: 5px;
-  outline: 1px solid #ed1dc0;
-  border: none;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   width: 70%;
+  font-size: 16px;
   margin-right: 10px;
+}
+.GlobalMessenger .global-message-input-container form input:focus {
+  outline: 2px solid #07c52a;
 }
 .GlobalMessenger .global-message-input-container form button {
   box-shadow: 3px 3px 3px #000;
   border: none;
   border-radius: 3px;
-  background-color: #ed1dc0;
+  background-color: #07c52a;
   color: #fff;
   font-weight: 600;
   width: 20%;

@@ -79,6 +79,9 @@
         margin: 10px auto 0px auto;
         span {
           color: $util-color-2;
+          cursor: pointer;
+        }
+        span:hover {
           text-decoration: underline;
         }
       }

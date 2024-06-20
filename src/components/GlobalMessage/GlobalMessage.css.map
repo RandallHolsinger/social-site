@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["GlobalMessage.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAGE;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;;AAEF;EACE,OCXO;;ADaT;EACE,OCZS","file":"GlobalMessage.css"}
+{"version":3,"sourceRoot":"","sources":["GlobalMessage.scss","../../sass/_variables.scss"],"names":[],"mappings":"AAEA;EACE;;AACA;EACE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;;AAEF;EACE,OCUO;;ADRT;EACE","file":"GlobalMessage.css"}

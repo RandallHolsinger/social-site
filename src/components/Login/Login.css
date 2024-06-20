@@ -85,6 +85,9 @@
 }
 .Login form div h5 span {
   color: #43c076;
+  cursor: pointer;
+}
+.Login form div h5 span:hover {
   text-decoration: underline;
 }
 .Login form div hr {

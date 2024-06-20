@@ -1,4 +1,4 @@
-@import '../../sass/mixins';
+@import '../../sass/mixins','../../sass/variables';
 
 .Friends {
   margin-top: 160px;
@@ -7,4 +7,36 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .no-friends-message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 10px 10px 0px 10px;
+    background-color: $dark;
+    margin-top: 30px;
+    height: 400px;
+    @include border-radius;
+    @include box-shadow;
+    h3 {
+      border: 1px solid $util-color;
+      padding: 10px;
+      border-radius: 5px;
+      color: #fff;
+    }
+    h4 {
+      margin-top: 20px;
+      color: #fff;
+      .profiles-link {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      span {
+        color: $util-color-2;
+        text-decoration: none;
+      }
+    }
+  }
+  
 }
