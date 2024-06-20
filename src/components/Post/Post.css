@@ -4,52 +4,41 @@
   background-color: #2b2b2b;
   margin: 10px 5px 30px 5px;
 }
-
 .Post header {
   display: flex;
   padding: 10px;
   align-items: center;
   justify-content: space-between;
 }
-
 .Post header .post-user-container {
   display: flex;
   align-items: center;
 }
-
 .Post header .post-user-container .post-user-image-default {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 60px;
   height: 60px;
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   border-radius: 100%;
 }
-
 .Post header .post-user-container .post-user-image-default .post-user-default-icon {
   font-size: 2.5em;
-  color: #ed1dc0;
+  color: #07c52a;
 }
-
 .Post header .post-user-container span {
   margin-right: 10px;
 }
-
 .Post header .post-user-container .post-username {
   color: #fff;
   font-weight: 700;
   font-size: 1.2em;
 }
-
 .Post header .post-user-container .post-username .post-date-time {
+  color: #43c076;
   font-size: 0.7em;
 }
-
-.Post header .post-date {
-  color: #fff;
-}
-
 .Post header .post-options-container {
   display: flex;
   justify-content: center;
@@ -58,68 +47,84 @@
   width: 30px;
   height: 30px;
 }
-
 .Post header .post-options-container .post-dropdown {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 1.5em;
 }
-
 .Post .post-content {
   background-color: #fff;
 }
-
 .Post .post-content h4 {
   padding: 10px 10px 3px 10px;
 }
-
 .Post .post-content p {
   padding: 0px 10px 10px 10px;
 }
-
 .Post footer {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-around;
   padding: 10px;
 }
-
-.Post footer .post-like-button {
+.Post footer .post-info-container {
+  display: flex;
+  margin: 10px 0px 10px 0px;
+}
+.Post footer .post-info-container span {
   color: #fff;
+}
+.Post footer .post-actions-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.Post footer .post-actions-container .post-like-container {
+  display: flex;
+  align-items: center;
+}
+.Post footer .post-actions-container .post-like-container .post-like-button {
+  color: #fff;
+  cursor: pointer;
   border-radius: 5px;
   letter-spacing: 0.05em;
   font-weight: 500;
   padding: 0.3em;
 }
-
-.Post footer .post-like-button .post-like-icon {
+.Post footer .post-actions-container .post-like-container .post-like-button .post-like-icon {
   font-size: 1.2em;
-  color: #ed1dc0;
+  margin-right: 5px;
+  color: #07c52a;
 }
-
-.Post footer .post-dislike-button {
+.Post footer .post-actions-container .post-like-container .post-dislike-button {
   color: #fff;
+  cursor: pointer;
   border-radius: 5px;
   letter-spacing: 0.05em;
   font-weight: 500;
   padding: 0.3em;
 }
-
-.Post footer .post-dislike-button .post-dislike-icon {
+.Post footer .post-actions-container .post-like-container .post-dislike-button .post-dislike-icon {
   font-size: 1.2em;
-  color: #ed1dc0;
+  margin-right: 5px;
+  color: #07c52a;
 }
-
-.Post footer .post-comments-button {
+.Post footer .post-comment-container {
+  display: flex;
+  align-items: center;
+}
+.Post footer .post-comment-container .post-comments-button {
   color: #fff;
+  cursor: pointer;
   border-radius: 5px;
   letter-spacing: 0.05em;
   font-weight: 500;
   padding: 0.3em;
 }
-
-.Post footer .post-comments-button .post-comments-icon {
+.Post footer .post-comment-container .post-comments-button .post-comments-icon {
   font-size: 1.2em;
-  color: #ed1dc0;
+  margin-right: 5px;
+  color: #07c52a;
 }
 
 /* Media query for small devices (e.g., phones) */

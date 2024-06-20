@@ -40,12 +40,12 @@ export const Navbar: React.FC = () => {
     <div className='Navbar'>
       {showMessenger ? <GlobalMessenger setShowMessenger={setShowMessenger}/> : null} 
       <nav>
-        <Link to={'/Home'} className='logo-link'>
           <div className="logo-container">
+            <Link to={'/Home'} className='logo-link'>
             <FontAwesomeIcon icon={faUser} className='logo-icon'/>
             <span>Socialyze</span>
+            </Link>
           </div>
-        </Link>
         <Link to={'/Friends'} className='navbar-link'>
           <span className='nav-friends'>
             <FriendsNotificationBubble />

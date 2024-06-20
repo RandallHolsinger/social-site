@@ -14,8 +14,8 @@
   color: #fff;
   padding: 10px;
   height: 60px;
-  border-top: 0.3px solid #ed1dc0;
-  border-bottom: 0.3px solid #ed1dc0;
+  border-top: 0.3px solid #07c52a;
+  border-bottom: 0.3px solid #07c52a;
   box-shadow: 0px 0px 10px #000;
 }
 .Navbar nav .logo-link {
@@ -24,18 +24,17 @@
 }
 .Navbar nav .logo-container {
   display: flex;
-  align-items: center;
 }
 .Navbar nav .logo-container .logo-icon {
   margin-right: 3px;
-  font-size: 1.2em;
-  color: #ed1dc0;
-  border: 1px solid #ed1dc0;
+  font-size: 1.1em;
+  color: #07c52a;
+  border: 1px solid #07c52a;
   border-radius: 100%;
   padding: 5px;
 }
 .Navbar nav .logo-container span {
-  font-size: 1.1em;
+  font-size: 1.3em;
   font-weight: 600;
 }
 .Navbar nav .navbar-link {
@@ -49,7 +48,7 @@
   justify-content: center;
   position: relative;
   font-size: 0.8em;
-  color: #ed1dc0;
+  color: #07c52a;
 }
 .Navbar nav .nav-friends .navbar-icon, .Navbar nav .nav-inbox .navbar-icon {
   font-size: 1.4em;
@@ -69,7 +68,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.8em;
-  color: #ed1dc0;
+  color: #07c52a;
 }
 .Navbar nav .navbar-messenger .navbar-icon {
   font-size: 1.4em;
@@ -81,7 +80,7 @@
 }
 .Navbar nav .nav-menu-icon {
   font-size: 1.4em;
-  color: #ed1dc0;
+  color: #07c52a;
 }
 .Navbar nav .nav-menu-dropdown {
   display: none;
@@ -95,7 +94,7 @@
   z-index: 1000;
   border-radius: 0px 0px 0px 5px;
   background-color: #2b2b2b;
-  border-left: 1px solid #ed1dc0;
+  border-left: 1px solid #07c52a;
   height: auto;
   width: 200px;
 }
@@ -112,12 +111,12 @@
   align-items: center;
   width: 100px;
   height: 100px;
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   border-radius: 100%;
   margin-bottom: 3px;
 }
 .Navbar .nav-menu .menu-items-container .nav-menu-header .nav-menu-user-image-container .nav-menu-default-user-image {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 3em;
 }
 .Navbar .nav-menu .menu-items-container .nav-menu-header .nav-menu-user-image-container .nav-menu-user-image {
@@ -135,11 +134,11 @@
   color: #fff;
 }
 .Navbar .nav-menu .menu-items-container li:nth-child(2) {
-  border-top: 1px solid #ed1dc0;
+  border-top: 1px solid #07c52a;
 }
 .Navbar .nav-menu .menu-items-container li:nth-child(6) {
   border-radius: 0px 0px 0px 5px;
-  border-bottom: 1px solid #ed1dc0;
+  border-bottom: 1px solid #07c52a;
 }
 .Navbar .nav-menu .menu-items-container li {
   display: flex;
@@ -154,7 +153,7 @@
   font-weight: 600;
 }
 .Navbar .nav-menu .menu-items-container li .menu-links .menu-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 1.2em;
   margin-right: 5px;
 }
@@ -264,7 +263,7 @@
   }
   .Navbar nav .nav-menu-dropdown .nav-dropdown-icon {
     font-size: 1.3em;
-    color: #ed1dc0;
+    color: #07c52a;
   }
   .Navbar .nav-menu .menu-items-container {
     font-size: 1.2em;

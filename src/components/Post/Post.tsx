@@ -101,24 +101,27 @@ export const Post: React.FC<PostProps> = (props) => {
           }
         </section>
         <footer>
-          <div className="post-like-container">
-            <span className="like-count">{likeCount}</span>
-            {liked ?
-             <span onClick={() => unlikePost()} className='post-like-button'>
-                <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}liked
-              </span>
-            :
-              <span onClick={() => likePost()} className='post-like-button'>
-                <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like
-              </span>
-            }
+          <div className='post-info-container'>
+            <span>{likeCount}{' '} {likeCount > 1 ? 'people' : "person"} liked this post{' '}•{' '}{commentCount}{' '}Comments</span>
           </div>
-          <div className="post-comment-container">
-            <span className='comment-count'>{commentCount}</span>
-            <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
-              <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
-              Comments
-            </span>
+          <div className="post-actions-container">
+            <div className="post-like-container">
+              {liked ?
+               <span onClick={() => unlikePost()} className='post-like-button'>
+                  <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Liked
+                </span>
+              :
+                <span onClick={() => likePost()} className='post-like-button'>
+                  <FontAwesomeIcon icon={faThumbsUp} className='post-like-icon' />{' '}Like
+                </span>
+              }
+            </div>
+            <div className="post-comment-container">
+              <span onClick={() => setShowComments(!showComments)} className='post-comments-button'>
+                <FontAwesomeIcon icon={faComment} className='post-comments-icon'/>{' '}
+                Comment
+              </span>
+            </div>
           </div>
         </footer>
         {showComments ?

@@ -34,12 +34,12 @@
         font-weight: 700;
         font-size: 1.2em;
         .post-date-time {
+          color: $util-color-2;
           font-size: .7em;
         }
       }
     }
     .post-date {
-      color: #fff;
     }
     .post-time {
     }
@@ -68,51 +68,54 @@
   footer {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
     padding: 10px;
-    .post-like-container {
+    .post-info-container {
       display: flex;
-      align-items: center;
-      .like-count {
+      margin: 10px 0px 10px 0px;
+      span {
         color: #fff;
-        font-size: 1em;
-        font-weight: 600;
-        margin-right: 15px;
       }
-      .post-like-button {
-        color: #fff;
-        cursor: pointer;
-        @include border-radius;
-        @include letter-spacing;
-        font-weight: 500;
-        padding: .3em;
-        .post-like-icon {
-          font-size: 1.2em;
-          color: $util-color;
+    }
+    .post-actions-container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      .post-like-container {
+        display: flex;
+        align-items: center;
+        .post-like-button {
+          color: #fff;
+          cursor: pointer;
+          @include border-radius;
+          @include letter-spacing;
+          font-weight: 500;
+          padding: .3em;
+          .post-like-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+            color: $util-color;
+          }
         }
-      }
-      .post-dislike-button {
-        color: #fff;
-        cursor: pointer;
-        @include border-radius;
-        @include letter-spacing;
-        font-weight: 500;
-        padding: .3em;
-        .post-dislike-icon {
-          font-size: 1.2em;
-          color: $util-color;
+        .post-dislike-button {
+          color: #fff;
+          cursor: pointer;
+          @include border-radius;
+          @include letter-spacing;
+          font-weight: 500;
+          padding: .3em;
+          .post-dislike-icon {
+            font-size: 1.2em;
+            margin-right: 5px;
+            color: $util-color;
+          }
         }
       }
     }
     .post-comment-container {
       display: flex;
       align-items: center;
-      .comment-count {
-        color: #fff;
-        font-size: 1em;
-        font-weight: 600;
-        margin-right: 15px;
-      }
       .post-comments-button {
         color: #fff;
         cursor: pointer;
@@ -122,6 +125,7 @@
         padding: .3em;
         .post-comments-icon {
           font-size: 1.2em;
+          margin-right: 5px;
           color: $util-color;
         }
       }
