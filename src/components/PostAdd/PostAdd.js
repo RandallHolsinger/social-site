@@ -4,6 +4,7 @@ import ImageUploader from '../ImageUploader/ImageUploader'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faIdCard} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import { useAppSelector } from '../../redux/reduxHooks'
 
 function PostAdd(props) {
   
@@ -12,7 +13,9 @@ function PostAdd(props) {
   const [postData, setPostData] = useState({})
   const [showPostModal, setShowPostModal] = useState(false)
 
-  const {getPosts, pagePosition} = props
+  const main_user_id = useAppSelector(state => state.user.userId)
+
+  const {getPosts, pagePosition, user_id} = props
 
   const addPost = async () => {
     try {
@@ -63,7 +66,7 @@ function PostAdd(props) {
           </div>
           <ImageUploader setPostData={setPostData} type={'post'}/>
           <div className='post-buttons-container'>
-            <button onClick={() => setShowPostModal(false)} className='cancel-post-button'>Cancel</button>
+            <span onClick={() => setShowPostModal(false)} className='cancel-post-button'>Cancel</span>
             <button onClick={() => addPost()} className='add-post-button'>
               <FontAwesomeIcon icon={faPlus} className='add-post-plus-icon'/>
               Add Post
@@ -76,10 +79,14 @@ function PostAdd(props) {
             <FontAwesomeIcon icon={faIdCard} className='posts-icon'/>
             Posts
           </h3>
+          {user_id === main_user_id ?
           <button onClick={() => setShowPostModal(true)} className='post-add'>
             <FontAwesomeIcon icon={faPlus} className='add-post-icon'/>
             Create A Post
           </button>
+          :
+          null
+          }
         </div>
       }
     </div>

@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  @include component-color;
+  background-color: $dark;
   @include box-shadow;
   position: fixed;
   top: 120px;
@@ -25,21 +25,20 @@
       @include box-shadow;
       background-color: $util-color;
       color: $dark;
-      font-size: 1.2em;
-      border: 1px inset #fff;
+      font-size: 1.3em;
       border-radius: 5px 0px 0px 5px;
       padding: 5px;
     }
     .search-input {
       @include box-shadow;
-      font-size: 1em;
+      font-size: 16px;
       padding: 5px;
       width: 80%;
-      border: 1px solid #fff;
+      border: 1px inset transparent;
       border-radius: 0px 5px 5px 0px;
     }
     .search-input:focus {
-      @include input-focus;
+      outline: 1px inset $util-color;
     }
   }
 }

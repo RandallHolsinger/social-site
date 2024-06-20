@@ -23,24 +23,22 @@
 }
 .Search .search-input-container .search-icon {
   box-shadow: 3px 3px 3px #000;
-  background-color: #ed1dc0;
+  background-color: #07c52a;
   color: #2b2b2b;
-  font-size: 1.2em;
-  border: 1px inset #fff;
+  font-size: 1.3em;
   border-radius: 5px 0px 0px 5px;
   padding: 5px;
 }
 .Search .search-input-container .search-input {
   box-shadow: 3px 3px 3px #000;
-  font-size: 1em;
+  font-size: 16px;
   padding: 5px;
   width: 80%;
-  border: 1px solid #fff;
+  border: 1px inset transparent;
   border-radius: 0px 5px 5px 0px;
 }
 .Search .search-input-container .search-input:focus {
-  outline: 1px solid #ed1dc0;
-  border: none;
+  outline: 1px inset #07c52a;
 }
 
 /*# sourceMappingURL=Search.css.map */

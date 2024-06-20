@@ -1,4 +1,7 @@
 .NoContentMessage {
+  padding-top: 70px;
+}
+.NoContentMessage .message-container {
   background-color: #2b2b2b;
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
@@ -8,10 +11,7 @@
   align-items: center;
   margin: 20px 20px 0px 20px;
   height: 300px;
-}
-.NoContentMessage .message-container {
   box-sizing: border-box;
-  border: 1px solid #07c52a;
   border-radius: 5px;
   padding: 20px;
   display: flex;
@@ -19,6 +19,9 @@
   justify-content: center;
 }
 .NoContentMessage .message-container span {
+  border: 1px solid #07c52a;
+  padding: 10px;
+  border-radius: 5px;
   font-size: 1.3em;
   color: #fff;
 }

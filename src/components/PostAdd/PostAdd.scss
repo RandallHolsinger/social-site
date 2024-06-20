@@ -52,6 +52,7 @@
 
     .post-buttons-container {
       display: flex;
+      align-items: center;
       margin-top: 35px;
       justify-content: space-around;
       .add-post-button {
@@ -73,7 +74,6 @@
         }
       }
       .cancel-post-button {
-        background-color: $dark;
         border: none;
         color: $util-color-2;
         font-size: 1em;
@@ -84,12 +84,13 @@
   .posts-toolbar {
     display: flex;
     align-items: center;
-    @include component-color;
-    @include border-radius;
+    background-color: $dark;
     box-sizing: border-box;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     padding: 25px;
+    z-index: 1;
     .posts-icon {
       color: $util-color;
       font-size: 1em;
@@ -99,7 +100,7 @@
       color: #fff;
     }
     .post-add {
-        @include component-color;
+        background-color: $dark;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -119,11 +120,13 @@
   }
 }
 .home-position {
-  margin: 175px 5px 30px 5px;
+  margin: 0px 0px 30px 0px;
+  width: 100%;
+  position: fixed;
 }
 
 .profile-position {
-  margin: 40px 5px 20px 5px;
+  margin: 15px 0px 20px 0px;
 }
 
 /* Media query for small devices (e.g., phones) */

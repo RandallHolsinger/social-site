@@ -70,7 +70,7 @@ export const Posts: React.FC<PostProps> = (props) => {
     } else {
       if(posts[0]) {
         return (
-          <div className="posts">
+          <div className="posts-container">
             {mappedPosts}
           </div>
         ) 
@@ -84,7 +84,7 @@ export const Posts: React.FC<PostProps> = (props) => {
 
   return(
     <div className={`Posts`}>
-      <PostAdd getPosts={getAllPosts} pagePosition={pagePosition} />
+      <PostAdd getPosts={getAllPosts} pagePosition={pagePosition} user_id={user_id}/>
       {renderPost()}
     </div>
   )

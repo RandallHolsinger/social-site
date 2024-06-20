@@ -3,7 +3,7 @@
 .PageTitle {
   display: flex;
   align-items: center;
-  @include component-color;
+  background-color: $dark;
   box-sizing: border-box; 
   position: fixed;
   width: 100%;

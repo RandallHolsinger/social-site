@@ -1,24 +1,27 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .NoContentMessage {
-  background-color: $dark;
-  @include border-radius;
-  @include box-shadow;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 20px 0px 20px;
-  height: 300px;
+  padding-top: 70px;
   .message-container {
+    background-color: $dark;
+    @include border-radius;
+    @include box-shadow;
     box-sizing: border-box;
-    border: 1px solid $util-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px 0px 20px;
+    height: 300px;
+    box-sizing: border-box;
     border-radius: 5px;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     span {
+      border: 1px solid $util-color;
+      padding: 10px;
+      border-radius: 5px;
       font-size: 1.3em;
       color: #fff;
     }

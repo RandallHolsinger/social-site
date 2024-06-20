@@ -1,5 +1,5 @@
 .PostAdd .add-post-container {
-  background-color: #2b2b2b;
+  background: linear-gradient(80deg, #2b2b2b, #000, #2b2b2b);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -51,6 +51,7 @@
 }
 .PostAdd .add-post-container .post-buttons-container {
   display: flex;
+  align-items: center;
   margin-top: 35px;
   justify-content: space-around;
 }
@@ -73,7 +74,6 @@
   color: #07c52a;
 }
 .PostAdd .add-post-container .post-buttons-container .cancel-post-button {
-  background-color: #2b2b2b;
   border: none;
   color: #43c076;
   font-size: 1em;
@@ -83,11 +83,12 @@
   display: flex;
   align-items: center;
   background-color: #2b2b2b;
-  border-radius: 5px;
   box-sizing: border-box;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   padding: 25px;
+  z-index: 1;
 }
 .PostAdd .posts-toolbar .posts-icon {
   color: #07c52a;
@@ -117,11 +118,13 @@
 }
 
 .home-position {
-  margin: 175px 5px 30px 5px;
+  margin: 0px 0px 30px 0px;
+  width: 100%;
+  position: fixed;
 }
 
 .profile-position {
-  margin: 40px 5px 20px 5px;
+  margin: 15px 0px 20px 0px;
 }
 
 /* Media query for small devices (e.g., phones) */

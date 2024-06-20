@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #ed1dc0;
+  border-bottom: 1px solid #07c52a;
   padding-bottom: 10px;
 }
 .UserInfo .user-info-container .user-info-header .intro {
@@ -17,7 +17,7 @@
   align-items: center;
 }
 .UserInfo .user-info-container .user-info-header .intro .intro-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 10px;
   font-size: 1.5em;
 }
@@ -25,7 +25,7 @@
   color: #fff;
 }
 .UserInfo .user-info-container .user-info-header .edit-user-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 1.3em;
 }
 .UserInfo .user-info-container ul {
@@ -38,7 +38,7 @@
   margin-top: 20px;
 }
 .UserInfo .user-info-container .about-me-title .about-me-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 5px;
   font-size: 1.2em;
 }
@@ -54,7 +54,7 @@
   margin-top: 20px;
 }
 .UserInfo .user-info-container .my-posts-title .my-posts-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 1.5em;
   margin-right: 10px;
 }

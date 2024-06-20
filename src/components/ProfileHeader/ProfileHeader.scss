@@ -1,7 +1,7 @@
 @import '../../sass/variables', '../../sass/mixins';
 
 .ProfileHeader {
-  @include component-color;
+  background-color: $dark;
   margin-top: 60px;
   box-sizing: border-box;
   display: flex;
@@ -49,8 +49,8 @@
       height: 100%;
       .header-username {
         color: #fff;
-        font-weight: 700;
-        font-size: 1.7em;
+        font-weight: 600;
+        font-size: 2em;
       }
     }
   }
