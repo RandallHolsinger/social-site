@@ -2,32 +2,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
+  flex-direction: column;
+  height: 90vh;
+}
+.Login header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  margin: 0px auto 10px auto;
+}
+.Login header .login-header-icon {
+  color: #07c52a;
+  font-size: 2em;
+  margin-right: 10px;
 }
 .Login form {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #2b2b2b;
-  width: 100%;
-  margin: 5px 5px;
+  margin: 10px 10px 0px 10px;
+  background: linear-gradient(80deg, #2b2b2b, #000, #2b2b2b);
   padding: 1.2em;
   color: #fff;
   box-shadow: 3px 3px 3px #000;
   border-radius: 5px;
-}
-.Login form header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3em;
-  margin: 0px auto 20px auto;
-}
-.Login form header .login-header-icon {
-  color: #07c52a;
-  font-size: 1.5em;
-  margin-right: 10px;
 }
 .Login form label {
   font-size: 1.2em;
@@ -39,7 +42,7 @@
   margin-right: 8px;
 }
 .Login form input {
-  border: none;
+  border: 2px solid transparent;
   caret-color: #07c52a;
   padding: 5px;
   box-shadow: 3px 3px 3px #000;
@@ -48,8 +51,7 @@
   margin: 10px 0px 15px 0px;
 }
 .Login form input:focus {
-  outline: 1px solid #07c52a;
-  border: none;
+  outline: 2px solid #07c52a;
 }
 .Login form input::placeholder {
   color: #000;
@@ -77,6 +79,13 @@
   padding: 0.2em;
   font-size: 1.3em;
   font-weight: 700;
+}
+.Login form div h5 {
+  margin: 10px auto 0px auto;
+}
+.Login form div h5 span {
+  color: #43c076;
+  text-decoration: underline;
 }
 .Login form div hr {
   margin-top: 20px;

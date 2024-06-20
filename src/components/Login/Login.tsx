@@ -1,4 +1,5 @@
 import axios from 'axios'
+import './Login.scss'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../redux/reduxHooks'
@@ -6,7 +7,7 @@ import { updateUser } from '../../redux/slices/userSlice'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserGroup, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
-import './Login.scss'
+
 
 export const Login: React.FC = () => {
 
@@ -25,7 +26,6 @@ export const Login: React.FC = () => {
   const login = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
-      console.log('hitting')
       let res = await axios.post('/auth/user/login', {email, password})
       await dispatch(updateUser(res.data))
       navigate("/home")
@@ -36,13 +36,23 @@ export const Login: React.FC = () => {
     clearInputs()
   }
 
+  const guestLogin = async () => {
+    try {
+      let res = await axios.post('/auth/user/login/guest')
+      await dispatch(updateUser(res.data))
+      navigate("/home")
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className='Login'>
+      <header>
+        <FontAwesomeIcon icon={faUserGroup} className='login-header-icon'/>
+        <h2>Socialyze</h2>
+      </header>
       <form onSubmit={login}>
-        <header>
-          <FontAwesomeIcon icon={faUserGroup} className='login-header-icon'/>
-          <h2>Socialyze</h2>
-        </header>
         <label htmlFor="email">
           <FontAwesomeIcon icon={faEnvelope} className='login-icons'/>
           Email
@@ -73,6 +83,7 @@ export const Login: React.FC = () => {
         }
         <div>
           <button type='submit'>Login</button>
+          <h5>Employers / Recruiters <span onClick={() => guestLogin()}>Guest Login</span></h5>
           <hr />
           <h4>Don't have an account? Click Below</h4>
           <Link to={'/Register'} className='register-link'>Create New Account</Link>

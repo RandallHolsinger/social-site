@@ -83,6 +83,9 @@ app.post('/auth/user/register', ctrlAuth.register)
 //Login
 app.post('/auth/user/login', ctrlAuth.login)
 
+//Guest Login
+app.post('/auth/user/login/guest', ctrlAuth.guestLogin)
+
 //Logout
 app.post('/auth/user/logout', ctrlAuth.logout)
 

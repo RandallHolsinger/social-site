@@ -20,7 +20,7 @@ module.exports = {
   
   login: async (req, res) => {
     const {email, password} = req.body
-    const {session} =req
+    const {session} = req
     const db = req.app.get('db')
     let user = await db.auth.login({email})
     user = user[0]
@@ -31,6 +31,25 @@ module.exports = {
         session.user = user
         res.status(200).send(session.user)
       } 
+    } else {
+      res.sendStatus(401)
+    }
+  },
+
+  guestLogin: async (req, res) => {
+    let email = 'guest@gmail.com'
+    let password = '1234567'
+    const {session} = req
+    const db = req.app.get('db')
+    let user = await db.auth.login({email})
+    user = user[0]
+    if(user) {
+      let authenticated = bcrypt.compareSync(password, user.password)
+      if(authenticated) {
+        delete user.password 
+        session.user = user
+        res.status(200).send(session.user)
+      }
     } else {
       res.sendStatus(401)
     }
