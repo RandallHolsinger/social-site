@@ -6,6 +6,7 @@ import Navbar from '../Navbar/Navbar'
 import Posts from '../Posts/Posts'
 import PageTitle from '../PageTitle/PageTitle'
 
+
 export const Home: React.FC = () => {
   
   return(
@@ -15,7 +16,7 @@ export const Home: React.FC = () => {
         icon={<FontAwesomeIcon icon={faHouseChimney} />} 
         title={'Home'}
       />
-      <Posts pagePosition={'home-position'}/>
+      <Posts pagePosition={'home-position'} />
     </div>
   )
 }

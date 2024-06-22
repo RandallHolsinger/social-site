@@ -16,7 +16,7 @@
   color: #fff;
 }
 .Messages .message-toolbar .message-back .message-back-arrow-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 5px;
 }
 .Messages .message-toolbar .message-reply {
@@ -24,11 +24,11 @@
   font-size: 1.3em;
 }
 .Messages .message-toolbar .message-reply-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 5px;
 }
 .Messages .message-reply-container {
-  background-color: #2b2b2b;
+  background: linear-gradient(80deg, #2b2b2b, #000, #2b2b2b);
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   padding: 20px;
@@ -39,7 +39,7 @@
   align-items: center;
 }
 .Messages .message-reply-container .message-reply-header .message-reply-header-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 1.3em;
   margin-right: 5px;
 }
@@ -47,8 +47,7 @@
   color: #fff;
 }
 .Messages .message-reply-container textarea {
-  outline: 1px solid #ed1dc0;
-  border: none;
+  outline: 2px solid #07c52a;
   border-radius: 3px;
   margin: 10px 0px 10px 0px;
   width: 100%;
@@ -66,7 +65,7 @@
   font-weight: 700;
 }
 .Messages .message-reply-container .message-reply-buttons .message-reply-send-button {
-  background-color: #07c52a;
+  background-color: #43c076;
   width: 65%;
   margin-right: 10px;
 }
@@ -74,7 +73,7 @@
   margin-right: 3px;
 }
 .Messages .message-reply-container .message-reply-buttons .message-reply-cancel-button {
-  background-color: #ff3860;
+  background-color: #07c52a;
   width: 30%;
 }
 .Messages .message-reply-container .message-reply-buttons .message-reply-cancel-button .message-reply-cancel-icon {

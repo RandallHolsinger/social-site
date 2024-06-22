@@ -26,7 +26,6 @@
     margin-right: 5px;
     .comment-container {
       width: 65%;
-      // border: 1px solid red;
       p {
         width: 100%;
         display: inline-block;
@@ -41,7 +40,7 @@
         .comment-username {
           display: inline-block;
           margin-right: 5px;
-          color: $util-color;
+          color: $util-color-2;
           font-weight: 600;
         }
       }
@@ -51,7 +50,7 @@
         font-size: .8em;
         margin-top: 5px;
         margin-left: 10px;
-        color: #fff;
+        color: $util-color-2;
         .comment-date {
           margin-right: 10px;
         }

@@ -10,9 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   border-radius: 100%;
-  color: #ed1dc0;
+  color: #07c52a;
   margin: 0px 0px 0px 15px;
   width: 60px;
   height: 60px;
@@ -42,7 +42,7 @@
 .Comment article .comment-container p .comment-username {
   display: inline-block;
   margin-right: 5px;
-  color: #ed1dc0;
+  color: #43c076;
   font-weight: 600;
 }
 .Comment article .comment-container .comment-details {
@@ -51,7 +51,7 @@
   font-size: 0.8em;
   margin-top: 5px;
   margin-left: 10px;
-  color: #fff;
+  color: #43c076;
 }
 .Comment article .comment-container .comment-details .comment-date {
   margin-right: 10px;
@@ -68,7 +68,7 @@
   height: 20px;
 }
 .Comment .comment-options-container .comment-options-icon {
-  color: #ed1dc0;
+  color: #07c52a;
   margin-right: 5px;
 }
 

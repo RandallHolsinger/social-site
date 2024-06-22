@@ -46,13 +46,15 @@
   color: #07c52a;
   margin-right: 3px;
 }
+.MessageInbox .message-inbox-container {
+  padding-top: 100px;
+}
 
 /* Media query for small devices (e.g., phones) */
 /* Media query for medium devices (e.g., tablets) */
 @media only screen and (min-width: 768px) {
   .message-inbox-toolbar {
     width: 60%;
-    margin: 20px auto 30px auto !important;
   }
 }
 /* Media query for large devices (e.g., laptops and desktops) */

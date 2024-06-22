@@ -79,7 +79,7 @@ function PostAdd(props) {
             <FontAwesomeIcon icon={faIdCard} className='posts-icon'/>
             Posts
           </h3>
-          {user_id === main_user_id ?
+          {user_id === main_user_id || user_id == null ?
           <button onClick={() => setShowPostModal(true)} className='post-add'>
             <FontAwesomeIcon icon={faPlus} className='add-post-icon'/>
             Create A Post

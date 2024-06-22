@@ -1,7 +1,7 @@
 @import '../../sass/mixins', '../../sass/variables';
 
 .MessageInboxItem {
- @include component-color;
+ background-color: $dark;
  @include border-radius;
  @include box-shadow;
  box-sizing: border-box;

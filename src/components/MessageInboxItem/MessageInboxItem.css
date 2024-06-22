@@ -1,5 +1,5 @@
 .MessageInboxItem {
-  background-color: #2b2b2b;
+  background: linear-gradient(80deg, #2b2b2b, #000, #2b2b2b);
   border-radius: 5px;
   box-shadow: 3px 3px 3px #000;
   box-sizing: border-box;
@@ -17,7 +17,7 @@
   justify-content: space-around;
 }
 .MessageInboxItem article .inbox-profile-img {
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
   object-fit: contain;
 }
 .MessageInboxItem article .inbox-profile-img .inbox-default-user-img {
-  color: #ed1dc0;
+  color: #07c52a;
   font-size: 3em;
 }
 .MessageInboxItem article .inbox-content {
@@ -59,7 +59,7 @@
 }
 .MessageInboxItem article .inbox-options-container .message-delete-button {
   padding: 5px;
-  border: 1px solid #ed1dc0;
+  border: 1px solid #07c52a;
   border-radius: 3px;
   background-color: #2b2b2b;
   font-size: 1em;
